@@ -1,0 +1,27 @@
+/*
+Theme Name: StarterWP
+Theme URI: http://wp-starter-theme-bs5.local/
+Author: Henrik Pettersson
+Author URI: https://www.hnrkagency.se
+Description: Bootstrap 5 WordPress Theme
+Version: 1.0.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: starterwp-textdomain
+Tags: Bootstrap 5
+*/
+
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+@import "vars/vars";
+
+/*--------------------------------------------------------------
+# Bootstrap
+--------------------------------------------------------------*/
+@import "bootstrap";
+
+/*--------------------------------------------------------------
+# Theme Styles and Layout
+--------------------------------------------------------------*/
+@import "site/site";
