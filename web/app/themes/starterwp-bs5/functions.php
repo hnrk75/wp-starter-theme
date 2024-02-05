@@ -47,11 +47,7 @@ if ( ! function_exists( 'starterwp_setup' ) ) :
 		add_theme_support( 'responsive-embeds' );
 
 		// Add editor styles
-		add_theme_support('editor-styles');
-
-		// Add editor styles
 		add_theme_support( 'editor-styles' );
-
 
 		// Editor color palette
 		add_theme_support(
@@ -117,7 +113,7 @@ add_action( 'after_setup_theme', 'starterwp_content_width', 0 );
 // Register Bootstrap 5 Nav Walker
 if (!function_exists('register_navwalker')) :
 	function register_navwalker() {
-		require_once('inc/bootstrap-5-navwalker.php');
+		require_once('inc/class-bootstrap-5-navwalker.php');
 		register_nav_menu('main-menu', 'Huvud Meny');
 	}
 endif;

@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
 
-
     // Accordion effect on searchbar
     $( '.search-toggle' ).addClass( 'closing' );
 

@@ -2,7 +2,7 @@
 /**
  * Bootstrap 5 Navwalker
  *
- * @author Henrik Pettersson <kontakt@hnrkagency.se>
+ * @author  Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 

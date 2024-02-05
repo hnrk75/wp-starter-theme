@@ -44,18 +44,12 @@ gulp.task("zip", function () {
   return gulp
     .src(
       [
-        "*",
-        "./css/*",
-        "./fonts/*",
-        "./images/**/*",
-        "./inc/**/*",
-        "./js/**/*",
-        "./languages/*",
-        "./sass/**/*",
-        "./template-parts/*",
-        "./templates/*",
-        "!bower_components",
-        "!node_modules"
+		"**/*",
+		"!node_modules/**",
+		"!starterwp.zip",
+		"!gulpfile.js",
+		"!package-lock.json",
+		"!yarn.lock"
       ],
       { base: "." }
     )

@@ -31,10 +31,10 @@ $grays: (
 /*--------------------------------------------------------------
 # Theme Colors
 --------------------------------------------------------------*/
-$purple:        #9e375d;
+$purple: #9e375d;
 
 $colors: (
-    "purple":       $purple,
+    "purple": $purple,
 ) !default;
 
 
@@ -46,6 +46,5 @@ $body-color:  $black;
 
 $link-color:            $purple;
 $link-decoration:       none;
-$link-shade-percentage: 20% !default;
 $link-hover-color:      $purple;
 $link-hover-decoration: underline;
