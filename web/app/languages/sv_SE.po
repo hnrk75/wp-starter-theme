@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.4.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-24 20:41:27+0000\n"
+"PO-Revision-Date: 2024-02-16 00:26:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -539,7 +539,7 @@ msgstr "Hoppa till fotnotsreferens %1$d"
 
 #: wp-includes/blocks.php:519
 msgid "Cannot hook block to itself."
-msgstr "Kan inte koppla ett block sig självt."
+msgstr "Kan inte koppla ett block till sig självt."
 
 #. translators: %s: file name.
 #: wp-includes/block-patterns.php:371
@@ -951,7 +951,7 @@ msgstr "Visas när en besökare visar en sida som inte finns, till exempel en d�
 
 #: wp-includes/block-template-utils.php:168
 msgid "Displays your site's Privacy Policy page."
-msgstr "Visar webbplatsen sida för integritetspolicy."
+msgstr "Visar sidan för din webbplats integritetspolicy."
 
 #: wp-includes/block-template-utils.php:164
 msgid "Displays when a visitor performs a search on your website."
