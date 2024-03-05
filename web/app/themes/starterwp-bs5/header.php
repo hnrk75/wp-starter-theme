@@ -72,8 +72,8 @@
 
 		</header>
 
-		<div id="content" class="site-content">
+		<div class="container">
+			<?php if (function_exists( 'the_breadcrumb' )) the_breadcrumb(); ?>
+		</div>
 
-			<div class="container">
-				<?php if (function_exists( 'the_breadcrumb' )) the_breadcrumb(); ?>
-			</div>
+		<div id="content" class="site-content">

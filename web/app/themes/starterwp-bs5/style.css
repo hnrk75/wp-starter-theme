@@ -20,7 +20,7 @@ Text Domain: starterwp-textdomain
 # Theme Colors
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Color Settings
+# Color Setting
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Google Fonts
@@ -29,15 +29,6 @@ Text Domain: starterwp-textdomain
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900");
 /*--------------------------------------------------------------
 # Typography
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Custom Font Settings
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Navbar variables
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Buttons variables
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Bootstrap
@@ -2963,8 +2954,8 @@ textarea.form-control-lg {
 }
 
 .btn {
-  --bs-btn-padding-x: 2rem;
-  --bs-btn-padding-y: 0.5rem;
+  --bs-btn-padding-x: 0.75rem;
+  --bs-btn-padding-y: 0.375rem;
   --bs-btn-font-family: ;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
@@ -3764,8 +3755,8 @@ textarea.form-control-lg {
 }
 
 .dropdown-toggle-split {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding-right: 0.5625rem;
+  padding-left: 0.5625rem;
 }
 .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after, .dropend .dropdown-toggle-split::after {
   margin-left: 0;
@@ -3945,7 +3936,7 @@ textarea.form-control-lg {
 
 .navbar {
   --bs-navbar-padding-x: 0;
-  --bs-navbar-padding-y: 2rem;
+  --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
   --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
   --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
@@ -3955,7 +3946,7 @@ textarea.form-control-lg {
   --bs-navbar-brand-font-size: 1.25rem;
   --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
-  --bs-navbar-nav-link-padding-x: 1rem;
+  --bs-navbar-nav-link-padding-x: 0.5rem;
   --bs-navbar-toggler-padding-y: 0.25rem;
   --bs-navbar-toggler-padding-x: 0.75rem;
   --bs-navbar-toggler-font-size: 1.25rem;
@@ -12173,43 +12164,10 @@ textarea.form-control-lg {
 }
 
 /*--------------------------------------------------------------
-## Header
+## Components
 --------------------------------------------------------------*/
-.site-header {
-  background-color: #dee2e6;
-  margin-bottom: 0rem;
-}
-.site-header .custom-logo {
-  width: 100%;
-  height: auto;
-  max-height: 4rem;
-}
-
-/*--------------------------------------------------------------
-## Page
---------------------------------------------------------------*/
-.site-content {
-  word-break: break-word;
-  padding: 4rem 0;
-}
-.site-content .breadcrumbs {
-  padding-bottom: 4rem;
-}
-
-/*--------------------------------------------------------------
-## Footer
---------------------------------------------------------------*/
-.site-footer {
-  background-color: #dee2e6;
-  padding: 4rem 0;
-}
-
-/*--------------------------------------------------------------
-## Custom
---------------------------------------------------------------*/
-img {
-  width: 100%;
-  height: auto;
+.breadcrumbs {
+  padding-top: 4rem;
 }
 
 .search-toggle .search-icon {
@@ -12259,4 +12217,41 @@ img {
   border-radius: 5px;
   border: 1px solid #fff;
   border-left: 0px;
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+  background-color: #dee2e6;
+}
+
+/*--------------------------------------------------------------
+## Page
+--------------------------------------------------------------*/
+.site-content {
+  word-break: break-word;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background-color: #dee2e6;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/*--------------------------------------------------------------
+## Customs
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Image
+--------------------------------------------------------------*/
+.custom-logo {
+  width: 100%;
+  height: auto;
+  max-height: 4rem;
 }
