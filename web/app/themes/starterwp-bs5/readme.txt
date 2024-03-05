@@ -25,7 +25,8 @@
 - Bootstrap 5.3.3
 
 ## License
-- License: GNU General Public License v2 or later
+- License: GPL-2.0
+- License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Changelog
 ### Version 1.0.6 - March 05 2024

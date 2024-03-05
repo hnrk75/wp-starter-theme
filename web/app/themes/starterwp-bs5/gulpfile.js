@@ -53,7 +53,7 @@ gulp.task("zip", function () {
       ],
       { base: "." }
     )
-    .pipe(zip("starterwp.zip"))
+    .pipe(zip("starterwp-bs5.zip"))
     .pipe(gulp.dest("."));
 });
 
