@@ -12,10 +12,6 @@ get_header(); ?>
 	<div id="primary" class="content-area-full">
 		<main id="main" class="site-main row" role="main">
 
-		<h1 class="display-1">HEj hej</h1>
-
-
-
 			<div class="col-md-8">
 				<?php while ( have_posts() ) : the_post();
 					get_template_part( 'template-parts/content', 'page' );
