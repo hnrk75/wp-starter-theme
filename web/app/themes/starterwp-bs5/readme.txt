@@ -1,42 +1,33 @@
 # Theme Name
-
-starterwp-bs5
+- starterwp-bs5
 
 ## Description
-
-WordPress theme called StarterWP and include Bootstrap 5.
+- WordPress theme called StarterWP and include Bootstrap 5.
 
 ## Installation
-
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+- In your admin panel, go to Appearance > Themes and click the Add New button.
+- Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
+- Click Activate to use your new theme right away.
 
 ## Theme Setup
-
-1. Install and activate recommended plugins for additional features.
+- Install and activate recommended plugins for additional features.
 
 ## Requirements
-
 - WordPress 6.0 or higher
 - PHP 8.0 or higher
 - Bootstrap 5
 
 ## Features
-
 - Responsive design
 - Bootstrap 5 integration
 
 ## Credits
-
 - Bootstrap 5.3.3
 
 ## License
-
 - License: GNU General Public License v2 or later
 
 ## Changelog
-
 ### Version 1.0.6 - March 05 2024
 - Clean up som code
 - Update Bootstrap to 5.3.3
