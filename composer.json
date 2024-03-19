@@ -49,7 +49,7 @@
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0.4",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "6.4.3",
+    "roots/wordpress": "6.4.2",
     "roots/wp-config": "*",
     "roots/wp-password-bcrypt": "^1.1",
     "wp-coding-standards/wpcs": "^3.0.1",
