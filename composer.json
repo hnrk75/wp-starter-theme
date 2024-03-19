@@ -29,7 +29,7 @@
       "url": "https://wpackagist.org",
       "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
     },
-    {
+		{
       "type": "package",
       "package": {
         "name": "starterwp-premium-plugins/advanced-custom-fields-pro",

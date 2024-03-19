@@ -1,6 +1,6 @@
 {
 	"name": "starterwp",
-	"version": "2.0.0",
+	"version": "1.0.6",
 	"description": "Bootstrap 5 WordPress Theme",
 	"main": "",
 	"author": {
@@ -40,7 +40,8 @@
 	},
 	"scripts": {
 		"start": "gulp",
-		"build": "gulp zip"
+		"build": "gulp build",
+		"zip": "gulp zip"
 	},
 	"license": "MIT"
 }
