@@ -110,7 +110,9 @@ function starterwp_content_width() {
 }
 add_action( 'after_setup_theme', 'starterwp_content_width', 0 );
 
-// Register Bootstrap 5 Nav Walker
+/*-------------------------------------------------------------
+# Register Bootstrap 5 Nav Walker
+--------------------------------------------------------------*/
 if (!function_exists('register_navwalker')) :
 	function register_navwalker() {
 		require_once('inc/class-bootstrap-5-navwalker.php');
