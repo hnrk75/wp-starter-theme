@@ -115,7 +115,7 @@ add_action( 'after_setup_theme', 'starterwp_content_width', 0 );
 --------------------------------------------------------------*/
 if (!function_exists('register_navwalker')) :
 	function register_navwalker() {
-		require_once('inc/class-bootstrap-5-navwalker.php');
+		require_once('inc/class-navwalker.php');
 		register_nav_menu('main-menu', 'Huvud Meny');
 	}
 endif;

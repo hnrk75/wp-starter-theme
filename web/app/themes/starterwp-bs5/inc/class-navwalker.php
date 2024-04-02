@@ -6,7 +6,7 @@
  * @package StarterWP
  */
 
-class bootstrap_5_navwalker extends Walker_Nav_menu {
+class navwalker extends Walker_Nav_menu {
 	private $current_item;
 	private $dropdown_menu_alignment_values = [
 		'dropdown-menu-start',
