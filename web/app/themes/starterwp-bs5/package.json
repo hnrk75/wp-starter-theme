@@ -11,12 +11,13 @@
 		"type": "git",
 		"url": "https://github.com/hnrk75/starterwp-bs5"
 	},
+	"type": "module",
 	"devDependencies": {
 		"bootstrap": "^5.3.3",
 		"browser-sync": "^3.0.2",
 		"browserslist": "^4.22.1",
 		"critical": "^4.0.1",
-		"gulp": "^4.0.2",
+		"gulp": "^5.0.0",
 		"gulp-autoprefixer": "^7.0.1",
 		"gulp-include": "^2.4.1",
 		"gulp-jshint": "^2.1.0",
