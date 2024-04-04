@@ -4,6 +4,7 @@ web/app/plugins/*
 web/app/mu-plugins/*/
 web/app/themes/twentytwentyfour/
 web/app/upgrade
+web/app/upgrade-temp-backup
 web/app/uploads/*
 !web/app/uploads/.gitkeep
 web/app/cache/*
