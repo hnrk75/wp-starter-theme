@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82f33fc8b55349bf0d91da5cbea792f6",
+    "content-hash": "f7e474c25af9b34995d6d2575bca1ecc",
     "packages": [
         {
             "name": "composer/installers",
@@ -1507,24 +1507,6 @@
                 }
             ],
             "time": "2024-03-25T16:39:00+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/wp-optimize",
-            "version": "3.3.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-optimize/",
-                "reference": "tags/3.3.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-optimize.3.3.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-optimize/"
         },
         {
             "name": "wpackagist-theme/twentytwentyfour",
