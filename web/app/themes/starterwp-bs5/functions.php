@@ -124,9 +124,6 @@ add_action('after_setup_theme', 'register_navwalker');
 /*-------------------------------------------------------------
 # Requirements
 --------------------------------------------------------------*/
-// Breadcrumbs
-require get_template_directory() . '/lib/breadcrumbs/class.php';
-
 // Extras
 require get_template_directory() . '/inc/extras.php';
 
@@ -138,9 +135,3 @@ require get_template_directory() . '/inc/template-tags.php';
 
 // Register Widget Areas
 require get_template_directory() . '/inc/widgets.php';
-
-
-/*-------------------------------------------------------------
-# Registration Custom Post Type
---------------------------------------------------------------*/
-require_once locate_template( 'lib/custom-post-type/cmpt.php' );

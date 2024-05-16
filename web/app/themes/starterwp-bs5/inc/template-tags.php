@@ -21,28 +21,28 @@ if ( ! function_exists( 'starterwp_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-			esc_html_x( '%s', 'post date', 'starterwp-textdomain' ),
+			esc_html_x( '%s', 'datum', 'starterwp-textdomain' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
-			esc_html_x( '%s', 'post author', 'starterwp-textdomain' ),
+			esc_html_x( '%s', 'inläggsförfattare', 'starterwp-textdomain' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
 		echo '<span class="posted-on"><i class="far fa-clock"></i>' . $posted_on . '</span>
-		<span class="byline"><i class="far fa-user"></i>' . $byline . '</span>'; // WPCS: XSS OK.
+		<span class="byline"><i class="far fa-user"></i>' . $byline . '</span>';
 
 		if ( 'post' === get_post_type() ) {
 			$categories_list = get_the_category_list( esc_html__( ', ', 'starterwp-textdomain' ) );
 			if ( $categories_list && starterwp_categorized_blog() ) {
-				printf( '<span class="cat-links"><i class="far fa-folder-open"></i>' . esc_html__( '%1$s', 'starterwp-textdomain' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links"><i class="far fa-folder-open"></i>' . esc_html__( '%1$s', 'starterwp-textdomain' ) . '</span>', $categories_list );
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link"><i class="far fa-comments"></i>';
-			comments_popup_link( sprintf( wp_kses( __( 'Lämna en kommentar<span class="screen-reader-text"> on %s</span>', 'starterwp-textdomain' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+			comments_popup_link( sprintf( wp_kses( __( 'Lämna en kommentar<span class="screen-reader-text"> på %s</span>', 'starterwp-textdomain' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 			echo '</span>';
 		}
 
@@ -54,7 +54,7 @@ if ( ! function_exists( 'starterwp_entry_footer' ) ) :
 		if ( 'post' === get_post_type() && is_single() ) {
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'starterwp-textdomain' ) );
 			if ( $tags_list ) {
-				printf( '<span class="tags-links"><i class="fas fa-tags"></i>' . esc_html__( '%1$s', 'starterwp-textdomain' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links"><i class="fas fa-tags"></i>' . esc_html__( '%1$s', 'starterwp-textdomain' ) . '</span>', $tags_list );
 			}
 		}
 
