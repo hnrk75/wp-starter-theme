@@ -48,6 +48,7 @@ if ( ! function_exists( 'starterwp_setup' ) ) :
 
 		// Add editor styles
 		add_theme_support( 'editor-styles' );
+		add_editor_style( 'style.css' );
 
 		// Editor color palette
 		add_theme_support(

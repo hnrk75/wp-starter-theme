@@ -57,8 +57,9 @@
 					</div>
 
 					<div class="search-toggle d-none d-lg-block">
-						<button class="search-icon icon-search"><?php echo esc_attr_x( 'Sök', 'starterwp-textdomain' ) ?> <i class="bi bi-search"></i></button>
-						<button class="search-icon icon-close"><?php echo esc_attr_x( 'Stäng', 'starterwp-textdomain' ) ?> <i class="bi bi-x-lg"></i></button>
+						<button class="search-icon">
+							<?php echo esc_attr_x( 'Sök', 'starterwp-textdomain' ) ?>
+						</button>
 					</div>
 
 				</div>
