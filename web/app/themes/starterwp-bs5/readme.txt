@@ -29,6 +29,9 @@
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Changelog
+### Version 2.0.0 - May 29 2024
+- Update theme version
+
 ### Version 1.0.7 - May 20 2024
 - Update theme version
 

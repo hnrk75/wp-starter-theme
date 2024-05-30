@@ -11,7 +11,6 @@ get_header(); ?>
 	<div class="container">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main row" role="main">
-					
 				<div class="col-md-8">
 					<?php while ( have_posts() ) : the_post();
 						get_template_part( 'template-parts/content', 'page' );
@@ -20,11 +19,10 @@ get_header(); ?>
 						endif;
 					endwhile; ?>
 				</div>
-				
+
 				<div class="col-md-4">
 					<?php get_sidebar(); ?>
 				</div>
-				
 			</main>
 		</div>
 	</div>

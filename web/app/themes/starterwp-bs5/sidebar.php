@@ -6,11 +6,11 @@
  * @package StarterWP
  */
 
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) { ?>
-			</div>
+if ( ! is_active_sidebar( 'sidebar-1' ) ) { ?>
 		</div>
-	<?php } ?>
+	</div>
+<?php } ?>
 
-	<aside id="secondary" class="widget-area" role="complementary">
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
-	</aside>
+<aside id="secondary" class="widget-area" role="complementary">
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+</aside>

@@ -25,20 +25,21 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 
-					<?php if ( has_custom_logo() ) {
+					<?php
+					if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
-						$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+						$image          = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+						echo '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">';
+						echo '<img class="custom-logo" src="' . esc_url( $image[0] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
+						echo '</a>';
+					} else {
+						echo '<div class="navbar-brand mb-0">';
+						echo '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">';
+						bloginfo( 'name' );
+						echo '</a>';
+						echo '</div>';
+					}
 					?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<img class="custom-logo" src="<?php echo $image[0]; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-						</a>
-					<?php } else { ?>
-						<div class="navbar-brand mb-0">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php bloginfo( 'name' ); ?>
-							</a>
-						</div>
-					<?php } ?>
 
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -74,7 +75,7 @@
 		</header>
 
 		<div class="container">
-			<?php if (function_exists( 'the_breadcrumb' )) the_breadcrumb(); ?>
+			<?php if ( function_exists( 'the_breadcrumb' ) ) the_breadcrumb(); ?>
 		</div>
 
 		<div id="content" class="site-content">

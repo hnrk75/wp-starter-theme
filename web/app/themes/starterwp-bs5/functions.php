@@ -1,17 +1,16 @@
 <?php
 /**
- * StarterWP functions and definitions
+ * Functions and definitions
  *
  * @author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 
-if ( ! function_exists( 'starterwp_setup' ) ) :
-	function starterwp_setup() {
+if ( ! function_exists( 'hnrkagency_setup' ) ) :
+	function hnrkagency_setup() {
 
 		// Make theme available for translation. Translations can be filed in the /languages/ directory.
-		// If you're building a theme based on StarterWP, use a find and replace to change 'starterwp' to the name of your theme in all the template files.
-		load_theme_textdomain( 'starterwp', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'starterwp-textdomain', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head
 		add_theme_support( 'automatic-feed-links' );
@@ -32,7 +31,7 @@ if ( ! function_exists( 'starterwp_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature
-		add_theme_support( 'custom-background', apply_filters( 'starterwp_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'hnrkagency_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -102,14 +101,8 @@ if ( ! function_exists( 'starterwp_setup' ) ) :
 			)
 		);
 	}
-	endif;
-	add_action( 'after_setup_theme', 'starterwp_setup' );
-
-// Set the content width in pixels, based on the theme's design and stylesheet.
-function starterwp_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'starterwp_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'starterwp_content_width', 0 );
+endif;
+add_action( 'after_setup_theme', 'hnrkagency_setup' );
 
 /*-------------------------------------------------------------
 # Register Bootstrap 5 Nav Walker
@@ -117,7 +110,7 @@ add_action( 'after_setup_theme', 'starterwp_content_width', 0 );
 if (!function_exists('register_navwalker')) :
 	function register_navwalker() {
 		require_once('inc/class-navwalker.php');
-		register_nav_menu('main-menu', 'Huvud Meny');
+		register_nav_menu('main-menu', 'Main menu');
 	}
 endif;
 add_action('after_setup_theme', 'register_navwalker');
@@ -125,6 +118,9 @@ add_action('after_setup_theme', 'register_navwalker');
 /*-------------------------------------------------------------
 # Requirements
 --------------------------------------------------------------*/
+// Breadcrumbs
+require get_template_directory() . '/inc/class-breadcrumbs.php';
+
 // Extras
 require get_template_directory() . '/inc/extras.php';
 
