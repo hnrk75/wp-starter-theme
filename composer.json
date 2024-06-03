@@ -33,11 +33,11 @@
       "type": "package",
       "package": {
         "name": "starterwp-premium-plugins/advanced-custom-fields-pro",
-        "version": "6.2.10",
+        "version": "6.3.0.1",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://connect.advancedcustomfields.com/index.php?t=6.2.10&p=pro&a=download&k=b3JkZXJfaWQ9NDMwMjd8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTEwLTI4IDA4OjIyOjU3"
+          "url": "https://connect.advancedcustomfields.com/index.php?t=6.3.0.1&p=pro&a=download&k=b3JkZXJfaWQ9NDMwMjd8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTEwLTI4IDA4OjIyOjU3"
         }
       }
     }
@@ -54,7 +54,7 @@
     "roots/wp-password-bcrypt": "^1.1.0",
     "wp-coding-standards/wpcs": "^3.0.1",
     "wpackagist-theme/twentytwentyfour": "^1.0",
-    "starterwp-premium-plugins/advanced-custom-fields-pro": "6.2.10"
+    "starterwp-premium-plugins/advanced-custom-fields-pro": "6.3.0.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.2",
