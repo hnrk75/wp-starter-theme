@@ -1,14 +1,20 @@
 # Application
-web/app/plugins/*
-web/app/plugins/vr-modal
-!web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
-web/app/themes/twentytwentyfour/
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+
 web/app/upgrade
 web/app/upgrade-temp-backup
+
 web/app/uploads/*
 !web/app/uploads/.gitkeep
+!web/app/uploads/fonts
+!web/app/uploads/fonts.gitkeep
+
 web/app/cache/*
+
+web/app/themes/twentytwentyfour/
+
 
 # WordPress
 web/wp
@@ -30,3 +36,6 @@ wp-cli.local.yml
 
 # Node Package Manager
 node_modules
+
+# Wordfence
+web/app/wflogs
