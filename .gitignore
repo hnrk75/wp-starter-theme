@@ -2,19 +2,13 @@
 web/app/mu-plugins/*/
 web/app/plugins/*
 !web/app/plugins/.gitkeep
-
 web/app/upgrade
 web/app/upgrade-temp-backup
-
 web/app/uploads/*
 !web/app/uploads/.gitkeep
 !web/app/uploads/fonts
 !web/app/uploads/fonts.gitkeep
-
 web/app/cache/*
-
-web/app/themes/twentytwentyfour/
-
 
 # WordPress
 web/wp
