@@ -57,20 +57,8 @@
 						) ); ?>
 					</div>
 
-					<div class="search-toggle d-none d-lg-block">
-						<button class="search-icon">
-							<?php echo esc_attr_x( 'Sök', 'starterwp-textdomain' ) ?>
-						</button>
-					</div>
-
 				</div>
 			</nav>
-
-			<div class="search-container d-none d-lg-block">
-				<div class="container">
-					<?php get_template_part( 'searchform' ); ?>
-				</div>
-			</div>
 
 		</header>
 

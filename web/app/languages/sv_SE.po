@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.6.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-08-07 15:24:15+0000\n"
+"PO-Revision-Date: 2024-08-20 14:19:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1832,7 +1832,7 @@ msgstr "Visar de senaste inläggen antingen i form av webbplatsens startsida ell
 
 #: wp-includes/block-template-utils.php:145
 msgid "Used as a fallback template for all pages when a more specific template is not defined."
-msgstr "Används som en reservmall för alla sidor när ingen mer specifik man har definierats."
+msgstr "Används som en reservmall för alla sidor som inte har någon mer specifik mall definierad."
 
 #: wp-includes/block-patterns.php:113
 msgctxt "Block pattern category"

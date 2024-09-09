@@ -105,30 +105,26 @@ endif;
 add_action( 'after_setup_theme', 'hnrkagency_setup' );
 
 /*-------------------------------------------------------------
-# Register Bootstrap 5 Nav Walker
+# Register Bootstrap 5 Nav Walker (inc)
 --------------------------------------------------------------*/
 if (!function_exists('register_navwalker')) :
 	function register_navwalker() {
-		require_once('inc/class-navwalker.php');
+		require_once('inc/navwalker.php');
 		register_nav_menu('main-menu', 'Main menu');
 	}
 endif;
 add_action('after_setup_theme', 'register_navwalker');
 
 /*-------------------------------------------------------------
-# Requirements
+# Requirements (inc)
 --------------------------------------------------------------*/
 // Breadcrumbs
-require get_template_directory() . '/inc/class-breadcrumbs.php';
-
+require get_template_directory() . '/inc/breadcrumbs.php';
 // Extras
 require get_template_directory() . '/inc/extras.php';
-
 // Add CSS/JS Scritps
 require get_template_directory() . '/inc/scripts.php';
-
 // Custom template tags for this theme
 require get_template_directory() . '/inc/template-tags.php';
-
 // Register Widget Areas
 require get_template_directory() . '/inc/widgets.php';

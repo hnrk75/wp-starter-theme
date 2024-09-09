@@ -9,6 +9,7 @@ web/app/uploads/*
 !web/app/uploads/fonts
 !web/app/uploads/fonts.gitkeep
 web/app/cache/*
+web/app/themes/twenty*/
 
 # WordPress
 web/wp
@@ -31,5 +32,8 @@ wp-cli.local.yml
 # Node Package Manager
 node_modules
 
-# Wordfence
-web/app/wflogs
+# MAC OS X
+.DS_Store
+
+# IDE files
+.vscode/*

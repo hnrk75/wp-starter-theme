@@ -12,7 +12,7 @@ function add_search_box_to_menu( $items, $args ) {
 	get_search_form();
 	$searchform = ob_get_contents();
 	ob_end_clean();
-	$items .= '<li class="navbar-search d-block d-lg-none">' . $searchform . '</li>';
+	$items .= '<li class="navbar-search">' . $searchform . '</li>';
 	return $items;
 }
 add_filter('wp_nav_menu_items', 'add_search_box_to_menu', 10, 2);
