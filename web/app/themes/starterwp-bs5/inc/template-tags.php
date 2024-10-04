@@ -6,8 +6,8 @@
  * @package StarterWP
  */
 
-if ( ! function_exists( 'hnrkagency_posted_on' ) ) :
-	function hnrkagency_posted_on() {
+if ( ! function_exists( 'knowit_posted_on' ) ) :
+	function knowit_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -36,7 +36,7 @@ if ( ! function_exists( 'hnrkagency_posted_on' ) ) :
 
 		if ( 'post' === get_post_type() ) {
 			$categories_list = get_the_category_list( esc_html__( ', ', 'starterwp-textdomain' ) );
-			if ( $categories_list && hnrkagency_categorized_blog() ) {
+			if ( $categories_list && knowit_categorized_blog() ) {
 				printf( '<span class="cat-links"><i class="far fa-folder-open"></i>' . esc_html__( '%1$s', 'starterwp-textdomain' ) . '</span>', $categories_list );
 			}
 		}
@@ -49,8 +49,8 @@ if ( ! function_exists( 'hnrkagency_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hnrkagency_entry_footer' ) ) :
-	function hnrkagency_entry_footer() {
+if ( ! function_exists( 'knowit_entry_footer' ) ) :
+	function knowit_entry_footer() {
 		if ( 'post' === get_post_type() && is_single() ) {
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'starterwp-textdomain' ) );
 			if ( $tags_list ) {
@@ -71,25 +71,25 @@ if ( ! function_exists( 'hnrkagency_entry_footer' ) ) :
 	}
 endif;
 
-function hnrkagency_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'hnrkagency_categories' ) ) ) {
+function knowit_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'knowit_categories' ) ) ) {
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
 			'hide_empty' => 1,
 			'number'     => 2,
 		) );
 		$all_the_cool_cats = count( $all_the_cool_cats );
-		set_transient( 'hnrkagency_categories', $all_the_cool_cats );
+		set_transient( 'knowit_categories', $all_the_cool_cats );
 	}
 
 	return $all_the_cool_cats > 1;
 }
 
-function hnrkagency_category_transient_flusher() {
+function knowit_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
-	delete_transient( 'hnrkagency_categories' );
+	delete_transient( 'knowit_categories' );
 }
-add_action( 'edit_category', 'hnrkagency_category_transient_flusher' );
-add_action( 'save_post', 'hnrkagency_category_transient_flusher' );
+add_action( 'edit_category', 'knowit_category_transient_flusher' );
+add_action( 'save_post', 'knowit_category_transient_flusher' );
