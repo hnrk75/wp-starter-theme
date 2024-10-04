@@ -40,7 +40,7 @@ $full_img = get_post_meta( get_the_ID(), '_djhenke_full_featured', true );
 	<?php
 	if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php hnrkagency_posted_on(); ?>
+			<?php knowit_posted_on(); ?>
 		</div>
 	<?php endif; ?>
 
@@ -59,7 +59,7 @@ $full_img = get_post_meta( get_the_ID(), '_djhenke_full_featured', true );
 	</div>
 
 	<footer class="entry-footer">
-		<?php hnrkagency_entry_footer(); ?>
+		<?php knowit_entry_footer(); ?>
 	</footer>
 
 </article>

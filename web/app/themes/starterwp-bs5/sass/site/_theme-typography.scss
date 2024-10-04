@@ -1,0 +1,52 @@
+/*--------------------------------------------------------------
+## General
+--------------------------------------------------------------*/
+body {
+	-webkit-font-smoothing: antialiased;
+	font-size: var(--wp--preset--font-size--body-primary);
+}
+.body-secondary {
+	font-size: var(--wp--preset--font-size--body-secondary);
+}
+.preamble {
+	font-size: var(--wp--preset--font-size--preamble);
+}
+.caption {
+	font-size: var(--wp--preset--font-size--caption);
+}
+
+/*--------------------------------------------------------------
+## Display
+--------------------------------------------------------------*/
+.display-1,
+.has-display-1-font-size {
+	font-size: var(--wp--preset--font-size--display-1);
+}
+
+/*--------------------------------------------------------------
+## Headings
+--------------------------------------------------------------*/
+h1,
+.h1 {
+	font-size: var(--wp--preset--font-size--h-1);
+}
+h2,
+.h2 {
+	font-size: var(--wp--preset--font-size--h-2);
+}
+h3,
+.h3 {
+	font-size: var(--wp--preset--font-size--h-3);
+}
+h4,
+.h4 {
+	font-size: var(--wp--preset--font-size--h-4);
+}
+h5,
+.h5 {
+	font-size: var(--wp--preset--font-size--h-5);
+}
+h6,
+.h6 {
+	font-size: var(--wp--preset--font-size--h-6);
+}

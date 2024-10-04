@@ -6,7 +6,7 @@
  * @package StarterWP
  */
 
-function hnrkagency_widgets_init() {
+function knowit_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidofält', 'starterwp-textdomain' ),
 		'id'            => 'sidebar-1',
@@ -47,4 +47,4 @@ function hnrkagency_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'hnrkagency_widgets_init' );
+add_action( 'widgets_init', 'knowit_widgets_init' );

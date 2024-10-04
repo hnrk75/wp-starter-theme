@@ -22,7 +22,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php hnrkagency_posted_on(); ?>
+			<?php knowit_posted_on(); ?>
 		</div>
 		<?php endif; ?>
 	</header>
@@ -32,6 +32,6 @@
 	</div>
 
 	<footer class="entry-footer">
-		<?php hnrkagency_entry_footer(); ?>
+		<?php knowit_entry_footer(); ?>
 	</footer>
 </article>

@@ -34,6 +34,7 @@ node_modules
 
 # MAC OS X
 .DS_Store
+Thumbs.db
 
 # IDE files
 .vscode/*

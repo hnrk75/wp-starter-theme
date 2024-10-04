@@ -2,78 +2,115 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
 	"settings": {
-		"color": {
-			"palette": [
-				{
-					"slug": "primary",
-					"color": "#111",
-					"name": "Primary"
-				},
-				{
-					"slug": "secondary",
-					"color": "#fefefe",
-					"name": "Secondary"
-				},
-				{
-					"slug": "tertiary",
-					"color": "#383838",
-					"name": "Tertiary"
-				},
-				{
-					"slug": "quaternary",
-					"color": "#00838f",
-					"name": "Quaternary"
-				},
-				{
-					"slug": "quinary",
-					"color": "#4fb3bf",
-					"name": "Quinary"
-				}
-			]
-		},
-
-		"layout": {
-			"contentSize": "800px",
-			"wideSize": "1400px"
-		},
-
 		"typography": {
+			"fluid": true,
+			"defaultFontSizes": false,
 			"customFontSize": false,
 			"fontSizes": [
 				{
-					"slug": "small",
-					"size": "16px",
-					"name": "Small"
+					"slug": "display-1",
+					"size": "9.375rem",
+					"name": "Display 1",
+					"fluid": {
+						"min": "6.25rem",
+						"max": "9.375rem"
+					}
 				},
 				{
-					"slug": "normal",
-					"size": "18px",
-					"name": "Normal"
+					"slug": "h1",
+					"size": "6.25rem",
+					"name": "Header 1",
+					"fluid": {
+						"min": "5rem",
+						"max": "6.25rem"
+					}
 				},
 				{
-					"slug": "large",
-					"size": "24px",
-					"name": "Large"
+					"slug": "h2",
+					"size": "5rem",
+					"name": "Header 2",
+					"fluid": {
+						"min": "3.75rem",
+						"max": "5rem"
+					}
 				},
 				{
-					"slug": "extra-large",
-					"size": "28px",
-					"name": "XL"
+					"slug": "h3",
+					"size": "3.75rem",
+					"name": "Header 3",
+					"fluid": {
+						"min": "2.5rem",
+						"max": "3.75rem"
+					}
 				},
 				{
-					"slug": "huge",
-					"size": "32px",
-					"name": "Huge"
-				}
-			],
-
-			"fontFamilies": [
+					"slug": "h4",
+					"size": "2.5rem",
+					"name": "Header 4",
+					"fluid": {
+						"min": "1.875rem",
+						"max": "2.5rem"
+					}
+				},
 				{
-					"fontFamily": "\"Outfit\", sans-serif",
-					"name": "Outfit",
-					"slug": "primary"
+					"slug": "h5",
+					"size": "1.875rem",
+					"name": "Header 5",
+					"fluid": {
+						"min": "1.25rem",
+						"max": "1.875rem"
+					}
+				},
+				{
+					"slug": "h6",
+					"size": "1.25rem",
+					"name": "Header 6",
+					"fluid": {
+						"min": "1.125rem",
+						"max": "1.25rem"
+					}
+				},
+				{
+					"slug": "preamble",
+					"size": "1.125rem",
+					"name": "Preamble",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.125rem"
+					}
+				},
+				{
+					"slug": "body-primary",
+					"size": "1rem",
+					"name": "Body Primary",
+					"fluid": {
+						"min": "0.875rem",
+						"max": "1rem"
+					}
+				},
+				{
+					"slug": "body-secondary",
+					"size": "0.875rem",
+					"name": "Body Secondary",
+					"fluid": {
+						"min": "0.75rem",
+						"max": "0.875rem"
+					}
+				},
+				{
+					"slug": "caption",
+					"size": "0.75rem",
+					"name": "Caption",
+					"fluid": {
+						"min": "0.625rem",
+						"max": "0.75rem"
+					}
 				}
 			]
+		},
+		"layout": {
+			"contentSize": "992px",
+			"wideSize": "1400px"
 		}
 	}
 }
