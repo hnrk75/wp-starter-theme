@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * @author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 

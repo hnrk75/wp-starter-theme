@@ -2,11 +2,11 @@
 /**
  * Register widget areas
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * @author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 
-function knowit_widgets_init() {
+function hnrkagency_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidofält', 'starterwp-textdomain' ),
 		'id'            => 'sidebar-1',
@@ -47,4 +47,4 @@ function knowit_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'knowit_widgets_init' );
+add_action( 'widgets_init', 'hnrkagency_widgets_init' );

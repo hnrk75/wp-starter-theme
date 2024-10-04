@@ -2,7 +2,7 @@
 /**
  * Template part for displaying results in search pages
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * @author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 
@@ -22,7 +22,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php knowit_posted_on(); ?>
+			<?php hnrkagency_posted_on(); ?>
 		</div>
 		<?php endif; ?>
 	</header>
@@ -32,6 +32,6 @@
 	</div>
 
 	<footer class="entry-footer">
-		<?php knowit_entry_footer(); ?>
+		<?php hnrkagency_entry_footer(); ?>
 	</footer>
 </article>

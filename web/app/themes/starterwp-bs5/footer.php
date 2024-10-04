@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * knowit@author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 

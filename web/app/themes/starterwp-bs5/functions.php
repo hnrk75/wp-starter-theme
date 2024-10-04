@@ -2,12 +2,12 @@
 /**
  * Functions and definitions
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * @author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 
-if ( ! function_exists( 'knowit_setup' ) ) :
-	function knowit_setup() {
+if ( ! function_exists( 'hnrkagency_setup' ) ) :
+	function hnrkagency_setup() {
 
 		// Make theme available for translation. Translations can be filed in the /languages/ directory.
 		load_theme_textdomain( 'starterwp-textdomain', get_template_directory() . '/languages' );
@@ -31,7 +31,7 @@ if ( ! function_exists( 'knowit_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature
-		add_theme_support( 'custom-background', apply_filters( 'knowit_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'hnrkagency_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -102,7 +102,7 @@ if ( ! function_exists( 'knowit_setup' ) ) :
 		);
 	}
 endif;
-add_action( 'after_setup_theme', 'knowit_setup' );
+add_action( 'after_setup_theme', 'hnrkagency_setup' );
 
 /*-------------------------------------------------------------
 # Register Bootstrap 5 Nav Walker (inc)

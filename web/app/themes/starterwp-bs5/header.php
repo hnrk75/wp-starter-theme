@@ -3,7 +3,7 @@
  * The header for our theme
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * knowit@author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 

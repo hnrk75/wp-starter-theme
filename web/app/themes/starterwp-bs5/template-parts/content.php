@@ -2,7 +2,7 @@
 /**
  * Template part for displaying posts
  *
- * @author Henrik Pettersson <henrik.pettersson@knowit.se>
+ * @author Henrik Pettersson <kontakt@hnrkagency.se>
  * @package StarterWP
  */
 
@@ -40,7 +40,7 @@ $full_img = get_post_meta( get_the_ID(), '_djhenke_full_featured', true );
 	<?php
 	if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php knowit_posted_on(); ?>
+			<?php hnrkagency_posted_on(); ?>
 		</div>
 	<?php endif; ?>
 
@@ -59,7 +59,7 @@ $full_img = get_post_meta( get_the_ID(), '_djhenke_full_featured', true );
 	</div>
 
 	<footer class="entry-footer">
-		<?php knowit_entry_footer(); ?>
+		<?php hnrkagency_entry_footer(); ?>
 	</footer>
 
 </article>
