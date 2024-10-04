@@ -2,7 +2,7 @@
 /**
  * Template part for displaying page content in page.php
  *
- * @author Henrik Pettersson <kontakt@hnrkagency.se>
+ * @author Henrik Pettersson <henrik.pettersson@knowit.se>
  * @package StarterWP
  */
 

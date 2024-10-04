@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts
  *
- * @author Henrik Pettersson <kontakt@hnrkagency.se>
+ * @author Henrik Pettersson <henrik.pettersson@knowit.se>
  * @package StarterWP
  */
 

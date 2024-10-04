@@ -2,7 +2,7 @@
 /**
  * Navigational breadcrumbs
  *
- * @author Henrik Pettersson <kontakt@hnrkagency.se>
+ * @author Henrik Pettersson <henrik.pettersson@knowit.se>
  * @package StarterWP
  */
 
@@ -96,7 +96,7 @@ function the_breadcrumb() {
 			$parent_id  = $post->post_parent;
 			$breadcrumbs = array();
 			while ($parent_id) {
-				$page = get_post($parent_id); // Use get_post instead of get_page
+				$page = get_post($parent_id);
 				$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
 				$parent_id  = $page->post_parent;
 			}
@@ -133,6 +133,6 @@ function the_breadcrumb() {
 				echo ')';
 			}
 		}
-		echo '</div>'; // Close the breadcrumbs div
+		echo '</div>';
 	}
 }

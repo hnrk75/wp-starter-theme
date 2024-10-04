@@ -20,6 +20,7 @@
 ## Features
 - Responsive design
 - Bootstrap 5 integration
+- Navigational breadcrumbs
 
 ## Credits
 - Bootstrap 5.3.3
@@ -36,22 +37,15 @@
 - Update theme version
 
 ### Version 1.0.6 - March 05 2024
-- Clean up some code
 - Update Bootstrap to 5.3.3
 
 ### Version 1.0.5 - December 11 2023
-- Clean up some code
 - Update Bootstrap to 5.3.2 and remove Bootstrap Icons
 
-### Version 1.0.4 - September 05 2023
-- Add accordion search to navbar
-
 ### Version 1.0.3 - August 22 2023
-- Clean up some code
 - Update Bootstrap to 5.3.1 and Bootstrap Icons to 1.10.5
 
 ### Version 1.0.2 - June 01 2023
-- Clean up some code
 - Update Bootstrap to 5.3 and Bootstrap Icons to 1.10.5
 
 ### Version 1.0.1 - February 16 2023

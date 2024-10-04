@@ -2,7 +2,7 @@
 /**
  * Template part for displaying results in search pages
  *
- * @author Henrik Pettersson <kontakt@hnrkagency.se>
+ * @author Henrik Pettersson <henrik.pettersson@knowit.se>
  * @package StarterWP
  */
 

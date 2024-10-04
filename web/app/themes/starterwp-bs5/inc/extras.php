@@ -2,7 +2,7 @@
 /**
  * Custom functions that act independently of the theme templates
  *
- * @author Henrik Pettersson <kontakt@hnrkagency.se>
+ * @author Henrik Pettersson <henrik.pettersson@knowit.se>
  * @package StarterWP
  */
 
