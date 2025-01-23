@@ -1,7 +1,6 @@
 const gulp = require("gulp");
 const plumber = require("gulp-plumber");
 const autoprefixer = require("gulp-autoprefixer");
-const watch = require("gulp-watch");
 const jshint = require("gulp-jshint");
 const stylish = require("jshint-stylish");
 const uglify = require("gulp-uglify");
@@ -10,31 +9,76 @@ const notify = require("gulp-notify");
 const include = require("gulp-include");
 const sass = require("gulp-sass")(require("sass"));
 const browserSync = require("browser-sync").create();
-const critical = require("critical");
+const critical = require("critical").stream;
 const zip = require("gulp-zip");
 
 const config = {
-    nodeDir: "./node_modules"
+    nodeDir: "./node_modules",
+    jsFiles: ["./js/**/*.js", "!./js/dist/*.js"],
+    cssFiles: ["./sass/**/*.scss"],
+    browserSyncWatchFiles: ["./*.min.css", "./js/**/*.min.js", "./**/*.php"],
+    proxyUrl: process.env.LOCAL_URL || "http://starterwp-bs5.local/"
 };
 
 // Default error handler
 function onError(err) {
-    console.log("An error occurred:", err.message);
+    console.error("An error occurred:", err.message);
     this.emit("end");
 }
 
-// JS and CSS files to watch
-const jsFiles = ["./js/**/*.js", "!./js/dist/*.js"];
-const cssFiles = ["./sass/**/*.scss"];
-const browserSyncWatchFiles = ["./*.min.css", "./js/**/*.min.js", "./**/*.php"];
+// JavaScript linting
+function lintJS() {
+    return gulp.src("./js/src/*.js")
+        .pipe(jshint())
+        .pipe(jshint.reporter(stylish))
+        .pipe(jshint.reporter("fail"));
+}
 
-const browserSyncOptions = {
-    watchTask: true,
-    proxy: "http://starterwp-bs5.local/"
-};
+// JavaScript tasks
+function scripts() {
+    return gulp.src("./js/manifest.js")
+        .pipe(include())
+        .pipe(rename({ basename: "scripts" }))
+        .pipe(gulp.dest("./js/dist"))
+        .pipe(uglify())
+        .pipe(rename({ suffix: ".min" }))
+        .pipe(gulp.dest("./js/dist"))
+        .pipe(browserSync.stream())
+        .pipe(notify({ message: "Scripts task complete" }));
+}
 
-// Zip files up
-gulp.task("zip", () => {
+// Compile Sass
+function compileSass() {
+    return gulp.src("./sass/style.scss")
+        .pipe(plumber({ errorHandler: onError }))
+        .pipe(sass({ includePaths: [`${config.nodeDir}/bootstrap/scss`] }))
+        .pipe(autoprefixer()) // Autoprefixer will respect the browserslist config
+        .pipe(gulp.dest("."))
+        .pipe(rename({ suffix: ".min" }))
+        .pipe(gulp.dest("."))
+        .pipe(browserSync.stream())
+        .pipe(notify({ title: "Sass", message: "Sass task complete" }));
+}
+
+// Generate Critical CSS
+function generateCritical() {
+    return gulp.src("index.html")
+        .pipe(critical({
+            base: "./",
+            inline: true,
+            dimensions: [
+                { width: 320, height: 480 },
+                { width: 768, height: 1024 },
+                { width: 1280, height: 960 }
+            ],
+            minify: true
+        }))
+        .pipe(gulp.dest("css"))
+        .pipe(notify({ message: "Critical CSS task complete" }));
+}
+
+// Zip task
+function zipFiles() {
     return gulp.src([
         "**/*",
         "!node_modules/**",
@@ -43,76 +87,34 @@ gulp.task("zip", () => {
         "!package-lock.json",
         "!yarn.lock"
     ], { base: "." })
-    .pipe(zip("starterwp-bs5.zip"))
-    .pipe(gulp.dest("."));
-});
+        .pipe(zip("starterwp-bs5.zip"))
+        .pipe(gulp.dest("."));
+}
 
-// Jshint for JavaScript files
-gulp.task("jshint", () => {
-    return gulp.src("./js/src/*.js")
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish))
-    .pipe(jshint.reporter("fail"));
-});
+// Watch tasks
+function watchFiles() {
+    gulp.watch(config.jsFiles, gulp.series(lintJS, scripts));
+    gulp.watch(config.cssFiles, compileSass);
+}
 
-// Concatenate and minify JavaScript
-gulp.task("scripts", () => {
-    return gulp.src("./js/manifest.js")
-    .pipe(include())
-    .pipe(rename({ basename: "scripts" }))
-    .pipe(gulp.dest("./js/dist"))
-    .pipe(uglify())
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("./js/dist"))
-    .pipe(browserSync.reload({ stream: true }))
-    .pipe(notify({ message: "Scripts task complete" }));
-});
-
-// Compile Sass to CSS
-gulp.task("sass", () => {
-    return gulp.src("./sass/style.scss")
-    .pipe(plumber())
-    .pipe(sass({
-        errLogToConsole: true,
-        precision: 8,
-        noCache: true,
-        includePaths: [config.nodeDir + "/bootstrap/scss"]
-    }).on("error", sass.logError))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest("."))
-    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("."))
-    .pipe(browserSync.reload({ stream: true }))
-    .pipe(notify({ title: "Sass", message: "Sass task complete" }));
-});
-
-// Generate and inline critical-path CSS
-gulp.task("critical", (cb) => {
-    critical.generate({
-        base: "./",
-        src: "http://starterwp-bs5.local/",
-        dest: "css/home.min.css",
-        ignore: ["@font-face"],
-        dimensions: [
-            { width: 320, height: 480 },
-            { width: 768, height: 1024 },
-            { width: 1280, height: 960 }
-        ],
-        minify: true
+// Browser Sync
+function startBrowserSync() {
+    browserSync.init({
+        proxy: config.proxyUrl,
+        files: config.browserSyncWatchFiles
     });
-});
+}
 
-// Start Browser Sync server
-gulp.task("browser-sync", () => {
-    browserSync.init(browserSyncWatchFiles, browserSyncOptions);
-});
-
-// Watch files for changes
-gulp.task("watch", () => {
-    gulp.watch(jsFiles, gulp.series("jshint", "scripts"));
-    gulp.watch(cssFiles, gulp.parallel("sass"));
-});
+// Production Build
+gulp.task("build", gulp.series(compileSass, scripts, zipFiles));
 
 // Default task
-gulp.task("default", gulp.parallel("watch", "browser-sync"));
+exports.default = gulp.parallel(watchFiles, startBrowserSync);
+
+// Other tasks
+exports.zip = zipFiles;
+exports.lintJS = lintJS;
+exports.scripts = scripts;
+exports.sass = compileSass;
+exports.critical = generateCritical;
+exports.build = gulp.series(compileSass, scripts, zipFiles);

@@ -37,6 +37,7 @@
 	"require": {
 		"php": ">=8.0",
 		"composer/installers": "^2.3",
+		"roots/wordpress-core-installer": "^1.1",
 		"vlucas/phpdotenv": "^5.6.1",
 		"oscarotero/env": "^2.1.0",
 		"roots/bedrock-autoloader": "^1.0.4",
@@ -59,10 +60,12 @@
 		"allow-plugins": {
 			"composer/installers": true,
 			"roots/wordpress-core-installer": true,
-			"dealerdirect/phpcodesniffer-composer-installer": true
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"wpackagist.org": true,
+			"connect.advancedcustomfields.com": true
 		}
 	},
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"prefer-stable": true,
 	"extra": {
 		"installer-paths": {
@@ -75,6 +78,7 @@
 	"scripts": {
 		"test": [
 			"phpcs"
-		]
+		],
+		"wp-install": "wp core install --url=example.local --title='Site Title' --admin_user=admin --admin_password=secret --admin_email=you@example.com"
 	}
 }
