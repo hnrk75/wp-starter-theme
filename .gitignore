@@ -10,6 +10,8 @@ web/app/uploads/*
 !web/app/uploads/fonts.gitkeep
 web/app/cache/*
 web/app/themes/twenty*/
+web/app/themes/*/languages/*
+!web/app/themes/*/languages/.gitkeep
 
 # WordPress
 web/wp
@@ -17,6 +19,16 @@ web/.htaccess
 
 # Logs
 *.log
+
+# Backup and temporary files
+*.bak
+*.old
+*.tmp
+
+# Database dumps
+*.sql
+*.sql.gz
+*.sql.zip
 
 # Dotenv
 .env
@@ -31,6 +43,10 @@ wp-cli.local.yml
 
 # Node Package Manager
 node_modules
+
+# Cache directories
+.cache/
+tmp/
 
 # MAC OS X
 .DS_Store
