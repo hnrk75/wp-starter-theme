@@ -1,5 +1,5 @@
 {
-	"name": "starterwp-bs5",
+	"name": "wp-starter-theme",
 	"version": "2.0.0",
 	"description": "A Bootstrap 5-based WordPress theme with Gulp workflows.",
 	"author": {
@@ -8,7 +8,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/hnrk75/starterwp-bs5"
+		"url": "https://github.com/hnrk75/wp-starter-theme"
 	},
 	"engines": {
 		"node": ">=18.0.0"
