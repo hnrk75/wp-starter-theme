@@ -1,5 +1,5 @@
 # Theme Name
-- starterwp-bs5
+- wp-starter-theme
 
 ## Description
 - WordPress theme called StarterWP and includes Bootstrap 5.

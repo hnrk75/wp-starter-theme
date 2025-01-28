@@ -17,7 +17,7 @@ const config = {
     jsFiles: ["./js/**/*.js", "!./js/dist/*.js"],
     cssFiles: ["./sass/**/*.scss"],
     browserSyncWatchFiles: ["./*.min.css", "./js/**/*.min.js", "./**/*.php"],
-    proxyUrl: process.env.LOCAL_URL || "http://starterwp-bs5.local/"
+    proxyUrl: process.env.LOCAL_URL || "http://wp-starter-theme.local/"
 };
 
 // Default error handler
@@ -82,12 +82,12 @@ function zipFiles() {
     return gulp.src([
         "**/*",
         "!node_modules/**",
-        "!starterwp-bs5.zip",
+        "!wp-starter-theme.zip",
         "!gulpfile.js",
         "!package-lock.json",
         "!yarn.lock"
     ], { base: "." })
-        .pipe(zip("starterwp-bs5.zip"))
+        .pipe(zip("wp-starter-theme.zip"))
         .pipe(gulp.dest("."));
 }
 
