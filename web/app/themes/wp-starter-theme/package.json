@@ -1,7 +1,7 @@
 {
 	"name": "wp-starter-theme",
-	"version": "2.0.0",
-	"description": "A Bootstrap 5-based WordPress theme with Gulp workflows.",
+	"version": "1.0",
+	"description": "A custom WordPress starter theme, built with Bootstrap 5 and Gulp workflows.",
 	"author": {
 		"name": "Henrik Pettersson",
 		"url": "https://www.hnrkagency.se"

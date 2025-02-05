@@ -23,12 +23,12 @@ if ( ! function_exists( 'hnrkagency_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			esc_html_x( '%s', 'datum', 'starterwp-textdomain' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark" aria-label="' . esc_attr( sprintf( 'Link to %s', get_the_title() ) ) . '">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
 			esc_html_x( '%s', 'inläggsförfattare', 'starterwp-textdomain' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" aria-label="' . esc_attr( sprintf( 'Inlägg av %s', get_the_author() ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
 		echo '<span class="posted-on"><i class="far fa-clock"></i>' . $posted_on . '</span>

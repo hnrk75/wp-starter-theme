@@ -9,9 +9,6 @@
 if ( ! function_exists( 'hnrkagency_setup' ) ) :
 	function hnrkagency_setup() {
 
-		// Make theme available for translation. Translations can be filed in the /languages/ directory.
-		load_theme_textdomain( 'starterwp-textdomain', get_template_directory() . '/languages' );
-
 		// Add default posts and comments RSS feed links to head
 		add_theme_support( 'automatic-feed-links' );
 
@@ -47,6 +44,8 @@ if ( ! function_exists( 'hnrkagency_setup' ) ) :
 
 		// Add editor styles
 		add_theme_support( 'editor-styles' );
+
+		// Add css file to the editor-style
 		add_editor_style( 'style.css' );
 
 		// Editor color palette
@@ -110,7 +109,7 @@ add_action( 'after_setup_theme', 'hnrkagency_setup' );
 if (!function_exists('register_navwalker')) :
 	function register_navwalker() {
 		require_once('inc/navwalker.php');
-		register_nav_menu('main-menu', 'Main menu');
+		register_nav_menu('main-menu', 'Huvudmeny');
 	}
 endif;
 add_action('after_setup_theme', 'register_navwalker');

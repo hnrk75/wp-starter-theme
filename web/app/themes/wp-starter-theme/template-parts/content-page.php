@@ -9,36 +9,42 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="post-thumbnail">
-			<?php the_post_thumbnail('full', array('class' => 'rounded')); ?>
+	<?php 
+	$thumbnail_size = 'full';
+	$thumbnail_alt = esc_attr( get_the_title() ? get_the_title() : 'Inget titel angivet' );
+
+	if ( has_post_thumbnail() ) : ?>
+		<div class="post-thumbnail alignfull">
+			<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+				<?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'rounded', 'alt' => $thumbnail_alt ) ); ?>
+			</a>
 		</div>
 	<?php endif; ?>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title mb-3">', '</h1>' ); ?>
+		<h1 class="entry-title mb-3">
+			<?php the_title(); ?>
+		</h1>
 	</header>
 
 	<div class="entry-content">
 		<?php the_content();
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'starterwp-textdomain' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Sidor:', 'starterwp-textdomain' ),
 				'after'  => '</div>',
 			) ); ?>
 	</div>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
-			<?php
-				edit_post_link(
-					sprintf(
-						esc_html__( 'Edit %s', 'starterwp-textdomain' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					),
-					'<span class="edit-link">',
-					'</span>'
-				);
-			?>
+			<?php edit_post_link(
+				sprintf(
+					esc_html__( 'Redigera %s', 'starterwp-textdomain' ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				),
+				'<span class="edit-link">',
+				'</span>'
+			); ?>
 		</footer>
 	<?php endif; ?>
 </article>

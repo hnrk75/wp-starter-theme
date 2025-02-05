@@ -9,21 +9,29 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-				<?php the_post_thumbnail('full', array('class' => 'rounded')); ?>
+	<?php 
+	$thumbnail_size = 'full';
+	$thumbnail_alt = esc_attr( get_the_title() ? get_the_title() : 'Inget titel angivet' );
+
+	if ( has_post_thumbnail() ) : ?>
+		<div class="post-thumbnail alignfull">
+			<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+				<?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'rounded', 'alt' => $thumbnail_alt ) ); ?>
 			</a>
 		</div>
 	<?php endif; ?>
 
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<h2 class="entry-title">
+			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+				<?php the_title(); ?>
+			</a>
+		</h2>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php hnrkagency_posted_on(); ?>
-		</div>
+			<div class="entry-meta">
+				<?php hnrkagency_posted_on(); ?>
+			</div>
 		<?php endif; ?>
 	</header>
 

@@ -11,9 +11,9 @@ function hnrkagency_widgets_init() {
 		'name'          => esc_html__( 'Sidofält', 'starterwp-textdomain' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Lägg till widgets här.', 'starterwp-textdomain' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s" aria-labelledby="%1$s-title">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 id="%1$s-title" class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 
@@ -21,9 +21,9 @@ function hnrkagency_widgets_init() {
 		'name'          => esc_html__( 'Sidfot ett', 'starterwp-textdomain' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Lägg till widgets här.', 'starterwp-textdomain' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s" aria-labelledby="%1$s-title">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 id="%1$s-title" class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 
@@ -31,9 +31,9 @@ function hnrkagency_widgets_init() {
 		'name'          => esc_html__( 'Sidfot två', 'starterwp-textdomain' ),
 		'id'            => 'footer-2',
 		'description'   => esc_html__( 'Lägg till widgets här.', 'starterwp-textdomain' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s" aria-labelledby="%1$s-title">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 id="%1$s-title" class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 
@@ -41,9 +41,9 @@ function hnrkagency_widgets_init() {
 		'name'          => esc_html__( 'Sidfot tre', 'starterwp-textdomain' ),
 		'id'            => 'footer-3',
 		'description'   => esc_html__( 'Lägg till widgets här.', 'starterwp-textdomain' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s" aria-labelledby="%1$s-title">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 id="%1$s-title" class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 }
