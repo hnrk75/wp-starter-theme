@@ -88,6 +88,9 @@ Thumbs.db
 .idea/
 *.iml
 
+# ───── Claude Code (lokala inställningar) ──────────────────────
+.claude/
+
 # ───── Tooling configs (committas för enhetlig setup) ──────────
 # Dessa filer är inte ignorerade — ingen regel krävs, men listas här som dokumentation:
 # phpcs.xml, phpstan.neon, .eslintrc.*, .stylelintrc.*, .prettierrc.*,

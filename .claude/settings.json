@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(grep -r knowit '/Users/henpet/Local Sites/WordPress/wp-starter-theme/app/wp-starter-theme/web/app/themes/wp-starter-theme' '/Users/henpet/Local Sites/WordPress/wp-starter-theme/app/wp-starter-theme/phpcs.xml' '/Users/henpet/Local Sites/WordPress/wp-starter-theme/app/wp-starter-theme/phpstan.neon' --include=*.php --include=*.json --include=*.xml --include=*.neon --include=*.css --include=*.scss --include=*.mjs --include=*.txt)"
-    ]
-  }
-}
