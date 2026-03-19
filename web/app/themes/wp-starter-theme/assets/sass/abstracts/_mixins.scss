@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'variables' as *;
 
 // =============================================================
@@ -39,4 +40,39 @@
 @mixin aspect-ratio($width: 16, $height: 9) {
 	aspect-ratio: #{$width} / #{$height};
 	width: 100%;
+}
+
+// --- Breakpoints ---------------------------------------------
+@function bp($key) {
+	$val: map.get($breakpoints, $key);
+
+	@if not $val {
+		@error "Unknown breakpoint: #{$key}. Available: #{map.keys($breakpoints)}";
+	}
+
+	@return $val;
+}
+
+@mixin mq-up($bp) {
+	@media (width >= bp($bp)) {
+		@content;
+	}
+}
+
+@mixin mq($bp) {
+	@include mq-up($bp) {
+		@content;
+	}
+}
+
+@mixin mq-down($bp) {
+	@media (width < bp($bp)) {
+		@content;
+	}
+}
+
+@mixin mq-between($from, $to) {
+	@media (bp($from) <= width < bp($to)) {
+		@content;
+	}
 }

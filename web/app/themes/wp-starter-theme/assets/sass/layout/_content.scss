@@ -5,11 +5,25 @@
 // =============================================================
 
 .site-content {
-	word-break: break-word;
+	word-break: normal;
 	overflow-wrap: anywhere;
-	margin-block: 4rem;
+}
 
-	section {
-		margin-block: 4rem;
+// Two-column layout: main content + sidebar
+.content-layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 4rem;
+
+	@media (width >= 768px) {
+		grid-template-columns: 2fr 1fr;
 	}
+}
+
+.content-main {
+	min-width: 0;
+}
+
+.content-sidebar {
+	min-width: 0;
 }

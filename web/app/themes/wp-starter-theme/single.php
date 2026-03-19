@@ -9,64 +9,67 @@
 get_header(); ?>
 
 <div class="container">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main row">
-			<div class="col-md-8" id="main-content" tabindex="-1">
-				<?php
-				while ( have_posts() ) :
-					the_post();
-					?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> aria-labelledby="post-title-<?php the_ID(); ?>">
-						<header class="entry-header">
-							<h1 class="entry-title" id="post-title-<?php the_ID(); ?>">
-								<?php echo esc_html( get_the_title() ); ?>
-							</h1>
-						</header>
-
-						<div class="entry-content">
-							<?php
-							the_content();
-
-							wp_link_pages(
-								array(
-									'before' => '<nav class="page-links" aria-label="' . esc_attr__( 'Sidnavigering', 'wp-starter-theme' ) . '">',
-									'after'  => '</nav>',
-								)
-							);
-							?>
-						</div>
-
-						<footer class="entry-footer">
-							<?php
-							edit_post_link(
-								esc_html__( 'Redigera', 'wp-starter-theme' ),
-								'<span class="edit-link">',
-								'</span>'
-							);
-							?>
-						</footer>
-					</article>
-
-					<?php
-					the_post_navigation(
-						array(
-							'screen_reader_text' => esc_html__( 'Inläggsnavigering', 'wp-starter-theme' ),
-							'prev_text'          => '<span class="meta-nav" aria-hidden="true">&larr;</span> <span class="post-title">%title</span>',
-							'next_text'          => '<span class="post-title">%title</span> <span class="meta-nav" aria-hidden="true">&rarr;</span>',
-						)
-					);
-
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-				endwhile;
+	<div class="content-layout">
+		<main
+			id="main"
+			class="content-main"
+			tabindex="-1"
+			aria-label="<?php echo esc_attr__( 'Huvudinnehåll', 'wp-starter-theme' ); ?>"
+		>
+			<?php
+			while ( have_posts() ) :
+				the_post();
 				?>
-			</div>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> aria-labelledby="post-title-<?php the_ID(); ?>">
+					<header class="entry-header">
+						<h1 class="entry-title" id="post-title-<?php the_ID(); ?>">
+							<?php echo esc_html( get_the_title() ); ?>
+						</h1>
+					</header>
 
-			<aside class="col-md-4" aria-label="<?php echo esc_attr__( 'Sidopanel', 'wp-starter-theme' ); ?>">
-				<?php get_sidebar(); ?>
-			</aside>
+					<div class="entry-content">
+						<?php
+						the_content();
+
+						wp_link_pages(
+							array(
+								'before' => '<nav class="page-links" aria-label="' . esc_attr__( 'Sidnavigering', 'wp-starter-theme' ) . '">',
+								'after'  => '</nav>',
+							)
+						);
+						?>
+					</div>
+
+					<footer class="entry-footer">
+						<?php
+						edit_post_link(
+							esc_html__( 'Redigera', 'wp-starter-theme' ),
+							'<span class="edit-link">',
+							'</span>'
+						);
+						?>
+					</footer>
+				</article>
+
+				<?php
+				the_post_navigation(
+					array(
+						'screen_reader_text' => esc_html__( 'Inläggsnavigering', 'wp-starter-theme' ),
+						'prev_text'          => '<span class="meta-nav" aria-hidden="true">&larr;</span> <span class="post-title">%title</span>',
+						'next_text'          => '<span class="post-title">%title</span> <span class="meta-nav" aria-hidden="true">&rarr;</span>',
+					)
+				);
+
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+			endwhile;
+			?>
 		</main>
+
+		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidopanel', 'wp-starter-theme' ); ?>">
+			<?php get_sidebar(); ?>
+		</aside>
 	</div>
 </div>
 

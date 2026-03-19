@@ -15,6 +15,7 @@ Text Domain: wp-starter-theme
 
 // === Base =====================================================
 @use 'base/fonts';
+@use 'base/root';
 @use 'base/reset';
 @use 'base/typography';
 @use 'base/accessibility';
@@ -27,12 +28,5 @@ Text Domain: wp-starter-theme
 
 // === Components ==============================================
 @use 'components/buttons';
-@use 'components/forms';
 @use 'components/navigation';
-@use 'components/breadcrumbs';
-
-// === Blocks (WP/Gutenberg) ===================================
-@use 'blocks/index';
-
-// === Utilities ===============================================
-@use 'utilities/utilities';
+@use 'components/card';

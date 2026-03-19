@@ -1,0 +1,55 @@
+// =============================================================
+// CSS Custom Properties
+// =============================================================
+
+@use '../abstracts' as *;
+
+:root {
+	// --- Colors ---------------------------------------------------
+	--color-primary: #{$color-primary};
+	--color-secondary: #{$color-secondary};
+	--color-tertiary: #{$color-tertiary};
+	--color-light: #{$color-light};
+	--color-dark: #{$color-dark};
+	--color-white: #{$color-white};
+	--color-black: #{$color-black};
+	--color-gray-light: #{$color-gray-light};
+	--color-gray-medium: #{$color-gray-medium};
+	--color-gray-dark: #{$color-gray-dark};
+
+	// --- Links ----------------------------------------------------
+	--link-color: #{$link-color};
+
+	// --- Typography -----------------------------------------------
+	--font-family-body: #{$font-family-body};
+	--font-family-heading: #{$font-family-heading};
+	--font-weight-normal: #{$font-weight-normal};
+	--font-weight-bold: #{$font-weight-bold};
+	--line-height-base: #{$line-height-base};
+	--line-height-heading: #{$line-height-heading};
+
+	// --- Spacing --------------------------------------------------
+	--spacer: #{$spacer};
+	--space-xs: clamp(0.5rem, 1vw, 0.75rem);
+	--space-sm: clamp(0.75rem, 1.5vw, 1.25rem);
+	--space-md: clamp(1.25rem, 2.5vw, 2.5rem);
+	--space-lg: clamp(2.5rem, 4vw, 5rem);
+	--space-xl: clamp(5rem, 6vw, 9rem);
+	--space-xxl: clamp(9rem, 10vw, 16rem);
+
+	// --- Borders --------------------------------------------------
+	--radius-base: #{$radius-base};
+	--radius-pill: #{$radius-pill};
+	--radius-sm:   0.25rem;
+	--radius-md:   0.5rem;
+	--radius-lg:   1rem;
+
+	// --- Shadows --------------------------------------------------
+	--shadow-sm:  0 0.0625rem 0.1875rem rgb(0 0 0 / 0.08), 0 0.0625rem 0.125rem rgb(0 0 0 / 0.06);
+	--shadow-md:  0 0.25rem 0.75rem rgb(0 0 0 / 0.10), 0 0.125rem 0.25rem rgb(0 0 0 / 0.06);
+	--shadow-lg:  0 0.625rem 1.875rem rgb(0 0 0 / 0.12), 0 0.25rem 0.5rem rgb(0 0 0 / 0.08);
+	--shadow-xl:  0 1.25rem 3.75rem rgb(0 0 0 / 0.16), 0 0.5rem 1rem rgb(0 0 0 / 0.08);
+
+	// --- Transitions ----------------------------------------------
+	--transition-base: #{$transition-base};
+}

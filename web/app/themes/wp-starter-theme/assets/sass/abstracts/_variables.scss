@@ -3,28 +3,26 @@
 // =============================================================
 
 // --- Colors ---------------------------------------------------
-$color-primary:      #2ec4b6;
-$color-secondary:    #ffbf69;
-$color-success:      #a8d5ba;
-$color-danger:       #ff6b6b;
-$color-warning:      #ffd166;
-$color-info:         #9b89b3;
-$color-light:        #fffbea;
-$color-dark:         #343a40;
-$color-white:        #fff;
-$color-black:        #000;
-$color-gray-light:   #d1d5db;
-$color-gray-medium:  #6b7280;
+$color-primary: #468189; // teal
+$color-secondary: #77aca2; // ljus teal
+$color-tertiary: #9dbebb; // blek teal
+$color-light: #f4e9cd; // sand/cream
+$color-dark: #031926; // navy
+$color-white: #fff;
+$color-black: #031926; // navy som svart
+$color-gray-light: #eef2f1; // lätt teal-tonad
+$color-gray-medium: #b8c8c6; // mellangrå med teal-ton
+$color-gray-dark: #4a6267; // mörk teal-grå
 
 // --- Links ----------------------------------------------------
-$link-color:         $color-primary;
+$link-color: $color-primary;
 
 // --- Typography -----------------------------------------------
-$font-family-body:    "Source Sans 3", sans-serif;
-$font-family-heading: "Playfair Display", serif;
-$font-weight-normal:  400;
-$font-weight-bold:    700;
-$line-height-base:    1.5;
+$font-family-body: 'Source Sans 3', sans-serif;
+$font-family-heading: 'Playfair Display', serif;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$line-height-base: 1.5;
 $line-height-heading: 1.2;
 
 // --- Spacing --------------------------------------------------
@@ -36,3 +34,16 @@ $radius-pill: 50rem;
 
 // --- Transitions ----------------------------------------------
 $transition-base: 0.3s ease;
+
+// --- Breakpoints (mobile-first) -------------------------------
+$breakpoints: (
+	sm: 36rem,
+	// ~576px
+	md: 48rem,
+	// ~768px
+	lg: 64rem,
+	// ~1024px
+	xl: 75rem,
+	// ~1200px
+	xxl: 87.5rem, // ~1400px
+);

@@ -12,7 +12,7 @@
 	<?php wpst_post_thumbnail( array( 'context' => 'page' ) ); ?>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 id="page-title-' . get_the_ID() . '" class="entry-title mb-3">', '</h1>' ); ?>
+		<?php the_title( '<h1 id="page-title-' . get_the_ID() . '" class="entry-title">', '</h1>' ); ?>
 	</header>
 
 	<div class="entry-content">

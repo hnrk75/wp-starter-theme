@@ -9,39 +9,40 @@
 get_header(); ?>
 
 <div class="container">
-	<div id="primary" class="content-area-full">
-		<main id="main" class="site-main row">
-			<div class="col-12" id="main-content" tabindex="-1">
-				<?php if ( have_posts() ) : ?>
-					<header class="page-header">
-						<?php
-							the_archive_title( '<h1 class="page-title mb-3">', '</h1>' );
-							the_archive_description( '<div class="archive-description">', '</div>' );
-						?>
-					</header>
+	<main
+		id="main"
+		class="content-main"
+		tabindex="-1"
+		aria-label="<?php echo esc_attr__( 'Huvudinnehåll', 'wp-starter-theme' ); ?>"
+	>
+		<?php if ( have_posts() ) : ?>
+			<header class="page-header">
+				<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+				?>
+			</header>
 
-					<?php
-					while ( have_posts() ) :
-						the_post();
-						get_template_part( 'template-parts/content', get_post_format() );
-					endwhile;
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				get_template_part( 'template-parts/content', get_post_format() );
+			endwhile;
 
-					the_posts_pagination(
-						array(
-							'prev_text'          => '<i class="fa fa-arrow-left" aria-hidden="true"></i><span class="screen-reader-text">' . esc_html__( 'Föregående sida', 'wp-starter-theme' ) . '</span>',
-							'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Nästa sida', 'wp-starter-theme' ) . '</span><i class="fa fa-arrow-right" aria-hidden="true"></i>',
-							'type'               => 'list',
-							'screen_reader_text' => esc_html__( 'Navigering för inläggssidor', 'wp-starter-theme' ),
-						)
-					);
-					?>
+			the_posts_pagination(
+				array(
+					'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Föregående sida', 'wp-starter-theme' ) . '</span>',
+					'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Nästa sida', 'wp-starter-theme' ) . '</span>',
+					'type'               => 'list',
+					'screen_reader_text' => esc_html__( 'Navigering för inläggssidor', 'wp-starter-theme' ),
+				)
+			);
+			?>
 
-				<?php else : ?>
-					<?php get_template_part( 'template-parts/content', 'none' ); ?>
-				<?php endif; ?>
-			</div>
-		</main>
-	</div>
+		<?php else : ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+		<?php endif; ?>
+	</main>
 </div>
 
 <?php

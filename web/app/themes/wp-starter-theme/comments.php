@@ -88,9 +88,9 @@ if ( post_password_required() ) {
 		'comment_notes_after'  => '',
 		'class_submit'         => 'btn btn-secondary',
 
-		'comment_field'        => '<div class="form-group">
+		'comment_field'        => '<div class="comment-form-field">
 			<label for="comment">' . esc_html__( 'Kommentar', 'wp-starter-theme' ) . '</label>
-			<textarea class="form-control" id="comment" name="comment" rows="10" required aria-describedby="' . esc_attr( $required_hint_id ) . '"></textarea>
+			<textarea id="comment" name="comment" rows="10" required aria-describedby="' . esc_attr( $required_hint_id ) . '"></textarea>
 		</div>',
 
 		'fields'               => apply_filters(
@@ -98,21 +98,21 @@ if ( post_password_required() ) {
 			'comment_form_default_fields',
 			array(
 				'author' =>
-					'<div class="form-group">
+					'<div class="comment-form-field">
 						<label for="author">' . esc_html__( 'Namn', 'wp-starter-theme' ) . ' ' . ( $req ? '<span class="required" aria-hidden="true">*</span>' : '' ) . '</label>
-						<input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" ' . ( $req ? 'required aria-describedby="' . esc_attr( $required_hint_id ) . '"' : '' ) . ' />
+						<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" ' . ( $req ? 'required aria-describedby="' . esc_attr( $required_hint_id ) . '"' : '' ) . ' />
 					</div>',
 
 				'email'  =>
-					'<div class="form-group">
+					'<div class="comment-form-field">
 						<label for="email">' . esc_html__( 'E-post', 'wp-starter-theme' ) . ' ' . ( $req ? '<span class="required" aria-hidden="true">*</span>' : '' ) . '</label>
-						<input class="form-control" id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" ' . ( $req ? 'required aria-describedby="' . esc_attr( $required_hint_id ) . '"' : '' ) . ' />
+						<input id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" ' . ( $req ? 'required aria-describedby="' . esc_attr( $required_hint_id ) . '"' : '' ) . ' />
 					</div>',
 
 				'url'    =>
-					'<div class="form-group">
+					'<div class="comment-form-field">
 						<label for="url">' . esc_html__( 'Webbplats', 'wp-starter-theme' ) . '</label>
-						<input class="form-control" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" />
+						<input id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" />
 					</div>',
 			)
 		),
