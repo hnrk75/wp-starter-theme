@@ -6,6 +6,15 @@
     "source.fixAll.stylelint": "explicit"
   },
 
+  // PHP — WordPress Coding Standards via phpcbf (wongjn.php-sniffer)
+  "[php]": {
+    "editor.defaultFormatter": "wongjn.php-sniffer",
+    "editor.formatOnSave": true
+  },
+  "phpSniffer.standard": "${workspaceFolder}/phpcs.xml",
+  "phpSniffer.executablesFolder": "${workspaceFolder}/vendor/bin/",
+  "phpSniffer.autoDetect": false,
+
   // Prettier som formatter för de här språken
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[scss]":       { "editor.defaultFormatter": "esbenp.prettier-vscode" },

@@ -1,32 +1,24 @@
 {
-  "name": "roots/bedrock",
+  "name": "hnrk75/wp-starter-theme",
   "type": "project",
   "license": "MIT",
-  "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
+  "description": "Modern WordPress starter theme built on Bedrock with Composer, PHPCS/PHPStan and a Gulp-based build pipeline.",
+  "homepage": "https://github.com/hnrk75/wp-starter-theme",
   "authors": [
     {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
+      "name": "Henrik Pettersson",
+      "homepage": "https://github.com/hnrk75"
     }
   ],
   "keywords": [
     "bedrock",
-    "composer",
-    "roots",
     "wordpress",
-    "wp",
-    "wp-config"
+    "starter-theme",
+    "bootstrap5",
+    "composer"
   ],
   "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
+    "issues": "https://github.com/hnrk75/wp-starter-theme/issues"
   },
   "repositories": [
     {
