@@ -59,7 +59,7 @@
 							'fallback_cb'    => '__return_false',
 							'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 							'depth'          => 2,
-							'walker'         => new Knowit_Navwalker(),
+							'walker'         => new Wpst_Navwalker(),
 						)
 					);
 					?>

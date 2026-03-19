@@ -6,7 +6,7 @@
  * @package WP Starter Theme
  */
 
-class Knowit_Navwalker extends Walker_Nav_Menu {
+class Wpst_Navwalker extends Walker_Nav_Menu {
 
 	private $current_item = null;
 
