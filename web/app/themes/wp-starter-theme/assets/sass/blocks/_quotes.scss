@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// WP Block — Quotes & Pullquotes
+// =============================================================
+
+.wp-block-quote {
+	border-left: 2px solid $color-primary;
+	padding-left: 1rem;
+
+	cite {
+		font-size: 80%;
+		color: $color-gray-medium;
+	}
+
+	&.is-style-large {
+		border-left: 0;
+		padding-left: 0;
+	}
+}
+
+.wp-block-pullquote {
+	border-top: 3px solid $color-gray-medium;
+	border-bottom: 3px solid $color-gray-medium;
+
+	&.is-style-solid-color {
+		border: 0;
+	}
+}

@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Site Content
+// =============================================================
+
+.site-content {
+	word-break: break-word;
+	overflow-wrap: anywhere;
+	margin-block: 4rem;
+
+	section {
+		margin-block: 4rem;
+	}
+}

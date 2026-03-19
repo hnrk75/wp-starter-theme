@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// WP Block — Images
+// =============================================================
+
+.wp-block-cover {
+	&.alignwide {
+		width: 75vw;
+	}
+}
+
+.wp-block-image {
+	@include clearfix;
+}

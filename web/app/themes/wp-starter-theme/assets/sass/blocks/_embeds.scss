@@ -1,0 +1,18 @@
+// =============================================================
+// WP Block — Embeds
+// =============================================================
+
+.wp-block-embed-youtube {
+	.wp-block-embed__wrapper {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		width: 100%;
+
+		iframe {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

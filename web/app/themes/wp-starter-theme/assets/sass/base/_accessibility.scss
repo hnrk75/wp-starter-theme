@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Accessibility
+// =============================================================
+
+// --- Skip link -----------------------------------------------
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: 0;
+	z-index: 9999;
+	padding: 0.5rem 1rem;
+	background-color: $color-dark;
+	color: $color-white;
+	text-decoration: none;
+	font-weight: $font-weight-bold;
+
+	&:focus {
+		top: 0;
+	}
+}
+
+// --- Screen reader only --------------------------------------
+.screen-reader-text {
+	@include visually-hidden;
+}
+
+// --- Focus outline -------------------------------------------
+:focus-visible {
+	outline: 2px solid $color-primary;
+	outline-offset: 2px;
+}

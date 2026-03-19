@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Reset
+// =============================================================
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: $color-white;
+	color: $color-black;
+	font-family: $font-family-body;
+	font-weight: $font-weight-normal;
+	line-height: $line-height-base;
+}
+
+img,
+video,
+svg {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: $link-color;
+	text-decoration: underline;
+
+	@include focus-visible-shadow;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-family: $font-family-heading;
+	font-weight: $font-weight-bold;
+	line-height: $line-height-heading;
+}
+
+p {
+	margin: 0;
+}

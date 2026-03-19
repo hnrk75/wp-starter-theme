@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+@use 'buttons';
+@use 'columns';
+@use 'embeds';
+@use 'gallery';
+@use 'images';
+@use 'quotes';
+@use 'separators';
+@use 'tables';
+
+// =============================================================
+// WP/Gutenberg Blocks — Shared alignment classes
+// =============================================================
+
+.alignleft  { float: left; }
+.alignright { float: right; }
+
+.aligncenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.alignwide {
+	margin-inline: calc(25% - 25vw);
+	max-width: 100vw;
+}
+
+.alignfull {
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+}

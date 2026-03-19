@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Site Footer
+// =============================================================
+
+.site-footer {
+	background-color: $color-gray-light;
+	margin-top: 4rem;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}

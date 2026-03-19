@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+// =============================================================
+// Mixins
+// =============================================================
+
+// --- Focus visible ring ---------------------------------------
+@mixin focus-visible-shadow($color: $color-primary, $alpha: 0.25, $size: 0.25rem) {
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 #{$size} rgba($color, $alpha);
+		transition: box-shadow 0.2s ease;
+	}
+}
+
+// --- Clearfix -------------------------------------------------
+@mixin clearfix {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+// --- Visually hidden (accessible) ----------------------------
+@mixin visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+// --- Responsive aspect ratio ---------------------------------
+@mixin aspect-ratio($width: 16, $height: 9) {
+	aspect-ratio: #{$width} / #{$height};
+	width: 100%;
+}

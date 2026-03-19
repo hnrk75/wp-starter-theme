@@ -1,21 +1,27 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Breadcrumbs
+// =============================================================
+
 .breadcrumb {
-	margin-top: 4rem;
-	margin-bottom: 4rem;
+	margin-block: 4rem;
 
 	.breadcrumb-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 0.5rem;
 		align-items: center;
 
 		li {
 			display: inline;
+		}
 
-			.current {
-				color: $black;
-			}
+		.current {
+			color: $color-black;
 		}
 
 		.delimiter {

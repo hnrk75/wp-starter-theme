@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Site Header
+// =============================================================
+
+.site-header {
+	background-color: $color-gray-light;
+	margin-bottom: 4rem;
+
+	.site-logo {
+		display: inline-block;
+		height: 4rem;
+		color: $color-black;
+		text-decoration: none;
+
+		@include focus-visible-shadow;
+
+		svg {
+			display: block;
+			height: 100%;
+			width: auto;
+			fill: currentcolor;
+			transition: fill $transition-base;
+		}
+
+		&:hover svg {
+			opacity: 0.75;
+		}
+	}
+}
