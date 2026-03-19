@@ -1,141 +1,125 @@
-# 🧩 Knowit Bedrock WordPress Project
+# WP Starter Theme
 
-Modern WordPress installation built on [Roots/Bedrock](https://roots.io/bedrock/).  
+Modern WordPress installation built on [Roots/Bedrock](https://roots.io/bedrock/).
 Composer-managed dependencies, Gulp-based theme builds, and strict coding standards.
 
 ---
 
-## 📁 Project structure
+## Project structure
 
+```
 project-root/
-├── composer.json # PHP dependencies & scripts
-├── phpcs.xml # WordPress Coding Standards (PHPCS)
-├── phpstan.neon # PHP static analysis
-├── .env.example # Environment template
+├── composer.json              # PHP dependencies & scripts
+├── phpcs.xml                  # WordPress Coding Standards (PHPCS)
+├── phpstan.neon               # PHP static analysis
+├── .env.example               # Environment template
 ├── web/
-│ ├── app/
-│ │ ├── mu-plugins/ # Must-use plugins (autoloaded)
-│ │ ├── plugins/ # Managed via Composer
-│ │ ├── themes/
-│ │ │ ├── knowit-starter-theme/
-│ │ │ └── (other themes)
-│ │ └── uploads/ # Media (gitignored)
-│ └── wp/ # WordPress core (Composer)
-└── vendor/ # Composer vendor (gitignored)
-
-yaml
-Kopiera kod
+│   ├── app/
+│   │   ├── mu-plugins/        # Must-use plugins (autoloaded)
+│   │   ├── plugins/           # Managed via Composer
+│   │   ├── themes/
+│   │   │   └── wp-starter-theme/
+│   │   └── uploads/           # Media (gitignored)
+│   └── wp/                    # WordPress core (Composer)
+└── vendor/                    # Composer vendor (gitignored)
+```
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
-| Tool | Minimum version |
-|------|------------------|
-| PHP | 8.2 |
-| WordPress | 6.3 |
-| Composer | 2.0 |
-| Node.js | 18.0 |
-| npm | 9.0 |
+| Tool       | Minimum version |
+|------------|-----------------|
+| PHP        | 8.1             |
+| WordPress  | 6.9             |
+| Composer   | 2.0             |
+| Node.js    | 20.x            |
+| npm        | 10.0            |
 
 ---
 
-## 🚀 Setup
+## Setup
 
-### 1️⃣ Clone & install
+### 1. Clone & install
+
 ```bash
-git clone <repo-url>
-cd <project-folder>
+git clone git@github.com:hnrk75/wp-starter-theme.git
+cd wp-starter-theme
 composer install
-2️⃣ Configure environment
-Copy and edit the example environment file:
+```
 
-bash
-Kopiera kod
+### 2. Configure environment
+
+```bash
 cp .env.example .env
-Then set database credentials, salts and URLs as needed.
+```
 
-3️⃣ Install WordPress
-Run the installer in your browser:
+Edit `.env` with your database credentials, salts and local URL.
+Generate salts at [roots.io/salts.html](https://roots.io/salts.html).
 
-pgsql
-Kopiera kod
+### 3. Install WordPress
+
+Open in browser:
+
+```
 http://your-local-domain/wp/wp-admin/install.php
-🧱 Theme development
-Each theme has its own build tools.
-Example for Knowit Starter Theme:
+```
 
-bash
-Kopiera kod
-cd web/app/themes/knowit-starter-theme
+### 4. Install theme dependencies
+
+```bash
+cd web/app/themes/wp-starter-theme
 npm install
-npm run dev      # Watch & BrowserSync
+```
+
+---
+
+## Theme development
+
+Run inside `web/app/themes/wp-starter-theme/`:
+
+```bash
+npm run dev      # Watch files, compile & BrowserSync
 npm run build    # Production build
-npm run lint     # Lint JS, CSS, PHP
-See web/app/themes/knowit-starter-theme/README.md for full theme documentation.
+npm run lint     # Lint JS, CSS and PHP
+npm run fix      # Auto-fix JS, CSS and PHP
+```
 
-🧹 Code Quality & Standards
-This project follows WordPress Coding Standards (WPCS), PHPStan, ESLint, Stylelint, and Prettier.
+---
 
-PHP
-bash
-Kopiera kod
+## Code quality
+
+### PHP (from project root)
+
+```bash
 composer lint          # Run PHPCS
 composer lint:fix      # Auto-fix with PHPCBF
-composer stan          # PHPStan static analysis
-composer stan:baseline # Create PHPStan baseline
-JS / SCSS / Formatting
-Run inside the theme folder:
+composer analyze       # PHPStan static analysis
+composer analyze:baseline  # Generate PHPStan baseline
+```
 
-bash
-Kopiera kod
-npm run lint:js
-npm run lint:css
-npm run format
-All code must pass these checks before merge or deploy.
+### JS / SCSS (from theme folder)
 
-🧰 Deployment
-Build production assets:
+```bash
+npm run lint:js        # ESLint
+npm run lint:css       # Stylelint
+npm run format         # Prettier
+```
 
-bash
-Kopiera kod
-cd web/app/themes/knowit-starter-theme
-npm run build
-Commit changes (excluding build artifacts — handled by .gitignore).
+---
 
-Deploy via your CI/CD pipeline or manually to the hosting environment (e.g. One.com).
+## Gitignore strategy
 
-Composer dependencies and environment variables ensure reproducible deployments.
+Only source code and configuration are versioned.
 
-🧠 Gitignore strategy
-This project uses a clean-repo policy:
+Ignored:
+- `vendor/`, `node_modules/`, `uploads/`
+- Built assets (`style.min.css`, `scripts.min.js`, `.map`, `.zip`)
+- Cache files (`.phpcs.cache`, `.eslintcache`, etc.)
+- Environment files (`.env`)
 
-✅ Version control only source code & configuration
+---
 
-🚫 Ignore all generated, cache and upload files
+## License
 
-Ignored includes:
-
-vendor/, node_modules/, uploads/
-
-Built assets (style.min.css, scripts.min.js, .map, .zip)
-
-Cache files (.phpcs.cache, .phpstan.cache, .eslintcache, .stylelintcache)
-
-See .gitignore for full rules.
-
-🧩 Composer scripts summary
-Command	Description
-composer install	Install PHP dependencies
-composer update	Update packages
-composer lint	Run PHPCS
-composer lint:fix	Fix PHP code style
-composer stan	Run PHPStan analysis
-composer stan:baseline	Generate PHPStan baseline
-
-🧾 License
-GPL-2.0 — see individual themes for their headers.
-
-👏 Credits
-Developed by Henrik Pettersson / Knowit Experience
-Built with Roots Bedrock and Bootstrap 5
+GPL-2.0 — see theme `style.css` for details.
