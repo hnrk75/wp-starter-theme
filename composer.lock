@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "160274cb46f73868746442d52f74ad6e",
+    "content-hash": "d5ea0195c56193ffc9301d2f608d2bd6",
     "packages": [
         {
             "name": "composer/installers",
@@ -1044,15 +1044,15 @@
         },
         {
             "name": "wpackagist-plugin/cookie-law-info",
-            "version": "3.3.9.1",
+            "version": "3.4.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/cookie-law-info/",
-                "reference": "tags/3.3.9.1"
+                "reference": "tags/3.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/cookie-law-info.3.3.9.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/cookie-law-info.3.4.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
