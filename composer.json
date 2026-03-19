@@ -43,8 +43,8 @@
     "roots/bedrock-disallow-indexing": "^2.0.0",
     "roots/wordpress": "6.9.*",
     "roots/wp-config": "^1.0",
-    "wpengine/advanced-custom-fields-pro": "6.7.0.2",
-    "wpackagist-plugin/cookie-law-info": "3.3.9.1"
+    "wpengine/advanced-custom-fields-pro": "6.7.1",
+    "wpackagist-plugin/cookie-law-info": "3.4.0"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
@@ -90,15 +90,12 @@
   "scripts": {
     "lint": "phpcs -p -s -d memory_limit=512M --standard=phpcs.xml",
     "lint:fix": "phpcbf -p -d memory_limit=512M --standard=phpcs.xml",
-
     "analyze": "phpstan analyse -c phpstan.neon --memory-limit=1G",
     "analyze:baseline": "phpstan analyse -c phpstan.neon --generate-baseline",
-
     "test": [
       "@lint",
       "@analyze"
     ],
-
     "post-root-package-install": [
       "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
