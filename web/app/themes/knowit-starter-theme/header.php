@@ -1,0 +1,81 @@
+<?php
+/**
+ * The header for our theme
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @author Henrik Pettersson
+ * @package Knowit Starter Theme
+ */
+?>
+
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?> data-bs-no-jquery>
+<?php wp_body_open(); ?>
+
+<a class="skip-link screen-reader-text" href="#main">
+	<?php echo esc_html__( 'Hoppa till innehåll', 'knowit-starter-theme' ); ?>
+</a>
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header">
+		<nav class="navbar navbar-expand-lg navbar-light" aria-label="<?php echo esc_attr__( 'Huvudmeny', 'knowit-starter-theme' ); ?>">
+			<div class="container-fluid">
+
+				<?php
+				get_template_part(
+					'template-parts/svg-path',
+					null,
+					array(
+						'logo_path'  => get_theme_file_path( 'assets/svg/logo.svg' ),
+						'class'      => 'navbar-brand',
+						'aria_label' => get_bloginfo( 'name' ),
+						'link_url'   => home_url( '/' ),
+					)
+				);
+				?>
+
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#main-menu"
+					aria-controls="main-menu" aria-expanded="false"
+					aria-label="<?php echo esc_attr__( 'Växla navigering', 'knowit-starter-theme' ); ?>">
+					<span class="navbar-toggler-icon" aria-hidden="true"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="main-menu">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'main-menu',
+							'container'      => false,
+							'menu_class'     => 'navbar-nav ms-auto',
+							'menu_id'        => 'bootscore-navbar',
+							'fallback_cb'    => '__return_false',
+							'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'          => 2,
+							'walker'         => new Knowit_Navwalker(),
+						)
+					);
+					?>
+				</div>
+
+			</div>
+		</nav>
+	</header>
+
+	<?php
+	if ( function_exists( 'knowit_the_breadcrumb' ) ) {
+		$breadcrumbs = knowit_the_breadcrumb( false );
+		if ( ! empty( $breadcrumbs ) ) {
+			echo '<div class="container">' . wp_kses_post( $breadcrumbs ) . '</div>';
+		}
+	}
+	?>
+
+	<div id="content" class="site-content">

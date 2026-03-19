@@ -1,0 +1,35 @@
+/* --------------------------------------------------------------
+## Theme Colors
+-------------------------------------------------------------- */
+$primary: #2ec4b6;
+$secondary: #ffbf69;
+$success: #a8d5ba;
+$danger: #ff6b6b;
+$warning: #ffd166;
+$info: #9b89b3;
+$light: #fffbea;
+$dark: #343a40;
+$white: #fff;
+$black: #000;
+$theme-colors: (
+	"primary": $primary,
+	"secondary": $secondary,
+	"success": $success,
+	"danger": $danger,
+	"warning": $warning,
+	"info": $info,
+	"light": $light,
+	"dark": $dark,
+);
+
+/* --------------------------------------------------------------
+## Color Settings
+-------------------------------------------------------------- */
+// Body + text color
+$body-bg: $white;
+$body-color: $black;
+
+// Link color
+$link-color: $primary;
+$link-decoration: underline !default;
+$link-shade-percentage: 20% !default;

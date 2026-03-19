@@ -1,0 +1,147 @@
+@use 'sass:color';
+
+.btn {
+	@include focus-visible-shadow;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5rem;
+	padding: 0.5rem 1.5rem;
+	border-radius: $border-radius-pill;
+	border: 0;
+	text-decoration: none;
+	font: inherit;
+	line-height: 1.2;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.3s ease, transform .06s ease;
+
+	&:focus-visible {
+		outline: none;
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&:disabled,
+	&[aria-disabled="true"],
+	&.is-disabled {
+		cursor: not-allowed;
+		opacity: .6;
+		pointer-events: none;
+	}
+
+	&.btn-primary {
+		background-color: $primary;
+		color: $white;
+
+		&:hover {
+			background-color: color.adjust($primary, $lightness: -10%);
+		}
+	}
+
+	&.btn-secondary {
+		background-color: $secondary;
+		color: $black;
+
+		&:hover {
+			background-color: color.adjust($secondary, $lightness: -10%);
+		}
+	}
+
+	&.btn-success {
+		background-color: $success;
+		color: $black;
+
+		&:hover {
+			background-color: color.adjust($success, $lightness: -10%);
+		}
+	}
+
+	&.btn-danger {
+		background-color: $danger;
+		color: $white;
+
+		&:hover {
+			background-color: color.adjust($danger, $lightness: -10%);
+		}
+	}
+
+	&.btn-warning {
+		background-color: $warning;
+		color: $black;
+
+		&:hover {
+			background-color: color.adjust($warning, $lightness: -10%);
+		}
+	}
+
+	&.btn-info {
+		background-color: $info;
+		color: $white;
+
+		&:hover {
+			background-color: color.adjust($info, $lightness: -10%);
+		}
+	}
+
+	&.btn-light {
+		background-color: $light;
+		color: $black;
+
+		&:hover {
+			background-color: color.adjust($light, $lightness: -10%);
+		}
+	}
+
+	&.btn-dark {
+		background-color: $dark;
+		color: $white;
+
+		&:hover {
+			background-color: color.adjust($dark, $lightness: -10%);
+		}
+	}
+
+	&.btn-sm {
+		padding: .375rem 1rem;
+		font-size: .875rem;
+	}
+
+	&.btn-lg {
+		padding: .75rem 2rem;
+		font-size: 1.125rem;
+	}
+
+	.icon {
+		display: inline-flex;
+		line-height: 0;
+		flex: 0 0 auto;
+	}
+
+	.icon svg {
+		width: 1em;
+		height: 1em;
+		display: block;
+	}
+
+	svg {
+		fill: currentcolor;
+		stroke: currentcolor;
+	}
+}
+
+.btn-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: flex-start;
+}

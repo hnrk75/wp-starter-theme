@@ -1,0 +1,149 @@
+# ───── Application (wp-content) ────────────────────────────────
+web/app/mu-plugins/*/
+!web/app/mu-plugins/.gitkeep
+
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+
+web/app/upgrade
+web/app/upgrade-temp-backup
+web/app/cache/*
+
+# Uppladdningar — ignorera faktiska filer men behåll struktur
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+!web/app/uploads/fonts/
+!web/app/uploads/fonts/.gitkeep
+
+# Ignorera standardteman
+web/app/themes/twenty*/
+
+# Språkfiler i teman (genereras ofta externt)
+web/app/themes/*/languages/*
+!web/app/themes/*/languages/.gitkeep
+
+# ───── WordPress Core ──────────────────────────────────────────
+web/wp
+web/.htaccess
+web/.user.ini
+
+# ───── WordPress språkfiler (laddas ner automatiskt) ───────────
+web/app/languages/*
+!web/app/languages/.gitkeep
+
+# ───── Logs ────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ───── Backup and Temporary Files ──────────────────────────────
+*.bak
+*.old
+*.tmp
+*~
+*.swp
+*.swo
+
+# ───── Database Dumps ──────────────────────────────────────────
+*.sql
+*.sql.gz
+*.sql.zip
+
+# ───── Dotenv ──────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ───── Composer auth (innehåller licensnycklar) ─────────────────
+auth.json
+
+# ───── Composer ────────────────────────────────────────────────
+/vendor
+composer.phar
+!composer.lock                 # committa låsfilen
+
+# ───── WP-CLI ──────────────────────────────────────────────────
+wp-cli.local.yml
+
+# ───── Node / Build ────────────────────────────────────────────
+node_modules/
+.vite/
+.turbo/
+.esbuild/
+.parcel-cache/
+.cache/
+tmp/
+.sass-cache/
+
+# ───── OS Files ────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ───── Editor / IDE Files ──────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.iml
+
+# ───── Tooling configs (committas för enhetlig setup) ──────────
+# Dessa filer är inte ignorerade — ingen regel krävs, men listas här som dokumentation:
+# phpcs.xml, phpstan.neon, .eslintrc.*, .stylelintrc.*, .prettierrc.*,
+# package.json, package-lock.json, postcss.config.*, tailwind.config.*
+
+# ───── PHPStan ─────────────────────────────────────────────────
+.phpstan/
+.phpstan.cache/
+phpstan.neon.local
+var/phpstan/
+var/phpstan/**
+
+# ───── PHPCS cache ─────────────────────────────────────────────
+.phpcs.cache
+
+# ───── PHPUnit ──────────────────────────────────────────────────
+.phpunit.result.cache
+
+# ───── ESLint / Stylelint / Prettier caches ───────────────────
+.eslintcache
+.stylelintcache
+.prettier-cache
+web/app/themes/**/.eslintcache
+web/app/themes/**/.stylelintcache
+
+# ───── Build artifacts (teman) — JS/CSS/ZIP/Maps ──────────────
+# JS bundles, sourcemaps och rev-manifest
+web/app/themes/**/assets/js/dist/**
+web/app/themes/**/rev-manifest.json
+
+# CSS-utdata från temat (endast kompilerade/minifierade filer, ej källfiler)
+web/app/themes/**/assets/css/*.min.css
+web/app/themes/**/assets/css/*.min.css.map
+web/app/themes/**/style.min.css
+web/app/themes/**/style.min.css.map
+
+# Kritisk CSS (om din critical-task skriver till /css)
+web/app/themes/**/css/**
+!web/app/themes/**/css/.gitkeep
+
+# Alla sourcemaps (om du inte vill spara dem i repo)
+**/*.map
+
+# Packade releaser
+web/app/themes/**/*.zip
+
+# ───── Coverage / test-rester (om aktuellt) ────────────────────
+coverage/
+reports/
+.nyc_output/
+
+# ───── Alternativ strategi (committa byggda assets) ───────────
+# Om du *vill* committa minifierade assets:
+#   – kommentera bort de relevanta reglerna ovan för style.min.css och scripts.min.js,
+#   – men behåll att ignorera *.map och rev-manifest.
+#
+# Exempel:
+# # **/*.map
+# # web/app/themes/**/rev-manifest.json

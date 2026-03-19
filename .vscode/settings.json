@@ -1,0 +1,44 @@
+{
+  // --- Save/format/fix ---
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+
+  // Prettier som formatter för de här språken
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[scss]":       { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]":        { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]":       { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
+  // ESLint & Stylelint integration
+  "eslint.validate": ["javascript"],
+  "eslint.alwaysShowStatus": true,
+  "stylelint.validate": ["css", "scss"],
+  "stylelint.enable": true,
+
+  // Prettier kräver config i projektet (bra!)
+  "prettier.requireConfig": true,
+
+  // --- Kodstil & whitespace (stabil diff & CI) ---
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": false,
+
+  // --- Mindre brus i VS Code-indexering ---
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true,
+    "**/assets/js/dist/**": true,
+    "**/*.min.js": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/vendor": true,
+    "**/assets/js/dist": true,
+    "**/*.min.js": true
+  }
+}

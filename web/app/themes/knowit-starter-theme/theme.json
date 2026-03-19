@@ -1,0 +1,161 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"typography": {
+			"fluid": true,
+			"defaultFontSizes": false,
+			"customFontSize": false,
+			"fontSizes": [
+				{
+					"slug": "display-1",
+					"name": "Display",
+					"size": "4.5rem",
+					"fluid": {
+						"min": "3rem",
+						"max": "4.5rem"
+					}
+				},
+				{
+					"slug": "h1",
+					"name": "Header H1",
+					"size": "3rem",
+					"fluid": {
+						"min": "2rem",
+						"max": "3rem"
+					}
+				},
+				{
+					"slug": "h2",
+					"name": "Header H2",
+					"size": "2.25rem",
+					"fluid": {
+						"min": "1.5rem",
+						"max": "2.25rem"
+					}
+				},
+				{
+					"slug": "h3",
+					"name": "Header H3",
+					"size": "1.75rem",
+					"fluid": {
+						"min": "1.25rem",
+						"max": "1.75rem"
+					}
+				},
+				{
+					"slug": "h4",
+					"name": "Header H4",
+					"size": "1.5rem",
+					"fluid": {
+						"min": "1.125rem",
+						"max": "1.5rem"
+					}
+				},
+				{
+					"slug": "h5",
+					"name": "Header H5",
+					"size": "1.25rem",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.25rem"
+					}
+				},
+				{
+					"slug": "h6",
+					"name": "Header H6",
+					"size": "1rem",
+					"fluid": {
+						"min": "0.875rem",
+						"max": "1rem"
+					}
+				},
+				{
+					"slug": "lead",
+					"name": "Ingress",
+					"size": "1.125rem",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.125rem"
+					}
+				},
+				{
+					"slug": "body",
+					"name": "Body",
+					"size": "1rem",
+					"fluid": {
+						"min": "0.875rem",
+						"max": "1rem"
+					}
+				},
+				{
+					"slug": "caption",
+					"name": "Caption",
+					"size": "0.75rem",
+					"fluid": {
+						"min": "0.625rem",
+						"max": "0.75rem"
+					}
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "992px",
+			"wideSize": "1400px"
+		},
+		"color": {
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#2EC4B6",
+					"name": "Primär"
+				},
+				{
+					"slug": "secondary",
+					"color": "#FFBF69",
+					"name": "Sekundär"
+				},
+				{
+					"slug": "success",
+					"color": "#A8D5BA",
+					"name": "Framgång"
+				},
+				{
+					"slug": "danger",
+					"color": "#FF6B6B",
+					"name": "Fara"
+				},
+				{
+					"slug": "warning",
+					"color": "#FFD166",
+					"name": "Varning"
+				},
+				{
+					"slug": "info",
+					"color": "#9B89B3",
+					"name": "Information"
+				},
+				{
+					"slug": "light",
+					"color": "#FFFBEA",
+					"name": "Ljus"
+				},
+				{
+					"slug": "dark",
+					"color": "#343A40",
+					"name": "Mörk"
+				},
+				{
+					"slug": "white",
+					"color": "#FFFFFF",
+					"name": "Vit"
+				},
+				{
+					"slug": "black",
+					"color": "#000000",
+					"name": "Svart"
+				}
+			]
+		}
+	}
+}

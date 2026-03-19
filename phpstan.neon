@@ -1,0 +1,12 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+    paths:
+        - web/app/themes/knowit-starter-theme
+        - web/app/mu-plugins
+    excludePaths:
+        - web/app/themes/knowit-starter-theme/node_modules
+    bootstrapFiles:
+        - web/wp/wp-load.php

@@ -1,0 +1,31 @@
+/* --------------------------------------------------------------
+# Google Fonts
+-------------------------------------------------------------- */
+// Headings
+@import "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap";
+
+// Body
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
+
+/* --------------------------------------------------------------
+## Bootstrap Font Variables (sizes are set in theme.json)
+-------------------------------------------------------------- */
+// Body
+$font-family-base: "Source Sans 3", sans-serif;
+$font-weight-base: 400;
+$line-height-base: 1.5;
+
+// Heading
+$headings-font-family: "Playfair Display", serif;
+$headings-font-weight: 700;
+$headings-line-height: 1.2;
+$headings-color: inherit;
+$headings-margin-bottom: 0.5rem;
+
+// Display
+$display-font-family: null;
+$display-font-weight: 600;
+$display-line-height: $headings-line-height;
+
+// Lead
+$lead-font-weight: 500;

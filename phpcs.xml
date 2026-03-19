@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         name="Knowit Starter Theme"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+
+    <description>WordPress Coding Standards – endast temat</description>
+
+    <!-- Vad som ska skannas -->
+    <file>./web/app/themes/knowit-starter-theme</file>
+
+    <!-- Uteslut mappar/filer som inte ska scannas -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/mu-plugins/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/assets/*</exclude-pattern>
+    <exclude-pattern>*/acf-json/*</exclude-pattern>
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.css</exclude-pattern>
+
+    <!-- Prestanda -->
+    <arg name="cache"/>
+    <arg name="parallel" value="8"/>
+
+    <!-- Visa sniff-koder och progress -->
+    <arg value="s"/>   <!-- -s: show sniff codes -->
+    <arg value="p"/>   <!-- -p: progress dots -->
+    <arg name="colors"/>
+
+    <!-- Endast PHP-filer -->
+    <config name="extensions" value="php"/>
+
+    <!-- WordPress standards -->
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress-Docs"/>
+
+    <!-- Lätta upp några regler -->
+    <rule ref="WordPress">
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
+        <exclude name="WordPress.Arrays.MultipleStatementAlignment"/>
+        <exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+        <exclude name="Squiz.Commenting.FunctionComment"/>
+        <exclude name="Squiz.Commenting.FileComment"/>
+        <exclude name="Squiz.Commenting.ClassComment"/>
+        <exclude name="Squiz.Commenting.VariableComment"/>
+        <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+        <exclude name="Squiz.Commenting.BlockComment.CloserSameLine"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName"/>
+        <exclude name="WordPress.PHP.YodaConditions"/>
+    </rule>
+
+    <!-- PHP cross-version compatibility -->
+    <config name="testVersion" value="8.1-"/>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Text domain måste vara korrekt -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="knowit-starter-theme"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Prefixkravet: tillåt knowit/kst -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="knowit"/>
+                <element value="kst"/>
+            </property>
+        </properties>
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/>
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+    </rule>
+
+    <!-- Filnamnsregel (templates kan avvika) -->
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false"/>
+        </properties>
+        <exclude-pattern>*/templates/*</exclude-pattern>
+        <exclude-pattern>*/template-parts/*</exclude-pattern>
+    </rule>
+
+    <!-- (Valfritt) Ignorera varning om "kommenterad kod" globalt -->
+    <!--
+    <rule ref="Squiz.PHP.CommentedOutCode.Found">
+        <severity>0</severity>
+    </rule>
+    -->
+</ruleset>
