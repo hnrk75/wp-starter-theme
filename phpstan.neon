@@ -4,9 +4,9 @@ includes:
 parameters:
     level: 5
     paths:
-        - web/app/themes/knowit-starter-theme
+        - web/app/themes/wp-starter-theme
         - web/app/mu-plugins
     excludePaths:
-        - web/app/themes/knowit-starter-theme/node_modules
+        - web/app/themes/wp-starter-theme/node_modules
     bootstrapFiles:
         - web/wp/wp-load.php

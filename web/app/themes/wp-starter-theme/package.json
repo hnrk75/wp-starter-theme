@@ -1,0 +1,90 @@
+{
+  "type": "module",
+  "name": "wp-starter-theme",
+  "version": "2.0.1",
+  "description": "Bootstrap 5 WordPress Theme with modern build tools",
+  "author": {
+    "name": "Henrik Pettersson"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hnrk75/wp-starter-theme.git"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": ">=10.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp",
+    "start": "npm run dev",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "zip": "gulp zipFiles",
+    "watch": "npm run dev",
+
+    "lint:js": "eslint assets/js --ext .js --cache",
+    "lint:js:fix": "eslint assets/js --ext .js --fix --cache",
+    "lint:css": "stylelint \"assets/sass/**/*.scss\" \"inc/**/*.scss\"",
+    "lint:css:fix": "stylelint \"assets/sass/**/*.scss\" \"inc/**/*.scss\" --fix",
+    "lint:php": "composer lint",
+    "lint:php:fix": "composer lint:fix",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:php",
+    "fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:php:fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "[ -d .git ] && git config core.hooksPath .githooks || true",
+
+    "lint:js:watch": "eslint \"assets/js/**/*.js\" --cache --watch --max-warnings=0",
+    "lint:css:watch": "chokidar \"assets/sass/**/*.scss\" -c \"stylelint '{path}' --custom-syntax postcss-scss || true\"",
+    "watch:lint": "npm run lint:js:watch & npm run lint:css:watch",
+    "dev:all": "cross-env NODE_ENV=development gulp & npm run watch:lint"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@wordpress/plugins": "^7.32.0",
+    "bootstrap": "^5.3.3",
+    "browser-sync": "^3.0.3",
+    "chokidar-cli": "^3.0.0",
+    "critical": "^7.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-eslint-new": "^2.3.0",
+    "gulp-include": "^2.4.1",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-rev": "^10.0.0",
+    "gulp-rev-delete-original": "^0.2.3",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-zip": "^6.0.0",
+    "postcss-scss": "^4.0.9",
+    "prettier": "^3.3.3",
+    "sass": "^1.80.7",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3",
+    "jquery": "^3.7.1"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress-theme",
+    "bootstrap",
+    "bootstrap5",
+    "gulp",
+    "theme",
+    "starter-theme"
+  ],
+  "license": "MIT"
+}

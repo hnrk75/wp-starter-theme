@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         name="Knowit Starter Theme"
+         name="WP Starter Theme"
          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 
     <description>WordPress Coding Standards – endast temat</description>
 
     <!-- Vad som ska skannas -->
-    <file>./web/app/themes/knowit-starter-theme</file>
+    <file>./web/app/themes/wp-starter-theme</file>
 
     <!-- Uteslut mappar/filer som inte ska scannas -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
@@ -59,17 +59,16 @@
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array">
-                <element value="knowit-starter-theme"/>
+                <element value="wp-starter-theme"/>
             </property>
         </properties>
     </rule>
 
-    <!-- Prefixkravet: tillåt knowit/kst -->
+    <!-- Prefixkravet: tillåt wpst -->
     <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
         <properties>
             <property name="prefixes" type="array">
-                <element value="knowit"/>
-                <element value="kst"/>
+                <element value="wpst"/>
             </property>
         </properties>
         <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/>
