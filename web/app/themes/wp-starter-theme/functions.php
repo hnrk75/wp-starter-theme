@@ -96,6 +96,9 @@ locate_template( array( 'inc/extras.php' ), true, true );
 // Buttons helper
 locate_template( array( 'inc/helpers-buttons.php' ), true, true );
 
+// SVG icon helper
+locate_template( array( 'inc/helpers-svg.php' ), true, true );
+
 // CSS/JS enqueue
 locate_template( array( 'inc/scripts.php' ), true, true );
 
