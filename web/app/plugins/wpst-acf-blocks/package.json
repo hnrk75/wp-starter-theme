@@ -1,0 +1,31 @@
+{
+  "type": "module",
+  "name": "wpst-acf-blocks",
+  "version": "1.0.0",
+  "description": "Build pipeline for WPST ACF Blocks",
+  "author": {
+    "name": "Henrik Pettersson"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "lint:css": "stylelint \"blocks/**/*.scss\"",
+    "lint:css:fix": "stylelint \"blocks/**/*.scss\" --fix"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.80.7",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": ">=10.0.0"
+  },
+  "license": "GPL-2.0"
+}
