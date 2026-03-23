@@ -152,7 +152,7 @@ export function compileSass() {
   }
 
   pipeline = pipeline
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest('./'))
     .pipe(rename({ suffix: '.min' }));
@@ -164,6 +164,20 @@ export function compileSass() {
   pipeline = pipeline.pipe(gulp.dest('./'));
 
   return pipeline.pipe(browserSync.stream()).on('end', () => bsNotify('Sass', 'Klar'));
+}
+
+export function compileEditorSass() {
+  let pipeline = gulp
+    .src('./assets/sass/editor-style.scss', { allowEmpty: true })
+    .pipe(plumber({ errorHandler: onError }));
+
+  pipeline = pipeline
+    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(rename({ basename: 'editor-style' }))
+    .pipe(gulp.dest('./'));
+
+  return pipeline.pipe(browserSync.stream()).on('end', () => bsNotify('Editor Sass', 'Klar'));
 }
 
 // ==== Zip ======================================================
@@ -258,12 +272,18 @@ export function watchFiles() {
     debounceScss(fp, async () => {
       await lintScssFile(path.resolve(fp));
       compileSass();
+      if (fp.includes('gutenberg') || fp.includes('editor-style')) {
+        compileEditorSass();
+      }
     })
   );
   scssWatcher.on('add', (fp) =>
     debounceScss(fp, async () => {
       await lintScssFile(path.resolve(fp));
       compileSass();
+      if (fp.includes('gutenberg') || fp.includes('editor-style')) {
+        compileEditorSass();
+      }
     })
   );
 
@@ -282,5 +302,5 @@ export function startBrowserSync() {
 }
 
 // ==== Build & Default ==========================================
-export const build = gulp.series(compileSass, scripts);
+export const build = gulp.series(gulp.parallel(compileSass, compileEditorSass), scripts);
 export default gulp.parallel(watchFiles, startBrowserSync);

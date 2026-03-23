@@ -1,5 +1,4 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
 	"settings": {
 		"typography": {
@@ -11,149 +10,114 @@
 					"slug": "display-1",
 					"name": "Display",
 					"size": "4.5rem",
-					"fluid": {
-						"min": "3rem",
-						"max": "4.5rem"
-					}
+					"fluid": { "min": "3rem", "max": "4.5rem" }
 				},
 				{
-					"slug": "h1",
-					"name": "Header H1",
+					"slug": "h-1",
+					"name": "H1",
 					"size": "3rem",
-					"fluid": {
-						"min": "2rem",
-						"max": "3rem"
-					}
+					"fluid": { "min": "2rem", "max": "3rem" }
 				},
 				{
-					"slug": "h2",
-					"name": "Header H2",
+					"slug": "h-2",
+					"name": "H2",
 					"size": "2.25rem",
-					"fluid": {
-						"min": "1.5rem",
-						"max": "2.25rem"
-					}
+					"fluid": { "min": "1.5rem", "max": "2.25rem" }
 				},
 				{
-					"slug": "h3",
-					"name": "Header H3",
+					"slug": "h-3",
+					"name": "H3",
 					"size": "1.75rem",
-					"fluid": {
-						"min": "1.25rem",
-						"max": "1.75rem"
-					}
+					"fluid": { "min": "1.25rem", "max": "1.75rem" }
 				},
 				{
-					"slug": "h4",
-					"name": "Header H4",
+					"slug": "h-4",
+					"name": "H4",
 					"size": "1.5rem",
-					"fluid": {
-						"min": "1.125rem",
-						"max": "1.5rem"
-					}
+					"fluid": { "min": "1.125rem", "max": "1.5rem" }
 				},
 				{
-					"slug": "h5",
-					"name": "Header H5",
+					"slug": "h-5",
+					"name": "H5",
 					"size": "1.25rem",
-					"fluid": {
-						"min": "1rem",
-						"max": "1.25rem"
-					}
+					"fluid": { "min": "1rem", "max": "1.25rem" }
 				},
 				{
-					"slug": "h6",
-					"name": "Header H6",
+					"slug": "h-6",
+					"name": "H6",
 					"size": "1rem",
-					"fluid": {
-						"min": "0.875rem",
-						"max": "1rem"
-					}
+					"fluid": { "min": "0.875rem", "max": "1rem" }
 				},
 				{
 					"slug": "lead",
-					"name": "Ingress",
+					"name": "Lead",
 					"size": "1.125rem",
-					"fluid": {
-						"min": "1rem",
-						"max": "1.125rem"
-					}
+					"fluid": { "min": "1rem", "max": "1.125rem" }
 				},
 				{
 					"slug": "body",
 					"name": "Body",
 					"size": "1rem",
-					"fluid": {
-						"min": "0.875rem",
-						"max": "1rem"
-					}
+					"fluid": { "min": "0.875rem", "max": "1rem" }
 				},
 				{
 					"slug": "caption",
 					"name": "Caption",
 					"size": "0.75rem",
-					"fluid": {
-						"min": "0.625rem",
-						"max": "0.75rem"
-					}
+					"fluid": { "min": "0.625rem", "max": "0.75rem" }
 				}
 			]
 		},
 		"layout": {
-			"contentSize": "992px",
-			"wideSize": "1400px"
+			"contentSize": "60rem",
+			"wideSize": "71.25rem"
 		},
 		"color": {
 			"palette": [
 				{
 					"slug": "primary",
-					"color": "#2EC4B6",
-					"name": "Primär"
+					"color": "#468189",
+					"name": "Primary"
 				},
 				{
 					"slug": "secondary",
-					"color": "#FFBF69",
-					"name": "Sekundär"
+					"color": "#77aca2",
+					"name": "Secondary"
 				},
 				{
-					"slug": "success",
-					"color": "#A8D5BA",
-					"name": "Framgång"
-				},
-				{
-					"slug": "danger",
-					"color": "#FF6B6B",
-					"name": "Fara"
-				},
-				{
-					"slug": "warning",
-					"color": "#FFD166",
-					"name": "Varning"
-				},
-				{
-					"slug": "info",
-					"color": "#9B89B3",
-					"name": "Information"
+					"slug": "tertiary",
+					"color": "#9dbebb",
+					"name": "Tertiary"
 				},
 				{
 					"slug": "light",
-					"color": "#FFFBEA",
-					"name": "Ljus"
+					"color": "#f4e9cd",
+					"name": "Light"
 				},
 				{
 					"slug": "dark",
-					"color": "#343A40",
-					"name": "Mörk"
+					"color": "#031926",
+					"name": "Dark"
 				},
 				{
 					"slug": "white",
-					"color": "#FFFFFF",
-					"name": "Vit"
+					"color": "#ffffff",
+					"name": "White"
 				},
 				{
-					"slug": "black",
-					"color": "#000000",
-					"name": "Svart"
+					"slug": "gray-light",
+					"color": "#eef2f1",
+					"name": "Gray Light"
+				},
+				{
+					"slug": "gray-medium",
+					"color": "#b8c8c6",
+					"name": "Gray Medium"
+				},
+				{
+					"slug": "gray-dark",
+					"color": "#4a6267",
+					"name": "Gray Dark"
 				}
 			]
 		}

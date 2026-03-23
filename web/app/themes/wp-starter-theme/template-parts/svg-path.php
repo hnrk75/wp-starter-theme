@@ -8,7 +8,7 @@
 
 $defaults = array(
 	'logo_path'  => get_theme_file_path( 'assets/svg/logo.svg' ),
-	'class'      => 'navbar-brand',
+	'class'      => 'site-logo',
 	'aria_label' => get_bloginfo( 'name' ),
 	'link_url'   => home_url( '/' ),
 );
@@ -58,7 +58,7 @@ if ( is_string( $logo_path ) && is_readable( $logo_path ) ) {
 		$svg = '';
 	}
 } else {
-	echo '<!-- SVG ej läsbar: ' . esc_html( (string) $logo_path ) . ' -->';
+	echo '<!-- SVG not readable: ' . esc_html( (string) $logo_path ) . ' -->';
 }
 
 $link_url   = isset( $args['link_url'] ) ? $args['link_url'] : '';

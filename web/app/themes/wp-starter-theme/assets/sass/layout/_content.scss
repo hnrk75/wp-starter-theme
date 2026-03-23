@@ -15,7 +15,7 @@
 	grid-template-columns: 1fr;
 	gap: 4rem;
 
-	@media (width >= 768px) {
+	@include mq-up(md) {
 		grid-template-columns: 2fr 1fr;
 	}
 }

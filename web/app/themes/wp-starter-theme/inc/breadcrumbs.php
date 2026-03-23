@@ -2,6 +2,9 @@
 /**
  * Navigational breadcrumbs
  *
+ * If the project uses Yoast SEO or RankMath, this file can be removed.
+ * Replace with: yoast_breadcrumb( '<nav class="breadcrumb">', '</nav>' );
+ *
  * @author Henrik Pettersson
  * @package WP Starter Theme
  */
@@ -9,7 +12,7 @@
 function wpst_generate_breadcrumb_link( $url, $text, $position ) {
 	return sprintf(
 		'<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-			<a class="link-animation" href="%1$s" itemprop="item" title="%2$s"><span itemprop="name">%3$s</span></a>
+			<a href="%1$s" itemprop="item" title="%2$s"><span itemprop="name">%3$s</span></a>
 			<meta itemprop="position" content="%4$d" />
 		</li>',
 		esc_url( $url ),
@@ -46,15 +49,11 @@ function wpst_handle_date_breadcrumb( $delimiter, $before, $after, &$position ) 
 	$month = get_the_time( 'm' );
 	$day   = get_the_time( 'd' );
 
-	echo wp_kses_post(
-		wpst_generate_breadcrumb_link( get_year_link( $year ), $year, $position )
-	);
+	echo wp_kses_post( wpst_generate_breadcrumb_link( get_year_link( $year ), $year, $position ) );
 	++$position;
 	echo wp_kses_post( $delimiter );
 
-	echo wp_kses_post(
-		wpst_generate_breadcrumb_link( get_month_link( $year, $month ), get_the_time( 'F' ), $position )
-	);
+	echo wp_kses_post( wpst_generate_breadcrumb_link( get_month_link( $year, $month ), get_the_time( 'F' ), $position ) );
 	++$position;
 	echo wp_kses_post( $delimiter );
 
@@ -65,23 +64,11 @@ function wpst_handle_single_post_breadcrumb( $home_link, $show_current, $delimit
 	$post_type = get_post_type();
 
 	if ( $post_type !== 'post' ) {
-
-		if ( $post_type === 'artists' ) {
-			$terms = get_the_terms( get_the_ID(), 'artists-category' );
-			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-				$term      = $terms[0];
-				$term_link = get_term_link( $term );
-				if ( ! is_wp_error( $term_link ) ) {
-					echo wp_kses_post( wpst_generate_breadcrumb_link( $term_link, $term->name, $position++ ) . $delimiter );
-				}
-			}
-		} elseif ( in_array( $post_type, array( 'services', 'activities' ), true ) ) {
-			$post_type_object = get_post_type_object( $post_type );
-			if ( $post_type_object && ! empty( $post_type_object->has_archive ) ) {
-				$archive_link  = get_post_type_archive_link( $post_type );
-				$archive_label = $post_type_object->labels->name;
-				echo wp_kses_post( wpst_generate_breadcrumb_link( $archive_link, $archive_label, $position++ ) . $delimiter );
-			}
+		$post_type_object = get_post_type_object( $post_type );
+		if ( $post_type_object && ! empty( $post_type_object->has_archive ) ) {
+			$archive_link  = get_post_type_archive_link( $post_type );
+			$archive_label = $post_type_object->labels->name;
+			echo wp_kses_post( wpst_generate_breadcrumb_link( $archive_link, $archive_label, $position++ ) . $delimiter );
 		}
 
 		if ( (int) $show_current === 1 ) {
@@ -178,7 +165,6 @@ function wpst_handle_pagination() {
 }
 
 function wpst_the_breadcrumb( $display = true ) {
-	$showOnHome  = 0;
 	$delimiter   = '<li class="delimiter" aria-hidden="true"> • </li>';
 	$home        = __( 'Startsida', 'wp-starter-theme' );
 	$showCurrent = 1;
@@ -195,7 +181,7 @@ function wpst_the_breadcrumb( $display = true ) {
 		return '';
 	}
 
-	echo '<nav class="breadcrumb" aria-label="' . esc_attr__( 'Brödsmulor', 'wp-starter-theme' ) . '" role="navigation">';
+	echo '<nav class="breadcrumb" aria-label="' . esc_attr__( 'Brödsmulor', 'wp-starter-theme' ) . '">';
 	echo '<ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb-list">';
 
 	$position = 1;
@@ -212,12 +198,6 @@ function wpst_the_breadcrumb( $display = true ) {
 		echo wp_kses_post( $delimiter );
 		wpst_handle_category_breadcrumb( $showCurrent, $delimiter, $before, $after, $position );
 
-	} elseif ( is_tax( 'artists-category' ) ) {
-		echo wp_kses_post( $delimiter );
-		$term = get_queried_object();
-		if ( $term && isset( $term->name ) ) {
-			echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html( $term->name ) . wp_kses_post( $after ) . '</li>';
-		}
 	} elseif ( is_search() ) {
 		echo wp_kses_post( $delimiter );
 		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Sökresultat för', 'wp-starter-theme' ) . ' "' . esc_html( get_search_query() ) . '"' . wp_kses_post( $after ) . '</li>';
@@ -230,7 +210,7 @@ function wpst_the_breadcrumb( $display = true ) {
 		echo wp_kses_post( $delimiter );
 		wpst_handle_single_post_breadcrumb( $home_link, $showCurrent, $delimiter, $before, $after, $position );
 
-	} elseif ( ! is_single() && ! is_page() && get_post_type() !== 'post' && ! is_404() && ! is_tax( 'artists-category' ) ) {
+	} elseif ( ! is_single() && ! is_page() && get_post_type() !== 'post' && ! is_404() ) {
 		echo wp_kses_post( $delimiter );
 		wpst_handle_custom_post_type( $before, $after );
 

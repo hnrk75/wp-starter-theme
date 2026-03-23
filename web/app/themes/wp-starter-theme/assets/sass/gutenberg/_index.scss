@@ -1,15 +1,8 @@
 @use '../abstracts' as *;
-@use 'buttons';
-@use 'columns';
-@use 'embeds';
-@use 'gallery';
-@use 'images';
-@use 'quotes';
-@use 'separators';
-@use 'tables';
 
 // =============================================================
-// WP/Gutenberg Blocks — Shared alignment classes
+// Gutenberg — Alignment classes
+// WordPress adds these automatically to blocks.
 // =============================================================
 
 .alignleft  { float: left; }

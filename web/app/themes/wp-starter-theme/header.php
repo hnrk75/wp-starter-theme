@@ -16,7 +16,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> data-bs-no-jquery>
+<body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
 <a class="skip-link screen-reader-text" href="#main">
@@ -25,8 +25,8 @@
 
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
-		<nav class="navbar navbar-expand-lg navbar-light" aria-label="<?php echo esc_attr__( 'Huvudmeny', 'wp-starter-theme' ); ?>">
-			<div class="container-fluid">
+		<div class="container">
+			<div class="site-header__inner">
 
 				<?php
 				get_template_part(
@@ -34,28 +34,30 @@
 					null,
 					array(
 						'logo_path'  => get_theme_file_path( 'assets/svg/logo.svg' ),
-						'class'      => 'navbar-brand',
+						'class'      => 'site-logo',
 						'aria_label' => get_bloginfo( 'name' ),
 						'link_url'   => home_url( '/' ),
 					)
 				);
 				?>
 
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#main-menu"
-					aria-controls="main-menu" aria-expanded="false"
-					aria-label="<?php echo esc_attr__( 'Växla navigering', 'wp-starter-theme' ); ?>">
-					<span class="navbar-toggler-icon" aria-hidden="true"></span>
+				<button class="site-nav__toggle" type="button"
+					aria-controls="main-nav"
+					aria-expanded="false"
+					aria-label="<?php echo esc_attr__( 'Öppna meny', 'wp-starter-theme' ); ?>">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="main-menu">
+				<nav class="site-nav" id="main-nav" aria-label="<?php echo esc_attr__( 'Huvudmeny', 'wp-starter-theme' ); ?>">
 					<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'main-menu',
 							'container'      => false,
-							'menu_class'     => 'navbar-nav ms-auto',
-							'menu_id'        => 'bootscore-navbar',
+							'menu_class'     => 'site-nav__menu',
+							'menu_id'        => 'main-menu',
 							'fallback_cb'    => '__return_false',
 							'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 							'depth'          => 2,
@@ -63,10 +65,10 @@
 						)
 					);
 					?>
-				</div>
+				</nav>
 
 			</div>
-		</nav>
+		</div>
 	</header>
 
 	<?php

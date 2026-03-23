@@ -14,7 +14,7 @@
 	padding-inline: var(--space-sm);
 }
 
-// .container — fixad bredd vid varje breakpoint
+// Fixed width at each breakpoint
 .container {
 	@include mq-up(sm) {
 		max-width: 33.75rem;
@@ -37,7 +37,7 @@
 	}
 }
 
-// Responsiva varianter — fluid under angiven breakpoint
+// Fluid below the named breakpoint
 .container-sm {
 	@include mq-up(sm) {
 		max-width: 33.75rem;
@@ -108,7 +108,7 @@
 	}
 }
 
-// Alltid full bredd
+// Always full width
 .container-fluid {
 	width: 100%;
 	margin-inline: auto;

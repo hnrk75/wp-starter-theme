@@ -7,6 +7,23 @@
 .site-footer {
 	background-color: $color-gray-light;
 	margin-top: 4rem;
-	padding-top: 4rem;
-	padding-bottom: 4rem;
+	padding-block: 4rem;
+
+	&__widgets {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+
+		@include mq-up(md) {
+			grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+		}
+	}
+
+	&__copyright {
+		margin-top: 2rem;
+		padding-top: 2rem;
+		border-top: 1px solid $color-gray-medium;
+		font-size: 0.875rem;
+		color: $color-gray-dark;
+	}
 }

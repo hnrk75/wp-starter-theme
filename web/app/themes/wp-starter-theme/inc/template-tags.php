@@ -31,21 +31,21 @@ if ( ! function_exists( 'wpst_posted_on' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( (int) get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="posted-on"><i class="far fa-clock" aria-hidden="true"></i> ' . wp_kses_post( $posted_on ) . '</span>';
-		echo ' <span class="byline"><i class="far fa-user" aria-hidden="true"></i> ' . wp_kses_post( $byline ) . '</span>';
+		echo '<span class="posted-on">' . wp_kses_post( $posted_on ) . '</span>';
+		echo ' <span class="byline">' . wp_kses_post( $byline ) . '</span>';
 
 		if ( 'post' === get_post_type() ) {
 			$categories_list = get_the_category_list( ', ' );
 			if ( $categories_list && wpst_categorized_blog() ) {
 				printf(
-					'<span class="cat-links"><i class="far fa-folder-open" aria-hidden="true"></i> %s</span>',
+					'<span class="cat-links">%s</span>',
 					wp_kses_post( $categories_list )
 				);
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link"><i class="far fa-comments" aria-hidden="true"></i> ';
+			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -66,7 +66,7 @@ if ( ! function_exists( 'wpst_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', ', ' );
 			if ( $tags_list ) {
 				printf(
-					'<span class="tags-links"><i class="fas fa-tags" aria-hidden="true"></i> %s</span>',
+					'<span class="tags-links">%s</span>',
 					wp_kses_post( $tags_list )
 				);
 			}
@@ -77,10 +77,10 @@ if ( ! function_exists( 'wpst_entry_footer' ) ) :
 				esc_html__( 'Redigera %s', 'wp-starter-theme' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			),
-			'<span class="edit-link float-right">',
+			'<span class="edit-link">',
 			'</span>',
 			0,
-			'btn btn-sm btn-danger'
+			'btn btn-sm btn-secondary'
 		);
 	}
 endif;
@@ -139,11 +139,11 @@ if ( ! function_exists( 'wpst_post_thumbnail' ) ) :
 			}
 		}
 
-		$post_id   = get_the_ID();
-		$thumb_id  = get_post_thumbnail_id( $post_id );
-		$alt_meta  = $thumb_id ? get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
-		$alt_meta  = is_string( $alt_meta ) ? trim( $alt_meta ) : '';
-		$img_class = trim( 'rounded ' . (string) $a['class'] );
+		$post_id  = get_the_ID();
+		$thumb_id = get_post_thumbnail_id( $post_id );
+		$alt_meta = $thumb_id ? get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
+		$alt_meta = is_string( $alt_meta ) ? trim( $alt_meta ) : '';
+		$img_class = trim( (string) $a['class'] );
 
 		$alt_for_img = ( 'single' === $a['context'] || 'page' === $a['context'] )
 			? ( $alt_meta !== '' ? $alt_meta : '' )

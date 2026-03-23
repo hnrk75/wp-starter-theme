@@ -2,7 +2,7 @@
   "type": "module",
   "name": "wp-starter-theme",
   "version": "1.0.0",
-  "description": "Bootstrap 5 WordPress starter theme with Gulp build pipeline",
+  "description": "Modern WordPress starter theme with Gulp build pipeline",
   "author": {
     "name": "Henrik Pettersson"
   },
@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
-    "bootstrap": "^5.3.3",
     "browser-sync": "^3.0.3",
     "chokidar-cli": "^3.0.0",
     "cross-env": "^7.0.3",
@@ -65,14 +64,9 @@
     "stylelint": "^16.25.0",
     "stylelint-config-standard-scss": "^16.0.0"
   },
-  "dependencies": {
-    "bootstrap-icons": "^1.11.3"
-  },
   "keywords": [
     "wordpress",
     "wordpress-theme",
-    "bootstrap",
-    "bootstrap5",
     "gulp",
     "starter-theme"
   ],

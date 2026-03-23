@@ -3,16 +3,16 @@
 // =============================================================
 
 // --- Colors ---------------------------------------------------
-$color-primary: #468189; // teal
-$color-secondary: #77aca2; // ljus teal
-$color-tertiary: #9dbebb; // blek teal
-$color-light: #f4e9cd; // sand/cream
-$color-dark: #031926; // navy
+$color-primary: #468189;
+$color-secondary: #77aca2;
+$color-tertiary: #9dbebb;
+$color-light: #f4e9cd;
+$color-dark: #031926;
 $color-white: #fff;
-$color-black: #031926; // navy som svart
-$color-gray-light: #eef2f1; // lätt teal-tonad
-$color-gray-medium: #b8c8c6; // mellangrå med teal-ton
-$color-gray-dark: #4a6267; // mörk teal-grå
+$color-black: #031926;
+$color-gray-light: #eef2f1;
+$color-gray-medium: #b8c8c6;
+$color-gray-dark: #4a6267;
 
 // --- Links ----------------------------------------------------
 $link-color: $color-primary;
@@ -35,15 +35,11 @@ $radius-pill: 50rem;
 // --- Transitions ----------------------------------------------
 $transition-base: 0.3s ease;
 
-// --- Breakpoints (mobile-first) -------------------------------
+// --- Breakpoints ----------------------------------------------
 $breakpoints: (
 	sm: 36rem,
-	// ~576px
 	md: 48rem,
-	// ~768px
 	lg: 64rem,
-	// ~1024px
 	xl: 75rem,
-	// ~1200px
-	xxl: 87.5rem, // ~1400px
+	xxl: 87.5rem,
 );
