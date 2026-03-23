@@ -59,10 +59,6 @@ get_header(); ?>
 						'next_text'          => '<span class="post-title">%title</span> <span class="meta-nav" aria-hidden="true">&rarr;</span>',
 					)
 				);
-
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
 			endwhile;
 			?>
 		</main>

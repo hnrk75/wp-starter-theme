@@ -1,6 +1,6 @@
 {
     "key": "group_wpst_image_text_block",
-    "title": "WPST Image Text Block",
+    "title": "WPST Bild & Text Block",
     "fields": [
         {
             "key": "field_wpst_itb_image",
@@ -200,6 +200,28 @@
             "allow_null": 0,
             "allow_in_bindings": 0,
             "layout": "horizontal"
+        },
+        {
+            "key": "field_69c149ed41b8c",
+            "label": "Utseende",
+            "name": "wpst_appearance",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_69c146045c06e"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -221,5 +243,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774270557
+    "modified": 1774275079
 }

@@ -23,7 +23,7 @@
 
 	&__content {
 		order: var(--itb-text-order, 2);
-		padding: var(--space-md);
+		padding-left: var(--space-md);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

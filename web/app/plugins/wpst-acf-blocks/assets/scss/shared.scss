@@ -16,6 +16,17 @@
 	}
 }
 
+// --- Block backgrounds ------------------------------------------
+.has-bg {
+	padding: var(--space-md);
+}
+
+.has-bg--light     { background-color: var(--color-light); color: var(--color-dark); }
+.has-bg--gray      { background-color: var(--color-gray-light); color: var(--color-dark); }
+.has-bg--dark      { background-color: var(--color-dark); color: var(--color-white); }
+.has-bg--primary   { background-color: var(--color-primary); color: var(--color-white); }
+.has-bg--secondary { background-color: var(--color-secondary); color: var(--color-dark); }
+
 // --- Block placeholder ------------------------------------------
 // Shown in the editor when a block has no content yet.
 

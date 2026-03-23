@@ -12,6 +12,7 @@
  *  wpst_itb_content        – textarea
  *  wpst_itb_link           – link (url, title, target)
  *  wpst_itb_link_position  – 'left' | 'right'
+ *  wpst_bg_color           – 'none' | 'light' | 'dark' | 'primary'
  *
  * @author Henrik Pettersson
  * @package WPST ACF Blocks
@@ -26,6 +27,7 @@ $text_size      = get_field( 'wpst_itb_text_size' ) ?: 'normal';
 $content        = get_field( 'wpst_itb_content' );
 $link           = get_field( 'wpst_itb_link' );
 $link_position  = get_field( 'wpst_itb_link_position' ) ?: 'left';
+$bg_color       = get_field( 'wpst_bg_color' ) ?: 'none';
 
 // Placeholder when block has no content yet.
 if ( empty( $image_id ) ) : ?>
@@ -50,6 +52,9 @@ $block_id   = ! empty( $block['anchor'] ) ? esc_attr( $block['anchor'] ) : 'imag
 $heading_id = $block_id . '-heading';
 
 $class_name = 'wpst-block image-text-block';
+if ( 'none' !== $bg_color ) {
+	$class_name .= ' has-bg has-bg--' . $bg_color;
+}
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . esc_attr( $block['className'] );
 }
@@ -70,17 +75,15 @@ $aria_attr = $heading
 		</div>
 	<?php endif; ?>
 
-	<div class="image-text-block__content">
+	<div class="image-text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
 		<?php if ( ! empty( $heading ) ) : ?>
-			<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>" class="image-text-block__heading">
+			<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>">
 				<?php echo esc_html( $heading ); ?>
 			</<?php echo esc_attr( $heading_level ); ?>>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $content ) ) : ?>
-			<div class="image-text-block__text<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
-				<?php echo wp_kses_post( $content ); ?>
-			</div>
+			<?php echo wp_kses_post( $content ); ?>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $link ) ) : ?>

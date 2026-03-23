@@ -9,18 +9,9 @@
 if ( ! function_exists( 'wpst_scripts' ) ) :
 	function wpst_scripts() {
 
-		// Google Fonts — heading (Playfair Display)
 		wp_enqueue_style(
-			'wpst-google-fonts-heading',
-			'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap',
-			array(),
-			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- external URL, no version needed
-		);
-
-		// Google Fonts — body (Inter)
-		wp_enqueue_style(
-			'wpst-google-fonts-body',
-			'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap',
+			'wpst-google-fonts',
+			'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap',
 			array(),
 			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- external URL, no version needed
 		);
@@ -39,10 +30,6 @@ if ( ! function_exists( 'wpst_scripts' ) ) :
 
 		wp_enqueue_script( 'wpst-scripts', $js_uri, array(), $js_ver, true );
 		wp_script_add_data( 'wpst-scripts', 'defer', true );
-
-		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-			wp_enqueue_script( 'comment-reply' );
-		}
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'wpst_scripts' );

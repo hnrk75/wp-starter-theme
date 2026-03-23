@@ -9,6 +9,7 @@
  *  wpst_tb_content        – textarea
  *  wpst_tb_link           – link (url, title, target)
  *  wpst_tb_link_position  – 'left' | 'right'
+ *  wpst_bg_color          – 'none' | 'light' | 'dark' | 'primary'
  *
  * @author Henrik Pettersson
  * @package WPST ACF Blocks
@@ -20,6 +21,7 @@ $text_size     = get_field( 'wpst_tb_text_size' ) ?: 'normal';
 $content       = get_field( 'wpst_tb_content' );
 $link          = get_field( 'wpst_tb_link' );
 $link_position = get_field( 'wpst_tb_link_position' ) ?: 'left';
+$bg_color      = get_field( 'wpst_bg_color' ) ?: 'none';
 
 // Placeholder when block has no content yet.
 if ( empty( $heading ) && empty( $content ) && empty( $link ) ) : ?>
@@ -36,6 +38,9 @@ $block_id   = ! empty( $block['anchor'] ) ? esc_attr( $block['anchor'] ) : 'text
 $heading_id = $block_id . '-heading';
 
 $class_name = 'wpst-block text-block';
+if ( 'none' !== $bg_color ) {
+	$class_name .= ' has-bg has-bg--' . $bg_color;
+}
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . esc_attr( $block['className'] );
 }
@@ -49,17 +54,17 @@ $aria_attr = $heading
 	class="<?php echo esc_attr( $class_name ); ?>"
 	<?php echo $aria_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
-	<?php if ( ! empty( $heading ) ) : ?>
-		<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>" class="text-block__heading">
-			<?php echo esc_html( $heading ); ?>
-		</<?php echo esc_attr( $heading_level ); ?>>
-	<?php endif; ?>
+	<div class="text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
+		<?php if ( ! empty( $heading ) ) : ?>
+			<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>">
+				<?php echo esc_html( $heading ); ?>
+			</<?php echo esc_attr( $heading_level ); ?>>
+		<?php endif; ?>
 
-	<?php if ( ! empty( $content ) ) : ?>
-		<div class="text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
+		<?php if ( ! empty( $content ) ) : ?>
 			<?php echo wp_kses_post( $content ); ?>
-		</div>
-	<?php endif; ?>
+		<?php endif; ?>
+	</div>
 
 	<?php if ( ! empty( $link ) ) : ?>
 		<div class="wpst-block__link-wrap wpst-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
