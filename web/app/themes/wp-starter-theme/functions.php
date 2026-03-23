@@ -86,7 +86,7 @@ add_action( 'after_setup_theme', 'wpst_register_navwalker' );
 // Includes
 locate_template( array( 'inc/breadcrumbs.php' ), true, true );
 locate_template( array( 'inc/helpers-buttons.php' ), true, true );
-locate_template( array( 'inc/helpers-svg.php' ), true, true );
+locate_template( array( 'inc/helpers-icon.php' ), true, true );
 locate_template( array( 'inc/scripts.php' ), true, true );
 locate_template( array( 'inc/template-tags.php' ), true, true );
 locate_template( array( 'inc/widgets.php' ), true, true );

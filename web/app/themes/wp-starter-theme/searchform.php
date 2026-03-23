@@ -11,7 +11,7 @@
 	action="<?php echo esc_url( home_url( '/' ) ); ?>"
 	aria-label="<?php echo esc_attr__( 'Sökformulär', 'wp-starter-theme' ); ?>">
 
-	<div class="input-group">
+	<div class="search-form__group">
 		<label for="search-field" class="screen-reader-text">
 			<?php echo esc_html__( 'Sök efter:', 'wp-starter-theme' ); ?>
 		</label>
@@ -19,7 +19,7 @@
 		<input
 			type="search"
 			id="search-field"
-			class="search-field form-control"
+			class="search-field"
 			placeholder="<?php echo esc_attr_x( 'Sök …', 'placeholder', 'wp-starter-theme' ); ?>"
 			value="<?php echo esc_attr( get_search_query() ); ?>"
 			name="s"

@@ -6,12 +6,9 @@
  * @package WP Starter Theme
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) : ?>
-	</div>
-	</div>
-	<?php
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
-endif;
+}
 ?>
 
 <aside id="secondary" class="widget-area" aria-label="<?php echo esc_attr__( 'Sidopanel', 'wp-starter-theme' ); ?>">

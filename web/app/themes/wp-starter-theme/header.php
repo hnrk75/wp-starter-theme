@@ -30,7 +30,7 @@
 
 				<?php
 				get_template_part(
-					'template-parts/svg-path',
+					'template-parts/logo',
 					null,
 					array(
 						'logo_path'  => get_theme_file_path( 'assets/svg/logo.svg' ),
