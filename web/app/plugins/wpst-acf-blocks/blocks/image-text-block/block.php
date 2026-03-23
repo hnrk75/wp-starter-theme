@@ -46,13 +46,10 @@ if ( '1/3' === $image_size ) {
 $image_order = 'right' === $image_position ? 2 : 1;
 $text_order  = 'right' === $image_position ? 1 : 2;
 
-// Lead only applies when there is no heading.
-$is_lead    = empty( $heading ) && 'lead' === $text_size;
-
 $block_id   = ! empty( $block['anchor'] ) ? esc_attr( $block['anchor'] ) : 'image-text-block-' . esc_attr( $block['id'] );
 $heading_id = $block_id . '-heading';
 
-$class_name = 'image-text-block' . ( $is_lead ? ' image-text-block--lead' : '' );
+$class_name = 'wpst-block image-text-block';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . esc_attr( $block['className'] );
 }
@@ -81,13 +78,13 @@ $aria_attr = $heading
 		<?php endif; ?>
 
 		<?php if ( ! empty( $content ) ) : ?>
-			<div class="image-text-block__text">
+			<div class="image-text-block__text<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
 				<?php echo wp_kses_post( $content ); ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $link ) ) : ?>
-			<div class="image-text-block__link-wrap image-text-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
+			<div class="wpst-block__link-wrap wpst-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
 				<a
 					href="<?php echo esc_url( $link['url'] ); ?>"
 					class="image-text-block__link"

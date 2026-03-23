@@ -35,9 +35,7 @@ endif;
 $block_id   = ! empty( $block['anchor'] ) ? esc_attr( $block['anchor'] ) : 'text-block-' . esc_attr( $block['id'] );
 $heading_id = $block_id . '-heading';
 
-// Lead only applies when there is no heading.
-$is_lead    = empty( $heading ) && 'lead' === $text_size;
-$class_name = 'text-block' . ( $is_lead ? ' text-block--lead' : '' );
+$class_name = 'wpst-block text-block';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . esc_attr( $block['className'] );
 }
@@ -58,13 +56,13 @@ $aria_attr = $heading
 	<?php endif; ?>
 
 	<?php if ( ! empty( $content ) ) : ?>
-		<div class="text-block__content">
+		<div class="text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
 			<?php echo wp_kses_post( $content ); ?>
 		</div>
 	<?php endif; ?>
 
 	<?php if ( ! empty( $link ) ) : ?>
-		<div class="text-block__link-wrap text-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
+		<div class="wpst-block__link-wrap wpst-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
 			<a
 				href="<?php echo esc_url( $link['url'] ); ?>"
 				class="text-block__link"

@@ -1,6 +1,21 @@
 // Shared styles for all ACF blocks.
 // Loaded globally via enqueue_block_assets.
 
+// --- Block spacing ----------------------------------------------
+.wpst-block {
+	margin-block: var(--space-md);
+}
+
+// --- Shared link wrap ------------------------------------------
+.wpst-block__link-wrap {
+	margin-top: var(--space-sm);
+	display: flex;
+
+	&--right {
+		justify-content: flex-end;
+	}
+}
+
 // --- Block placeholder ------------------------------------------
 // Shown in the editor when a block has no content yet.
 

@@ -50,6 +50,7 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 
 		// Editor styles
 		add_theme_support( 'editor-styles' );
+		add_editor_style( 'style.css' );
 		add_editor_style( 'editor-style.css' );
 	}
 endif;

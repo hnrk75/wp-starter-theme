@@ -56,13 +56,13 @@ h6,
 }
 
 // --- Text styles ---------------------------------------------
-.lead {
-	font-size: var(--wp--preset--font-size--lead);
+.has-large-font-size {
+	font-size: var(--wp--preset--font-size--large);
 }
 
 .caption,
 small {
-	font-size: var(--wp--preset--font-size--caption);
+	font-size: var(--wp--preset--font-size--small);
 	font-weight: $font-weight-normal;
 	line-height: 1.5;
 	color: $color-gray-dark;

@@ -49,20 +49,20 @@
 					"fluid": { "min": "0.875rem", "max": "1rem" }
 				},
 				{
-					"slug": "lead",
-					"name": "Lead",
+					"slug": "large",
+					"name": "Large (ingress)",
 					"size": "1.125rem",
 					"fluid": { "min": "1rem", "max": "1.125rem" }
 				},
 				{
-					"slug": "body",
-					"name": "Body",
+					"slug": "medium",
+					"name": "Medium (body)",
 					"size": "1rem",
 					"fluid": { "min": "0.875rem", "max": "1rem" }
 				},
 				{
-					"slug": "caption",
-					"name": "Caption",
+					"slug": "small",
+					"name": "Small (caption)",
 					"size": "0.75rem",
 					"fluid": { "min": "0.625rem", "max": "0.75rem" }
 				}
