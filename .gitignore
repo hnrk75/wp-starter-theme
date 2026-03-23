@@ -4,6 +4,7 @@ web/app/mu-plugins/*/
 
 web/app/plugins/*
 !web/app/plugins/.gitkeep
+!web/app/plugins/wpst-acf-blocks/
 
 web/app/upgrade
 web/app/upgrade-temp-backup
