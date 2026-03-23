@@ -1,66 +1,85 @@
 # WP Starter Theme
 
-A modern WordPress theme built with **Bootstrap 5**, **Gulp**, and **Composer (Bedrock)**.  
-It follows WordPress Coding Standards (WPCS) and includes built-in linting and formatting for PHP, JS, and SCSS.
+A modern, Bootstrap-free WordPress starter theme built with SCSS (ITCSS), Gulp, and Bedrock.
+Follows WordPress Coding Standards (WPCS) with built-in linting for PHP, JS, and SCSS.
 
 ---
 
-## 📦 Theme Information
+## Theme Information
 
-**Theme Name:** WP Starter Theme  
-**Version:** 2.0.1  
-**Author:** [Henrik Pettersson](https://knowit.se/)  
-**License:** GPL-2.0  
-**License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
-
----
-
-## 🖥️ Description
-A responsive WordPress starter theme including **Bootstrap 5.3.3**, optimized for accessibility (WCAG), developer workflows, and clean front-end architecture.
+**Theme Name:** WP Starter Theme
+**Version:** 2.0.1
+**Author:** Henrik Pettersson
+**License:** GPL-2.0
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 ---
 
-## ⚙️ Installation (editor use)
-1. In the WordPress admin, go to **Appearance › Themes › Add New**.
-2. Click **Upload**, select the theme’s `.zip` file (e.g. `wp-starter-theme.zip`).
+## Description
+
+A responsive WordPress starter theme with a clean ITCSS/BEM SCSS architecture, fluid typography
+via theme.json, a Gulp 5 build pipeline, and full accessibility (WCAG) support.
+No Bootstrap — custom container system, spacing scale with clamp(), and Google Fonts via PHP.
+
+---
+
+## Requirements
+
+| Dependency | Minimum |
+|------------|---------|
+| WordPress  | 6.9     |
+| PHP        | 8.1     |
+| Node.js    | 20.x    |
+| npm        | 10.0    |
+| Composer   | 2.0     |
+
+---
+
+## Features
+
+- SCSS ITCSS architecture with @use/@forward (no Bootstrap)
+- Fluid typography via theme.json (clamp-based font sizes)
+- Fluid spacing scale (--space-xs to --space-xxl)
+- Gulp 5 build system — CSS, JS, BrowserSync, sourcemaps
+- Google Fonts loaded via wp_enqueue_style (heading + body)
+- Custom Bootstrap-like container system in rem
+- BEM methodology with consistent nesting
+- WCAG-compliant navigation with custom navwalker
+- Gutenberg support — editor-style, theme.json, alignment classes
+- Accessibility — skip link, aria-labels, screen-reader-text, focus-visible
+- Code linting via ESLint, Stylelint, Prettier, PHPCS and PHPStan
+
+---
+
+## Installation
+
+1. In WordPress admin, go to **Appearance › Themes › Add New**.
+2. Click **Upload**, select `wp-starter-theme.zip`.
 3. Click **Install Now**, then **Activate**.
 
 ---
 
-## 🧩 Theme Setup
-After activation, install and activate the recommended plugins for extra functionality (e.g. ACF, Yoast SEO, etc. as defined by the project).
+## Development
 
----
+Run from inside `web/app/themes/wp-starter-theme/`:
 
-## 🧱 Requirements
-| Dependency | Minimum |
-|-------------|----------|
-| WordPress | 6.0 |
-| PHP | 8.0 |
-| Node.js | 18.0 |
-| npm | 9.0 |
-| Composer | 2.0 |
-| Bootstrap | 5.3.3 |
-
----
-
-## ✨ Features
-- 🧭 Responsive design with Bootstrap 5  
-- 🎨 SCSS-based theming with sourcemaps (dev mode)  
-- 🧰 Gulp 5 build system (CSS + JS + BrowserSync)  
-- 🧹 Code linting via ESLint, Stylelint, Prettier, PHPCS & PHPStan  
-- 🧼 Auto-fix of PHP via PHPCBF when saving in watch mode  
-- 🗂️ Bedrock folder structure (`web/app/themes/…`)  
-
----
-
-## 🧠 Developer Guide
-
-### 1️⃣ Clone & install
 ```bash
-# From project root (Bedrock)
-composer install
+npm install        # Install dependencies
+npm run dev        # Watch + BrowserSync
+npm run build      # Production build
+npm run lint       # Lint JS, CSS and PHP
+npm run fix        # Auto-fix JS, CSS and PHP
+```
 
-# From theme folder
-cd web/app/themes/wp-starter-theme
-npm install
+---
+
+## SCSS Structure
+
+```
+assets/sass/
+├── abstracts/     # Variables, mixins, functions
+├── base/          # Reset, root (CSS custom properties), typography, accessibility
+├── layout/        # Grid/containers, header, footer, content
+├── components/    # Buttons, navigation, icons, card
+└── gutenberg/     # Editor alignment classes
+```
