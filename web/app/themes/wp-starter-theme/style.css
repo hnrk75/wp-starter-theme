@@ -21,7 +21,7 @@ Text Domain: wp-starter-theme
   --color-gray-medium: #b8c8c6;
   --color-gray-dark: #4a6267;
   --link-color: #468189;
-  --font-family-body: Source Sans 3, sans-serif;
+  --font-family-body: Inter, sans-serif;
   --font-family-heading: Playfair Display, serif;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
@@ -56,7 +56,7 @@ body {
   margin: 0;
   background-color: #fff;
   color: #031926;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: var(--wp--preset--font-size--body);
   font-weight: 400;
   font-variant-numeric: lining-nums proportional-nums;
@@ -75,13 +75,15 @@ svg {
   display: block;
 }
 
-a {
-  position: relative;
+a:not(.btn),
+a.btn-link {
   color: #468189;
   text-decoration: none;
   transition: color 0.3s ease;
+  position: relative;
 }
-a::before {
+a:not(.btn)::before,
+a.btn-link::before {
   content: "";
   position: absolute;
   left: 0;
@@ -93,12 +95,16 @@ a::before {
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-a:hover, a:focus-visible {
-  color: #468189;
-}
-a:hover::before, a:focus-visible::before {
+a:not(.btn):hover::before, a:not(.btn):focus-visible::before,
+a.btn-link:hover::before,
+a.btn-link:focus-visible::before {
   transform-origin: left;
   transform: scaleX(1);
+}
+a:not(.btn):hover, a:not(.btn):focus-visible,
+a.btn-link:hover,
+a.btn-link:focus-visible {
+  color: #468189;
 }
 
 strong,
@@ -112,7 +118,12 @@ ol {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: "Playfair Display", serif;
   font-weight: 700;
@@ -132,36 +143,42 @@ p {
   font-size: var(--wp--preset--font-size--display-1);
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: var(--wp--preset--font-size--h-1);
   font-weight: 700;
   line-height: 1.16;
   letter-spacing: -0.008em;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: var(--wp--preset--font-size--h-2);
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.006em;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: var(--wp--preset--font-size--h-3);
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: -0.004em;
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: var(--wp--preset--font-size--h-4);
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: var(--wp--preset--font-size--h-5);
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: var(--wp--preset--font-size--h-6);
 }
 
@@ -355,35 +372,38 @@ main:focus {
 
 .site-header {
   background-color: #eef2f1;
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-lg);
 }
 .site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  padding-block: 1rem;
+  gap: var(--space-md);
+  padding-block: var(--space-sm);
 }
-.site-header .site-logo {
+.site-header .site-logo__link {
   display: inline-block;
   flex-shrink: 0;
-  height: 3rem;
+  height: clamp(2rem, 4vw, 3rem);
   color: #031926;
   text-decoration: none;
 }
-.site-header .site-logo:focus-visible {
+.site-header .site-logo__link::before {
+  display: none;
+}
+.site-header .site-logo__link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(70, 129, 137, 0.25);
   transition: box-shadow 0.2s ease;
 }
-.site-header .site-logo svg {
+.site-header .site-logo__link svg {
   display: block;
   height: 100%;
   width: auto;
   fill: currentcolor;
   transition: fill 0.3s ease;
 }
-.site-header .site-logo:hover svg {
+.site-header .site-logo__link:hover svg {
   opacity: 0.75;
 }
 
@@ -395,7 +415,7 @@ main:focus {
 .content-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: var(--space-lg);
 }
 @media (width >= 48rem) {
   .content-layout {
@@ -413,13 +433,13 @@ main:focus {
 
 .site-footer {
   background-color: #eef2f1;
-  margin-top: 4rem;
-  padding-block: 4rem;
+  margin-top: var(--space-lg);
+  padding-block: var(--space-lg);
 }
 .site-footer__widgets {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: var(--space-md);
 }
 @media (width >= 48rem) {
   .site-footer__widgets {
@@ -427,8 +447,8 @@ main:focus {
   }
 }
 .site-footer__copyright {
-  margin-top: 2rem;
-  padding-top: 2rem;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
   border-top: 1px solid #b8c8c6;
   font-size: 0.875rem;
   color: #4a6267;

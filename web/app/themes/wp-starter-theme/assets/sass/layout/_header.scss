@@ -6,22 +6,24 @@
 
 .site-header {
 	background-color: $color-gray-light;
-	margin-bottom: 4rem;
+	margin-bottom: var(--space-lg);
 
 	&__inner {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 2rem;
-		padding-block: 1rem;
+		gap: var(--space-md);
+		padding-block: var(--space-sm);
 	}
 
-	.site-logo {
+	.site-logo__link {
 		display: inline-block;
 		flex-shrink: 0;
-		height: 3rem;
+		height: clamp(2rem, 4vw, 3rem);
 		color: $color-black;
 		text-decoration: none;
+
+		&::before { display: none; }
 
 		@include focus-visible-shadow;
 

@@ -65,7 +65,7 @@ $link_url   = isset( $args['link_url'] ) ? $args['link_url'] : '';
 $aria_label = $site_name;
 
 if ( ! empty( $link_url ) ) {
-	echo '<a href="' . esc_url( $link_url ) . '" aria-label="' . esc_attr( $aria_label ) . '">';
+	echo '<a href="' . esc_url( $link_url ) . '" class="site-logo__link" aria-label="' . esc_attr( $aria_label ) . '">';
 	echo ( '' !== $svg ) ? $svg : esc_html( $site_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo '</a>';
 } else {

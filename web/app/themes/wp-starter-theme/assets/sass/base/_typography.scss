@@ -16,33 +16,49 @@ p {
 }
 
 // --- Headings ------------------------------------------------
-h1, .h1 {
+h1,
+.h1 {
 	font-size: var(--wp--preset--font-size--h-1);
 	font-weight: $font-weight-bold;
 	line-height: 1.16;
 	letter-spacing: -0.008em;
 }
 
-h2, .h2 {
+h2,
+.h2 {
 	font-size: var(--wp--preset--font-size--h-2);
 	font-weight: $font-weight-bold;
 	line-height: 1.22;
 	letter-spacing: -0.006em;
 }
 
-h3, .h3 {
+h3,
+.h3 {
 	font-size: var(--wp--preset--font-size--h-3);
 	font-weight: $font-weight-normal;
 	line-height: 1.28;
 	letter-spacing: -0.004em;
 }
 
-h4, .h4 { font-size: var(--wp--preset--font-size--h-4); }
-h5, .h5 { font-size: var(--wp--preset--font-size--h-5); }
-h6, .h6 { font-size: var(--wp--preset--font-size--h-6); }
+h4,
+.h4 {
+	font-size: var(--wp--preset--font-size--h-4);
+}
+
+h5,
+.h5 {
+	font-size: var(--wp--preset--font-size--h-5);
+}
+
+h6,
+.h6 {
+	font-size: var(--wp--preset--font-size--h-6);
+}
 
 // --- Text styles ---------------------------------------------
-.lead    { font-size: var(--wp--preset--font-size--lead); }
+.lead {
+	font-size: var(--wp--preset--font-size--lead);
+}
 
 .caption,
 small {

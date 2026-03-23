@@ -9,10 +9,18 @@
 if ( ! function_exists( 'wpst_scripts' ) ) :
 	function wpst_scripts() {
 
-		// Google Fonts — Playfair Display + Source Sans 3
+		// Google Fonts — heading (Playfair Display)
 		wp_enqueue_style(
-			'wpst-google-fonts',
-			'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap',
+			'wpst-google-fonts-heading',
+			'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap',
+			array(),
+			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- external URL, no version needed
+		);
+
+		// Google Fonts — body (Inter)
+		wp_enqueue_style(
+			'wpst-google-fonts-body',
+			'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap',
 			array(),
 			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- external URL, no version needed
 		);
