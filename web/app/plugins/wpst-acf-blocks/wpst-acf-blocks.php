@@ -36,35 +36,13 @@ add_filter( 'block_categories_all', 'wpst_acf_block_category', 10, 2 );
 
 /**
  * Register ACF blocks.
+ * All block registrations live in inc/register-blocks.php.
  */
 function wpst_acf_register_blocks() {
 	if ( ! function_exists( 'acf_register_block_type' ) ) {
 		return;
 	}
 
-	// --- How to add a new block ------------------------------------
-	// 1. Copy blocks/text-block/ and rename the folder
-	// 2. Edit block.php — update class names and get_field() calls
-	// 3. Register ACF fields for the block in ACF UI or PHP
-	// 4. Add a new acf_register_block_type() call below, following
-	//    the same pattern as the text block.
-	// ---------------------------------------------------------------
-
-	// Text block
-	acf_register_block_type(
-		array(
-			'name'            => 'text-block',
-			'title'           => __( 'Textblock', 'wpst-acf-blocks' ),
-			'description'     => __( 'Ett enkelt block med rubrik och brödtext.', 'wpst-acf-blocks' ),
-			'render_template' => plugin_dir_path( __FILE__ ) . 'blocks/text-block/block.php',
-			'category'        => 'wpst-blocks',
-			'icon'            => 'editor-paragraph',
-			'keywords'        => array( 'text', 'rubrik', 'innehåll' ),
-			'supports'        => array(
-				'anchor' => true,
-				'align'  => false,
-			),
-		)
-	);
+	require_once plugin_dir_path( __FILE__ ) . 'inc/register-blocks.php';
 }
 add_action( 'acf/init', 'wpst_acf_register_blocks' );
