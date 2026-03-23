@@ -21,12 +21,32 @@ acf_register_block_type(
 	array(
 		'name'            => 'text-block',
 		'title'           => __( 'Textblock', 'wpst-acf-blocks' ),
-		'description'     => __( 'Ett enkelt block med rubrik och brödtext.', 'wpst-acf-blocks' ),
+		'description'     => __( 'Rubrik, text och valfri länk. Välj ingress-storlek när ingen rubrik används.', 'wpst-acf-blocks' ),
 		'render_template' => $blocks_path . 'text-block/block.php',
 		'enqueue_style'   => $blocks_url . 'text-block/block.css',
 		'category'        => 'wpst-blocks',
 		'icon'            => 'editor-paragraph',
-		'keywords'        => array( 'text', 'rubrik', 'innehåll' ),
+		'keywords'        => array( 'text', 'rubrik', 'ingress', 'innehåll' ),
+		'mode'            => 'preview',
+		'supports'        => array(
+			'anchor' => true,
+			'align'  => false,
+		),
+	)
+);
+
+// Image Text block
+acf_register_block_type(
+	array(
+		'name'            => 'image-text-block',
+		'title'           => __( 'Bild & text', 'wpst-acf-blocks' ),
+		'description'     => __( 'Block med bild och text sida vid sida. Välj bildbredd (1/2 eller 1/3) och position (vänster/höger).', 'wpst-acf-blocks' ),
+		'render_template' => $blocks_path . 'image-text-block/block.php',
+		'enqueue_style'   => $blocks_url . 'image-text-block/block.css',
+		'category'        => 'wpst-blocks',
+		'icon'            => 'columns',
+		'keywords'        => array( 'bild', 'text', 'media', 'kolumner' ),
+		'mode'            => 'preview',
 		'supports'        => array(
 			'anchor' => true,
 			'align'  => false,

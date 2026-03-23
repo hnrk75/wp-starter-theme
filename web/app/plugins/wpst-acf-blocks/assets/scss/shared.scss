@@ -1,0 +1,35 @@
+// Shared styles for all ACF blocks.
+// Loaded globally via enqueue_block_assets.
+
+// --- Block placeholder ------------------------------------------
+// Shown in the editor when a block has no content yet.
+
+.acf-block-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	border: 2px dashed #ccc;
+	border-radius: 4px;
+	background: #f9f9f9;
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		color: #999;
+		text-align: center;
+
+		.dashicons {
+			font-size: 2rem;
+			width: 2rem;
+			height: 2rem;
+		}
+
+		p {
+			margin: 0;
+			font-size: 0.875rem;
+		}
+	}
+}

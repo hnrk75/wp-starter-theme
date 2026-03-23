@@ -46,3 +46,33 @@ function wpst_acf_register_blocks() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/register-blocks.php';
 }
 add_action( 'acf/init', 'wpst_acf_register_blocks' );
+
+/**
+ * Tell ACF to save field group JSON to this plugin's acf-json/ folder.
+ */
+function wpst_acf_json_save_path( $path ) {
+	return plugin_dir_path( __FILE__ ) . 'acf-json';
+}
+add_filter( 'acf/settings/save_json', 'wpst_acf_json_save_path' );
+
+/**
+ * Tell ACF to load field group JSON from this plugin's acf-json/ folder.
+ */
+function wpst_acf_json_load_paths( $paths ) {
+	$paths[] = plugin_dir_path( __FILE__ ) . 'acf-json';
+	return $paths;
+}
+add_filter( 'acf/settings/load_json', 'wpst_acf_json_load_paths' );
+
+/**
+ * Enqueue shared block styles for both editor and front end.
+ */
+function wpst_acf_enqueue_shared_styles() {
+	wp_enqueue_style(
+		'wpst-acf-blocks-shared',
+		plugin_dir_url( __FILE__ ) . 'assets/css/shared.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'enqueue_block_assets', 'wpst_acf_enqueue_shared_styles' );
