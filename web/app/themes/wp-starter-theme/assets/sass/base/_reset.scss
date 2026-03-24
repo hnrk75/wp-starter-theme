@@ -34,7 +34,7 @@ svg {
 }
 
 // All links get the animated underline, except .btn (but not .btn-link)
-a:not(.btn),
+a:not(.btn, .skip-link, .screen-reader-text),
 a.btn-link {
 	color: $link-color;
 	text-decoration: none;

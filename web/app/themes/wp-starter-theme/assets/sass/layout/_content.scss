@@ -12,6 +12,11 @@
 	[class*='wp-block-'] {
 		margin-block: var(--space-md);
 	}
+
+	// Ta bort top-margin på första blocket när hero är överst
+	.has-hero-top [class*='wp-block-']:first-child {
+		margin-block-start: 0;
+	}
 }
 
 // Two-column layout: main content + sidebar

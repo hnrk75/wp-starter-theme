@@ -1,0 +1,68 @@
+// Hero Block
+// Alltid full bredd (alignfull). Bakgrund: färg, bild eller video.
+// Innehåll: h1 + ingress, centrerat horisontellt och vertikalt.
+
+.hero-block.wpst-block {
+	margin-block: 0;
+} // Overridar lägre specificitet
+
+.hero-block {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: clamp(24rem, 60vh, 48rem);
+
+	// --- Bakgrundslager ------------------------------------------
+	&__bg {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+	}
+
+	&__bg-img,
+	&__bg-video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	// --- Overlay för bild/video ----------------------------------
+	&--has-media {
+		color: var(--color-white);
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: rgb(0 0 0 / 0.45);
+		}
+	}
+
+	// --- Innerinnehåll -------------------------------------------
+	> .wpst-block__inner {
+		position: relative;
+		z-index: 1;
+		padding-block: var(--space-xl);
+		text-align: center;
+	}
+
+	&__heading {
+		font-size: var(--wp--preset--font-size--display-1);
+		margin-bottom: var(--space-sm);
+	}
+
+	&__ingress {
+		font-size: var(--wp--preset--font-size--large);
+		max-width: 50rem;
+		margin-inline: auto;
+	}
+
+	// --- Reduced motion ------------------------------------------
+	@media (prefers-reduced-motion: reduce) {
+		&__bg-video {
+			display: none;
+		}
+	}
+}

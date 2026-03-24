@@ -29,16 +29,11 @@
 			<div class="site-header__inner">
 
 				<?php
-				get_template_part(
-					'template-parts/logo',
-					null,
-					array(
-						'logo_path'  => get_theme_file_path( 'assets/svg/logo.svg' ),
-						'class'      => 'site-logo',
-						'aria_label' => get_bloginfo( 'name' ),
-						'link_url'   => home_url( '/' ),
-					)
-				);
+				if ( has_custom_logo() ) {
+					the_custom_logo();
+				} else {
+					echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="custom-logo-link" rel="home" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>';
+				}
 				?>
 
 				<button class="site-nav__toggle" type="button"

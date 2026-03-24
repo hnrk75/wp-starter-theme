@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$blocks_path = plugin_dir_path( dirname( __FILE__ ) ) . 'blocks/';
-$blocks_url  = plugin_dir_url( dirname( __FILE__ ) ) . 'blocks/';
+$blocks_path = plugin_dir_path( __DIR__ ) . 'blocks/';
+$blocks_url  = plugin_dir_url( __DIR__ ) . 'blocks/';
 
 // Text block
 acf_register_block_type(
@@ -27,6 +27,25 @@ acf_register_block_type(
 		'category'        => 'wpst-blocks',
 		'icon'            => 'editor-paragraph',
 		'keywords'        => array( 'text', 'rubrik', 'ingress', 'innehåll' ),
+		'mode'            => 'preview',
+		'supports'        => array(
+			'anchor' => true,
+			'align'  => array( 'full' ),
+		),
+	)
+);
+
+// Hero block
+acf_register_block_type(
+	array(
+		'name'            => 'hero-block',
+		'title'           => __( 'Hero', 'wpst-acf-blocks' ),
+		'description'     => __( 'Full bredd med bakgrundsfärg, bild eller video. H1 och ingress centrerat.', 'wpst-acf-blocks' ),
+		'render_template' => $blocks_path . 'hero-block/block.php',
+		'enqueue_style'   => $blocks_url . 'hero-block/block.css',
+		'category'        => 'wpst-blocks',
+		'icon'            => 'cover-image',
+		'keywords'        => array( 'hero', 'banner', 'cover', 'topp' ),
 		'mode'            => 'preview',
 		'supports'        => array(
 			'anchor' => true,
@@ -49,7 +68,7 @@ acf_register_block_type(
 		'mode'            => 'preview',
 		'supports'        => array(
 			'anchor' => true,
-			'align'  => false,
+			'align'  => array( 'full' ),
 		),
 	)
 );

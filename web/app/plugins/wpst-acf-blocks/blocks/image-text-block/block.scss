@@ -5,9 +5,11 @@
 //   --itb-text-order   : visual order of text column
 
 .image-text-block {
-	display: grid;
-	grid-template-columns: var(--itb-columns, 1fr 1fr);
-	align-items: stretch;
+	> .wpst-block__inner {
+		display: grid;
+		grid-template-columns: var(--itb-columns, 1fr 1fr);
+		align-items: stretch;
+	}
 
 	&__image {
 		order: var(--itb-image-order, 1);
@@ -23,14 +25,16 @@
 
 	&__content {
 		order: var(--itb-text-order, 2);
-		padding-left: var(--space-md);
+		padding-inline-start: var(--space-md);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 	}
 
 	@media (width < 48rem) {
-		grid-template-columns: 1fr;
+		> .wpst-block__inner {
+			grid-template-columns: 1fr;
+		}
 
 		&__image {
 			order: 1;
@@ -39,6 +43,8 @@
 
 		&__content {
 			order: 2;
+			padding-inline-start: 0;
+			padding-block-start: var(--space-md);
 		}
 	}
 }

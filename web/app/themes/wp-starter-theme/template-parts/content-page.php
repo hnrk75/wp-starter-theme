@@ -5,15 +5,31 @@
  * @author Henrik Pettersson
  * @package WP Starter Theme
  */
+
+// Kolla om första blocket är vårt hero-block — döljer då page-title.
+$first_block_is_hero = false;
+foreach ( parse_blocks( get_the_content() ) as $block ) {
+	if ( ! empty( $block['blockName'] ) ) {
+		$first_block_is_hero = 'acf/hero-block' === $block['blockName'];
+		break;
+	}
+}
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> aria-labelledby="page-title-<?php the_ID(); ?>">
-
+<article
+	id="post-<?php the_ID(); ?>"
+	<?php post_class( $first_block_is_hero ? 'has-hero-top' : '' ); ?>
+	<?php if ( ! $first_block_is_hero ) : ?>
+		aria-labelledby="page-title-<?php echo esc_attr( get_the_ID() ); ?>"
+	<?php endif; ?>
+>
 	<?php wpst_post_thumbnail( array( 'context' => 'page' ) ); ?>
 
-	<header class="entry-header">
-		<?php the_title( '<h1 id="page-title-' . get_the_ID() . '" class="entry-title">', '</h1>' ); ?>
-	</header>
+	<?php if ( ! $first_block_is_hero ) : ?>
+		<header class="entry-header">
+			<?php the_title( '<h1 id="page-title-' . get_the_ID() . '" class="entry-title">', '</h1>' ); ?>
+		</header>
+	<?php endif; ?>
 
 	<div class="entry-content">
 		<?php

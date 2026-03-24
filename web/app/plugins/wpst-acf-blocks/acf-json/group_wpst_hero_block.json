@@ -1,0 +1,198 @@
+{
+    "key": "group_wpst_hero_block",
+    "title": "WPST Hero Block",
+    "fields": [
+        {
+            "key": "field_wpst_hero_bg_type",
+            "label": "Bakgrundstyp",
+            "name": "wpst_hero_bg_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "color": "Färg",
+                "image": "Bild",
+                "video": "Video"
+            },
+            "default_value": "color",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_wpst_hero_bg_color",
+            "label": "Bakgrundsfärg",
+            "name": "wpst_hero_bg_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_wpst_hero_bg_type",
+                        "operator": "==",
+                        "value": "color"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "dark": "Mörk",
+                "primary": "Primär",
+                "secondary": "Sekundär",
+                "light": "Ljus (beige)",
+                "gray": "Grå"
+            },
+            "default_value": "dark",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_wpst_hero_bg_image",
+            "label": "Bakgrundsbild",
+            "name": "wpst_hero_bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Rekommenderad storlek: minst 1920×1080px",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_wpst_hero_bg_type",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_wpst_hero_bg_video",
+            "label": "Bakgrundsvideo (MP4)",
+            "name": "wpst_hero_bg_video",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Länk till en MP4-fil. Videon spelas upp automatiskt, utan ljud och loopar.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_wpst_hero_bg_type",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "https:\/\/..."
+        },
+        {
+            "key": "field_wpst_hero_heading",
+            "label": "Rubrik (H1)",
+            "name": "wpst_hero_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_wpst_hero_ingress",
+            "label": "Ingress",
+            "name": "wpst_hero_ingress",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1774337218
+}

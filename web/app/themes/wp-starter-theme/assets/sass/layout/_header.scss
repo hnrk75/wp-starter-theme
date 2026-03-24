@@ -8,6 +8,12 @@
 	background-color: $color-gray-light;
 	margin-bottom: var(--space-lg);
 
+
+	// Ta bort margin när hero är första block
+	body:has(.has-hero-top) & {
+		margin-bottom: 0;
+	}
+
 	&__inner {
 		display: flex;
 		align-items: center;
@@ -16,10 +22,16 @@
 		padding-block: var(--space-sm);
 	}
 
-	.site-logo__link {
+	// Textfallback när ingen logotyp är uppladdad
+	.custom-logo-link:not(:has(.custom-logo)) {
+		font-family: $font-family-heading;
+		font-weight: $font-weight-bold;
+		font-size: var(--wp--preset--font-size--h-3);
+	}
+
+	.custom-logo-link {
 		display: inline-block;
 		flex-shrink: 0;
-		height: clamp(2rem, 4vw, 3rem);
 		color: $color-black;
 		text-decoration: none;
 
@@ -27,16 +39,14 @@
 
 		@include focus-visible-shadow;
 
-		svg {
-			display: block;
-			height: 100%;
-			width: auto;
-			fill: currentcolor;
-			transition: fill $transition-base;
-		}
-
-		&:hover svg {
+		&:hover {
 			opacity: 0.75;
 		}
+	}
+
+	.custom-logo {
+		display: block;
+		height: clamp(2rem, 4vw, 3rem);
+		width: auto;
 	}
 }

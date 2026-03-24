@@ -33,7 +33,7 @@
 	}
 
 	@include mq-up(xxl) {
-		max-width: 82.5rem;
+		max-width: var(--container-max-width);
 	}
 }
 
@@ -56,7 +56,7 @@
 	}
 
 	@include mq-up(xxl) {
-		max-width: 82.5rem;
+		max-width: var(--container-max-width);
 	}
 }
 
@@ -74,7 +74,7 @@
 	}
 
 	@include mq-up(xxl) {
-		max-width: 82.5rem;
+		max-width: var(--container-max-width);
 	}
 }
 
@@ -88,7 +88,7 @@
 	}
 
 	@include mq-up(xxl) {
-		max-width: 82.5rem;
+		max-width: var(--container-max-width);
 	}
 }
 
@@ -98,13 +98,13 @@
 	}
 
 	@include mq-up(xxl) {
-		max-width: 82.5rem;
+		max-width: var(--container-max-width);
 	}
 }
 
 .container-xxl {
 	@include mq-up(xxl) {
-		max-width: 82.5rem;
+		max-width: var(--container-max-width);
 	}
 }
 

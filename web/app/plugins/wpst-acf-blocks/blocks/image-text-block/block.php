@@ -19,15 +19,22 @@
  */
 
 $image_id       = get_field( 'wpst_itb_image' );
-$image_size     = get_field( 'wpst_itb_image_size' ) ?: '1/2';
-$image_position = get_field( 'wpst_itb_image_position' ) ?: 'left';
+$image_size     = get_field( 'wpst_itb_image_size' );
+$image_size     = $image_size ? $image_size : '1/2';
+$image_position = get_field( 'wpst_itb_image_position' );
+$image_position = $image_position ? $image_position : 'left';
 $heading        = get_field( 'wpst_itb_heading' );
-$heading_level  = get_field( 'wpst_itb_heading_level' ) ?: 'h2';
-$text_size      = get_field( 'wpst_itb_text_size' ) ?: 'normal';
+$heading_level  = get_field( 'wpst_itb_heading_level' );
+$heading_level  = $heading_level ? $heading_level : 'h2';
+$text_size      = get_field( 'wpst_itb_text_size' );
+$text_size      = $text_size ? $text_size : 'normal';
 $content        = get_field( 'wpst_itb_content' );
-$link           = get_field( 'wpst_itb_link' );
-$link_position  = get_field( 'wpst_itb_link_position' ) ?: 'left';
-$bg_color       = get_field( 'wpst_bg_color' ) ?: 'none';
+$block_link     = get_field( 'wpst_itb_link' );
+$link_position  = get_field( 'wpst_itb_link_position' );
+$link_position  = $link_position ? $link_position : 'left';
+$bg_color    = get_field( 'wpst_bg_color' );
+$bg_color    = $bg_color ? $bg_color : 'none';
+$block_align = ! empty( $block['align'] ) ? $block['align'] : '';
 
 // Placeholder when block has no content yet.
 if ( empty( $image_id ) ) : ?>
@@ -37,7 +44,8 @@ if ( empty( $image_id ) ) : ?>
 			<p><?php echo esc_html__( 'Bild & text — välj en bild i högerpanelen.', 'wpst-acf-blocks' ); ?></p>
 		</div>
 	</div>
-	<?php return;
+	<?php
+	return;
 endif;
 
 if ( '1/3' === $image_size ) {
@@ -55,6 +63,9 @@ $class_name = 'wpst-block image-text-block';
 if ( 'none' !== $bg_color ) {
 	$class_name .= ' has-bg has-bg--' . $bg_color;
 }
+if ( $block_align ) {
+	$class_name .= ' align' . $block_align;
+}
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . esc_attr( $block['className'] );
 }
@@ -66,36 +77,42 @@ $aria_attr = $heading
 <section
 	id="<?php echo esc_attr( $block_id ); ?>"
 	class="<?php echo esc_attr( $class_name ); ?>"
-	style="--itb-columns: <?php echo esc_attr( $columns ); ?>; --itb-image-order: <?php echo esc_attr( $image_order ); ?>; --itb-text-order: <?php echo esc_attr( $text_order ); ?>"
 	<?php echo $aria_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
-	<?php if ( $image_id ) : ?>
-		<div class="image-text-block__image" aria-hidden="true">
-			<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'image-text-block__img' ) ); ?>
-		</div>
-	<?php endif; ?>
-
-	<div class="image-text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
-		<?php if ( ! empty( $heading ) ) : ?>
-			<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>">
-				<?php echo esc_html( $heading ); ?>
-			</<?php echo esc_attr( $heading_level ); ?>>
-		<?php endif; ?>
-
-		<?php if ( ! empty( $content ) ) : ?>
-			<?php echo wp_kses_post( $content ); ?>
-		<?php endif; ?>
-
-		<?php if ( ! empty( $link ) ) : ?>
-			<div class="wpst-block__link-wrap wpst-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
-				<a
-					href="<?php echo esc_url( $link['url'] ); ?>"
-					class="image-text-block__link"
-					<?php if ( $link['target'] ) : ?>target="<?php echo esc_attr( $link['target'] ); ?>" rel="noopener noreferrer"<?php endif; ?>
-				>
-					<?php echo esc_html( $link['title'] ?: $link['url'] ); ?>
-				</a>
+	<div
+		class="wpst-block__inner"
+		style="--itb-columns: <?php echo esc_attr( $columns ); ?>; --itb-image-order: <?php echo esc_attr( $image_order ); ?>; --itb-text-order: <?php echo esc_attr( $text_order ); ?>"
+	>
+		<?php if ( $image_id ) : ?>
+			<div class="image-text-block__image" aria-hidden="true">
+				<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'image-text-block__img' ) ); ?>
 			</div>
 		<?php endif; ?>
+
+		<div class="image-text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
+			<?php if ( ! empty( $heading ) ) : ?>
+				<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>">
+					<?php echo esc_html( $heading ); ?>
+				</<?php echo esc_attr( $heading_level ); ?>>
+			<?php endif; ?>
+
+			<?php if ( ! empty( $content ) ) : ?>
+				<?php echo wp_kses_post( $content ); ?>
+			<?php endif; ?>
+
+			<?php if ( ! empty( $block_link ) ) : ?>
+				<div class="wpst-block__link-wrap wpst-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
+					<a
+						href="<?php echo esc_url( $block_link['url'] ); ?>"
+						class="btn btn-primary image-text-block__link"
+						<?php if ( $block_link['target'] ) : ?>
+							target="<?php echo esc_attr( $block_link['target'] ); ?>" rel="noopener noreferrer"
+						<?php endif; ?>
+					>
+						<?php echo esc_html( $block_link['title'] ? $block_link['title'] : $block_link['url'] ); ?>
+					</a>
+				</div>
+			<?php endif; ?>
+		</div>
 	</div>
 </section>

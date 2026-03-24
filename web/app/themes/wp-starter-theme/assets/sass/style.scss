@@ -25,6 +25,9 @@ Text Domain: wp-starter-theme
 @use 'layout/content';
 @use 'layout/footer';
 
+// === Gutenberg ===============================================
+@use 'gutenberg';
+
 // === Components ==============================================
 @use 'components/buttons';
 @use 'components/icons';

@@ -50,7 +50,7 @@ add_action( 'acf/init', 'wpst_acf_register_blocks' );
 /**
  * Tell ACF to save field group JSON to this plugin's acf-json/ folder.
  */
-function wpst_acf_json_save_path( $path ) {
+function wpst_acf_json_save_path( $_path ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	return plugin_dir_path( __FILE__ ) . 'acf-json';
 }
 add_filter( 'acf/settings/save_json', 'wpst_acf_json_save_path' );

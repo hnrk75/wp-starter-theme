@@ -7,6 +7,7 @@
 
     <!-- Vad som ska skannas -->
     <file>./web/app/themes/wp-starter-theme</file>
+    <file>./web/app/plugins/wpst-acf-blocks</file>
 
     <!-- Uteslut mappar/filer som inte ska scannas -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
@@ -60,6 +61,7 @@
         <properties>
             <property name="text_domain" type="array">
                 <element value="wp-starter-theme"/>
+                <element value="wpst-acf-blocks"/>
             </property>
         </properties>
     </rule>

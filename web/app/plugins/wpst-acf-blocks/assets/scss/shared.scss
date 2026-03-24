@@ -8,7 +8,7 @@
 
 // --- Shared link wrap ------------------------------------------
 .wpst-block__link-wrap {
-	margin-top: var(--space-sm);
+	margin-block-start: var(--space-sm);
 	display: flex;
 
 	&--right {
@@ -21,11 +21,43 @@
 	padding: var(--space-md);
 }
 
-.has-bg--light     { background-color: var(--color-light); color: var(--color-dark); }
-.has-bg--gray      { background-color: var(--color-gray-light); color: var(--color-dark); }
-.has-bg--dark      { background-color: var(--color-dark); color: var(--color-white); }
-.has-bg--primary   { background-color: var(--color-primary); color: var(--color-white); }
-.has-bg--secondary { background-color: var(--color-secondary); color: var(--color-dark); }
+.has-bg--light {
+	background-color: var(--color-light);
+	color: var(--color-dark);
+}
+.has-bg--gray {
+	background-color: var(--color-gray-light);
+	color: var(--color-dark);
+}
+.has-bg--dark {
+	background-color: var(--color-dark);
+	color: var(--color-white);
+}
+.has-bg--primary {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+}
+.has-bg--secondary {
+	background-color: var(--color-secondary);
+	color: var(--color-dark);
+}
+
+// --- Block alignment (alignwide / alignfull) --------------------
+// alignfull: bakgrund full bredd, innehåll begränsat till container
+// alignwide: bredare än container men inte hel sida (se tema-CSS)
+
+.alignfull {
+	// Ta bort horisontell padding från has-bg – hanteras av inner-wrappern
+	&.has-bg {
+		padding-inline: 0;
+	}
+
+	> .wpst-block__inner {
+		max-width: var(--container-max-width);
+		margin-inline: auto;
+		padding-inline: var(--container-padding-inline);
+	}
+}
 
 // --- Block placeholder ------------------------------------------
 // Shown in the editor when a block has no content yet.
@@ -35,16 +67,16 @@
 	align-items: center;
 	justify-content: center;
 	padding: 2rem;
-	border: 2px dashed #ccc;
-	border-radius: 4px;
-	background: #f9f9f9;
+	border: 2px dashed var(--color-gray-medium);
+	border-radius: var(--radius-md);
+	background: var(--color-gray-light);
 
 	&__inner {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5rem;
-		color: #999;
+		color: var(--color-gray-dark);
 		text-align: center;
 
 		.dashicons {

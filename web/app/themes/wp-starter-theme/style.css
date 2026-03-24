@@ -27,6 +27,8 @@ Text Domain: wp-starter-theme
   --font-weight-bold: 700;
   --line-height-body: 1.6;
   --line-height-heading: 1.2;
+  --container-max-width: 82.5rem;
+  --container-padding-inline: var(--space-sm);
   --spacer: 1rem;
   --space-xs: clamp(0.375rem, 0.5vw, 0.625rem);
   --space-sm: clamp(0.625rem, 1vw, 1.25rem);
@@ -74,14 +76,14 @@ svg {
   display: block;
 }
 
-a:not(.btn),
+a:not(.btn, .skip-link, .screen-reader-text),
 a.btn-link {
   color: #468189;
   text-decoration: none;
   transition: color 0.3s ease;
   position: relative;
 }
-a:not(.btn)::before,
+a:not(.btn, .skip-link, .screen-reader-text)::before,
 a.btn-link::before {
   content: "";
   position: absolute;
@@ -94,13 +96,13 @@ a.btn-link::before {
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-a:not(.btn):hover::before, a:not(.btn):focus-visible::before,
+a:not(.btn, .skip-link, .screen-reader-text):hover::before, a:not(.btn, .skip-link, .screen-reader-text):focus-visible::before,
 a.btn-link:hover::before,
 a.btn-link:focus-visible::before {
   transform-origin: left;
   transform: scaleX(1);
 }
-a:not(.btn):hover, a:not(.btn):focus-visible,
+a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .screen-reader-text):focus-visible,
 a.btn-link:hover,
 a.btn-link:focus-visible {
   color: #468189;
@@ -357,7 +359,7 @@ main:focus {
 }
 @media (width >= 87.5rem) {
   .container {
-    max-width: 82.5rem;
+    max-width: var(--container-max-width);
   }
 }
 
@@ -383,7 +385,7 @@ main:focus {
 }
 @media (width >= 87.5rem) {
   .container-sm {
-    max-width: 82.5rem;
+    max-width: var(--container-max-width);
   }
 }
 
@@ -404,7 +406,7 @@ main:focus {
 }
 @media (width >= 87.5rem) {
   .container-md {
-    max-width: 82.5rem;
+    max-width: var(--container-max-width);
   }
 }
 
@@ -420,7 +422,7 @@ main:focus {
 }
 @media (width >= 87.5rem) {
   .container-lg {
-    max-width: 82.5rem;
+    max-width: var(--container-max-width);
   }
 }
 
@@ -431,13 +433,13 @@ main:focus {
 }
 @media (width >= 87.5rem) {
   .container-xl {
-    max-width: 82.5rem;
+    max-width: var(--container-max-width);
   }
 }
 
 @media (width >= 87.5rem) {
   .container-xxl {
-    max-width: 82.5rem;
+    max-width: var(--container-max-width);
   }
 }
 
@@ -451,6 +453,9 @@ main:focus {
   background-color: #eef2f1;
   margin-bottom: var(--space-lg);
 }
+body:has(.has-hero-top) .site-header {
+  margin-bottom: 0;
+}
 .site-header__inner {
   display: flex;
   align-items: center;
@@ -458,30 +463,32 @@ main:focus {
   gap: var(--space-md);
   padding-block: var(--space-sm);
 }
-.site-header .site-logo__link {
+.site-header .custom-logo-link:not(:has(.custom-logo)) {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: var(--wp--preset--font-size--h-3);
+}
+.site-header .custom-logo-link {
   display: inline-block;
   flex-shrink: 0;
-  height: clamp(2rem, 4vw, 3rem);
   color: #031926;
   text-decoration: none;
 }
-.site-header .site-logo__link::before {
+.site-header .custom-logo-link::before {
   display: none;
 }
-.site-header .site-logo__link:focus-visible {
+.site-header .custom-logo-link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(70, 129, 137, 0.25);
   transition: box-shadow 0.2s ease;
 }
-.site-header .site-logo__link svg {
-  display: block;
-  height: 100%;
-  width: auto;
-  fill: currentcolor;
-  transition: fill 0.3s ease;
-}
-.site-header .site-logo__link:hover svg {
+.site-header .custom-logo-link:hover {
   opacity: 0.75;
+}
+.site-header .custom-logo {
+  display: block;
+  height: clamp(2rem, 4vw, 3rem);
+  width: auto;
 }
 
 .site-content {
@@ -490,6 +497,9 @@ main:focus {
 }
 .site-content [class*=wp-block-] {
   margin-block: var(--space-md);
+}
+.site-content .has-hero-top [class*=wp-block-]:first-child {
+  margin-block-start: 0;
 }
 
 .content-layout {
@@ -532,6 +542,31 @@ main:focus {
   border-top: 1px solid #b8c8c6;
   font-size: 0.875rem;
   color: #4a6267;
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.aligncenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignwide {
+  margin-inline: calc(25% - 25vw);
+  max-width: 100vw;
+}
+
+.alignfull {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 .btn:focus-visible {
