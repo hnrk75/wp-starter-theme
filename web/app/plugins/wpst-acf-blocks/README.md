@@ -1,74 +1,74 @@
 # WPST ACF Blocks
 
-Custom ACF blocks för wp-starter-theme. Kräver **Advanced Custom Fields Pro**.
+Custom ACF blocks for wp-starter-theme. Requires **Advanced Custom Fields Pro**.
 
-## Krav
+## Requirements
 
 - WordPress 6.4+
 - PHP 8.1+
 - ACF Pro
 - Node 20.x / npm 10+
 
-## Struktur
+## Structure
 
 ```
 wpst-acf-blocks/
-├── acf-json/               # ACF fältgrupper (versionshanteras)
+├── acf-json/               # ACF field groups (version controlled)
 ├── assets/scss/
-│   └── shared.scss         # Delade stilar (bakgrundsfärger m.m.)
+│   └── shared.scss         # Shared styles (background colors etc.)
 ├── blocks/
 │   ├── hero-block/         # block.php, block.scss, block.css
-│   ├── text-block/         # block.php, block.scss, block.css
-│   └── image-text-block/   # block.php, block.scss, block.css
+│   ├── image-text-block/   # block.php, block.scss, block.css
+│   └── text-block/         # block.php, block.scss, block.css
 ├── inc/
-│   └── register-blocks.php # Registrering av alla block
-└── wpst-acf-blocks.php     # Plugin-entry
+│   └── register-blocks.php # Block registration
+└── wpst-acf-blocks.php     # Plugin entry
 ```
 
-## Gulp-pipeline
+## Gulp pipeline
 
-Kompilerar SCSS → CSS för varje block samt för `assets/scss/shared.scss`.
+Compiles SCSS → CSS for each block and for `assets/scss/shared.scss`.
 
 ```bash
 npm install
 
-# Utveckling med watch
+# Development with watch
 npm run dev
 
-# Produktionsbygge (minifierat)
+# Production build (minified)
 npm run build
 
-# Linta SCSS
+# Lint SCSS
 npm run lint:css
 npm run lint:css:fix
 ```
 
-## Delade fält (ACF Clone)
+## Shared fields (ACF Clone)
 
-Fältgruppen **WPST Blockutseende** (`group_wpst_block_appearance`) innehåller gemensamma fält som klonas in i varje block via ACF Clone-fältet med *Seamless*-visning.
+The field group **WPST Block Appearance** (`group_wpst_block_appearance`) contains shared fields that are cloned into each block via the ACF Clone field with *Seamless* display.
 
-Aktuella delade fält:
+Current shared fields:
 
-| Fält | Typ | Beskrivning |
-|------|-----|-------------|
-| `wpst_bg_color` | Select | Bakgrundsfärg: `none / light / gray / dark / primary / secondary` |
+| Field | Type | Description |
+|-------|------|-------------|
+| `wpst_bg_color` | Select | Background color: `none / light / gray / dark / primary / secondary` |
 
-CSS-klasser på `<section>`-elementet: `has-bg has-bg--{color}`. Stilar i `assets/scss/shared.scss`.
+CSS classes on the `<section>` element: `has-bg has-bg--{color}`. Styles in `assets/scss/shared.scss`.
 
-## Lägga till ett nytt block
+## Adding a new block
 
-1. Kopiera `blocks/text-block/` → `blocks/mitt-block/`
-2. Uppdatera klassnamn och `get_field()`-anrop i `block.php`
-3. Registrera blocket i `inc/register-blocks.php` (kopiera ett befintligt anrop och justera)
-4. Skapa fältgrupp i ACF och klona in önskade fält från *WPST Blockutseende*
-5. Kör `npm run dev` för att kompilera SCSS
+1. Copy `blocks/text-block/` → `blocks/my-block/`
+2. Update class names and `get_field()` calls in `block.php`
+3. Register the block in `inc/register-blocks.php` (copy an existing call and adjust)
+4. Create a field group in ACF and clone the desired fields from *WPST Block Appearance*
+5. Run `npm run dev` to compile SCSS
 
-### Lägga till ett nytt delat fält
+### Adding a new shared field
 
-1. Lägg till fältet i fältgruppen **WPST Blockutseende** i ACF
-2. Klona det specifika fältet i varje block som behöver det (Seamless = fältnamnet förblir oprefixat)
-3. Lägg till CSS i `assets/scss/shared.scss` vid behov
+1. Add the field to the **WPST Block Appearance** field group in ACF
+2. Clone the specific field into each block that needs it (Seamless = field name stays unprefixed)
+3. Add CSS to `assets/scss/shared.scss` if needed
 
 ## ACF JSON
 
-ACF-fältgrupper sparas och laddas automatiskt från `acf-json/`. Commita alltid ändringar i den mappen så att fältstrukturen följer med i versionshanteringen.
+ACF field groups are automatically saved and loaded from `acf-json/`. Always commit changes in that folder so the field structure is tracked in version control.

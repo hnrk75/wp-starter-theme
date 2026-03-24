@@ -16,7 +16,8 @@ project-root/
 ├── web/
 │   ├── app/
 │   │   ├── mu-plugins/        # Must-use plugins (autoloaded)
-│   │   ├── plugins/           # Managed via Composer
+│   │   ├── plugins/
+│   │   │   └── wpst-acf-blocks/   # Custom ACF blocks
 │   │   ├── themes/
 │   │   │   └── wp-starter-theme/
 │   │   └── uploads/           # Media (gitignored)
@@ -72,6 +73,13 @@ cd web/app/themes/wp-starter-theme
 npm install
 ```
 
+### 5. Install plugin dependencies
+
+```bash
+cd web/app/plugins/wpst-acf-blocks
+npm install
+```
+
 ---
 
 ## Theme development
@@ -92,9 +100,9 @@ npm run fix      # Auto-fix JS, CSS and PHP
 ### PHP (from project root)
 
 ```bash
-composer lint          # Run PHPCS
-composer lint:fix      # Auto-fix with PHPCBF
-composer analyze       # PHPStan static analysis
+composer lint              # Run PHPCS
+composer lint:fix          # Auto-fix with PHPCBF
+composer analyze           # PHPStan static analysis
 composer analyze:baseline  # Generate PHPStan baseline
 ```
 
