@@ -76,28 +76,33 @@
       "palette": [
         {
           "slug": "primary",
-          "color": "#468189",
-          "name": "Primary"
+          "color": "#34a0a4",
+          "name": "Tropical Teal"
         },
         {
           "slug": "secondary",
-          "color": "#77aca2",
-          "name": "Secondary"
+          "color": "#184e77",
+          "name": "Yale Blue"
         },
         {
           "slug": "tertiary",
-          "color": "#9dbebb",
-          "name": "Tertiary"
+          "color": "#76c893",
+          "name": "Emerald"
+        },
+        {
+          "slug": "accent",
+          "color": "#d9ed92",
+          "name": "Lime Cream"
         },
         {
           "slug": "light",
-          "color": "#f4e9cd",
-          "name": "Light"
+          "color": "#edfaf1",
+          "name": "Light Surface"
         },
         {
           "slug": "dark",
-          "color": "#031926",
-          "name": "Dark"
+          "color": "#0d2b3e",
+          "name": "Deep Navy"
         },
         {
           "slug": "white",
@@ -106,17 +111,17 @@
         },
         {
           "slug": "gray-light",
-          "color": "#eef2f1",
+          "color": "#e2eef2",
           "name": "Gray Light"
         },
         {
           "slug": "gray-medium",
-          "color": "#b8c8c6",
+          "color": "#7aaab8",
           "name": "Gray Medium"
         },
         {
           "slug": "gray-dark",
-          "color": "#4a6267",
+          "color": "#3a6677",
           "name": "Gray Dark"
         }
       ]

@@ -19,6 +19,11 @@
 	}
 }
 
+// Entry header → content spacing (h1 sits in entry-header, not entry-content)
+.entry-header + .entry-content {
+	margin-top: var(--space-sm);
+}
+
 // Two-column layout: main content + sidebar
 .content-layout {
 	display: grid;

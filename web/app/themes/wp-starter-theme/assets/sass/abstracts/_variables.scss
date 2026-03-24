@@ -3,16 +3,18 @@
 // =============================================================
 
 // --- Colors ---------------------------------------------------
-$color-primary: #468189;
-$color-secondary: #77aca2;
-$color-tertiary: #9dbebb;
-$color-light: #f4e9cd;
-$color-dark: #031926;
+// Scale: lime-cream → yale-blue
+$color-primary: #34a0a4; // tropical-teal
+$color-secondary: #184e77; // yale-blue
+$color-tertiary: #76c893; // emerald
+$color-accent: #d9ed92; // lime-cream
+$color-light: #edfaf1; // light surface
+$color-dark: #0d2b3e; // deep navy
 $color-white: #fff;
-$color-black: #031926;
-$color-gray-light: #eef2f1;
-$color-gray-medium: #b8c8c6;
-$color-gray-dark: #4a6267;
+$color-black: #0a1f2e;
+$color-gray-light: #e2eef2;
+$color-gray-medium: #7aaab8;
+$color-gray-dark: #3a6677;
 
 // --- Links ----------------------------------------------------
 $link-color: $color-primary;

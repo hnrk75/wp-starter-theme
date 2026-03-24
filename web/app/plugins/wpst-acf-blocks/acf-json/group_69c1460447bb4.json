@@ -18,11 +18,10 @@
             },
             "choices": {
                 "none": "Ingen",
-                "light": "Ljus (beige)",
+                "light": "Ljus",
                 "gray": "Grå",
-                "dark": "Mörk",
-                "primary": "Primär",
-                "secondary": "Sekundär"
+                "primary": "Teal",
+                "secondary": "Blå"
             },
             "default_value": false,
             "return_format": "value",
@@ -55,5 +54,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774275292
+    "modified": 1774349024
 }

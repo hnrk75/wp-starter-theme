@@ -73,18 +73,6 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	}
 }
 
-/**
- * Favicon fallback om ingen site icon är satt i admin.
- */
-function wpst_add_favicon() {
-	if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
-		return;
-	}
-	$template_uri = get_template_directory_uri();
-	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	echo '<link rel="icon" href="' . esc_url( $template_uri . '/assets/svg/favicon.svg' ) . '" type="image/svg+xml" />' . "\n";
-}
-add_action( 'wp_head', 'wpst_add_favicon' );
 
 /**
  * Ladda navwalker.

@@ -25,20 +25,19 @@
 	background-color: var(--color-light);
 	color: var(--color-dark);
 }
+
 .has-bg--gray {
 	background-color: var(--color-gray-light);
 	color: var(--color-dark);
 }
-.has-bg--dark {
-	background-color: var(--color-dark);
-	color: var(--color-white);
-}
+
 .has-bg--primary {
-	background-color: var(--color-primary);
-	color: var(--color-white);
+	background-color: color-mix(in srgb, var(--color-primary) 20%, white);
+	color: var(--color-dark);
 }
+
 .has-bg--secondary {
-	background-color: var(--color-secondary);
+	background-color: color-mix(in srgb, var(--color-secondary) 20%, white);
 	color: var(--color-dark);
 }
 
