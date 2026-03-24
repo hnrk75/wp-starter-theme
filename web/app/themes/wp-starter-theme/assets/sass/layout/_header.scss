@@ -9,7 +9,7 @@
 	margin-bottom: var(--space-lg);
 
 
-	// Ta bort margin när hero är första block
+	// Remove margin when hero is the first block
 	body:has(.has-hero-top) & {
 		margin-bottom: 0;
 	}
@@ -22,7 +22,7 @@
 		padding-block: var(--space-sm);
 	}
 
-	// Textfallback när ingen logotyp är uppladdad
+	// Text fallback when no logo is uploaded
 	.custom-logo-link:not(:has(.custom-logo)) {
 		font-family: $font-family-heading;
 		font-weight: $font-weight-bold;

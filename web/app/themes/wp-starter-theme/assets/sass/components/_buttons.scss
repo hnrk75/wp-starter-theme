@@ -92,33 +92,6 @@
 		}
 	}
 
-	// --- Sizes ---
-	&.btn-sm {
-		padding: 0.375rem 1rem;
-		font-size: 0.875rem;
-	}
-
-	&.btn-lg {
-		padding: 0.75rem 2rem;
-		font-size: 1.125rem;
-	}
-
-	// --- Icon inside button ---
-	.icon {
-		display: inline-flex;
-		line-height: 0;
-		flex: 0 0 auto;
-
-		svg {
-			width: 1em;
-			height: 1em;
-			display: block;
-			fill: currentcolor;
-			stroke: currentcolor;
-		}
-	}
-
-	// --- Ghost ---
 	&.btn-ghost {
 		background: transparent;
 		border: 0.0625rem solid $color-gray-medium;
@@ -129,18 +102,15 @@
 		}
 	}
 
-	// --- Link (unstyled) ---
-	&.btn-link {
-		background: none;
-		border: 0;
-		padding: 0;
-		font: inherit;
-		color: $link-color;
-		text-decoration: none;
+	// --- Sizes ---
+	&.btn-sm {
+		padding: 0.375rem 1rem;
+		font-size: 0.875rem;
+	}
 
-		&:hover {
-			color: $color-primary;
-		}
+	&.btn-lg {
+		padding: 0.75rem 2rem;
+		font-size: 1.125rem;
 	}
 }
 

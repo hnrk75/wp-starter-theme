@@ -4,7 +4,7 @@
 // Navigation
 // =============================================================
 
-// --- Hamburger toggle (sits outside <nav> in DOM) ------------
+// --- Hamburger toggle ----------------------------------------
 .site-nav__toggle {
 	display: flex;
 	flex-direction: column;
@@ -25,13 +25,23 @@
 		height: 2px;
 		background-color: currentcolor;
 		border-radius: 1px;
-		transition: transform $transition-base, opacity $transition-base;
+		transition:
+			transform $transition-base,
+			opacity $transition-base;
 	}
 
 	&[aria-expanded='true'] {
-		span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-		span:nth-child(2) { opacity: 0; }
-		span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+		span:nth-child(1) {
+			transform: translateY(7px) rotate(45deg);
+		}
+
+		span:nth-child(2) {
+			opacity: 0;
+		}
+
+		span:nth-child(3) {
+			transform: translateY(-7px) rotate(-45deg);
+		}
 	}
 
 	@include mq-up(lg) {

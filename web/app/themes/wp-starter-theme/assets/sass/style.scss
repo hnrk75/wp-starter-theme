@@ -29,6 +29,7 @@ Text Domain: wp-starter-theme
 @use 'gutenberg';
 
 // === Components ==============================================
+@use 'components/links';
 @use 'components/buttons';
 @use 'components/icons';
 @use 'components/navigation';

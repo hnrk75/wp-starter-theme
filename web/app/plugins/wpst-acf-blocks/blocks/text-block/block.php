@@ -77,16 +77,22 @@ $aria_attr = $heading
 		</div>
 
 		<?php if ( ! empty( $block_link ) ) : ?>
+			<?php
+			$link_url    = $block_link['url'];
+			$link_title  = $block_link['title'] ? $block_link['title'] : $link_url;
+			$link_target = ! empty( $block_link['target'] ) ? $block_link['target'] : '';
+			$link_host   = wp_parse_url( $link_url, PHP_URL_HOST );
+			$home_host   = wp_parse_url( home_url(), PHP_URL_HOST );
+			$is_external = ! empty( $link_host ) && $link_host !== $home_host;
+			$icon_name   = $is_external ? 'icon-extern-link' : 'icon-intern-link';
+			$icon_html   = function_exists( 'wpst_icon' ) ? wpst_icon( $icon_name, array( 'echo' => false ) ) : '';
+			?>
 			<div class="wpst-block__link-wrap wpst-block__link-wrap--<?php echo esc_attr( $link_position ); ?>">
 				<a
-					href="<?php echo esc_url( $block_link['url'] ); ?>"
-					class="btn btn-primary text-block__link"
-					<?php if ( $block_link['target'] ) : ?>
-						target="<?php echo esc_attr( $block_link['target'] ); ?>" rel="noopener noreferrer"
-					<?php endif; ?>
-				>
-					<?php echo esc_html( $block_link['title'] ? $block_link['title'] : $block_link['url'] ); ?>
-				</a>
+					href="<?php echo esc_url( $link_url ); ?>"
+					class="text-block__link link-icon"
+					<?php if ( $link_target ) : ?>target="<?php echo esc_attr( $link_target ); ?>" rel="noopener noreferrer"<?php endif; ?>
+				><?php echo esc_html( $link_title ); ?><?php echo $icon_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- sanitised via wp_kses ?></a>
 			</div>
 		<?php endif; ?>
 	</div>

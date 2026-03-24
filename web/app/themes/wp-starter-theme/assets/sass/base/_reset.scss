@@ -33,20 +33,6 @@ svg {
 	display: block;
 }
 
-// All links get the animated underline, except .btn (but not .btn-link)
-a:not(.btn, .skip-link, .screen-reader-text),
-a.btn-link {
-	color: $link-color;
-	text-decoration: none;
-	transition: color $transition-base;
-
-	@include link-underline;
-
-	&:hover,
-	&:focus-visible {
-		color: $color-primary;
-	}
-}
 
 strong,
 b {
