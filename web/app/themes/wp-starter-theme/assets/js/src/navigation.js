@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Mobile nav toggle
+ * Mobile nav toggle (off-canvas)
  */
 function initMobileNav() {
   const toggle = document.querySelector('.site-nav__toggle');
@@ -16,17 +16,83 @@ function initMobileNav() {
 
   if (!toggle || !nav) return;
 
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'site-nav-overlay';
+  document.body.appendChild(overlay);
+
+  // Elements that should be hidden from screen readers when nav is open
+  const mainContent = document.getElementById('content');
+  const siteFooter = document.querySelector('.site-footer');
+
+  function openNav() {
+    toggle.setAttribute('aria-expanded', 'true');
+    nav.classList.add('is-open');
+    overlay.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+
+    // Hide background from assistive technology
+    mainContent?.setAttribute('inert', '');
+    siteFooter?.setAttribute('inert', '');
+
+    // Move focus into the menu
+    const closeBtn = nav.querySelector('.site-nav__close');
+    closeBtn?.focus();
+  }
+
+  function closeNav(returnFocus = true) {
+    toggle.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('is-open');
+    overlay.classList.remove('is-visible');
+    document.body.style.overflow = '';
+
+    // Restore background interactivity
+    mainContent?.removeAttribute('inert');
+    siteFooter?.removeAttribute('inert');
+
+    if (returnFocus) toggle.focus();
+  }
+
+  const closeBtn = nav.querySelector('.site-nav__close');
+
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('is-open', !expanded);
+    expanded ? closeNav() : openNav();
   });
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-      toggle.setAttribute('aria-expanded', 'false');
-      nav.classList.remove('is-open');
+  closeBtn?.addEventListener('click', closeNav);
+  overlay.addEventListener('click', closeNav);
+
+  // Close when clicking any link inside the nav (including anchor links)
+  nav.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (link) closeNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      closeNav();
+      return;
+    }
+
+    // Focus trap: keep Tab inside the nav while it's open
+    if (e.key === 'Tab' && nav.classList.contains('is-open')) {
+      const focusable = Array.from(
+        nav.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0);
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 }
