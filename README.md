@@ -29,13 +29,13 @@ project-root/
 
 ## Requirements
 
-| Tool       | Minimum version |
-|------------|-----------------|
-| PHP        | 8.1             |
-| WordPress  | 6.9             |
-| Composer   | 2.0             |
-| Node.js    | 20.x            |
-| npm        | 10.0            |
+| Tool       | Minimum version | Dev environment |
+|------------|-----------------|-----------------|
+| PHP        | 8.1             | 8.5             |
+| WordPress  | 6.9             |                 |
+| Composer   | 2.0             |                 |
+| Node.js    | 20.x            |                 |
+| npm        | 10.0            |                 |
 
 ---
 
@@ -93,6 +93,17 @@ npm run lint     # Lint JS, CSS and PHP
 npm run fix      # Auto-fix JS, CSS and PHP
 ```
 
+## Plugin development
+
+Run inside `web/app/plugins/wpst-acf-blocks/`:
+
+```bash
+npm run dev          # Watch & compile block and shared SCSS
+npm run build        # Production build
+npm run lint:css     # Stylelint all SCSS
+npm run lint:css:fix # Auto-fix SCSS
+```
+
 ---
 
 ## Code quality
@@ -122,7 +133,7 @@ Only source code and configuration are versioned.
 
 Ignored:
 - `vendor/`, `node_modules/`, `uploads/`
-- Built assets (`style.min.css`, `scripts.min.js`, `.map`, `.zip`)
+- Built assets (`assets/css/*.min.css`, `*.min.js`, `.zip`)
 - Cache files (`.phpcs.cache`, `.eslintcache`, etc.)
 - Environment files (`.env`)
 

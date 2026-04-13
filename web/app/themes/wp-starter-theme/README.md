@@ -40,7 +40,7 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 - SCSS ITCSS architecture with @use/@forward (no Bootstrap)
 - Fluid typography via theme.json (clamp-based font sizes)
 - Fluid spacing scale (--space-xs to --space-xl)
-- Gulp 5 build system — CSS, JS, BrowserSync, sourcemaps
+- Gulp 5 build system — CSS, JS, BrowserSync
 - Google Fonts loaded via wp_enqueue_style (heading + body)
 - Custom Bootstrap-like container system in rem
 - BEM methodology with consistent nesting
@@ -53,9 +53,10 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 
 ## Installation
 
-1. In WordPress admin, go to **Appearance › Themes › Add New**.
-2. Click **Upload**, select `wp-starter-theme.zip`.
-3. Click **Install Now**, then **Activate**.
+This theme is part of a Bedrock project and is managed via Composer.
+See the project root `README.md` for full setup instructions.
+
+To activate, log in to WordPress admin and go to **Appearance › Themes**.
 
 ---
 
@@ -76,7 +77,7 @@ npm run fix        # Auto-fix JS, CSS and PHP
 ## SCSS structure
 
 ```
-assets/sass/
+assets/scss/
 ├── abstracts/     # Variables, mixins, functions
 ├── base/          # Reset, root (CSS custom properties), typography, accessibility
 ├── layout/        # Grid/containers, header, footer, content
@@ -89,8 +90,8 @@ assets/sass/
 ## Buttons & Links
 
 All CSS is located in:
-- `assets/sass/components/_links.scss` — all link styles
-- `assets/sass/components/_buttons.scss` — all button styles
+- `assets/scss/components/_links.scss` — all link styles
+- `assets/scss/components/_buttons.scss` — all button styles
 - PHP helper: `inc/helpers-buttons.php` → `wpst_button()`
 - SVG icons: `assets/svg/icon-intern-link.svg`, `icon-extern-link.svg`
 

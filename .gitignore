@@ -91,6 +91,7 @@ Thumbs.db
 
 # ───── Claude Code (lokala inställningar) ──────────────────────
 .claude/
+memory/
 
 # ───── Tooling configs (committas för enhetlig setup) ──────────
 # Dessa filer är inte ignorerade — ingen regel krävs, men listas här som dokumentation:
