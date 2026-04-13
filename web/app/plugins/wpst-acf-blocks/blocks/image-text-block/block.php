@@ -14,7 +14,6 @@
  *  wpst_itb_link_position  – 'left' | 'right'
  *  wpst_bg_color           – 'none' | 'light' | 'dark' | 'primary'
  *
- * @author Henrik Pettersson
  * @package WPST ACF Blocks
  */
 
@@ -85,7 +84,7 @@ $aria_attr = $heading
 	>
 		<?php if ( $image_id ) : ?>
 			<div class="image-text-block__image" aria-hidden="true">
-				<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'image-text-block__img' ) ); ?>
+				<?php echo wp_get_attachment_image( $image_id, 'wpst-4-3', false, array( 'class' => 'image-text-block__img' ) ); ?>
 			</div>
 		<?php endif; ?>
 

@@ -1,4 +1,13 @@
-/* Text Block */
-/* Typografi och rubriker hanteras av temats stilar (base/_typography.scss). */
-/* Blocklänk använder .btn.btn-primary från temat. */
-/* Bakgrundsklasser och länkwrapper hanteras av shared.scss. */
+// Text Block
+// Typography and headings are handled by the theme (base/_typography.scss).
+// Block link uses .btn.btn-primary from the theme.
+// Background classes and link wrapper are handled by shared.scss.
+
+// When "ingress" size is selected the wrapper gets has-large-font-size.
+// Mirror the theme's .lead max-width so paragraphs don't stretch full width.
+.text-block__content.has-large-font-size {
+	p {
+		max-width: var(--wpst-lead-max-width, 58ch);
+		line-height: 1.55;
+	}
+}

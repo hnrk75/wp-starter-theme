@@ -29,6 +29,12 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+
+		// When "ingress" size is selected mirror the theme's .lead max-width.
+		&.has-large-font-size p {
+			max-width: var(--wpst-lead-max-width, 58ch);
+			line-height: 1.55;
+		}
 	}
 
 	@media (width < 48rem) {

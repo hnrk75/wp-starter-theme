@@ -1,6 +1,6 @@
 // Hero Block
-// Alltid full bredd (alignfull). Bakgrund: färg, bild eller video.
-// Innehåll: h1 + ingress, centrerat horisontellt och vertikalt.
+// Always full width (alignfull). Background: color, image, or video.
+// Content: h1 + ingress, centred horizontally and vertically.
 
 .hero-block.wpst-block {
 	margin-block: 0;
@@ -13,7 +13,7 @@
 	justify-content: center;
 	min-height: clamp(24rem, 60vh, 48rem);
 
-	// --- Bakgrundslager ------------------------------------------
+	// --- Background layer ----------------------------------------
 	&__bg {
 		position: absolute;
 		inset: 0;
@@ -28,7 +28,7 @@
 		display: block;
 	}
 
-	// --- Overlay för bild/video ----------------------------------
+	// --- Overlay for image/video ---------------------------------
 	&--has-media {
 		color: var(--color-white);
 
@@ -40,7 +40,7 @@
 		}
 	}
 
-	// --- Innerinnehåll -------------------------------------------
+	// --- Inner content -------------------------------------------
 	> .wpst-block__inner {
 		position: relative;
 		z-index: 1;

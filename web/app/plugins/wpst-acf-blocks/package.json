@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "gulp",
     "build": "cross-env NODE_ENV=production gulp build",
-    "lint:css": "stylelint \"blocks/**/*.scss\"",
-    "lint:css:fix": "stylelint \"blocks/**/*.scss\" --fix"
+    "lint:css": "stylelint \"blocks/**/*.scss\" \"assets/scss/**/*.scss\"",
+    "lint:css:fix": "stylelint \"blocks/**/*.scss\" \"assets/scss/**/*.scss\" --fix"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

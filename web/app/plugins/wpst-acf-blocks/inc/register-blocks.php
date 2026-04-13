@@ -26,7 +26,7 @@ acf_register_block_type(
 		'enqueue_style'   => $blocks_url . 'text-block/block.css',
 		'category'        => 'wpst-blocks',
 		'icon'            => 'editor-paragraph',
-		'keywords'        => array( 'text', 'rubrik', 'ingress', 'innehåll' ),
+		'keywords'        => array( 'text', 'heading', 'ingress', 'content' ),
 		'mode'            => 'preview',
 		'supports'        => array(
 			'anchor' => true,
@@ -45,7 +45,7 @@ acf_register_block_type(
 		'enqueue_style'   => $blocks_url . 'hero-block/block.css',
 		'category'        => 'wpst-blocks',
 		'icon'            => 'cover-image',
-		'keywords'        => array( 'hero', 'banner', 'cover', 'topp' ),
+		'keywords'        => array( 'hero', 'banner', 'cover', 'header' ),
 		'mode'            => 'preview',
 		'supports'        => array(
 			'anchor' => true,
@@ -64,7 +64,7 @@ acf_register_block_type(
 		'enqueue_style'   => $blocks_url . 'image-text-block/block.css',
 		'category'        => 'wpst-blocks',
 		'icon'            => 'columns',
-		'keywords'        => array( 'bild', 'text', 'media', 'kolumner' ),
+		'keywords'        => array( 'image', 'text', 'media', 'columns' ),
 		'mode'            => 'preview',
 		'supports'        => array(
 			'anchor' => true,

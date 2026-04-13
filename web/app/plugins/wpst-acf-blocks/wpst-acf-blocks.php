@@ -18,6 +18,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Load plugin text domain for translations.
+ */
+function wpst_acf_load_textdomain() {
+	load_plugin_textdomain(
+		'wpst-acf-blocks',
+		false,
+		dirname( plugin_basename( __FILE__ ) ) . '/languages'
+	);
+}
+add_action( 'init', 'wpst_acf_load_textdomain' );
+
+/**
  * Add custom block category at the top of the inserter.
  */
 function wpst_acf_block_category( $categories ) {

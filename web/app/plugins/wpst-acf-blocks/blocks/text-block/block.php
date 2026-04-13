@@ -11,7 +11,6 @@
  *  wpst_tb_link_position  – 'left' | 'right'
  *  wpst_bg_color          – 'none' | 'light' | 'dark' | 'primary'
  *
- * @author Henrik Pettersson
  * @package WPST ACF Blocks
  */
 

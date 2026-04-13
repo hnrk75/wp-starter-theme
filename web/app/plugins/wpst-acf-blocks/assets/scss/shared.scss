@@ -1,6 +1,8 @@
 // Shared styles for all ACF blocks.
 // Loaded globally via enqueue_block_assets.
 
+@use "defaults";
+
 // --- Block spacing ----------------------------------------------
 .wpst-block {
 	margin-block: var(--space-md);
@@ -26,6 +28,11 @@
 	color: var(--color-dark);
 }
 
+.has-bg--dark {
+	background-color: var(--color-dark);
+	color: var(--color-white);
+}
+
 .has-bg--gray {
 	background-color: var(--color-gray-light);
 	color: var(--color-dark);
@@ -42,11 +49,11 @@
 }
 
 // --- Block alignment (alignwide / alignfull) --------------------
-// alignfull: bakgrund full bredd, innehåll begränsat till container
-// alignwide: bredare än container men inte hel sida (se tema-CSS)
+// alignfull: full-width background, content constrained to container
+// alignwide: wider than container but not full page (see theme CSS)
 
 .alignfull {
-	// Ta bort horisontell padding från has-bg – hanteras av inner-wrappern
+	// Remove horizontal padding from has-bg — handled by the inner wrapper
 	&.has-bg {
 		padding-inline: 0;
 	}

@@ -4,15 +4,14 @@
  *
  * Fields:
  *  wpst_hero_bg_type    – 'color' | 'image' | 'video'
- *  wpst_hero_bg_color   – 'dark' | 'primary' | ... (när bg_type = color)
- *  wpst_hero_bg_image   – image ID (när bg_type = image)
- *  wpst_hero_bg_video   – MP4-URL (när bg_type = video)
- *  wpst_hero_heading    – text, renderas som h1
+ *  wpst_hero_bg_color   – 'dark' | 'primary' | ... (when bg_type = color)
+ *  wpst_hero_bg_image   – image ID (when bg_type = image)
+ *  wpst_hero_bg_video   – MP4 URL (when bg_type = video)
+ *  wpst_hero_heading    – text, rendered as h1
  *  wpst_hero_ingress    – textarea
  *
- * Alltid full bredd (alignfull). Inget alignment-val för redaktören.
+ * Always full width (alignfull). No alignment option for the editor.
  *
- * @author Henrik Pettersson
  * @package WPST ACF Blocks
  */
 
@@ -62,7 +61,7 @@ if ( ! empty( $block['className'] ) ) {
 		<?php $image_id = get_field( 'wpst_hero_bg_image' ); ?>
 		<?php if ( $image_id ) : ?>
 			<div class="hero-block__bg" aria-hidden="true">
-				<?php echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'hero-block__bg-img' ) ); ?>
+				<?php echo wp_get_attachment_image( $image_id, 'wpst-hero', false, array( 'class' => 'hero-block__bg-img' ) ); ?>
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
