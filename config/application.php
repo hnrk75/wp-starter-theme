@@ -119,11 +119,12 @@ Config::define('DISALLOW_FILE_EDIT', true);
 Config::define('DISALLOW_FILE_MODS', true);
 
 // Limit the number of post revisions
-Config::define('WP_POST_REVISIONS', env('WP_POST_REVISIONS') ?? true);
+Config::define('WP_POST_REVISIONS', env('WP_POST_REVISIONS') ?? 5);
 
 /**
  * Debugging Settings
  */
+Config::define('WP_DEBUG', false);
 Config::define('WP_DEBUG_DISPLAY', false);
 Config::define('WP_DEBUG_LOG', false);
 Config::define('SCRIPT_DEBUG', false);

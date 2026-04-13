@@ -7,28 +7,28 @@
 
 $footer_widgets = array(
 	'footer-1' => array(
-		'label'       => 'Sidfot widgetområde 1',
+		'label'       => __( 'Sidfot widgetområde 1', 'wp-starter-theme' ),
 		'placeholder' => array(
 			'title' => get_bloginfo( 'name' ),
 			'text'  => esc_html__( 'Lägg till en beskrivning av er verksamhet här.', 'wp-starter-theme' ),
 		),
 	),
 	'footer-2' => array(
-		'label'       => 'Sidfot widgetområde 2',
+		'label'       => __( 'Sidfot widgetområde 2', 'wp-starter-theme' ),
 		'placeholder' => array(
 			'title' => esc_html__( 'Snabblänkar', 'wp-starter-theme' ),
 			'text'  => esc_html__( 'Lägg till en menylista eller länkwidget här.', 'wp-starter-theme' ),
 		),
 	),
 	'footer-3' => array(
-		'label'       => 'Sidfot widgetområde 3',
+		'label'       => __( 'Sidfot widgetområde 3', 'wp-starter-theme' ),
 		'placeholder' => array(
 			'title' => esc_html__( 'Kontakt', 'wp-starter-theme' ),
 			'text'  => esc_html__( 'Lägg till kontaktuppgifter eller en karta här.', 'wp-starter-theme' ),
 		),
 	),
 	'footer-4' => array(
-		'label'       => 'Sidfot widgetområde 4',
+		'label'       => __( 'Sidfot widgetområde 4', 'wp-starter-theme' ),
 		'placeholder' => array(
 			'title' => esc_html__( 'Övrigt', 'wp-starter-theme' ),
 			'text'  => esc_html__( 'Lägg till valfritt innehåll här.', 'wp-starter-theme' ),

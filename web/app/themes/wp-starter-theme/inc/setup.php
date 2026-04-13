@@ -42,7 +42,7 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 			)
 		);
 
-		// Custom logo via Utseende → Anpassa → Webbplatsidentitet
+		// Custom logo via Appearance → Customize → Site Identity
 		add_theme_support(
 			'custom-logo',
 			array(

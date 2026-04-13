@@ -13,3 +13,4 @@ locate_template( array( 'inc/helpers-icon.php' ), true, true );
 locate_template( array( 'inc/enqueue.php' ), true, true );
 locate_template( array( 'inc/template-tags.php' ), true, true );
 locate_template( array( 'inc/widgets.php' ), true, true );
+locate_template( array( 'inc/meta.php' ), true, true );
