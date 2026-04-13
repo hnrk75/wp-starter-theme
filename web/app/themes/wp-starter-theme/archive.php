@@ -2,7 +2,6 @@
 /**
  * The template for displaying archive pages
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
@@ -26,7 +25,7 @@ get_header(); ?>
 			<?php
 			while ( have_posts() ) :
 				the_post();
-				get_template_part( 'template-parts/content', get_post_format() );
+				get_template_part( 'template-parts/content/content', get_post_format() );
 			endwhile;
 
 			the_posts_pagination(
@@ -40,7 +39,7 @@ get_header(); ?>
 			?>
 
 		<?php else : ?>
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+			<?php get_template_part( 'template-parts/content/content', 'none' ); ?>
 		<?php endif; ?>
 	</main>
 </div>

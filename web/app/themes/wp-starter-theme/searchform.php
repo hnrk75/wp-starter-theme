@@ -2,7 +2,6 @@
 /**
  * Searchform
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 ?>

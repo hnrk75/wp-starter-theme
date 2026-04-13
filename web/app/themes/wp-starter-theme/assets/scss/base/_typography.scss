@@ -9,10 +9,13 @@ body {
 	font-size: var(--wp--preset--font-size--medium);
 	font-weight: $font-weight-regular;
 	line-height: 1.65;
+	overflow-wrap: break-word;
+	hyphens: auto;
 }
 
 p {
-	max-width: 65ch;
+	max-width: 70ch;
+	text-wrap: pretty;
 }
 
 p,
@@ -20,6 +23,12 @@ li,
 blockquote,
 figcaption {
 	font-size: var(--wp--preset--font-size--medium);
+}
+
+li,
+blockquote,
+figcaption {
+	max-width: 70ch;
 }
 
 // --- Display -------------------------------------------------
@@ -111,6 +120,14 @@ small {
 	font-weight: $font-weight-regular;
 	line-height: 1.5;
 	color: $color-gray-dark;
+}
+
+// --- Lead / Ingress ------------------------------------------
+.lead,
+.ingress {
+	font-size: var(--wp--preset--font-size--large);
+	line-height: 1.55;
+	max-width: 58ch;
 }
 
 // --- Vertical rhythm -----------------------------------------

@@ -2,7 +2,6 @@
 /**
  * Enqueue scripts and styles
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
@@ -16,7 +15,7 @@ if ( ! function_exists( 'wpst_scripts' ) ) :
 			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- external URL, no version needed
 		);
 
-		$css_rel  = 'style.min.css';
+		$css_rel  = 'assets/css/style.min.css';
 		$css_path = get_theme_file_path( $css_rel );
 		$css_uri  = get_theme_file_uri( $css_rel );
 		$css_ver  = file_exists( $css_path ) ? (string) filemtime( $css_path ) : null;

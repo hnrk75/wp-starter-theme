@@ -6,7 +6,6 @@
  * Usage: wpst_icon( 'arrow-right' );
  *        wpst_icon( 'arrow-right', [ 'class' => 'icon icon--sm', 'title' => 'Go forward' ] );
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

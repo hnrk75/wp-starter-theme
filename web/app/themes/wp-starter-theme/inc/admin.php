@@ -25,8 +25,8 @@ add_action(
 	}
 );
 
-// --- Dölj Site Editor (Design) ----------------------------------
-// Redaktörer skall inte se FSE/mönster — missvisande för klassiskt tema.
+// --- Hide Site Editor (Design) ----------------------------------
+// Editors should not see FSE/patterns — misleading for a classic theme.
 add_action(
 	'admin_menu',
 	function () {

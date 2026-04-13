@@ -3,7 +3,6 @@
  * The header for our theme
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 ?>
@@ -29,7 +28,9 @@
 			<div class="site-header__inner">
 
 				<?php
-				if ( has_custom_logo() ) {
+				if ( is_readable( get_theme_file_path( 'assets/svg/logo.svg' ) ) ) {
+					get_template_part( 'template-parts/components/logo' );
+				} elseif ( has_custom_logo() ) {
 					the_custom_logo();
 				} else {
 					echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="custom-logo-link" rel="home" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>';

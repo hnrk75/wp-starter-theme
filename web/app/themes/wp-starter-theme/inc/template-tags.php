@@ -2,7 +2,6 @@
 /**
  * Custom template tags
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
@@ -120,7 +119,7 @@ if ( ! function_exists( 'wpst_post_thumbnail' ) ) :
 
 		$defaults = array(
 			'context' => 'auto',
-			'size'    => 'full',
+			'size'    => null,
 			'class'   => '',
 			'link'    => null,
 			'eager'   => false,
@@ -137,6 +136,17 @@ if ( ! function_exists( 'wpst_post_thumbnail' ) ) :
 			} else {
 				$a['context'] = 'archive';
 			}
+		}
+
+		// Map context to image size if not explicitly set.
+		if ( null === $a['size'] ) {
+			$context_sizes = array(
+				'archive' => 'wpst-4-3',
+				'search'  => 'wpst-4-3',
+				'single'  => 'wpst-16-9',
+				'page'    => 'wpst-hero',
+			);
+			$a['size'] = isset( $context_sizes[ $a['context'] ] ) ? $context_sizes[ $a['context'] ] : 'full';
 		}
 
 		$post_id  = get_the_ID();

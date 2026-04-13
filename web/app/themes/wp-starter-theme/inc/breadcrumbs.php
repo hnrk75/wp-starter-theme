@@ -5,7 +5,6 @@
  * If the project uses Yoast SEO or RankMath, this file can be removed.
  * Replace with: yoast_breadcrumb( '<nav class="breadcrumb">', '</nav>' );
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

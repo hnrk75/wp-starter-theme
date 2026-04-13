@@ -2,7 +2,6 @@
 /**
  * Template part for displaying SVG logos.
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

@@ -1,4 +1,4 @@
-// Stäng av OS-popups från gulp-notify
+// Disable OS popups from gulp-notify
 process.env.DISABLE_NOTIFIER = 'true';
 
 import gulp from 'gulp';
@@ -13,7 +13,6 @@ import gulpSass from 'gulp-sass';
 import * as dartSass from 'sass';
 import browserSyncLib from 'browser-sync';
 import zip from 'gulp-zip';
-import sourcemaps from 'gulp-sourcemaps';
 
 import path from 'path';
 import { exec as _exec, spawn } from 'child_process';
@@ -29,8 +28,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
   jsFiles: ['./assets/js/**/*.js', '!./assets/js/dist/*.js'],
-  cssFiles: ['./assets/sass/**/*.scss', './inc/**/*.scss'],
-  browserSyncWatchFiles: ['./*.min.css', './assets/js/dist/*.min.js', './**/*.php'],
+  cssFiles: ['./assets/scss/**/*.scss', './inc/**/*.scss'],
+  browserSyncWatchFiles: ['./assets/css/*.min.css', './assets/js/dist/*.min.js', './**/*.php'],
   proxyUrl: process.env.LOCAL_URL || 'http://wp-starter-theme.local/',
 };
 
@@ -89,10 +88,6 @@ export function scripts() {
       })
     );
 
-  if (!isProduction) {
-    pipeline = pipeline.pipe(sourcemaps.init());
-  }
-
   pipeline = pipeline.pipe(rename({ basename: 'scripts' }));
 
   if (isProduction) {
@@ -100,10 +95,6 @@ export function scripts() {
   }
 
   pipeline = pipeline.pipe(rename({ suffix: '.min' }));
-
-  if (!isProduction) {
-    pipeline = pipeline.pipe(sourcemaps.write('.'));
-  }
 
   pipeline = pipeline.pipe(gulp.dest('./assets/js/dist'));
 
@@ -113,7 +104,7 @@ export function scripts() {
 // ==== Sass/CSS =================================================
 export function lintSCSSAll() {
   return new Promise((resolve, reject) => {
-    const args = ['stylelint', 'assets/sass/**/*.scss', 'inc/**/*.scss', '--custom-syntax', 'postcss-scss'];
+    const args = ['stylelint', 'assets/scss/**/*.scss', 'inc/**/*.scss', '--custom-syntax', 'postcss-scss'];
     const child = spawn('npx', args, { stdio: 'inherit', shell: false });
     child.on('close', (code) => {
       if (code === 0) {
@@ -144,38 +135,30 @@ function lintScssFile(filePath) {
 
 export function compileSass() {
   let pipeline = gulp
-    .src('./assets/sass/style.scss', { allowEmpty: true })
+    .src('./assets/scss/style.scss', { allowEmpty: true })
     .pipe(plumber({ errorHandler: onError }));
-
-  if (!isProduction) {
-    pipeline = pipeline.pipe(sourcemaps.init());
-  }
 
   pipeline = pipeline
     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./assets/css/'))
     .pipe(rename({ suffix: '.min' }));
 
-  if (!isProduction) {
-    pipeline = pipeline.pipe(sourcemaps.write('.'));
-  }
-
-  pipeline = pipeline.pipe(gulp.dest('./'));
+  pipeline = pipeline.pipe(gulp.dest('./assets/css/'));
 
   return pipeline.pipe(browserSync.stream()).on('end', () => bsNotify('Sass', 'Klar'));
 }
 
 export function compileEditorSass() {
   let pipeline = gulp
-    .src('./assets/sass/editor-style.scss', { allowEmpty: true })
+    .src('./assets/scss/editor-style.scss', { allowEmpty: true })
     .pipe(plumber({ errorHandler: onError }));
 
   pipeline = pipeline
     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(rename({ basename: 'editor-style' }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./assets/css/'));
 
   return pipeline.pipe(browserSync.stream()).on('end', () => bsNotify('Editor Sass', 'Klar'));
 }
@@ -249,7 +232,7 @@ async function fixPHPFile(filePath) {
   try {
     await exec(`"${PHPCBF}" "${rel}"`, { cwd: ROOT_DIR });
   } catch {
-    /* auto-fix kan misslyckas – det är OK */
+    /* auto-fix may fail — that is OK */
   }
   await lintPHPFile(filePath);
 }

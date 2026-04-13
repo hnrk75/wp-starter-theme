@@ -20,6 +20,15 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 		// Featured images
 		add_theme_support( 'post-thumbnails' );
 
+		// Custom image sizes
+		add_image_size( 'wpst-square', 800, 800, true );  // 1:1
+		add_image_size( 'wpst-4-3', 800, 600, true );  // 4:3 landscape
+		add_image_size( 'wpst-3-4', 600, 800, true );  // 3:4 portrait
+		add_image_size( 'wpst-16-9', 1280, 720, true );  // 16:9 landscape
+		add_image_size( 'wpst-9-16', 720, 1280, true );  // 9:16 portrait
+		add_image_size( 'wpst-hero', 1920, 1080, true );  // 16:9 full-width hero
+		add_image_size( 'wpst-og', 1200, 630, true );  // Open Graph / social
+
 		// HTML5 markup
 		add_theme_support(
 			'html5',
@@ -50,14 +59,15 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 		// Navigation menus
 		register_nav_menus(
 			array(
-				'main-menu' => __( 'Huvudmeny', 'wp-starter-theme' ),
+				'main-menu'   => __( 'Huvudmeny', 'wp-starter-theme' ),
+				'footer-menu' => __( 'Sidfotsmeny', 'wp-starter-theme' ),
 			)
 		);
 
 		// Editor styles
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'style.css' );
-		add_editor_style( 'editor-style.css' );
+		add_editor_style( 'assets/css/style.css' );
+		add_editor_style( 'assets/css/editor-style.css' );
 	}
 endif;
 add_action( 'after_setup_theme', 'wpst_setup' );
@@ -75,7 +85,28 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 
 
 /**
- * Ladda navwalker.
+ * Expose custom image sizes in the media library.
+ */
+add_filter(
+	'image_size_names_choose',
+	function ( $sizes ) {
+		return array_merge(
+			$sizes,
+			array(
+				'wpst-square' => '1:1 Square (800×800)',
+				'wpst-4-3'    => '4:3 Landscape (800×600)',
+				'wpst-3-4'    => '3:4 Portrait (600×800)',
+				'wpst-16-9'   => '16:9 Landscape (1280×720)',
+				'wpst-9-16'   => '9:16 Portrait (720×1280)',
+				'wpst-hero'   => 'Hero (1920×1080)',
+				'wpst-og'     => 'Open Graph (1200×630)',
+			)
+		);
+	}
+);
+
+/**
+ * Load navwalker.
  */
 if ( ! function_exists( 'wpst_register_navwalker' ) ) :
 	function wpst_register_navwalker() {

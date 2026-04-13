@@ -3,7 +3,7 @@ import prettier from 'eslint-config-prettier';
 import globals from 'globals';
 
 export default [
-	// Ignorerade filer (ersätter .eslintignore)
+	// Ignored files (replaces .eslintignore)
 	{
 		ignores: [
 			'node_modules/**',
@@ -17,7 +17,7 @@ export default [
 	// Rekommenderade grundregler
 	js.configs.recommended,
 
-	// Theme JS — körs i webbläsaren
+	// Theme JS — runs in the browser
 	{
 		files: ['assets/js/**/*.js'],
 		languageOptions: {
@@ -49,7 +49,7 @@ export default [
 		},
 	},
 
-	// Node-miljö — gulpfile och config-filer
+	// Node environment — gulpfile and config files
 	{
 		files: ['gulpfile.mjs', '*.config.mjs', '*.config.js'],
 		languageOptions: {
@@ -63,6 +63,6 @@ export default [
 		},
 	},
 
-	// Prettier — måste vara sist (stänger av formateringsregler)
+	// Prettier — must be last (disables formatting rules)
 	prettier,
 ];

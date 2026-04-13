@@ -2,7 +2,6 @@
 /**
  * Render a themed button or link with unified .btn styling.
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

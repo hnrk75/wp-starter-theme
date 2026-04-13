@@ -2,7 +2,6 @@
 /**
  * The sidebar containing the main widget area
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

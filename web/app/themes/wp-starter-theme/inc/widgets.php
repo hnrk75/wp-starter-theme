@@ -2,7 +2,6 @@
 /**
  * Register widget areas
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

@@ -2,7 +2,6 @@
 /**
  * Template part for displaying a message that posts cannot be found
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 ?>

@@ -2,7 +2,6 @@
 /**
  * The template for displaying all pages
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
@@ -19,7 +18,7 @@ get_header(); ?>
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			get_template_part( 'template-parts/content/content', 'page' );
 
 		endwhile;
 		?>

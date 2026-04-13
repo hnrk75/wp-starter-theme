@@ -2,7 +2,6 @@
 /**
  * The main template file
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
@@ -27,7 +26,7 @@ get_header(); ?>
 
 				while ( have_posts() ) {
 					the_post();
-					get_template_part( 'template-parts/content', get_post_format() );
+					get_template_part( 'template-parts/content/content', get_post_format() );
 				}
 
 				the_posts_pagination(
@@ -39,7 +38,7 @@ get_header(); ?>
 				);
 
 			} else {
-				get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'template-parts/content/content', 'none' );
 			}
 			?>
 		</main>

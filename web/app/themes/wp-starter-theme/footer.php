@@ -2,7 +2,6 @@
 /**
  * The template for displaying the footer
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
@@ -61,9 +60,25 @@ $footer_widgets = array(
 			</div>
 
 			<div class="site-footer__copyright">
-				&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?>
-				<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
-				- <?php echo esc_html__( 'Alla rättigheter förbehållna.', 'wp-starter-theme' ); ?>
+				<span>
+					&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?>
+					<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+				</span>
+
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'footer-menu',
+						'container'      => 'nav',
+						'container_attr' => array(
+							'aria-label' => __( 'Sidfotsmeny', 'wp-starter-theme' ),
+						),
+						'menu_class'     => 'footer-menu',
+						'depth'          => 1,
+						'fallback_cb'    => '__return_false',
+					)
+				);
+				?>
 			</div>
 		</div>
 	</footer>

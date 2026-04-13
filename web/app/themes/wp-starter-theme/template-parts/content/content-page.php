@@ -2,11 +2,10 @@
 /**
  * Template part for displaying page content in page.php
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
-// Kolla om första blocket är vårt hero-block — döljer då page-title.
+// Check if the first block is our hero block — hides page-title if so.
 $first_block_is_hero = false;
 foreach ( parse_blocks( get_the_content() ) as $block ) {
 	if ( ! empty( $block['blockName'] ) ) {

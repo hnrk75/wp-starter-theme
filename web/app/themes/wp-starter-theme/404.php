@@ -2,7 +2,6 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 

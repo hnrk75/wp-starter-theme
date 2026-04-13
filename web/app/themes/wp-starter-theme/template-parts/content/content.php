@@ -2,7 +2,6 @@
 /**
  * Template part for displaying posts
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 ?>

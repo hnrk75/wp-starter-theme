@@ -2,7 +2,6 @@
 /**
  * Template part for displaying results in search pages
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 ?>

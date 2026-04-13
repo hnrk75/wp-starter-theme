@@ -2,7 +2,6 @@
 /**
  * The template for displaying all single posts
  *
- * @author Henrik Pettersson
  * @package WP Starter Theme
  */
 
