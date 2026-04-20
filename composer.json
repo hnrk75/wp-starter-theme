@@ -42,8 +42,7 @@
     "roots/bedrock-disallow-indexing": "^2.0.0",
     "roots/wordpress": "6.9.*",
     "roots/wp-config": "^1.0",
-    "wpengine/advanced-custom-fields-pro": "6.8.0.1",
-    "wpackagist-plugin/cookie-law-info": "3.4.0"
+    "wpengine/advanced-custom-fields-pro": "6.8.0.1"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.1",

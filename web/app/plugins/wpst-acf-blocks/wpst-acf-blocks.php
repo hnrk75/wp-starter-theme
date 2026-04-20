@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WPST ACF Blocks
  * Plugin URI:  https://github.com/hnrk75/wp-starter-theme
- * Description: Custom ACF blocks. Requires Advanced Custom Fields Pro.
+ * Description: Anpassade ACF-block för Gutenberg. Kräver Advanced Custom Fields Pro.
  * Version:     1.0.0
  * Author:      Henrik Pettersson
  * Author URI:  https://github.com/hnrk75

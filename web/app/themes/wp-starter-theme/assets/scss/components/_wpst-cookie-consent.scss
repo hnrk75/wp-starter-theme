@@ -1,0 +1,44 @@
+// =============================================================
+// WPST Cookie Consent — theme overrides
+// =============================================================
+// Pluginet har egna defaults i en @layer. Allt du skriver här
+// vinner automatiskt — ingen !important behövs.
+@use 'sass:color';
+@use '../abstracts' as *;
+
+// --- Knappar ---
+// Matchar temats .btn.btn-primary exakt (pill-form, hover, active).
+.cookie-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1.5rem;
+	border-radius: $radius-pill;
+	border: 0;
+	font: inherit;
+	line-height: 1.2;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: $color-primary;
+	color: $color-white;
+	transition: background-color $transition-base;
+
+	&:hover {
+		background-color: color.adjust($color-primary, $lightness: -10%);
+	}
+
+	&:active {
+		transform: translateY(0.0625rem) scale(0.995);
+	}
+}
+
+// --- Exempel: anpassa bannerns utseende ---
+// .cookie-banner {
+// 	border-radius: $radius-lg;
+// }
+
+// --- Exempel: anpassa flytande knapp ---
+// .wpst-cookie-reopen {
+// 	background-color: $color-primary;
+// }
