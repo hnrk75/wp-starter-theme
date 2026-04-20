@@ -65,6 +65,16 @@
 	}
 }
 
+// --- Link with icon (standalone fallback) -----------------------
+// Theme's .link-icon wins automatically — this is just a safe default.
+@layer wpst-defaults {
+	.link-icon {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+}
+
 // --- Block placeholder ------------------------------------------
 // Shown in the editor when a block has no content yet.
 
