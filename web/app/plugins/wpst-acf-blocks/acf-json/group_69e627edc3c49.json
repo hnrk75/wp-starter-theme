@@ -1,13 +1,30 @@
 {
-    "key": "group_69c1460447bb4",
-    "title": "WPST Blockutseende - Bakgrundsfärg",
+    "key": "group_69e627edc3c49",
+    "title": "WPST Blockutseende - Länk",
     "fields": [
         {
-            "key": "field_69c146045c06e",
-            "label": "Bakgrundsfärg",
-            "name": "wpst_bg_color",
+            "key": "field_wpst_tb_link",
+            "label": "Länk",
+            "name": "wpst_link",
             "aria-label": "",
-            "type": "select",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_wpst_tb_link_position",
+            "label": "Länkposition",
+            "name": "wpst_link_position",
+            "aria-label": "",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,22 +34,14 @@
                 "id": ""
             },
             "choices": {
-                "none": "Ingen",
-                "light": "Ljus",
-                "gray": "Grå",
-                "primary": "Teal",
-                "secondary": "Blå"
+                "left": "Vänster",
+                "right": "Höger"
             },
-            "default_value": "none",
+            "default_value": "left",
             "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
             "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -56,5 +65,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776691556
+    "modified": 1776691280
 }

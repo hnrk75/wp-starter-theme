@@ -6,13 +6,13 @@
  *  wpst_itb_image          – image (returns ID, optional)
  *  wpst_itb_image_size     – '1/2' | '1/3'
  *  wpst_itb_image_position – 'left' | 'right'
+ *  wpst_bg_color           – 'none' | 'light' | 'dark' | 'primary' [cloned]
+ *  wpst_heading_level      – 'h1' | 'h2' | 'h3' | 'h4'             [cloned]
  *  wpst_itb_heading        – text (optional)
- *  wpst_itb_heading_level  – 'h2' | 'h3' | 'h4'
- *  wpst_itb_text_size      – 'normal' | 'lead' (only when no heading)
+ *  wpst_text_size          – 'normal' | 'lead'                      [cloned]
  *  wpst_itb_content        – textarea
- *  wpst_itb_link           – link (url, title, target)
- *  wpst_itb_link_position  – 'left' | 'right'
- *  wpst_bg_color           – 'none' | 'light' | 'dark' | 'primary'
+ *  wpst_link               – link (url, title, target)              [cloned]
+ *  wpst_link_position      – 'left' | 'right'                       [cloned]
  *
  * @package WPST ACF Blocks
  */
@@ -22,18 +22,18 @@ $image_size     = get_field( 'wpst_itb_image_size' );
 $image_size     = $image_size ? $image_size : '1/2';
 $image_position = get_field( 'wpst_itb_image_position' );
 $image_position = $image_position ? $image_position : 'left';
-$heading        = get_field( 'wpst_itb_heading' );
-$heading_level  = get_field( 'wpst_itb_heading_level' );
+$bg_color       = get_field( 'wpst_bg_color' );
+$bg_color       = $bg_color ? $bg_color : 'none';
+$heading_level  = get_field( 'wpst_heading_level' );
 $heading_level  = $heading_level ? $heading_level : 'h2';
-$text_size      = get_field( 'wpst_itb_text_size' );
+$heading        = get_field( 'wpst_itb_heading' );
+$text_size      = get_field( 'wpst_text_size' );
 $text_size      = $text_size ? $text_size : 'normal';
 $content        = get_field( 'wpst_itb_content' );
-$block_link     = get_field( 'wpst_itb_link' );
-$link_position  = get_field( 'wpst_itb_link_position' );
+$block_link     = get_field( 'wpst_link' );
+$link_position  = get_field( 'wpst_link_position' );
 $link_position  = $link_position ? $link_position : 'left';
-$bg_color    = get_field( 'wpst_bg_color' );
-$bg_color    = $bg_color ? $bg_color : 'none';
-$block_align = ! empty( $block['align'] ) ? $block['align'] : '';
+$block_align    = ! empty( $block['align'] ) ? $block['align'] : '';
 
 // Placeholder when block has no content yet.
 if ( empty( $image_id ) ) : ?>
@@ -69,6 +69,11 @@ if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . esc_attr( $block['className'] );
 }
 
+$content_class = 'image-text-block__content';
+if ( 'lead' === $text_size ) {
+	$content_class .= ' has-large-font-size';
+}
+
 $aria_attr = $heading
 	? 'aria-labelledby="' . esc_attr( $heading_id ) . '"'
 	: 'aria-label="' . esc_attr__( 'Bild och text', 'wpst-acf-blocks' ) . '"';
@@ -88,7 +93,7 @@ $aria_attr = $heading
 			</div>
 		<?php endif; ?>
 
-		<div class="image-text-block__content<?php echo ( empty( $heading ) && 'lead' === $text_size ) ? ' has-large-font-size' : ''; ?>">
+		<div class="<?php echo esc_attr( $content_class ); ?>">
 			<?php if ( ! empty( $heading ) ) : ?>
 				<<?php echo esc_attr( $heading_level ); ?> id="<?php echo esc_attr( $heading_id ); ?>">
 					<?php echo esc_html( $heading ); ?>

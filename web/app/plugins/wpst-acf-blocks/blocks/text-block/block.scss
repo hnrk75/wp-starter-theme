@@ -1,13 +1,25 @@
 // Text Block
 // Typography and headings are handled by the theme (base/_typography.scss).
-// Block link uses .btn.btn-primary from the theme.
 // Background classes and link wrapper are handled by shared.scss.
 
-// When "ingress" size is selected the wrapper gets has-large-font-size.
-// Mirror the theme's .lead max-width so paragraphs don't stretch full width.
-.text-block__content.has-large-font-size {
-	p {
+.text-block__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+
+	// When "ingress" size is selected mirror the theme's .lead max-width.
+	&.has-large-font-size p {
 		max-width: var(--wpst-lead-max-width, 58ch);
 		line-height: 1.55;
+	}
+
+	// Ingress-storlek skall inte påverka länken.
+	&.has-large-font-size .wpst-block__link-wrap {
+		font-size: var(--wp--preset--font-size--medium, 1rem);
+	}
+
+	// Gap handles spacing — reset margin from shared.
+	.wpst-block__link-wrap {
+		margin-block-start: 0;
 	}
 }

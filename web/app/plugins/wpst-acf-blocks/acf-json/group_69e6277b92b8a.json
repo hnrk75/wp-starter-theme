@@ -1,13 +1,13 @@
 {
-    "key": "group_69c1460447bb4",
-    "title": "WPST Blockutseende - Bakgrundsfärg",
+    "key": "group_69e6277b92b8a",
+    "title": "WPST Blockutseende - Textstorlek",
     "fields": [
         {
-            "key": "field_69c146045c06e",
-            "label": "Bakgrundsfärg",
-            "name": "wpst_bg_color",
+            "key": "field_69e6277b93aa8",
+            "label": "Textstorlek",
+            "name": "wpst_text_size",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,22 +17,14 @@
                 "id": ""
             },
             "choices": {
-                "none": "Ingen",
-                "light": "Ljus",
-                "gray": "Grå",
-                "primary": "Teal",
-                "secondary": "Blå"
+                "normal": "Normal",
+                "lead": "Ingress"
             },
-            "default_value": "none",
+            "default_value": "normal",
             "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
             "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -56,5 +48,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776691556
+    "modified": 1776691164
 }

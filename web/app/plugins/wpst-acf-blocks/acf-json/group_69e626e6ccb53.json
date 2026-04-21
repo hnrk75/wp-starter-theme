@@ -1,14 +1,14 @@
 {
-    "key": "group_69c1460447bb4",
-    "title": "WPST Blockutseende - Bakgrundsfärg",
+    "key": "group_69e626e6ccb53",
+    "title": "WPST Blockutseende - Rubriknivå",
     "fields": [
         {
-            "key": "field_69c146045c06e",
-            "label": "Bakgrundsfärg",
-            "name": "wpst_bg_color",
+            "key": "field_69e626e6cdf27",
+            "label": "Rubriknivå",
+            "name": "wpst_heading_level",
             "aria-label": "",
             "type": "select",
-            "instructions": "",
+            "instructions": "Alternativ: h1, h2, h3, h4 — default h2",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,13 +17,12 @@
                 "id": ""
             },
             "choices": {
-                "none": "Ingen",
-                "light": "Ljus",
-                "gray": "Grå",
-                "primary": "Teal",
-                "secondary": "Blå"
+                "h1": "H1 — Titel",
+                "h2": "H2 — Rubrik",
+                "h3": "H3 — Underrubrik",
+                "h4": "H4 — Liten rubrik"
             },
-            "default_value": "none",
+            "default_value": "h2",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -56,5 +55,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776691556
+    "modified": 1776691689
 }

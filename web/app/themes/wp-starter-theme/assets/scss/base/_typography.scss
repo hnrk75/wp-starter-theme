@@ -131,31 +131,31 @@ small {
 }
 
 // --- Vertical rhythm -----------------------------------------
-p + p {
-	margin-top: var(--space-sm);
-}
+// p + p {
+// 	margin-top: var(--space-sm);
+// }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	& + p,
-	& + ul,
-	& + ol {
-		margin-top: var(--space-xs);
-	}
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+// 	& + p,
+// 	& + ul,
+// 	& + ol {
+// 		margin-top: var(--space-xs);
+// 	}
+// }
 
-p + h1,
-p + h2,
-p + h3,
-p + h4,
-p + h5,
-p + h6 {
-	margin-top: var(--space-md);
-}
+// p + h1,
+// p + h2,
+// p + h3,
+// p + h4,
+// p + h5,
+// p + h6 {
+// 	margin-top: var(--space-md);
+// }
 
 // --- Utilities -----------------------------------------------
 .text-muted {

@@ -5,6 +5,12 @@
 //   --itb-text-order   : visual order of text column
 
 .image-text-block {
+	// When background is set: remove section-level padding so image goes
+	// edge-to-edge. Text column always has its own padding.
+	&.has-bg {
+		padding: 0;
+	}
+
 	> .wpst-block__inner {
 		display: grid;
 		grid-template-columns: var(--itb-columns, 1fr 1fr);
@@ -25,15 +31,26 @@
 
 	&__content {
 		order: var(--itb-text-order, 2);
-		padding-inline-start: var(--space-md);
+		padding: var(--space-md);
 		display: flex;
 		flex-direction: column;
+		gap: var(--space-sm);
 		justify-content: center;
 
 		// When "ingress" size is selected mirror the theme's .lead max-width.
 		&.has-large-font-size p {
 			max-width: var(--wpst-lead-max-width, 58ch);
 			line-height: 1.55;
+		}
+
+		// Gap handles spacing — reset margin from shared.
+		.wpst-block__link-wrap {
+			margin-block-start: 0;
+		}
+
+		// Ingress-storlek skall inte påverka länken.
+		&.has-large-font-size .wpst-block__link-wrap {
+			font-size: var(--wp--preset--font-size--medium, 1rem);
 		}
 	}
 
@@ -49,8 +66,7 @@
 
 		&__content {
 			order: 2;
-			padding-inline-start: 0;
-			padding-block-start: var(--space-md);
+			padding: var(--space-md);
 		}
 	}
 }
