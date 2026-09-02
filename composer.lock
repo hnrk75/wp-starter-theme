@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f82dd6d7243d89b5cf2bf1c8f2216f9",
+    "content-hash": "fddc7d4515e5288f71bbfd424c6af8ce",
     "packages": [
         {
             "name": "composer/installers",
@@ -213,6 +213,50 @@
                 }
             ],
             "time": "2026-08-24T09:06:52+00:00"
+        },
+        {
+            "name": "hnrk/cookie-consent",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:hnrk75/hnrk-cookie-concent.git",
+                "reference": "e4b9053605db99ab2428aa9168c12f1d78f65452"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-concent/zipball/e4b9053605db99ab2428aa9168c12f1d78f65452",
+                "reference": "e4b9053605db99ab2428aa9168c12f1d78f65452",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+                "squizlabs/php_codesniffer": "^3.13",
+                "wp-coding-standards/wpcs": "^3.4"
+            },
+            "type": "wordpress-plugin",
+            "scripts": {
+                "lint:php": [
+                    "phpcs"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik Pettersson",
+                    "homepage": "https://github.com/hnrk75"
+                }
+            ],
+            "description": "WordPress plugin — HNRK Cookie Consent",
+            "support": {
+                "source": "https://github.com/hnrk75/hnrk-cookie-concent/tree/v1.0.0",
+                "issues": "https://github.com/hnrk75/hnrk-cookie-concent/issues"
+            },
+            "time": "2026-09-02T07:32:29+00:00"
         },
         {
             "name": "oscarotero/env",
