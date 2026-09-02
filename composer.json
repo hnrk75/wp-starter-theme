@@ -40,9 +40,11 @@
     "oscarotero/env": "^2.1.0",
     "roots/bedrock-autoloader": "^1.0.4",
     "roots/bedrock-disallow-indexing": "^2.0.0",
-    "roots/wordpress": "6.9.*",
+    "roots/wordpress": "7.1",
     "roots/wp-config": "^1.0",
-    "wpengine/advanced-custom-fields-pro": "6.8.0.1"
+    "wpackagist-theme/twentytwentyfive": "1.5",
+    "wpengine/advanced-custom-fields-pro": "6.8.9",
+    "wpackagist-plugin/ai-provider-for-anthropic": "1.0.4"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
