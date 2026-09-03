@@ -31,10 +31,6 @@
     {
       "type": "composer",
       "url": "https://connect.advancedcustomfields.com"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/hnrk75/hnrk-cookie-concent"
     }
   ],
   "require": {
@@ -48,7 +44,6 @@
     "roots/wp-config": "^1.0",
     "wpackagist-theme/twentytwentyfive": "1.5",
     "wpengine/advanced-custom-fields-pro": "6.8.9",
-    "hnrk/cookie-consent": "^1.0",
     "wpackagist-plugin/ai-provider-for-anthropic": "1.0.4"
   },
   "require-dev": {
