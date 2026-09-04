@@ -1,22 +1,22 @@
-// === Abstracts ===============================================
+// --- Abstracts -----------------------------------------------
 @use 'abstracts';
 
-// === Base ====================================================
+// --- Base ----------------------------------------------------
 @use 'base/root';
 @use 'base/reset';
 @use 'base/typography';
 @use 'base/accessibility';
 
-// === Layout ==================================================
+// --- Layout --------------------------------------------------
 @use 'layout/grid';
 @use 'layout/header';
 @use 'layout/content';
 @use 'layout/footer';
 
-// === Gutenberg ===============================================
+// --- Gutenberg -----------------------------------------------
 @use 'gutenberg';
 
-// === Components ==============================================
+// --- Components ----------------------------------------------
 @use 'components/links';
 @use 'components/buttons';
 @use 'components/icons';

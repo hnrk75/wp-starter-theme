@@ -1,27 +1,23 @@
-/**
- * Theme JavaScript
- */
+// =============================================================
+// Navigation
+// =============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initDropdowns();
 });
 
-/**
- * Mobile nav toggle (off-canvas)
- */
+// --- Mobile nav toggle (off-canvas) --------------------------
 function initMobileNav() {
   const toggle = document.querySelector('.site-nav__toggle');
   const nav = document.getElementById('main-nav');
 
   if (!toggle || !nav) return;
 
-  // Create overlay
   const overlay = document.createElement('div');
   overlay.className = 'site-nav-overlay';
   document.body.appendChild(overlay);
 
-  // Elements that should be hidden from screen readers when nav is open
   const mainContent = document.getElementById('content');
   const siteFooter = document.querySelector('.site-footer');
 
@@ -97,9 +93,7 @@ function initMobileNav() {
   });
 }
 
-/**
- * Dropdown submenus
- */
+// --- Dropdown submenus ---------------------------------------
 function initDropdowns() {
   const toggles = document.querySelectorAll('.site-nav__link--parent');
 
@@ -108,7 +102,6 @@ function initDropdowns() {
       e.stopPropagation();
       const expanded = btn.getAttribute('aria-expanded') === 'true';
 
-      // Close all other open dropdowns
       toggles.forEach((other) => {
         if (other !== btn) {
           other.setAttribute('aria-expanded', 'false');
@@ -121,7 +114,6 @@ function initDropdowns() {
     });
   });
 
-  // Close dropdowns on outside click
   document.addEventListener('click', () => {
     toggles.forEach((btn) => {
       btn.setAttribute('aria-expanded', 'false');
@@ -129,7 +121,6 @@ function initDropdowns() {
     });
   });
 
-  // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     toggles.forEach((btn) => {

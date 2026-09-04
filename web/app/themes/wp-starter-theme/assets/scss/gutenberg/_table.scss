@@ -1,8 +1,11 @@
+@use '../abstracts' as *;
+
 // =============================================================
-// Editor Style
+// Gutenberg — Table block
 // =============================================================
 
-// Loaded in the Gutenberg block editor only.
-
-@use 'abstracts';
-@use 'gutenberg/index';
+.wp-block-table {
+	th {
+		text-align: left;
+	}
+}

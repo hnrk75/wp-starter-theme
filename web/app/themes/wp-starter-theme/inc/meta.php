@@ -8,9 +8,6 @@
 // Remove WordPress built-in canonical — we output our own for all contexts.
 remove_action( 'wp_head', 'rel_canonical' );
 
-/**
- * Output all SEO meta tags in <head>.
- */
 function wpst_meta_tags() {
 
 	// --- Robots -------------------------------------------------
@@ -117,14 +114,6 @@ function wpst_meta_tags() {
 }
 add_action( 'wp_head', 'wpst_meta_tags', 1 );
 
-/**
- * Output JSON-LD structured data.
- *
- * @param string $url         Canonical URL.
- * @param string $title       Page title.
- * @param string $description Page description.
- * @param string $image_url   Featured image URL.
- */
 function wpst_json_ld( $url, $title, $description, $image_url ) {
 	$site_name = get_bloginfo( 'name' );
 	$schemas   = array();
@@ -208,13 +197,6 @@ function wpst_json_ld( $url, $title, $description, $image_url ) {
 	}
 }
 
-/**
- * Returns breadcrumb items as array for JSON-LD.
- * Builds a minimal home → current structure when full breadcrumb data
- * is not available from wpst_the_breadcrumb().
- *
- * @return array Array of ['name' => string, 'url' => string].
- */
 function wpst_breadcrumb_items() {
 	$items = array();
 

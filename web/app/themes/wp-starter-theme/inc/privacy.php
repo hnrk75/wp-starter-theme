@@ -9,10 +9,6 @@
  * @package WP Starter Theme
  */
 
-/**
- * On theme activation: replace the privacy policy page content with our template.
- * Creates the page if it doesn't exist yet and registers it as the site's policy page.
- */
 function wpst_setup_privacy_policy_page() {
 	$page_id = (int) get_option( 'wp_page_for_privacy_policy' );
 	$content = wpst_get_privacy_policy_template();
@@ -41,9 +37,6 @@ function wpst_setup_privacy_policy_page() {
 }
 add_action( 'after_switch_theme', 'wpst_setup_privacy_policy_page' );
 
-/**
- * On theme activation: create or update the cookie policy page.
- */
 function wpst_setup_cookie_policy_page() {
 	$page_id = (int) get_option( 'wpst_page_for_cookie_policy' );
 	$content = wpst_get_cookie_policy_template();
@@ -72,9 +65,6 @@ function wpst_setup_cookie_policy_page() {
 }
 add_action( 'after_switch_theme', 'wpst_setup_cookie_policy_page' );
 
-/**
- * Register suggested privacy policy content in the Policy Guide (Settings → Privacy).
- */
 function wpst_privacy_policy_content() {
 	if ( ! function_exists( 'wp_add_privacy_policy_content' ) ) {
 		return;
@@ -84,11 +74,6 @@ function wpst_privacy_policy_content() {
 }
 add_action( 'admin_init', 'wpst_privacy_policy_content' );
 
-/**
- * Returns the Swedish GDPR-compliant privacy policy template as Gutenberg block markup.
- *
- * @return string
- */
 function wpst_get_privacy_policy_template() {
 	return '<!-- wp:paragraph -->
 <p>Vi på [FÖRETAGSNAMN] värnar om din personliga integritet. Den här policyn förklarar vilka personuppgifter vi behandlar, varför vi behandlar dem och vilka rättigheter du har.</p>
@@ -227,11 +212,6 @@ function wpst_get_privacy_policy_template() {
 <!-- /wp:paragraph -->';
 }
 
-/**
- * Returns the Swedish GDPR-compliant cookie policy template as Gutenberg block markup.
- *
- * @return string
- */
 function wpst_get_cookie_policy_template() {
 	return '<!-- wp:paragraph -->
 <p>Den här policyn förklarar vad cookies är, vilka cookies vi använder på [WEBBPLATSNAMN] och hur du kan hantera dem.</p>

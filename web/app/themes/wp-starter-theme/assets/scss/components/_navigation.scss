@@ -90,7 +90,7 @@
 		}
 	}
 
-	// --- Off-canvas header
+	// --- Off-canvas header ---------------------------------------
 	&__header {
 		display: none;
 
@@ -110,7 +110,7 @@
 		font-size: var(--wp--preset--font-size--h-5);
 	}
 
-	// --- Close button (X)
+	// --- Close button (X) ----------------------------------------
 	&__close {
 		display: flex;
 		align-items: center;
@@ -149,7 +149,7 @@
 		}
 	}
 
-	// --- Off-canvas body (scrollable)
+	// --- Off-canvas body (scrollable) ----------------------------
 	&__body {
 		@include mq-down(lg) {
 			flex: 1;
@@ -158,7 +158,7 @@
 		}
 	}
 
-	// --- Off-canvas footer
+	// --- Off-canvas footer ---------------------------------------
 	&__footer {
 		display: none;
 
@@ -175,7 +175,7 @@
 		align-items: center;
 	}
 
-	// --- Menu list
+	// --- Menu list -----------------------------------------------
 	&__menu {
 		list-style: none;
 		padding: 0;
@@ -187,12 +187,12 @@
 		}
 	}
 
-	// --- Menu item
+	// --- Menu item -----------------------------------------------
 	&__item {
 		position: relative;
 	}
 
-	// --- Links
+	// --- Links ---------------------------------------------------
 	&__link {
 		display: block;
 		width: 100%;
@@ -234,7 +234,7 @@
 		}
 	}
 
-	// --- Submenu
+	// --- Submenu -------------------------------------------------
 	&__submenu {
 		list-style: none;
 		padding: 0;

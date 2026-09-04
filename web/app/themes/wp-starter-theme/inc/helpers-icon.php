@@ -10,18 +10,6 @@
  */
 
 if ( ! function_exists( 'wpst_icon' ) ) {
-	/**
-	 * Returns an inline SVG from assets/svg/.
-	 *
-	 * @param string $name   Filename without .svg extension.
-	 * @param array  $args {
-	 *     Optional arguments.
-	 *     @type string $class  CSS class on the <svg> element.
-	 *     @type string $title  Accessible title (adds <title> + aria-label).
-	 *     @type bool   $echo   If true (default) the SVG is echoed, otherwise returned.
-	 * }
-	 * @return string
-	 */
 	function wpst_icon( string $name, array $args = array() ): string {
 		$args = wp_parse_args(
 			$args,
@@ -50,7 +38,6 @@ if ( ! function_exists( 'wpst_icon' ) ) {
 			return '';
 		}
 
-		// Add or replace the class attribute on the <svg> tag.
 		$class = esc_attr( $args['class'] );
 		if ( preg_match( '/<svg[^>]+class=["\']/', $svg ) ) {
 			$svg = preg_replace( '/(<svg[^>]+class=["\'])([^"\']*)["\']/', '$1' . $class . '"', $svg );
@@ -58,7 +45,6 @@ if ( ! function_exists( 'wpst_icon' ) ) {
 			$svg = preg_replace( '/<svg/', '<svg class="' . $class . '"', $svg );
 		}
 
-		// Accessibility: add <title> and aria-label if $title is set.
 		if ( ! empty( $args['title'] ) ) {
 			$title     = esc_html( $args['title'] );
 			$title_tag = '<title>' . $title . '</title>';

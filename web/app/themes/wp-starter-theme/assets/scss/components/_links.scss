@@ -5,7 +5,7 @@
 // Links
 // =============================================================
 
-// --- Standard <a>: neutral ----------------------------------
+// --- Standard <a>: neutral -----------------------------------
 a:not(.btn, .skip-link, .screen-reader-text) {
 	color: $link-color;
 	text-decoration: none;
@@ -17,12 +17,12 @@ a:not(.btn, .skip-link, .screen-reader-text) {
 	}
 }
 
-// --- .link-animated: animerat underline (opt-in) ------------
+// --- .link-animated: animated underline (opt-in) -------------
 .link-animated {
 	@include link-underline;
 }
 
-// --- .link-icon: link with icon after text (opt-in) ---------
+// --- .link-icon: link with icon after text (opt-in) ----------
 .link-icon {
 	display: inline-flex;
 	align-items: center;

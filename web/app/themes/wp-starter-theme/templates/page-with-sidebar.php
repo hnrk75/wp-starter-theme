@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Med sidopanel
+ * Template Name: With Sidebar
  *
  * @package WP Starter Theme
  */

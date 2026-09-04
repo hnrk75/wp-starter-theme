@@ -8,7 +8,6 @@
 	word-break: normal;
 	overflow-wrap: anywhere;
 
-	// Air between Gutenberg blocks
 	[class*='wp-block-'] {
 		margin-block: var(--space-md);
 	}
@@ -24,7 +23,6 @@
 	margin-top: var(--space-sm);
 }
 
-// Two-column layout: main content + sidebar
 .content-layout {
 	display: grid;
 	grid-template-columns: 1fr;

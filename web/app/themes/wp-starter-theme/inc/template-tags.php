@@ -138,7 +138,6 @@ if ( ! function_exists( 'wpst_post_thumbnail' ) ) :
 			}
 		}
 
-		// Map context to image size if not explicitly set.
 		if ( null === $a['size'] ) {
 			$context_sizes = array(
 				'archive' => 'wpst-4-3',

@@ -5,7 +5,7 @@
  * @package WP Starter Theme
  */
 
-// --- Kommentarer avaktiverade globalt ----------------------------
+// --- Comments disabled globally -------------------------------
 add_filter( 'comments_open', '__return_false', 20 );
 add_filter( 'pings_open', '__return_false', 20 );
 add_filter( 'comments_array', '__return_empty_array', 10 );
@@ -25,7 +25,7 @@ add_action(
 	}
 );
 
-// --- Remove built-in page-state labels --------------------------
+// --- Remove built-in page-state labels ------------------------
 add_filter(
 	'display_post_states',
 	function ( $post_states ) {
@@ -34,7 +34,7 @@ add_filter(
 	}
 );
 
-// --- Hide Site Editor (Design) ----------------------------------
+// --- Hide Site Editor (Design) --------------------------------
 // Editors should not see FSE/patterns — misleading for a classic theme.
 add_action(
 	'admin_menu',
