@@ -114,7 +114,7 @@ if ( ! function_exists( 'wpst_button' ) ) {
 
 		if ( ! empty( $a['attrs'] ) && is_array( $a['attrs'] ) ) {
 			foreach ( $a['attrs'] as $k => $v ) {
-				if ( '' === $v && 'aria-*' !== substr( $k, 0, 5 ) ) {
+				if ( '' === $v && 'aria-' !== substr( $k, 0, 5 ) ) {
 					continue;
 				}
 				$attr[ $k ] = $v;

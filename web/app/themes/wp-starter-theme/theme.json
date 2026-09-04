@@ -1,9 +1,12 @@
 {
   "version": 3,
   "settings": {
+    "useRootPaddingAwareAlignments": true,
+    "appearanceTools": true,
     "typography": {
       "fluid": true,
       "defaultFontSizes": false,
+      "defaultFontFamilies": false,
       "customFontSize": false,
       "fontFamilies": [
         {
@@ -85,6 +88,7 @@
       "wideSize": "100rem"
     },
     "spacing": {
+      "customSpacing": false,
       "spacingScale": {
         "operator": "linear",
         "increment": 1,
@@ -99,6 +103,10 @@
       ]
     },
     "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "customGradient": false,
+      "disableCustomColors": true,
       "palette": [
         {
           "slug": "primary",

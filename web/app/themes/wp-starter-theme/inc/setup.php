@@ -64,8 +64,9 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 			)
 		);
 
-		// Editor styles
+		// Editor styles — fonts must be loaded separately for the block editor
 		add_theme_support( 'editor-styles' );
+		add_editor_style( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap' );
 		add_editor_style( 'assets/css/style.css' );
 		add_editor_style( 'assets/css/editor-style.css' );
 	}
