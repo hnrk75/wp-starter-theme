@@ -5,7 +5,7 @@
 // =============================================================
 
 .site-footer {
-	background-color: $color-gray-light;
+	background-color: $color-gray-100;
 	margin-top: var(--space-lg);
 	padding-block: var(--space-lg);
 
@@ -27,9 +27,9 @@
 		gap: var(--space-sm);
 		margin-top: var(--space-md);
 		padding-top: var(--space-md);
-		border-top: 1px solid $color-gray-medium;
+		border-top: 1px solid $color-gray-200;
 		font-size: 0.875rem;
-		color: $color-gray-dark;
+		color: $color-gray-500;
 	}
 
 	.footer-menu {

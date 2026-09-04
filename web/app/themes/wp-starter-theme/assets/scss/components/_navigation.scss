@@ -100,7 +100,7 @@
 			justify-content: space-between;
 			flex-shrink: 0;
 			padding: var(--space-sm) var(--space-md);
-			border-bottom: 1px solid $color-gray-light;
+			border-bottom: 1px solid $color-gray-200;
 		}
 	}
 
@@ -166,7 +166,7 @@
 			display: block;
 			flex-shrink: 0;
 			padding: var(--space-sm) var(--space-md);
-			border-top: 1px solid $color-gray-light;
+			border-top: 1px solid $color-gray-200;
 		}
 	}
 
@@ -251,7 +251,7 @@
 			inset-inline-start: 0;
 			min-width: 12rem;
 			background-color: $color-white;
-			border: 1px solid $color-gray-medium;
+			border: 1px solid $color-gray-300;
 			border-radius: $radius-base;
 			box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
 			z-index: 100;

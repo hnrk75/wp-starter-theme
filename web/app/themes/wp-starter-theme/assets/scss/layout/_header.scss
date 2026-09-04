@@ -6,7 +6,7 @@
 
 .site-header {
 	position: relative;
-	background-color: $color-gray-light;
+	background-color: $color-gray-100;
 	margin-bottom: var(--space-lg);
 
 
@@ -33,7 +33,7 @@
 	.custom-logo-link {
 		display: inline-block;
 		flex-shrink: 0;
-		color: $color-black;
+		color: $color-gray-900;
 		text-decoration: none;
 
 		&::before { display: none; }

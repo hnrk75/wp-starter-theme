@@ -2,19 +2,33 @@
 // Variables
 // =============================================================
 
-// --- Colors ---------------------------------------------------
-// Scale: lime-cream → yale-blue
-$color-primary: #34a0a4; // tropical-teal
-$color-secondary: #184e77; // yale-blue
-$color-tertiary: #76c893; // emerald
-$color-accent: #d9ed92; // lime-cream
-$color-light: #edfaf1; // light surface
-$color-dark: #0d2b3e; // deep navy
+// --- Colors — Brand -------------------------------------------
+// Replace $color-primary per project.
+$color-primary: #2563eb;
+
+// --- Colors — Neutrals ----------------------------------------
 $color-white: #fff;
-$color-black: #0a1f2e;
-$color-gray-light: #e2eef2;
-$color-gray-medium: #7aaab8;
-$color-gray-dark: #3a6677;
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+$color-gray-900: #111827;
+$color-black: #030712;
+
+// --- Colors — Semantic ----------------------------------------
+$color-success: #16a34a;
+$color-success-subtle: #dcfce7;
+$color-warning: #d97706;
+$color-warning-subtle: #fef3c7;
+$color-error: #dc2626;
+$color-error-subtle: #fee2e2;
+$color-info: #0284c7;
+$color-info-subtle: #e0f2fe;
 
 // --- Links ----------------------------------------------------
 $link-color: $color-primary;
@@ -42,9 +56,9 @@ $transition-base: 0.3s ease;
 
 // --- Breakpoints ----------------------------------------------
 $breakpoints: (
-	sm: 36rem,
-	md: 48rem,
-	lg: 64rem,
-	xl: 75rem,
+	sm:  36rem,
+	md:  48rem,
+	lg:  64rem,
+	xl:  75rem,
 	xxl: 87.5rem,
 );

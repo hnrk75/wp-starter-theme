@@ -68,14 +68,12 @@ $footer_widgets = array(
 				<?php
 				wp_nav_menu(
 					array(
-						'theme_location' => 'footer-menu',
-						'container'      => 'nav',
-						'container_attr' => array(
-							'aria-label' => __( 'Sidfotsmeny', 'wp-starter-theme' ),
-						),
-						'menu_class'     => 'footer-menu',
-						'depth'          => 1,
-						'fallback_cb'    => '__return_false',
+						'theme_location'       => 'footer-menu',
+						'container'            => 'nav',
+						'container_aria_label' => __( 'Sidfotsmeny', 'wp-starter-theme' ),
+						'menu_class'           => 'footer-menu',
+						'depth'                => 1,
+						'fallback_cb'          => '__return_false',
 					)
 				);
 				?>

@@ -124,11 +124,10 @@ small {
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: $font-weight-regular;
 	line-height: 1.5;
-	color: $color-gray-dark;
+	color: $color-gray-500;
 }
 
-// --- Lead / Ingress ------------------------------------------
-.lead,
+// --- Ingress -------------------------------------------------
 .ingress {
 	font-size: var(--wp--preset--font-size--large);
 	line-height: 1.55;
@@ -163,8 +162,8 @@ small {
 // }
 
 // --- Utilities -----------------------------------------------
-.text-muted {
-	color: $color-gray-dark;
+.text-subtle {
+	color: $color-gray-500;
 }
 
 .uppercase {
