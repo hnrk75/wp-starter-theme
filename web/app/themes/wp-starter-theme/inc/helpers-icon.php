@@ -20,7 +20,7 @@ if ( ! function_exists( 'wpst_icon' ) ) {
 	 *     @type string $title  Accessible title (adds <title> + aria-label).
 	 *     @type bool   $echo   If true (default) the SVG is echoed, otherwise returned.
 	 * }
-	 * @return string|void
+	 * @return string
 	 */
 	function wpst_icon( string $name, array $args = array() ): string {
 		$args = wp_parse_args(

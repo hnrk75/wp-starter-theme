@@ -31,7 +31,7 @@ function wpst_handle_category_breadcrumb( $show_current, $delimiter, $before, $a
 		$output          .= wpst_generate_breadcrumb_link( $posts_page_link, $posts_page_title, $position++ ) . $delimiter;
 	}
 
-	$this_cat = get_category( (int) get_query_var( 'cat' ), false );
+	$this_cat = get_category( (int) get_query_var( 'cat' ), 'OBJECT' );
 
 	if ( $this_cat && (int) $this_cat->parent !== 0 ) {
 		$parents_html = get_category_parents( $this_cat->parent, true, $delimiter );
@@ -84,7 +84,7 @@ function wpst_handle_single_post_breadcrumb( $home_link, $show_current, $delimit
 		$cat = get_the_category();
 		if ( ! empty( $cat ) ) {
 			$cat  = $cat[0];
-			$cats = get_category_parents( $cat, true, $delimiter );
+			$cats = get_category_parents( $cat->term_id, true, $delimiter );
 
 			if ( (int) $show_current === 0 ) {
 				$cats = preg_replace( '#^(.+)\s' . preg_quote( $delimiter, '#' ) . '\s$#', '$1', $cats );
@@ -113,7 +113,7 @@ function wpst_handle_attachment_breadcrumb( $show_current, $delimiter, $before, 
 		$cat = get_the_category( $parent->ID );
 		if ( ! empty( $cat ) ) {
 			$cat = $cat[0];
-			echo wp_kses_post( get_category_parents( $cat, true, $delimiter ) );
+			echo wp_kses_post( get_category_parents( $cat->term_id, true, $delimiter ) );
 		}
 		echo wp_kses_post( wpst_generate_breadcrumb_link( get_permalink( $parent ), $parent->post_title, 0 ) );
 	}
@@ -159,7 +159,7 @@ function wpst_handle_pagination() {
 	$paged = (int) get_query_var( 'paged' );
 
 	if ( $paged ) {
-		echo ' (' . esc_html__( 'Sida', 'wp-starter-theme' ) . ' ' . esc_html( $paged ) . ')';
+		echo ' (' . esc_html__( 'Sida', 'wp-starter-theme' ) . ' ' . esc_html( (string) $paged ) . ')';
 	}
 }
 

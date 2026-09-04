@@ -20,7 +20,7 @@ get_header(); ?>
 
 				if ( is_home() && ! is_front_page() ) {
 					echo '<header>';
-					single_post_title( '<h1 class="page-title screen-reader-text">', '</h1>' );
+					echo '<h1 class="page-title screen-reader-text">' . single_post_title( '', false ) . '</h1>';
 					echo '</header>';
 				}
 

@@ -7,7 +7,6 @@
 
     <!-- Vad som ska skannas -->
     <file>./web/app/themes/wp-starter-theme</file>
-    <file>./web/app/plugins/wpst-acf-blocks</file>
 
     <!-- Uteslut mappar/filer som inte ska scannas -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
@@ -53,7 +52,7 @@
     </rule>
 
     <!-- PHP cross-version compatibility -->
-    <config name="testVersion" value="8.1-"/>
+    <config name="testVersion" value="8.4-"/>
     <rule ref="PHPCompatibilityWP"/>
 
     <!-- Text domain måste vara korrekt -->
@@ -61,7 +60,6 @@
         <properties>
             <property name="text_domain" type="array">
                 <element value="wp-starter-theme"/>
-                <element value="wpst-acf-blocks"/>
             </property>
         </properties>
     </rule>

@@ -82,37 +82,37 @@ function wpst_meta_tags() {
 	?>
 <!-- SEO -->
 <link rel="canonical" href="<?php echo esc_url( $url ); ?>">
-<?php if ( $description ) : ?>
+	<?php if ( $description ) : ?>
 <meta name="description" content="<?php echo esc_attr( $description ); ?>">
-<?php endif; ?>
+	<?php endif; ?>
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 <meta property="og:type" content="<?php echo esc_attr( $og_type ); ?>">
 <meta property="og:url" content="<?php echo esc_url( $url ); ?>">
 <meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
-<?php if ( $description ) : ?>
+	<?php if ( $description ) : ?>
 <meta property="og:description" content="<?php echo esc_attr( $description ); ?>">
-<?php endif; ?>
-<?php if ( $image_url ) : ?>
+	<?php endif; ?>
+	<?php if ( $image_url ) : ?>
 <meta property="og:image" content="<?php echo esc_url( $image_url ); ?>">
-<?php if ( $image_width ) : ?>
-<meta property="og:image:width" content="<?php echo esc_attr( $image_width ); ?>">
-<meta property="og:image:height" content="<?php echo esc_attr( $image_height ); ?>">
-<?php endif; ?>
-<?php endif; ?>
+		<?php if ( $image_width ) : ?>
+<meta property="og:image:width" content="<?php echo esc_attr( (string) $image_width ); ?>">
+<meta property="og:image:height" content="<?php echo esc_attr( (string) $image_height ); ?>">
+	<?php endif; ?>
+	<?php endif; ?>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="<?php echo $image_url ? 'summary_large_image' : 'summary'; ?>">
 <meta name="twitter:title" content="<?php echo esc_attr( $title ); ?>">
-<?php if ( $description ) : ?>
+	<?php if ( $description ) : ?>
 <meta name="twitter:description" content="<?php echo esc_attr( $description ); ?>">
-<?php endif; ?>
-<?php if ( $image_url ) : ?>
+	<?php endif; ?>
+	<?php if ( $image_url ) : ?>
 <meta name="twitter:image" content="<?php echo esc_url( $image_url ); ?>">
-<?php endif; ?>
+	<?php endif; ?>
 
-<?php
+	<?php
 	wpst_json_ld( $url, $title, $description, $image_url );
 }
 add_action( 'wp_head', 'wpst_meta_tags', 1 );
@@ -162,7 +162,7 @@ function wpst_json_ld( $url, $title, $description, $image_url ) {
 			'author'           => array(
 				'@type' => 'Person',
 				'name'  => $author_name,
-				'url'   => get_author_posts_url( $author_id ),
+				'url'   => get_author_posts_url( (int) $author_id ),
 			),
 			'publisher'        => array(
 				'@type' => 'Organization',

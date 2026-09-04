@@ -19,7 +19,7 @@ foreach ( parse_blocks( get_the_content() ) as $block ) {
 	id="post-<?php the_ID(); ?>"
 	<?php post_class( $first_block_is_hero ? 'has-hero-top' : '' ); ?>
 	<?php if ( ! $first_block_is_hero ) : ?>
-		aria-labelledby="page-title-<?php echo esc_attr( get_the_ID() ); ?>"
+		aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"
 	<?php endif; ?>
 >
 	<?php wpst_post_thumbnail( array( 'context' => 'page' ) ); ?>

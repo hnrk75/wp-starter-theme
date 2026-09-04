@@ -20,6 +20,12 @@ class Wpst_Navwalker extends Walker_Nav_Menu {
 			. ">\n";
 	}
 
+	/**
+	 * Start element output.
+	 *
+	 * @param WP_Nav_Menu_Item $item
+	 * @param stdClass|null    $args
+	 */
 	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 		$this->current_item = $item;
 
