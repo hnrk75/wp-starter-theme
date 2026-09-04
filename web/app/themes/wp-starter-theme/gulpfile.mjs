@@ -8,7 +8,6 @@ import eslint from 'gulp-eslint-new';
 import terser from 'gulp-terser';
 import rename from 'gulp-rename';
 import notify from 'gulp-notify';
-import include from 'gulp-include';
 import gulpSass from 'gulp-sass';
 import * as dartSass from 'sass';
 import browserSyncLib from 'browser-sync';
@@ -27,7 +26,7 @@ const browserSync = browserSyncLib.create();
 const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
-  jsFiles: ['./assets/js/**/*.js', '!./assets/js/dist/*.js'],
+  jsFiles: ['./assets/js/src/**/*.js'],
   cssFiles: ['./assets/scss/**/*.scss', './inc/**/*.scss'],
   browserSyncWatchFiles: ['./assets/css/*.min.css', './assets/js/dist/*.min.js', './**/*.php'],
   proxyUrl: process.env.LOCAL_URL || 'http://wp-starter-theme.local/',
@@ -72,7 +71,7 @@ function debounceScss(filePath, fn, delay = 150) {
 // ==== JavaScript ===============================================
 export function lintJS() {
   return gulp
-    .src(['./assets/js/src/**/*.js', './assets/js/manifest.js'], { allowEmpty: true })
+    .src('./assets/js/src/**/*.js', { allowEmpty: true })
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -80,22 +79,14 @@ export function lintJS() {
 
 export function scripts() {
   let pipeline = gulp
-    .src('./assets/js/manifest.js', { allowEmpty: true })
-    .pipe(
-      include().on('error', function (err) {
-        notify.onError({ title: 'Include error', message: '<%= error.message %>' })(err);
-        this.emit('end');
-      })
-    );
-
-  pipeline = pipeline.pipe(rename({ basename: 'scripts' }));
+    .src('./assets/js/src/**/*.js', { allowEmpty: true })
+    .pipe(rename({ basename: 'scripts' }));
 
   if (isProduction) {
     pipeline = pipeline.pipe(terser());
   }
 
   pipeline = pipeline.pipe(rename({ suffix: '.min' }));
-
   pipeline = pipeline.pipe(gulp.dest('./assets/js/dist'));
 
   return pipeline.pipe(browserSync.stream()).on('end', () => bsNotify('Scripts', 'Klar'));
@@ -139,7 +130,11 @@ export function compileSass() {
     .pipe(plumber({ errorHandler: onError }));
 
   pipeline = pipeline
-    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
+    .pipe(
+      sass({
+        outputStyle: isProduction ? 'compressed' : 'expanded',
+      }).on('error', sass.logError)
+    )
     .pipe(autoprefixer())
     .pipe(gulp.dest('./assets/css/'))
     .pipe(rename({ suffix: '.min' }));
@@ -155,7 +150,11 @@ export function compileEditorSass() {
     .pipe(plumber({ errorHandler: onError }));
 
   pipeline = pipeline
-    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
+    .pipe(
+      sass({
+        outputStyle: isProduction ? 'compressed' : 'expanded',
+      }).on('error', sass.logError)
+    )
     .pipe(autoprefixer())
     .pipe(rename({ basename: 'editor-style' }))
     .pipe(gulp.dest('./assets/css/'));

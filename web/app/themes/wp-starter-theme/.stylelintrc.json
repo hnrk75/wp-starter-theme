@@ -17,7 +17,7 @@
     "declaration-block-no-redundant-longhand-properties": null,
     "declaration-empty-line-before": null,
 
-    "max-nesting-depth": 4,
+    "max-nesting-depth": 3,
     "selector-max-compound-selectors": 4,
 
     "no-descending-specificity": null,

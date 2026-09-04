@@ -14,15 +14,6 @@ body {
 	margin: 0;
 	background-color: $color-white;
 	color: $color-dark;
-	font-family: $font-family-body;
-	font-size: var(--wp--preset--font-size--medium);
-	font-weight: $font-weight-regular;
-	font-variant-numeric: lining-nums proportional-nums;
-	font-synthesis: none;
-	line-height: $line-height-body;
-	text-rendering: optimizelegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 img,

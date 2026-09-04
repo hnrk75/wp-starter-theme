@@ -11,7 +11,7 @@
     "url": "git@github.com:hnrk75/wp-starter-theme.git"
   },
   "engines": {
-    "node": "20.x",
+    "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
   "browserslist": [
@@ -25,8 +25,8 @@
     "start": "npm run dev",
     "build": "cross-env NODE_ENV=production gulp build",
     "zip": "gulp zipFiles",
-    "lint:js": "eslint assets/js --cache",
-    "lint:js:fix": "eslint assets/js --fix --cache",
+    "lint:js": "eslint assets/js/src --cache",
+    "lint:js:fix": "eslint assets/js/src --fix --cache",
     "lint:css": "stylelint \"assets/scss/**/*.scss\" \"inc/**/*.scss\"",
     "lint:css:fix": "stylelint \"assets/scss/**/*.scss\" \"inc/**/*.scss\" --fix",
     "lint:php": "../../../../vendor/bin/phpcs --standard=../../../../phpcs.xml .",
@@ -37,31 +37,26 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@eslint/js": "^9.0.0",
+    "@eslint/js": "^10.0.1",
     "browser-sync": "^3.0.3",
-    "chokidar-cli": "^3.0.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^9.1.0",
-    "globals": "^17.4.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
     "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^9.0.0",
+    "gulp-autoprefixer": "^10.0.0",
     "gulp-eslint-new": "^2.6.1",
-    "gulp-include": "^2.4.1",
     "gulp-notify": "^5.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
-    "gulp-rev": "^10.0.0",
-    "gulp-rev-delete-original": "^0.2.3",
-    "gulp-sass": "^5.1.0",
+    "gulp-sass": "^6.0.1",
     "gulp-terser": "^2.1.0",
     "gulp-zip": "^6.0.0",
-    "jquery": "^3.7.1",
     "postcss-scss": "^4.0.9",
-    "prettier": "^3.3.3",
-    "sass": "^1.80.7",
-    "stylelint": "^16.25.0",
-    "stylelint-config-standard-scss": "^16.0.0"
+    "prettier": "^3.9.6",
+    "sass": "^1.104.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard-scss": "^17.0.0"
   },
   "keywords": [
     "wordpress",
