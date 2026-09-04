@@ -1,6 +1,6 @@
 # WP Starter Theme
 
-A modern, Bootstrap-free WordPress starter theme built with SCSS (ITCSS), Gulp, and Bedrock.
+A modern WordPress starter theme built with SCSS (ITCSS), Gulp, and Bedrock.
 Follows WordPress Coding Standards (WPCS) with built-in linting for PHP, JS, and SCSS.
 
 ---
@@ -27,9 +27,9 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 
 | Dependency | Minimum |
 |------------|---------|
-| WordPress  | 6.9     |
+| WordPress  | 7.1     |
 | PHP        | 8.1     |
-| Node.js    | 20.x    |
+| Node.js    | 20.0    |
 | npm        | 10.0    |
 | Composer   | 2.0     |
 
@@ -37,17 +37,20 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 
 ## Features
 
-- SCSS ITCSS architecture with @use/@forward (no Bootstrap)
+- SCSS ITCSS architecture with @use/@forward
 - Fluid typography via theme.json (clamp-based font sizes)
 - Fluid spacing scale (--space-xs to --space-xl)
 - Gulp 5 build system — CSS, JS, BrowserSync
 - Google Fonts loaded via wp_enqueue_style (heading + body)
-- Custom Bootstrap-like container system in rem
+- Custom container system in rem
 - BEM methodology with consistent nesting
 - WCAG-compliant navigation with custom navwalker
 - Gutenberg support — editor-style, theme.json, alignment classes
 - Accessibility — skip link, aria-labels, screen-reader-text, focus-visible
 - Code linting via ESLint, Stylelint, Prettier, PHPCS and PHPStan
+- Dashboard widget for recommended plugins with composer.json integration
+- Auto-generated privacy policy and cookie policy pages on theme activation
+- i18n-ready with Swedish (sv_SE) translation included
 
 ---
 
@@ -78,11 +81,11 @@ npm run fix        # Auto-fix JS, CSS and PHP
 
 ```
 assets/scss/
-├── abstracts/     # Variables, mixins, functions
+├── abstracts/     # Variables, mixins
 ├── base/          # Reset, root (CSS custom properties), typography, accessibility
 ├── layout/        # Grid/containers, header, footer, content
 ├── components/    # Links, buttons, navigation, icons, card
-└── gutenberg/     # Editor alignment classes
+└── gutenberg/     # Block-specific styles (alignments, table, etc.)
 ```
 
 ---
@@ -140,10 +143,11 @@ The base class is `.btn`. Always add a variant. The PHP helper `wpst_button()` i
 |-------|-------|
 | `.btn-primary` | Primary CTA (default) |
 | `.btn-secondary` | Secondary action |
-| `.btn-tertiary` | Tertiary / soft action |
 | `.btn-light` | Light background |
 | `.btn-dark` | Dark background |
 | `.btn-ghost` | Outline button |
+| `.btn-success` | Confirmations / success actions |
+| `.btn-danger` | Destructive / delete actions |
 
 #### Sizes
 

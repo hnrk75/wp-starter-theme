@@ -1,6 +1,6 @@
 root = true
 
-# WordPress standard: tabs för PHP
+# WordPress standard: tabs for PHP
 [*.php]
 charset = utf-8
 end_of_line = lf
@@ -9,7 +9,7 @@ indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# Prettier hanterar dessa, men vi sätter baseline
+# Prettier handles these, but we set a baseline
 [*.{js,jsx,ts,tsx,mjs}]
 charset = utf-8
 end_of_line = lf

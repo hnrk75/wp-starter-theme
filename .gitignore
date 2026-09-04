@@ -4,23 +4,21 @@ web/app/mu-plugins/*/
 
 web/app/plugins/*
 !web/app/plugins/.gitkeep
-!web/app/plugins/wpst-acf-blocks/
-!web/app/plugins/wpst-cookie-consent/
 
 web/app/upgrade
 web/app/upgrade-temp-backup
 web/app/cache/*
 
-# Uppladdningar — ignorera faktiska filer men behåll struktur
+# Uploads — ignore actual files but keep directory structure
 web/app/uploads/*
 !web/app/uploads/.gitkeep
 !web/app/uploads/fonts/
 !web/app/uploads/fonts/.gitkeep
 
-# Ignorera standardteman
+# Ignore default WordPress themes
 web/app/themes/twenty*/
 
-# Språkfiler i teman (genereras ofta externt)
+# Theme language files (often generated externally)
 web/app/themes/*/languages/*
 !web/app/themes/*/languages/.gitkeep
 
@@ -29,7 +27,7 @@ web/wp
 web/.htaccess
 web/.user.ini
 
-# ───── WordPress språkfiler (laddas ner automatiskt) ───────────
+# ───── WordPress language files (downloaded automatically) ─────
 web/app/languages/*
 !web/app/languages/.gitkeep
 
@@ -58,13 +56,13 @@ lerna-debug.log*
 .env.*
 !.env.example
 
-# ───── Composer auth (innehåller licensnycklar) ─────────────────
+# ───── Composer auth (contains license keys) ──────────────────
 auth.json
 
 # ───── Composer ────────────────────────────────────────────────
 /vendor
 composer.phar
-!composer.lock                 # committa låsfilen
+!composer.lock                 # commit the lock file
 
 # ───── WP-CLI ──────────────────────────────────────────────────
 wp-cli.local.yml
@@ -90,12 +88,12 @@ Thumbs.db
 .idea/
 *.iml
 
-# ───── Claude Code (lokala inställningar) ──────────────────────
+# ───── Claude Code (local settings) ───────────────────────────
 .claude/
 memory/
 
-# ───── Tooling configs (committas för enhetlig setup) ──────────
-# Dessa filer är inte ignorerade — ingen regel krävs, men listas här som dokumentation:
+# ───── Tooling configs (committed for consistent setup) ────────
+# These files are NOT ignored — listed here for documentation only:
 # phpcs.xml, phpstan.neon, .eslintrc.*, .stylelintrc.*, .prettierrc.*,
 # package.json, package-lock.json, postcss.config.*, tailwind.config.*
 
@@ -119,37 +117,37 @@ var/phpstan/**
 web/app/themes/**/.eslintcache
 web/app/themes/**/.stylelintcache
 
-# ───── Build artifacts (teman) — JS/CSS/ZIP/Maps ──────────────
-# JS bundles, sourcemaps och rev-manifest
+# ───── Build artifacts (themes) — JS/CSS/ZIP/Maps ─────────────
+# JS bundles, sourcemaps and rev-manifest
 web/app/themes/**/assets/js/dist/**
 web/app/themes/**/rev-manifest.json
 
-# CSS-utdata från temat (endast kompilerade/minifierade filer, ej källfiler)
+# Compiled/minified CSS output (not source files)
 web/app/themes/**/assets/css/*.min.css
 web/app/themes/**/assets/css/*.min.css.map
 web/app/themes/**/style.min.css
 web/app/themes/**/style.min.css.map
 
-# Kritisk CSS (om din critical-task skriver till /css)
+# Critical CSS (if your critical-task writes to /css)
 web/app/themes/**/css/**
 !web/app/themes/**/css/.gitkeep
 
-# Alla sourcemaps (om du inte vill spara dem i repo)
+# All sourcemaps
 **/*.map
 
 # Packade releaser
 web/app/themes/**/*.zip
 
-# ───── Coverage / test-rester (om aktuellt) ────────────────────
+# ───── Coverage / test output ─────────────────────────────────
 coverage/
 reports/
 .nyc_output/
 
-# ───── Alternativ strategi (committa byggda assets) ───────────
-# Om du *vill* committa minifierade assets:
-#   – kommentera bort de relevanta reglerna ovan för style.min.css och scripts.min.js,
-#   – men behåll att ignorera *.map och rev-manifest.
+# ───── Alternative: commit built assets ───────────────────────
+# To commit minified assets, comment out the relevant rules above
+# for style.min.css and scripts.min.js, but keep ignoring *.map
+# and rev-manifest.
 #
-# Exempel:
+# Example:
 # # **/*.map
 # # web/app/themes/**/rev-manifest.json

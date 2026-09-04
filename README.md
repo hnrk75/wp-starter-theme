@@ -16,8 +16,7 @@ project-root/
 ├── web/
 │   ├── app/
 │   │   ├── mu-plugins/        # Must-use plugins (autoloaded)
-│   │   ├── plugins/
-│   │   │   └── wpst-acf-blocks/   # Custom ACF blocks
+│   │   ├── plugins/           # Plugins (Composer or manual)
 │   │   ├── themes/
 │   │   │   └── wp-starter-theme/
 │   │   └── uploads/           # Media (gitignored)
@@ -29,13 +28,13 @@ project-root/
 
 ## Requirements
 
-| Tool       | Minimum version | Dev environment |
-|------------|-----------------|-----------------|
-| PHP        | 8.1             | 8.5             |
-| WordPress  | 6.9             |                 |
-| Composer   | 2.0             |                 |
-| Node.js    | 20.x            |                 |
-| npm        | 10.0            |                 |
+| Tool       | Minimum version |
+|------------|-----------------|
+| PHP        | 8.1             |
+| WordPress  | 6.9             |
+| Composer   | 2.0             |
+| Node.js    | 20.0            |
+| npm        | 10.0            |
 
 ---
 
@@ -73,13 +72,6 @@ cd web/app/themes/wp-starter-theme
 npm install
 ```
 
-### 5. Install plugin dependencies
-
-```bash
-cd web/app/plugins/wpst-acf-blocks
-npm install
-```
-
 ---
 
 ## Theme development
@@ -93,15 +85,15 @@ npm run lint     # Lint JS, CSS and PHP
 npm run fix      # Auto-fix JS, CSS and PHP
 ```
 
-## Plugin development
+---
 
-Run inside `web/app/plugins/wpst-acf-blocks/`:
+## Recommended plugins
+
+The theme dashboard widget lists recommended plugins and their install commands.
+Add plugins to `composer.json` with:
 
 ```bash
-npm run dev          # Watch & compile block and shared SCSS
-npm run build        # Production build
-npm run lint:css     # Stylelint all SCSS
-npm run lint:css:fix # Auto-fix SCSS
+composer require vendor/package-name
 ```
 
 ---

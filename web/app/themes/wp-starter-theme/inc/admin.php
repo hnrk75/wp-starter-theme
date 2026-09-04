@@ -52,7 +52,7 @@ add_action( 'admin_enqueue_scripts', 'wpst_dashboard_widget_scripts' );
 function wpst_register_recommended_plugins_widget() {
 	wp_add_dashboard_widget(
 		'wpst_recommended_plugins',
-		'Recommended Plugins',
+		__( 'Recommended Plugins', 'wp-starter-theme' ),
 		'wpst_render_recommended_plugins_widget'
 	);
 }
@@ -106,7 +106,7 @@ function wpst_render_recommended_plugins_widget() {
 		echo '<span style="color:' . esc_attr( $color ) . ';margin-left:8px;font-size:12px;">' . esc_html( $status ) . '</span>';
 
 		if ( ! $active && $in_compose ) {
-			echo '<br><code style="font-size:11px;background:#fef3c7;padding:2px 6px;border-radius:3px;display:inline-block;margin-top:4px;">Run in terminal: composer install</code>';
+			echo '<br><code style="font-size:11px;background:#fef3c7;padding:2px 6px;border-radius:3px;display:inline-block;margin-top:4px;">' . esc_html__( 'Run in terminal: composer install', 'wp-starter-theme' ) . '</code>';
 		} elseif ( ! $active ) {
 			echo '<br>';
 			echo '<button class="button button-small wpst-composer-btn" style="margin-top:6px;" '
@@ -161,7 +161,7 @@ function wpst_ajax_add_composer_plugin() {
 	check_ajax_referer( 'wpst_composer_nonce', 'nonce' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_send_json_error( 'Unauthorized.' );
+		wp_send_json_error( __( 'Unauthorized.', 'wp-starter-theme' ) );
 	}
 
 	$package  = sanitize_text_field( wp_unslash( $_POST['package'] ?? '' ) );
@@ -169,7 +169,7 @@ function wpst_ajax_add_composer_plugin() {
 	$version  = sanitize_text_field( wp_unslash( $_POST['version'] ?? '^1.0' ) );
 
 	if ( ! $package ) {
-		wp_send_json_error( 'Missing package name.' );
+		wp_send_json_error( __( 'Missing package name.', 'wp-starter-theme' ) );
 	}
 
 	$composer_path = dirname( get_template_directory(), 4 ) . '/composer.json';
@@ -181,17 +181,17 @@ function wpst_ajax_add_composer_plugin() {
 	global $wp_filesystem;
 
 	if ( ! $wp_filesystem->exists( $composer_path ) ) {
-		wp_send_json_error( 'composer.json not found at: ' . $composer_path );
+		wp_send_json_error( sprintf( __( 'composer.json not found at: %s', 'wp-starter-theme' ), $composer_path ) );
 	}
 
 	if ( ! $wp_filesystem->is_writable( $composer_path ) ) {
-		wp_send_json_error( 'composer.json is not writable.' );
+		wp_send_json_error( __( 'composer.json is not writable.', 'wp-starter-theme' ) );
 	}
 
 	$json = json_decode( $wp_filesystem->get_contents( $composer_path ), true );
 
 	if ( null === $json ) {
-		wp_send_json_error( 'Could not parse composer.json.' );
+		wp_send_json_error( __( 'Could not parse composer.json.', 'wp-starter-theme' ) );
 	}
 
 	$changed = false;
@@ -221,14 +221,14 @@ function wpst_ajax_add_composer_plugin() {
 	}
 
 	if ( ! $changed ) {
-		wp_send_json_success( 'Already in composer.json.' );
+		wp_send_json_success( __( 'Already in composer.json.', 'wp-starter-theme' ) );
 	}
 
 	$written = $wp_filesystem->put_contents( $composer_path, wp_json_encode( $json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . "\n" );
 
 	if ( ! $written ) {
-		wp_send_json_error( 'Failed to write composer.json.' );
+		wp_send_json_error( __( 'Failed to write composer.json.', 'wp-starter-theme' ) );
 	}
 
-	wp_send_json_success( 'Added. Run composer install to complete.' );
+	wp_send_json_success( __( 'Added. Run composer install to complete.', 'wp-starter-theme' ) );
 }

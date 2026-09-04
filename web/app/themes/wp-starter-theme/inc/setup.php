@@ -78,13 +78,13 @@ add_filter(
 		return array_merge(
 			$sizes,
 			array(
-				'wpst-square' => '1:1 Square (800×800)',
-				'wpst-4-3'    => '4:3 Landscape (800×600)',
-				'wpst-3-4'    => '3:4 Portrait (600×800)',
-				'wpst-16-9'   => '16:9 Landscape (1280×720)',
-				'wpst-9-16'   => '9:16 Portrait (720×1280)',
-				'wpst-hero'   => 'Hero (1920×1080)',
-				'wpst-og'     => 'Open Graph (1200×630)',
+				'wpst-square' => __( '1:1 Square (800×800)', 'wp-starter-theme' ),
+				'wpst-4-3'    => __( '4:3 Landscape (800×600)', 'wp-starter-theme' ),
+				'wpst-3-4'    => __( '3:4 Portrait (600×800)', 'wp-starter-theme' ),
+				'wpst-16-9'   => __( '16:9 Landscape (1280×720)', 'wp-starter-theme' ),
+				'wpst-9-16'   => __( '9:16 Portrait (720×1280)', 'wp-starter-theme' ),
+				'wpst-hero'   => __( 'Hero (1920×1080)', 'wp-starter-theme' ),
+				'wpst-og'     => __( 'Open Graph (1200×630)', 'wp-starter-theme' ),
 			)
 		);
 	}
