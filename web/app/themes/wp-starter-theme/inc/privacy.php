@@ -23,7 +23,7 @@ function wpst_setup_privacy_policy_page() {
 	} else {
 		$page_id = wp_insert_post(
 			array(
-				'post_title'   => __( 'Integritetspolicy', 'wp-starter-theme' ),
+				'post_title'   => __( 'Privacy Policy', 'wp-starter-theme' ),
 				'post_status'  => 'draft',
 				'post_type'    => 'page',
 				'post_content' => $content,
@@ -51,7 +51,7 @@ function wpst_setup_cookie_policy_page() {
 	} else {
 		$page_id = wp_insert_post(
 			array(
-				'post_title'   => __( 'Cookiepolicy', 'wp-starter-theme' ),
+				'post_title'   => __( 'Cookie Policy', 'wp-starter-theme' ),
 				'post_status'  => 'draft',
 				'post_type'    => 'page',
 				'post_content' => $content,

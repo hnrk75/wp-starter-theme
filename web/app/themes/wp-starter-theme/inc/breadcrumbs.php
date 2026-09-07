@@ -15,7 +15,7 @@ function wpst_generate_breadcrumb_link( $url, $text, $position ) {
 			<meta itemprop="position" content="%4$d" />
 		</li>',
 		esc_url( $url ),
-		esc_attr( sprintf( __( 'Gå till sidan %s', 'wp-starter-theme' ), $text ) ),
+		esc_attr( sprintf( __( 'Go to page %s', 'wp-starter-theme' ), $text ) ),
 		esc_html( $text ),
 		(int) $position
 	);
@@ -38,7 +38,7 @@ function wpst_handle_category_breadcrumb( $show_current, $delimiter, $before, $a
 		$output      .= wp_kses_post( $parents_html );
 	}
 
-	$output .= '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Kategori:', 'wp-starter-theme' ) . ' ' . esc_html( single_cat_title( '', false ) ) . wp_kses_post( $after ) . '</li>';
+	$output .= '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Category:', 'wp-starter-theme' ) . ' ' . esc_html( single_cat_title( '', false ) ) . wp_kses_post( $after ) . '</li>';
 
 	echo wp_kses_post( $output );
 }
@@ -151,7 +151,7 @@ function wpst_handle_author_breadcrumb( $before, $after ) {
 	global $author;
 	$userdata = get_userdata( $author );
 	if ( $userdata ) {
-		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Artiklar postade av', 'wp-starter-theme' ) . ' ' . esc_html( $userdata->display_name ) . wp_kses_post( $after ) . '</li>';
+		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Articles posted by', 'wp-starter-theme' ) . ' ' . esc_html( $userdata->display_name ) . wp_kses_post( $after ) . '</li>';
 	}
 }
 
@@ -159,13 +159,13 @@ function wpst_handle_pagination() {
 	$paged = (int) get_query_var( 'paged' );
 
 	if ( $paged ) {
-		echo ' (' . esc_html__( 'Sida', 'wp-starter-theme' ) . ' ' . esc_html( (string) $paged ) . ')';
+		echo ' (' . esc_html__( 'Page', 'wp-starter-theme' ) . ' ' . esc_html( (string) $paged ) . ')';
 	}
 }
 
 function wpst_the_breadcrumb( $display = true ) {
 	$delimiter   = '<li class="delimiter" aria-hidden="true"> • </li>';
-	$home        = __( 'Startsida', 'wp-starter-theme' );
+	$home        = __( 'Home', 'wp-starter-theme' );
 	$showCurrent = 1;
 	$before      = '<span class="current" aria-current="page">';
 	$after       = '</span>';
@@ -180,7 +180,7 @@ function wpst_the_breadcrumb( $display = true ) {
 		return '';
 	}
 
-	echo '<nav class="breadcrumb" aria-label="' . esc_attr__( 'Brödsmulor', 'wp-starter-theme' ) . '">';
+	echo '<nav class="breadcrumb" aria-label="' . esc_attr__( 'Breadcrumbs', 'wp-starter-theme' ) . '">';
 	echo '<ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb-list">';
 
 	$position = 1;
@@ -199,7 +199,7 @@ function wpst_the_breadcrumb( $display = true ) {
 
 	} elseif ( is_search() ) {
 		echo wp_kses_post( $delimiter );
-		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Sökresultat för', 'wp-starter-theme' ) . ' "' . esc_html( get_search_query() ) . '"' . wp_kses_post( $after ) . '</li>';
+		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Search results for', 'wp-starter-theme' ) . ' "' . esc_html( get_search_query() ) . '"' . wp_kses_post( $after ) . '</li>';
 
 	} elseif ( is_day() || is_month() || is_year() ) {
 		echo wp_kses_post( $delimiter );
@@ -231,7 +231,7 @@ function wpst_the_breadcrumb( $display = true ) {
 
 	} elseif ( is_404() ) {
 		echo wp_kses_post( $delimiter );
-		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Fel 404: Sidan hittades inte', 'wp-starter-theme' ) . wp_kses_post( $after ) . '</li>';
+		echo '<li aria-current="page">' . wp_kses_post( $before ) . esc_html__( 'Error 404: Page not found', 'wp-starter-theme' ) . wp_kses_post( $after ) . '</li>';
 	}
 
 	wpst_handle_pagination();

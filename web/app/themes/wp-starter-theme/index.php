@@ -13,7 +13,7 @@ get_header(); ?>
 			id="main"
 			class="content-main"
 			tabindex="-1"
-			aria-label="<?php echo esc_attr__( 'Huvudinnehåll', 'wp-starter-theme' ); ?>"
+			aria-label="<?php echo esc_attr__( 'Main content', 'wp-starter-theme' ); ?>"
 		>
 			<?php
 			if ( have_posts() ) {
@@ -31,9 +31,9 @@ get_header(); ?>
 
 				the_posts_pagination(
 					array(
-						'screen_reader_text' => esc_html__( 'Sidnavigering', 'wp-starter-theme' ),
-						'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Föregående sida', 'wp-starter-theme' ) . '</span>',
-						'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Nästa sida', 'wp-starter-theme' ) . '</span>',
+						'screen_reader_text' => esc_html__( 'Page navigation', 'wp-starter-theme' ),
+						'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Previous page', 'wp-starter-theme' ) . '</span>',
+						'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Next page', 'wp-starter-theme' ) . '</span>',
 					)
 				);
 
@@ -43,7 +43,7 @@ get_header(); ?>
 			?>
 		</main>
 
-		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidopanel', 'wp-starter-theme' ); ?>">
+		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidebar', 'wp-starter-theme' ); ?>">
 			<?php get_sidebar(); ?>
 		</aside>
 	</div>

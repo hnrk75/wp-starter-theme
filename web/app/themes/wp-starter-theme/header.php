@@ -19,7 +19,7 @@
 <?php wp_body_open(); ?>
 
 <a class="skip-link" href="#main">
-	<?php echo esc_html__( 'Hoppa till innehåll', 'wp-starter-theme' ); ?>
+	<?php echo esc_html__( 'Skip to content', 'wp-starter-theme' ); ?>
 </a>
 
 <div id="page" class="site">
@@ -40,17 +40,17 @@
 				<button class="site-nav__toggle" type="button"
 					aria-controls="main-nav"
 					aria-expanded="false"
-					aria-label="<?php echo esc_attr__( 'Öppna meny', 'wp-starter-theme' ); ?>">
+					aria-label="<?php echo esc_attr__( 'Open menu', 'wp-starter-theme' ); ?>">
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 				</button>
 
-				<nav class="site-nav" id="main-nav" aria-label="<?php echo esc_attr__( 'Huvudmeny', 'wp-starter-theme' ); ?>">
+				<nav class="site-nav" id="main-nav" aria-label="<?php echo esc_attr__( 'Main menu', 'wp-starter-theme' ); ?>">
 
 					<div class="site-nav__header">
-						<span class="site-nav__title"><?php echo esc_html__( 'Meny', 'wp-starter-theme' ); ?></span>
-						<button class="site-nav__close" type="button" aria-label="<?php echo esc_attr__( 'Stäng meny', 'wp-starter-theme' ); ?>">
+						<span class="site-nav__title"><?php echo esc_html__( 'Menu', 'wp-starter-theme' ); ?></span>
+						<button class="site-nav__close" type="button" aria-label="<?php echo esc_attr__( 'Close menu', 'wp-starter-theme' ); ?>">
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 						</button>

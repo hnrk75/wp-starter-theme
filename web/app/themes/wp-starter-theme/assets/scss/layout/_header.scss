@@ -9,7 +9,6 @@
 	background-color: $color-gray-100;
 	margin-bottom: var(--space-lg);
 
-
 	// Remove margin when hero is the first block
 	body:has(.has-hero-top) & {
 		margin-bottom: 0;
@@ -36,7 +35,9 @@
 		color: $color-gray-900;
 		text-decoration: none;
 
-		&::before { display: none; }
+		&::before {
+			display: none;
+		}
 
 		@include focus-visible-shadow;
 

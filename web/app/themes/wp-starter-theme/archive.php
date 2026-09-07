@@ -12,7 +12,7 @@ get_header(); ?>
 		id="main"
 		class="content-main"
 		tabindex="-1"
-		aria-label="<?php echo esc_attr__( 'Huvudinnehåll', 'wp-starter-theme' ); ?>"
+		aria-label="<?php echo esc_attr__( 'Main content', 'wp-starter-theme' ); ?>"
 	>
 		<?php if ( have_posts() ) : ?>
 			<header class="page-header">
@@ -30,10 +30,10 @@ get_header(); ?>
 
 			the_posts_pagination(
 				array(
-					'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Föregående sida', 'wp-starter-theme' ) . '</span>',
-					'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Nästa sida', 'wp-starter-theme' ) . '</span>',
+					'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Previous page', 'wp-starter-theme' ) . '</span>',
+					'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Next page', 'wp-starter-theme' ) . '</span>',
 					'type'               => 'list',
-					'screen_reader_text' => esc_html__( 'Navigering för inläggssidor', 'wp-starter-theme' ),
+					'screen_reader_text' => esc_html__( 'Post page navigation', 'wp-starter-theme' ),
 				)
 			);
 			?>

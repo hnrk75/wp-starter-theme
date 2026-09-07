@@ -8,11 +8,11 @@
 
 <form role="search" method="get" class="search-form"
 	action="<?php echo esc_url( home_url( '/' ) ); ?>"
-	aria-label="<?php echo esc_attr__( 'Sökformulär', 'wp-starter-theme' ); ?>">
+	aria-label="<?php echo esc_attr__( 'Search form', 'wp-starter-theme' ); ?>">
 
 	<div class="search-form__group">
 		<label for="search-field" class="screen-reader-text">
-			<?php echo esc_html__( 'Sök efter:', 'wp-starter-theme' ); ?>
+			<?php echo esc_html__( 'Search for:', 'wp-starter-theme' ); ?>
 		</label>
 
 		<input
@@ -31,7 +31,7 @@
 		</svg>';
 		wpst_button(
 			array(
-				'label'   => __( 'Sök', 'wp-starter-theme' ),
+				'label'   => __( 'Search', 'wp-starter-theme' ),
 				'variant' => 'secondary',
 				'type'    => 'submit',
 				'icon_html' => $icon_search,

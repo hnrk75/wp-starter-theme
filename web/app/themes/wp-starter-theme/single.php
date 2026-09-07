@@ -13,7 +13,7 @@ get_header(); ?>
 			id="main"
 			class="content-main"
 			tabindex="-1"
-			aria-label="<?php echo esc_attr__( 'Huvudinnehåll', 'wp-starter-theme' ); ?>"
+			aria-label="<?php echo esc_attr__( 'Main content', 'wp-starter-theme' ); ?>"
 		>
 			<?php
 			while ( have_posts() ) :
@@ -32,7 +32,7 @@ get_header(); ?>
 
 						wp_link_pages(
 							array(
-								'before' => '<nav class="page-links" aria-label="' . esc_attr__( 'Sidnavigering', 'wp-starter-theme' ) . '">',
+								'before' => '<nav class="page-links" aria-label="' . esc_attr__( 'Page navigation', 'wp-starter-theme' ) . '">',
 								'after'  => '</nav>',
 							)
 						);
@@ -42,7 +42,7 @@ get_header(); ?>
 					<footer class="entry-footer">
 						<?php
 						edit_post_link(
-							esc_html__( 'Redigera', 'wp-starter-theme' ),
+							esc_html__( 'Edit', 'wp-starter-theme' ),
 							'<span class="edit-link">',
 							'</span>'
 						);
@@ -53,7 +53,7 @@ get_header(); ?>
 				<?php
 				the_post_navigation(
 					array(
-						'screen_reader_text' => esc_html__( 'Inläggsnavigering', 'wp-starter-theme' ),
+						'screen_reader_text' => esc_html__( 'Post navigation', 'wp-starter-theme' ),
 						'prev_text'          => '<span class="meta-nav" aria-hidden="true">&larr;</span> <span class="post-title">%title</span>',
 						'next_text'          => '<span class="post-title">%title</span> <span class="meta-nav" aria-hidden="true">&rarr;</span>',
 					)
@@ -62,7 +62,7 @@ get_header(); ?>
 			?>
 		</main>
 
-		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidopanel', 'wp-starter-theme' ); ?>">
+		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidebar', 'wp-starter-theme' ); ?>">
 			<?php get_sidebar(); ?>
 		</aside>
 	</div>

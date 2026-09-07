@@ -12,14 +12,14 @@ get_header(); ?>
 		id="main"
 		class="content-main"
 		tabindex="-1"
-		aria-label="<?php echo esc_attr__( 'Sökresultat', 'wp-starter-theme' ); ?>"
+		aria-label="<?php echo esc_attr__( 'Search results', 'wp-starter-theme' ); ?>"
 	>
 		<?php if ( have_posts() ) : ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
 					printf(
-						esc_html__( 'Sökresultat för: %s', 'wp-starter-theme' ),
+						esc_html__( 'Search results for: %s', 'wp-starter-theme' ),
 						'<span>' . esc_html( get_search_query() ) . '</span>'
 					);
 					?>
@@ -34,9 +34,9 @@ get_header(); ?>
 
 			the_posts_pagination(
 				array(
-					'screen_reader_text' => esc_html__( 'Sidnavigering', 'wp-starter-theme' ),
-					'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Föregående sida', 'wp-starter-theme' ) . '</span>',
-					'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Nästa sida', 'wp-starter-theme' ) . '</span>',
+					'screen_reader_text' => esc_html__( 'Page navigation', 'wp-starter-theme' ),
+					'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Previous page', 'wp-starter-theme' ) . '</span>',
+					'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Next page', 'wp-starter-theme' ) . '</span>',
 				)
 			);
 		else :

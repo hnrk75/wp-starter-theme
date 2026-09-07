@@ -5,54 +5,43 @@
  * @package WP Starter Theme
  */
 
-$footer_widgets = array(
-	'footer-1' => array(
-		'label'       => __( 'Sidfot widgetområde 1', 'wp-starter-theme' ),
-		'placeholder' => array(
-			'title' => get_bloginfo( 'name' ),
-			'text'  => esc_html__( 'Lägg till en beskrivning av er verksamhet här.', 'wp-starter-theme' ),
-		),
-	),
-	'footer-2' => array(
-		'label'       => __( 'Sidfot widgetområde 2', 'wp-starter-theme' ),
-		'placeholder' => array(
-			'title' => esc_html__( 'Snabblänkar', 'wp-starter-theme' ),
-			'text'  => esc_html__( 'Lägg till en menylista eller länkwidget här.', 'wp-starter-theme' ),
-		),
-	),
-	'footer-3' => array(
-		'label'       => __( 'Sidfot widgetområde 3', 'wp-starter-theme' ),
-		'placeholder' => array(
-			'title' => esc_html__( 'Kontakt', 'wp-starter-theme' ),
-			'text'  => esc_html__( 'Lägg till kontaktuppgifter eller en karta här.', 'wp-starter-theme' ),
-		),
-	),
-	'footer-4' => array(
-		'label'       => __( 'Sidfot widgetområde 4', 'wp-starter-theme' ),
-		'placeholder' => array(
-			'title' => esc_html__( 'Övrigt', 'wp-starter-theme' ),
-			'text'  => esc_html__( 'Lägg till valfritt innehåll här.', 'wp-starter-theme' ),
-		),
-	),
+// Pull footer widget areas directly from what is registered in inc/widgets.php.
+global $wp_registered_sidebars;
+$footer_widgets = array_filter(
+	$wp_registered_sidebars,
+	fn( $sidebar ) => str_starts_with( $sidebar['id'], 'footer-' )
 );
+
+// Count active widget areas; fall back to all registered when none are active (dev/preview).
+$active_sidebars = array_filter( array_column( $footer_widgets, 'id' ), 'is_active_sidebar' );
+$active_count    = count( $active_sidebars );
+$has_active      = $active_count > 0;
+$col_count       = $has_active ? $active_count : count( $footer_widgets );
+$cols_class      = 'site-footer__widgets--cols-' . $col_count;
 ?>
 
 	</div>
 
 	<footer id="colophon" class="site-footer">
 		<div class="container">
-			<div class="site-footer__widgets">
+			<div class="site-footer__widgets <?php echo esc_attr( $cols_class ); ?>">
 
-				<?php foreach ( $footer_widgets as $sidebar_id => $widget ) : ?>
+				<?php
+				foreach ( $footer_widgets as $sidebar ) :
+					$sidebar_id = $sidebar['id'];
+					if ( $has_active && ! is_active_sidebar( $sidebar_id ) ) {
+						continue;
+					}
+					?>
 				<aside class="widget-area" aria-labelledby="footer-<?php echo esc_attr( $sidebar_id ); ?>-title">
 					<h2 id="footer-<?php echo esc_attr( $sidebar_id ); ?>-title" class="screen-reader-text">
-						<?php echo esc_html( $widget['label'] ); ?>
+						<?php echo esc_html( $sidebar['name'] ); ?>
 					</h2>
 					<?php if ( is_active_sidebar( $sidebar_id ) ) : ?>
 						<?php dynamic_sidebar( $sidebar_id ); ?>
 					<?php else : ?>
-						<h3 class="widget-title"><?php echo esc_html( $widget['placeholder']['title'] ); ?></h3>
-						<p><?php echo esc_html( $widget['placeholder']['text'] ); ?></p>
+						<h2 class="widget-title"><?php echo esc_html( $sidebar['name'] ); ?></h2>
+						<p><?php esc_html_e( 'Add widgets here.', 'wp-starter-theme' ); ?></p>
 					<?php endif; ?>
 				</aside>
 				<?php endforeach; ?>
@@ -70,7 +59,7 @@ $footer_widgets = array(
 					array(
 						'theme_location'       => 'footer-menu',
 						'container'            => 'nav',
-						'container_aria_label' => __( 'Sidfotsmeny', 'wp-starter-theme' ),
+						'container_aria_label' => __( 'Footer menu', 'wp-starter-theme' ),
 						'menu_class'           => 'footer-menu',
 						'depth'                => 1,
 						'fallback_cb'          => '__return_false',

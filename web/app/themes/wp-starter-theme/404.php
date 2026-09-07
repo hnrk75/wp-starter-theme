@@ -17,34 +17,34 @@ get_header(); ?>
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title" id="page-title-404">
-					<?php esc_html_e( 'Oops! Den här sidan kunde inte hittas.', 'wp-starter-theme' ); ?>
+					<?php esc_html_e( 'Oops! This page could not be found.', 'wp-starter-theme' ); ?>
 				</h1>
 			</header>
 
 			<div class="page-content">
 				<p>
-					<?php esc_html_e( 'Det verkar som att inget hittades här. Du kan prova en sökning eller använda någon av knapparna nedan.', 'wp-starter-theme' ); ?>
+					<?php esc_html_e( 'It seems nothing was found here. You can try a search or use one of the buttons below.', 'wp-starter-theme' ); ?>
 				</p>
 
 				<?php get_search_form(); ?>
 
-				<nav aria-label="<?php echo esc_attr__( 'Alternativa länkar för 404-sidan', 'wp-starter-theme' ); ?>">
+				<nav aria-label="<?php echo esc_attr__( 'Alternative links for the 404 page', 'wp-starter-theme' ); ?>">
 					<?php
 					wpst_button(
 						array(
-							'label'      => __( 'Gå till startsidan', 'wp-starter-theme' ),
+							'label'      => __( 'Go to homepage', 'wp-starter-theme' ),
 							'variant'    => 'primary',
 							'href'       => home_url( '/' ),
-							'aria_label' => __( 'Gå till startsidan', 'wp-starter-theme' ),
+							'aria_label' => __( 'Go to homepage', 'wp-starter-theme' ),
 						)
 					);
 
 					wpst_button(
 						array(
-							'label'      => __( 'Sök igen', 'wp-starter-theme' ),
+							'label'      => __( 'Search again', 'wp-starter-theme' ),
 							'variant'    => 'secondary',
 							'href'       => home_url( '/?s=' ),
-							'aria_label' => __( 'Sök igen', 'wp-starter-theme' ),
+							'aria_label' => __( 'Search again', 'wp-starter-theme' ),
 						)
 					);
 					?>

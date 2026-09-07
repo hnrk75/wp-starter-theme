@@ -48,7 +48,7 @@ if ( ! function_exists( 'wpst_posted_on' ) ) :
 			comments_popup_link(
 				sprintf(
 					wp_kses(
-						__( 'Lämna en kommentar<span class="screen-reader-text"> på %s</span>', 'wp-starter-theme' ),
+						__( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'wp-starter-theme' ),
 						array( 'span' => array( 'class' => array() ) )
 					),
 					esc_html( get_the_title() )
@@ -73,7 +73,7 @@ if ( ! function_exists( 'wpst_entry_footer' ) ) :
 
 		edit_post_link(
 			sprintf(
-				esc_html__( 'Redigera %s', 'wp-starter-theme' ),
+				esc_html__( 'Edit %s', 'wp-starter-theme' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			),
 			'<span class="edit-link">',

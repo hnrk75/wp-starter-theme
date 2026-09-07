@@ -9,7 +9,7 @@
 <section class="no-results not-found" aria-labelledby="no-results-title">
 	<header class="page-header">
 		<h1 id="no-results-title" class="page-title">
-			<?php esc_html_e( 'Inget hittades', 'wp-starter-theme' ); ?>
+			<?php esc_html_e( 'Nothing found', 'wp-starter-theme' ); ?>
 		</h1>
 	</header>
 
@@ -20,7 +20,7 @@
 				<?php
 				printf(
 					wp_kses(
-						__( 'Redo att publicera ditt första inlägg? <a href="%1$s">Börja här</a>.', 'wp-starter-theme' ),
+						__( 'Ready to publish your first post? <a href="%1$s">Start here</a>.', 'wp-starter-theme' ),
 						array( 'a' => array( 'href' => array() ) )
 					),
 					esc_url( admin_url( 'post-new.php' ) )
@@ -30,14 +30,14 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Tyvärr, inga träffar matchade dina söktermer. Försök igen med andra ord.', 'wp-starter-theme' ); ?></p>
+			<p><?php esc_html_e( 'Sorry, no results matched your search terms. Please try again with different keywords.', 'wp-starter-theme' ); ?></p>
 			<?php get_search_form(); ?>
 
-			<nav class="no-results-links" aria-label="<?php echo esc_attr__( 'Alternativ när inget hittas', 'wp-starter-theme' ); ?>">
+			<nav class="no-results-links" aria-label="<?php echo esc_attr__( 'Alternative when nothing found', 'wp-starter-theme' ); ?>">
 				<ul>
 					<li>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-							<?php esc_html_e( 'Gå till startsidan', 'wp-starter-theme' ); ?>
+							<?php esc_html_e( 'Go to homepage', 'wp-starter-theme' ); ?>
 						</a>
 					</li>
 				</ul>
@@ -45,14 +45,14 @@
 
 		<?php else : ?>
 
-			<p><?php esc_html_e( 'Det verkar som vi inte kan hitta det du letar efter. Kanske kan en sökning hjälpa.', 'wp-starter-theme' ); ?></p>
+			<p><?php esc_html_e( 'It seems we cannot find what you are looking for. Perhaps a search can help.', 'wp-starter-theme' ); ?></p>
 			<?php get_search_form(); ?>
 
-			<nav class="no-results-links" aria-label="<?php echo esc_attr__( 'Alternativ när inget hittas', 'wp-starter-theme' ); ?>">
+			<nav class="no-results-links" aria-label="<?php echo esc_attr__( 'Alternative when nothing found', 'wp-starter-theme' ); ?>">
 				<ul>
 					<li>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-							<?php esc_html_e( 'Gå till startsidan', 'wp-starter-theme' ); ?>
+							<?php esc_html_e( 'Go to homepage', 'wp-starter-theme' ); ?>
 						</a>
 					</li>
 				</ul>

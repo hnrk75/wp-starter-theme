@@ -48,8 +48,8 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 
 		register_nav_menus(
 			array(
-				'main-menu'   => __( 'Huvudmeny', 'wp-starter-theme' ),
-				'footer-menu' => __( 'Sidfotsmeny', 'wp-starter-theme' ),
+				'main-menu'   => __( 'Main menu', 'wp-starter-theme' ),
+				'footer-menu' => __( 'Footer menu', 'wp-starter-theme' ),
 			)
 		);
 
