@@ -1,0 +1,18 @@
+{
+    "wordpress-no-content": {
+        "translations": {
+            "sv_SE": {
+                "updated": "2026-09-24 07:00:52",
+                "version": "7.1.4"
+            }
+        }
+    },
+    "twentytwentyfive": {
+        "translations": {
+            "sv_SE": {
+                "updated": "2025-08-05 21:32:38",
+                "version": "1.5"
+            }
+        }
+    }
+}

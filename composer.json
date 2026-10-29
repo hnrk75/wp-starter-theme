@@ -36,12 +36,13 @@
   "require": {
     "php": ">=8.4",
     "composer/installers": "^2.3",
-    "vlucas/phpdotenv": "^5.6.1",
+    "inpsyde/wp-translation-downloader": "2.6",
     "oscarotero/env": "^2.1.0",
     "roots/bedrock-autoloader": "^1.0.4",
     "roots/bedrock-disallow-indexing": "^2.0.0",
     "roots/wordpress": "7.1.4",
     "roots/wp-config": "^1.0",
+    "vlucas/phpdotenv": "^5.6.1",
     "wpackagist-theme/twentytwentyfive": "1.5",
     "wpengine/advanced-custom-fields-pro": "6.8.10"
   },
@@ -63,6 +64,7 @@
       "composer/installers": true,
       "roots/wordpress-core-installer": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
+      "inpsyde/wp-translation-downloader": true,
       "phpstan/extension-installer": true
     },
     "sort-packages": true,
@@ -84,7 +86,16 @@
         "type:wordpress-theme"
       ]
     },
-    "wordpress-install-dir": "web/wp"
+    "wordpress-install-dir": "web/wp",
+    "wp-translation-downloader": {
+      "languages": [
+        "sv_SE"
+      ],
+      "directory": "web/app/languages",
+      "excludes": [
+        "wpengine/advanced-custom-fields-pro"
+      ]
+    }
   },
   "scripts": {
     "lint": "phpcs -p -s -d memory_limit=512M --standard=phpcs.xml",
