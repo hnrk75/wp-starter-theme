@@ -78,9 +78,7 @@ tmp/
 Thumbs.db
 
 # ───── Editor / IDE Files ──────────────────────────────────────
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+.vscode/
 .idea/
 *.iml
 
