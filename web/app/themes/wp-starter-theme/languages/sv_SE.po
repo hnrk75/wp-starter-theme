@@ -1,0 +1,700 @@
+# WP Starter Theme translation template.
+# Copyright (C) 2026 WP Starter Theme
+# This file is distributed under the same license as the wp-starter-theme package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-starter-theme 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme\n"
+"POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
+"PO-Revision-Date: 2026-09-04 12:16+0200\n"
+"Last-Translator: Henrik Pettersson <henrik.pettersson@knowit.se>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "WP Starter Theme"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "http://wp-starter-theme.local/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Modern WordPress starter theme"
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Henrik Pettersson"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://github.com/hnrk75"
+msgstr ""
+
+#: 404.php:20
+msgid "Oops! This page could not be found."
+msgstr "Oops! Den här sidan kunde inte hittas."
+
+#: 404.php:26
+msgid ""
+"It seems nothing was found here. You can try a search or use one of the "
+"buttons below."
+msgstr ""
+
+#: 404.php:31
+#, fuzzy
+msgid "Alternative links for the 404 page"
+msgstr "Alternativa länkar för 404-sidan"
+
+#: 404.php:35 404.php:38 template-parts/content/content-none.php:40
+#: template-parts/content/content-none.php:55
+msgid "Go to homepage"
+msgstr "Gå till startsidan"
+
+#: 404.php:44 404.php:47
+msgid "Search again"
+msgstr "Sök igen"
+
+#: archive.php:15 index.php:16 page.php:15 single.php:16
+#: templates/page-with-sidebar.php:16
+msgid "Main content"
+msgstr "Huvudinnehåll"
+
+#: archive.php:33 index.php:35 search.php:38
+msgid "Previous page"
+msgstr "Föregående sida"
+
+#: archive.php:34 index.php:36 search.php:39
+msgid "Next page"
+msgstr "Nästa sida"
+
+#: archive.php:36
+msgid "Post page navigation"
+msgstr "Navigering för inläggssidor"
+
+#: footer.php:44 inc/widgets.php:14 inc/widgets.php:26 inc/widgets.php:38
+#: inc/widgets.php:50 inc/widgets.php:62
+msgid "Add widgets here."
+msgstr "Lägg till widgets här."
+
+#: footer.php:62 inc/setup.php:52
+msgid "Footer menu"
+msgstr "Sidfotsmeny"
+
+#: header.php:22
+msgid "Skip to content"
+msgstr "Hoppa till innehåll"
+
+#: header.php:43
+#, fuzzy
+msgid "Open menu"
+msgstr "Öppna meny"
+
+#: header.php:49 inc/setup.php:51
+msgid "Main menu"
+msgstr "Huvudmeny"
+
+#: header.php:52
+msgid "Menu"
+msgstr "Meny"
+
+#: header.php:53
+msgid "Close menu"
+msgstr "Stäng meny"
+
+#: inc/admin.php:55
+msgid "Recommended Plugins"
+msgstr "Rekommenderade plugins"
+
+#: inc/admin.php:91
+msgid "Active"
+msgstr "Aktiv"
+
+#: inc/admin.php:95
+msgid "Pending"
+msgstr "Väntande"
+
+#: inc/admin.php:99
+msgid "Not installed"
+msgstr "Inte installerad"
+
+#: inc/admin.php:109
+msgid "Run in terminal: composer install"
+msgstr "Kör i terminalen: composer install"
+
+#: inc/admin.php:117
+msgid "Add to composer.json"
+msgstr "Lägg till i composer.json"
+
+#: inc/admin.php:164
+msgid "Unauthorized."
+msgstr "Ej behörig."
+
+#: inc/admin.php:172
+msgid "Missing package name."
+msgstr "Paketnamn saknas."
+
+#: inc/admin.php:184
+#, php-format
+msgid "composer.json not found at: %s"
+msgstr "composer.json hittades inte på: %s"
+
+#: inc/admin.php:188
+msgid "composer.json is not writable."
+msgstr "composer.json kan inte skrivas till."
+
+#: inc/admin.php:194
+msgid "Could not parse composer.json."
+msgstr "Kunde inte parsa composer.json."
+
+#: inc/admin.php:224
+msgid "Already in composer.json."
+msgstr "Redan i composer.json."
+
+#: inc/admin.php:230
+msgid "Failed to write composer.json."
+msgstr "Misslyckades att skriva composer.json."
+
+#: inc/admin.php:233
+msgid "Added. Run composer install to complete."
+msgstr "Tillagd. Kör composer install för att slutföra."
+
+#: inc/breadcrumbs.php:18
+#, php-format
+msgid "Go to page %s"
+msgstr "Gå till sidan %s"
+
+#: inc/breadcrumbs.php:41
+#, fuzzy
+msgid "Category:"
+msgstr "Kategori:"
+
+#: inc/breadcrumbs.php:154
+#, fuzzy
+msgid "Articles posted by"
+msgstr "Artiklar postade av"
+
+#: inc/breadcrumbs.php:162
+msgid "Page"
+msgstr "Sida"
+
+#: inc/breadcrumbs.php:168
+msgid "Home"
+msgstr "Startsida"
+
+#: inc/breadcrumbs.php:183
+msgid "Breadcrumbs"
+msgstr "Brödsmulor"
+
+#: inc/breadcrumbs.php:202
+msgid "Search results for"
+msgstr "Sökresultat för"
+
+#: inc/breadcrumbs.php:234
+msgid "Error 404: Page not found"
+msgstr "Fel 404: Sidan hittades inte"
+
+#: inc/privacy.php:26
+msgid "Privacy Policy"
+msgstr "Integritetspolicy"
+
+#: inc/privacy.php:54
+#, fuzzy
+msgid "Cookie Policy"
+msgstr "Cookiepolicy"
+
+#: inc/setup.php:81
+msgid "1:1 Square (800×800)"
+msgstr "1:1 Kvadrat (800×800)"
+
+#: inc/setup.php:82
+msgid "4:3 Landscape (800×600)"
+msgstr "4:3 Liggande (800×600)"
+
+#: inc/setup.php:83
+msgid "3:4 Portrait (600×800)"
+msgstr "3:4 Stående (600×800)"
+
+#: inc/setup.php:84
+msgid "16:9 Landscape (1280×720)"
+msgstr "16:9 Liggande (1280×720)"
+
+#: inc/setup.php:85
+msgid "9:16 Portrait (720×1280)"
+msgstr "9:16 Stående (720×1280)"
+
+#: inc/setup.php:86
+msgid "Hero (1920×1080)"
+msgstr "Hero (1920×1080)"
+
+#: inc/setup.php:87
+msgid "Open Graph (1200×630)"
+msgstr "Open Graph (1200×630)"
+
+#: inc/template-tags.php:24
+#, php-format
+msgctxt "post date"
+msgid "Publicerad %s"
+msgstr "Publicerad %s"
+
+#: inc/template-tags.php:29
+#, php-format
+msgctxt "post author"
+msgid "av %s"
+msgstr "av %s"
+
+#: inc/template-tags.php:51
+#, fuzzy, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Lämna en kommentar<span class=\"screen-reader-text\"> på %s</span>"
+
+#: inc/template-tags.php:76
+#, php-format
+msgid "Edit %s"
+msgstr "Redigera %s"
+
+#: inc/widgets.php:12 index.php:46 sidebar.php:13 single.php:65
+#: templates/page-with-sidebar.php:28
+msgid "Sidebar"
+msgstr "Sidopanel"
+
+#: inc/widgets.php:24
+msgid "Footer one"
+msgstr "Sidfot ett"
+
+#: inc/widgets.php:36
+msgid "Footer two"
+msgstr "Sidfot två"
+
+#: inc/widgets.php:48
+msgid "Footer three"
+msgstr "Sidfot tre"
+
+#: inc/widgets.php:60
+msgid "Footer four"
+msgstr "Sidfot fyra"
+
+#: index.php:34 search.php:37 single.php:35
+#: template-parts/content/content-page.php:39
+#: template-parts/content/content.php:54
+msgid "Page navigation"
+msgstr "Sidnavigering"
+
+#: search.php:15
+msgid "Search results"
+msgstr "Sökresultat"
+
+#: search.php:22
+#, fuzzy, php-format
+msgid "Search results for: %s"
+msgstr "Sökresultat för: %s"
+
+#: searchform.php:11
+msgid "Search form"
+msgstr "Sökformulär"
+
+#: searchform.php:15
+msgid "Search for:"
+msgstr "Sök efter:"
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Sök …"
+msgstr "Sök …"
+
+#: searchform.php:34
+msgid "Search"
+msgstr "Sök"
+
+#: single.php:45
+msgid "Edit"
+msgstr "Redigera"
+
+#: single.php:56
+msgid "Post navigation"
+msgstr "Inläggsnavigering"
+
+#: template-parts/content/content-none.php:12
+msgid "Nothing found"
+msgstr "Inget hittades"
+
+#: template-parts/content/content-none.php:23
+#, fuzzy, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Start here</a>."
+msgstr "Redo att publicera ditt första inlägg? <a href=\"%1$s\">Börja här</a>."
+
+#: template-parts/content/content-none.php:33
+msgid ""
+"Sorry, no results matched your search terms. Please try again with different "
+"keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:36
+#: template-parts/content/content-none.php:51
+msgid "Alternative when nothing found"
+msgstr "Alternativ när inget hittas"
+
+#: template-parts/content/content-none.php:48
+msgid ""
+"It seems we cannot find what you are looking for. Perhaps a search can help."
+msgstr ""
+
+#: template-parts/content/content-page.php:39
+#: template-parts/content/content.php:54
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: template-parts/content/content.php:40
+#, fuzzy, php-format
+msgid ""
+"Continue reading <span class=\"screen-reader-text\">”%s”</span> <span aria-"
+"hidden=\"true\">→</span>"
+msgstr ""
+"Fortsätt läsa <span class=\"screen-reader-text\">”%s”</span> <span aria-"
+"hidden=\"true\">→</span>"
+
+#. Template Name of the theme
+msgid "With Sidebar"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Body (Montserrat)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Heading (Fraunces)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Display"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H1"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H2"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H3"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H4"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H5"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H6"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large (ingress)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium (body)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small (caption)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XS"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "SM"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "MD"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "LG"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 100"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 200"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 400"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 500"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 700"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 900"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Success"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Success Subtle"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Warning"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Warning Subtle"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Error"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Error Subtle"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Info"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Info Subtle"
+msgstr ""
+
+#~ msgid "Oops! Den här sidan kunde inte hittas."
+#~ msgstr "Oops! Den här sidan kunde inte hittas."
+
+#~ msgid ""
+#~ "Det verkar som att inget hittades här. Du kan prova en sökning eller "
+#~ "använda någon av knapparna nedan."
+#~ msgstr ""
+#~ "Det verkar som att inget hittades här. Du kan prova en sökning eller "
+#~ "använda någon av knapparna nedan."
+
+#~ msgid "Gå till startsidan"
+#~ msgstr "Gå till startsidan"
+
+#~ msgid "Sök igen"
+#~ msgstr "Sök igen"
+
+#~ msgid "Huvudinnehåll"
+#~ msgstr "Huvudinnehåll"
+
+#~ msgid "Sidnavigering"
+#~ msgstr "Sidnavigering"
+
+#~ msgid "Föregående sida"
+#~ msgstr "Föregående sida"
+
+#~ msgid "Nästa sida"
+#~ msgstr "Nästa sida"
+
+#~ msgid "Sidopanel"
+#~ msgstr "Sidopanel"
+
+#~ msgid "Navigering för inläggssidor"
+#~ msgstr "Navigering för inläggssidor"
+
+#~ msgid "Sökresultat"
+#~ msgstr "Sökresultat"
+
+#~ msgid "Hoppa till innehåll"
+#~ msgstr "Hoppa till innehåll"
+
+#~ msgid "Huvudmeny"
+#~ msgstr "Huvudmeny"
+
+#~ msgid "Meny"
+#~ msgstr "Meny"
+
+#~ msgid "Stäng meny"
+#~ msgstr "Stäng meny"
+
+#~ msgid "Sidfot widgetområde 1"
+#~ msgstr "Sidfot widgetområde 1"
+
+#~ msgid "Lägg till en beskrivning av er verksamhet här."
+#~ msgstr "Lägg till en beskrivning av er verksamhet här."
+
+#~ msgid "Sidfot widgetområde 2"
+#~ msgstr "Sidfot widgetområde 2"
+
+#~ msgid "Snabblänkar"
+#~ msgstr "Snabblänkar"
+
+#~ msgid "Lägg till en menylista eller länkwidget här."
+#~ msgstr "Lägg till en menylista eller länkwidget här."
+
+#~ msgid "Sidfot widgetområde 3"
+#~ msgstr "Sidfot widgetområde 3"
+
+#~ msgid "Kontakt"
+#~ msgstr "Kontakt"
+
+#~ msgid "Lägg till kontaktuppgifter eller en karta här."
+#~ msgstr "Lägg till kontaktuppgifter eller en karta här."
+
+#~ msgid "Sidfot widgetområde 4"
+#~ msgstr "Sidfot widgetområde 4"
+
+#~ msgid "Övrigt"
+#~ msgstr "Övrigt"
+
+#~ msgid "Lägg till valfritt innehåll här."
+#~ msgstr "Lägg till valfritt innehåll här."
+
+#~ msgid "Sidfotsmeny"
+#~ msgstr "Sidfotsmeny"
+
+#~ msgid "Redigera"
+#~ msgstr "Redigera"
+
+#~ msgid "Inläggsnavigering"
+#~ msgstr "Inläggsnavigering"
+
+#~ msgid "Sökformulär"
+#~ msgstr "Sökformulär"
+
+#~ msgid "Sök efter:"
+#~ msgstr "Sök efter:"
+
+#~ msgid "Sök"
+#~ msgstr "Sök"
+
+#~ msgid "Lägg till widgets här."
+#~ msgstr "Lägg till widgets här."
+
+#~ msgid "Sidfot ett"
+#~ msgstr "Sidfot ett"
+
+#~ msgid "Sidfot två"
+#~ msgstr "Sidfot två"
+
+#~ msgid "Sidfot tre"
+#~ msgstr "Sidfot tre"
+
+#~ msgid "Sidfot fyra"
+#~ msgstr "Sidfot fyra"
+
+#, php-format
+#~ msgid "Gå till sidan %s"
+#~ msgstr "Gå till sidan %s"
+
+#~ msgid "Sida"
+#~ msgstr "Sida"
+
+#~ msgid "Startsida"
+#~ msgstr "Startsida"
+
+#~ msgid "Brödsmulor"
+#~ msgstr "Brödsmulor"
+
+#~ msgid "Sökresultat för"
+#~ msgstr "Sökresultat för"
+
+#~ msgid "Fel 404: Sidan hittades inte"
+#~ msgstr "Fel 404: Sidan hittades inte"
+
+#~ msgid "Integritetspolicy"
+#~ msgstr "Integritetspolicy"
+
+#, php-format
+#~ msgid "Redigera %s"
+#~ msgstr "Redigera %s"
+
+#~ msgid "Inget hittades"
+#~ msgstr "Inget hittades"
+
+#~ msgid ""
+#~ "Tyvärr, inga träffar matchade dina söktermer. Försök igen med andra ord."
+#~ msgstr ""
+#~ "Tyvärr, inga träffar matchade dina söktermer. Försök igen med andra ord."
+
+#~ msgid "Alternativ när inget hittas"
+#~ msgstr "Alternativ när inget hittas"
+
+#~ msgid ""
+#~ "Det verkar som vi inte kan hitta det du letar efter. Kanske kan en "
+#~ "sökning hjälpa."
+#~ msgstr ""
+#~ "Det verkar som vi inte kan hitta det du letar efter. Kanske kan en "
+#~ "sökning hjälpa."
+
+#~ msgid "Sidor:"
+#~ msgstr "Sidor:"

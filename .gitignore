@@ -18,16 +18,12 @@ web/app/uploads/*
 # Ignore default WordPress themes
 web/app/themes/twenty*/
 
-# Theme language files (often generated externally)
-web/app/themes/*/languages/*
-!web/app/themes/*/languages/.gitkeep
-
 # ───── WordPress Core ──────────────────────────────────────────
 web/wp
 web/.htaccess
 web/.user.ini
 
-# ───── WordPress language files (downloaded automatically) ─────
+# ───── WordPress language files (installed by wp-translation-downloader) ─────
 web/app/languages/*
 !web/app/languages/.gitkeep
 
@@ -82,9 +78,7 @@ tmp/
 Thumbs.db
 
 # ───── Editor / IDE Files ──────────────────────────────────────
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+.vscode/
 .idea/
 *.iml
 
