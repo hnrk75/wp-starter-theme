@@ -28,9 +28,9 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 | Dependency | Minimum |
 |------------|---------|
 | WordPress  | 7.1     |
-| PHP        | 8.1     |
-| Node.js    | 20.0    |
-| npm        | 10.0    |
+| PHP        | 8.4     |
+| Node.js    | 24.0    |
+| npm        | 11.0    |
 | Composer   | 2.0     |
 
 ---

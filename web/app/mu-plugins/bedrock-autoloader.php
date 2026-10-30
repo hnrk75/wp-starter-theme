@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile -- Third-party file from Roots/Bedrock, kept in upstream code style.
 /**
  * Plugin Name:  Bedrock Autoloader
  * Plugin URI:   https://github.com/roots/bedrock-autoloader

@@ -30,11 +30,11 @@ project-root/
 
 | Tool       | Minimum version |
 |------------|-----------------|
-| PHP        | 8.1             |
-| WordPress  | 6.9             |
+| PHP        | 8.4             |
+| WordPress  | 7.1             |
 | Composer   | 2.0             |
-| Node.js    | 20.0            |
-| npm        | 10.0            |
+| Node.js    | 24.0            |
+| npm        | 11.0            |
 
 ---
 
