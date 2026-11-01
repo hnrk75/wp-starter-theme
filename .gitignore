@@ -1,7 +1,6 @@
 # ───── Application (wp-content) ────────────────────────────────
 web/app/mu-plugins/*/
 !web/app/mu-plugins/.gitkeep
-# Also when it is a symlink (`composer dev:link`)
 web/app/mu-plugins/wp-security-hardening
 
 web/app/plugins/*
@@ -20,8 +19,7 @@ web/app/uploads/*
 # Ignore default WordPress themes
 web/app/themes/twenty*/
 
-# Parent theme — installed by Composer (hnrk75/wp-starter-theme-parent).
-# No trailing slash, so it also matches the symlink created by `composer dev:link`.
+# Installed by Composer. No trailing slash: also matches the dev:link symlink.
 web/app/themes/wp-starter-theme
 
 # ───── WordPress Core ──────────────────────────────────────────

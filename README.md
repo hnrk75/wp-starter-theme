@@ -78,14 +78,64 @@ not to remove roave. Read the version in WP admin under
 
 ## New client site
 
-1. Clone this repo, `composer install`, `cp .env.example .env` and fill in database,
-   salts ([roots.io/salts.html](https://roots.io/salts.html)) and URL.
-2. Install WordPress at `http://your-local-domain/wp/wp-admin/install.php`.
-3. Rename the child theme: the folder `web/app/themes/wp-starter-child`, and
-   `Theme Name` / `Text Domain` in its `style.css` and `functions.php`.
-4. Activate the child theme under **Appearance → Themes**, then reassign the menus under
-   **Appearance → Menus → Manage Locations** (menu locations are stored per theme).
-5. Build the site in the child theme. See the child theme's `README.md`.
+The examples use `svenssonsmetropol` as the site's slug — replace it with your own.
+
+### 1. Get the code
+
+**A brand-new project:** clone this repo into the project folder.
+
+**An existing project folder** (e.g. a Local site that is already set up):
+
+1. Copy `.env` somewhere safe — it has the database settings and salts.
+2. Empty the project folder (the folder with `composer.json`, not the Local site folder).
+3. Clone this repo into it and put `.env` back.
+
+**Either way**, the clone still points to the template repo. Make it the client's own repo
+with a clean history:
+
+```bash
+rm -rf .git
+git init -b main
+git remote add origin git@github.com:<account>/<client-repo>.git
+```
+
+### 2. Install
+
+1. `composer install`
+2. New project only: `cp .env.example .env` and fill in database, salts
+   ([roots.io/salts.html](https://roots.io/salts.html)) and URL, then install WordPress at
+   `http://your-local-domain/wp/wp-admin/install.php`.
+3. Set `config.platform.php` in `composer.json` to the exact PHP version of the client's
+   server (see [PHP version and Composer platform](#php-version-and-composer-platform)).
+
+### 3. Rename the child theme
+
+| What | Change |
+|------|--------|
+| Folder | `web/app/themes/wp-starter-child` → `web/app/themes/svenssonsmetropol` |
+| `style.css` | `Theme Name` and `Text Domain: svenssonsmetropol` |
+| `functions.php` | The text domain in `load_child_theme_textdomain()` |
+| `languages/` | Rename `wp-starter-child.pot` → `svenssonsmetropol.pot`, set `X-Domain: svenssonsmetropol` in the `.po` header, then regenerate (`vendor/bin/wp i18n make-pot`, `update-po`, `make-mo` — see the child theme's README) |
+| `phpcs.xml` | The `<file>` path and the `text_domain` element |
+| `phpstan.neon` | The path under `paths` |
+| Child theme `README.md` | The title and the "Rename the theme…" paragraph |
+
+### 4. Activate
+
+1. **Appearance → Themes**: activate the child theme.
+
+   **If the child theme gets the same folder name as an old theme the database knows**
+   (e.g. the site used to run a copied theme called `svenssonsmetropol`): activate the
+   **parent theme** (WP Starter Theme) first, then the child theme. Otherwise WordPress
+   keeps the old parent setting and the child theme breaks.
+2. **Appearance → Menus → Manage Locations**: assign the menus again (menu locations are
+   stored per theme).
+3. **Plugins**: activate Advanced Custom Fields PRO and HNRK Cookie Consent. Activate
+   Two Factor on TEST and PROD — leave it inactive locally.
+
+### 5. Build the site
+
+All site-specific work goes in the child theme. See the child theme's `README.md`.
 
 ---
 
@@ -161,18 +211,10 @@ authentication for all users. Leave it inactive locally.
 
 ---
 
-## Recommended plugins
+## Plugins
 
-The parent theme's **Recommended Plugins** dashboard widget shows the status of each plugin:
-
-| Status | Meaning |
-|--------|---------|
-| Active | Installed and activated |
-| Not activated | Installed but inactive, with an **Activate** button |
-| Pending | In `composer.json`, run `composer install` |
-| Not installed | **Add to composer.json** button |
-
-Plugins you add yourself get an exact version:
+The template already requires the plugins every site needs: Advanced Custom Fields PRO,
+HNRK Cookie Consent and Two Factor. Plugins you add yourself get an exact version:
 
 ```bash
 composer require vendor/package-name:1.2.3

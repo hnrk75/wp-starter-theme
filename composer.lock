@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bff399c9c5d416237a6b89d55caae1b6",
+    "content-hash": "2e4e82fd66cc410f53eaf1a4c45a4732",
     "packages": [
         {
             "name": "composer/installers",
@@ -216,16 +216,16 @@
         },
         {
             "name": "hnrk75/hnrk-cookie-consent",
-            "version": "v1.0.6",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/hnrk-cookie-consent.git",
-                "reference": "d76b0649ee22bca2197581b07f288844d8a02a7d"
+                "reference": "0bb40818fce389578f8efe7775fd239542f4d4ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/d76b0649ee22bca2197581b07f288844d8a02a7d",
-                "reference": "d76b0649ee22bca2197581b07f288844d8a02a7d",
+                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/0bb40818fce389578f8efe7775fd239542f4d4ad",
+                "reference": "0bb40818fce389578f8efe7775fd239542f4d4ad",
                 "shasum": ""
             },
             "require": {
@@ -253,23 +253,23 @@
             ],
             "description": "WordPress plugin — HNRK Cookie Consent",
             "support": {
-                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.0.6",
+                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.1.0",
                 "issues": "https://github.com/hnrk75/hnrk-cookie-consent/issues"
             },
-            "time": "2026-11-01T11:56:17+00:00"
+            "time": "2026-11-01T14:07:53+00:00"
         },
         {
             "name": "hnrk75/wp-security-hardening",
-            "version": "v1.3.2",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/wp-security-hardening.git",
-                "reference": "b38d5f43a363872a94aedcabf6c615783c6f125c"
+                "reference": "64ed4bc30b756877321c0ac0a5c2c381e2d9a423"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/wp-security-hardening/zipball/b38d5f43a363872a94aedcabf6c615783c6f125c",
-                "reference": "b38d5f43a363872a94aedcabf6c615783c6f125c",
+                "url": "https://api.github.com/repos/hnrk75/wp-security-hardening/zipball/64ed4bc30b756877321c0ac0a5c2c381e2d9a423",
+                "reference": "64ed4bc30b756877321c0ac0a5c2c381e2d9a423",
                 "shasum": ""
             },
             "require": {
@@ -290,22 +290,22 @@
             "homepage": "https://github.com/hnrk75/wp-security-hardening",
             "support": {
                 "issues": "https://github.com/hnrk75/wp-security-hardening/issues",
-                "source": "https://github.com/hnrk75/wp-security-hardening/tree/v1.3.2"
+                "source": "https://github.com/hnrk75/wp-security-hardening/tree/v1.4.0"
             },
-            "time": "2026-11-01T12:39:01+00:00"
+            "time": "2026-11-01T14:07:13+00:00"
         },
         {
             "name": "hnrk75/wp-starter-theme-parent",
-            "version": "v1.4.1",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/wp-starter-theme-parent.git",
-                "reference": "bcac5653f06c85afcea00322ec018f750b2e98bd"
+                "reference": "b06b027aedde573b1259b6053a2f0857e643e1df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/bcac5653f06c85afcea00322ec018f750b2e98bd",
-                "reference": "bcac5653f06c85afcea00322ec018f750b2e98bd",
+                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/b06b027aedde573b1259b6053a2f0857e643e1df",
+                "reference": "b06b027aedde573b1259b6053a2f0857e643e1df",
                 "shasum": ""
             },
             "require": {
@@ -362,9 +362,9 @@
             "homepage": "https://github.com/hnrk75/wp-starter-theme-parent",
             "support": {
                 "issues": "https://github.com/hnrk75/wp-starter-theme-parent/issues",
-                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v1.4.1"
+                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v2.0.0"
             },
-            "time": "2026-11-01T12:38:07+00:00"
+            "time": "2026-11-01T14:06:22+00:00"
         },
         {
             "name": "inpsyde/wp-translation-downloader",

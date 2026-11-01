@@ -1,14 +1,7 @@
 <?php
 /**
- * Develop the parent theme and the security plugin inside this site.
- *
- *   composer dev:link    Replace the Composer-installed copies with symlinks to the local
- *                        git clones, so edits in the clones show up in this site directly.
- *   composer dev:unlink  Remove the symlinks and install the tagged versions from composer.lock.
- *
- * The clones are expected next to this Local site (e.g. "Local Sites/WordPress/wp-starter-theme-parent").
- * Set WPST_DEV_DIR to use another folder. Packages without a local clone are skipped, so this is
- * harmless in client projects.
+ * composer dev:link / dev:unlink — symlink the shared packages to local clones and back.
+ * Clones are expected next to the Local site, or in WPST_DEV_DIR.
  *
  * @package WP Starter
  */
@@ -17,7 +10,7 @@ $root = dirname( __DIR__ );
 $base = getenv( 'WPST_DEV_DIR' ) ? getenv( 'WPST_DEV_DIR' ) : dirname( $root, 3 );
 $mode = $argv[1] ?? 'link';
 
-// Composer package => [ install path in this project, local clone folder name ].
+// Package => [ install path, clone folder ].
 $packages = array(
 	'hnrk75/wp-starter-theme-parent' => array( 'web/app/themes/wp-starter-theme', 'wp-starter-theme-parent' ),
 	'hnrk75/wp-security-hardening'   => array( 'web/app/mu-plugins/wp-security-hardening', 'wp-security-hardening' ),
@@ -49,8 +42,7 @@ if ( 'unlink' === $mode ) {
 		}
 	}
 
-	// Composer treats a missing package folder as not installed, so `install`
-	// puts back the versions from composer.lock.
+	// A missing package folder counts as not installed, so `install` restores it.
 	$composer = getenv( 'COMPOSER_BINARY' ) ? getenv( 'COMPOSER_BINARY' ) : 'composer';
 	passthru( escapeshellarg( PHP_BINARY ) . ' ' . escapeshellarg( $composer ) . ' install', $code );
 	exit( $code );

@@ -6,7 +6,6 @@
     <description>WordPress Coding Standards – this project's child theme and own mu-plugins</description>
 
     <!-- Vad som ska skannas -->
-    <!-- The parent theme and the security plugin are Composer packages, checked in their own repos. -->
     <file>./web/app/themes/wp-starter-child</file>
     <file>./web/app/mu-plugins</file>
 

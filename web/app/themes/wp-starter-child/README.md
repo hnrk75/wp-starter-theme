@@ -3,8 +3,9 @@
 Child theme for [WP Starter Theme](../wp-starter-theme/). All site-specific work goes
 here, so the parent theme can be updated without overwriting it.
 
-Rename the theme for each site: change `Theme Name` and `Text Domain` in `style.css`,
-the text domain in `functions.php`, and the folder name.
+Rename the theme for each site — folder, `style.css`, `functions.php`, language files,
+`phpcs.xml` and `phpstan.neon`. The full checklist is in the project's README, under
+"New client site → Rename the child theme".
 
 ---
 
@@ -45,6 +46,15 @@ After changing the theme header or adding strings, update the translations from 
 
 Do not copy files from the parent's `inc/` folder — they are always loaded from the
 parent, and a copy would stop receiving updates.
+
+---
+
+## Menus
+
+A menu item with a submenu only opens the submenu — it is a button, not a link, so it
+works the same with mouse, keyboard and touch. If the parent page itself should be
+reachable, add it as the first item in the submenu, preferably with its own label such as
+"Overview".
 
 ---
 

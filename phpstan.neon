@@ -1,7 +1,6 @@
 parameters:
     level: 5
-    # This project's own code: the child theme and loose files in mu-plugins.
-    # The parent theme and the security plugin are Composer packages, analyzed in their own repos.
+    # Only this project's code; the shared packages are analyzed in their own repos.
     paths:
         - web/app/themes/wp-starter-child
         - web/app/mu-plugins
