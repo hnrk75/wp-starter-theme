@@ -14,10 +14,13 @@ Text Domain: wp-starter-child
  * Site-specific CSS. Loaded after the parent theme's CSS, on the front end and in
  * the block editor, so rules here win when they have the same specificity.
  *
- * The parent's CSS custom properties can be overridden here, e.g.:
+ * Colors: change them in this theme's theme.json palette (same slug as the parent,
+ * e.g. "primary"). That updates the CSS, the buttons, links and the editor's color
+ * picker at once.
+ *
+ * Other parent CSS custom properties can be overridden here, e.g.:
  *
  * :root {
- *   --color-primary: #0f766e;
  *   --measure: 40rem;
  * }
  */

@@ -2,36 +2,41 @@
 // Variables
 // =============================================================
 
+// --- Colors ---------------------------------------------------
+// The values live in the theme.json palette (see base/_root.scss). These SCSS
+// variables are shorthands for the CSS custom properties, so the colors are
+// resolved in the browser and a child theme can change them without a build.
+// Sass cannot compute with them (color.adjust, rgba): use color-mix() instead.
+
 // --- Colors — Brand -------------------------------------------
-// Replace $color-primary per project.
-$color-primary: #2563eb;
+$color-primary: var(--color-primary);
 
 // --- Colors — Neutrals ----------------------------------------
-$color-white: #fff;
-$color-gray-50: #f9fafb;
-$color-gray-100: #f3f4f6;
-$color-gray-200: #e5e7eb;
-$color-gray-300: #d1d5db;
-$color-gray-400: #9ca3af;
-$color-gray-500: #6b7280;
-$color-gray-600: #4b5563;
-$color-gray-700: #374151;
-$color-gray-800: #1f2937;
-$color-gray-900: #111827;
-$color-black: #030712;
+$color-white: var(--color-white);
+$color-gray-50: var(--color-gray-50);
+$color-gray-100: var(--color-gray-100);
+$color-gray-200: var(--color-gray-200);
+$color-gray-300: var(--color-gray-300);
+$color-gray-400: var(--color-gray-400);
+$color-gray-500: var(--color-gray-500);
+$color-gray-600: var(--color-gray-600);
+$color-gray-700: var(--color-gray-700);
+$color-gray-800: var(--color-gray-800);
+$color-gray-900: var(--color-gray-900);
+$color-black: var(--color-black);
 
 // --- Colors — Semantic ----------------------------------------
-$color-success: #16a34a;
-$color-success-subtle: #dcfce7;
-$color-warning: #d97706;
-$color-warning-subtle: #fef3c7;
-$color-error: #dc2626;
-$color-error-subtle: #fee2e2;
-$color-info: #0284c7;
-$color-info-subtle: #e0f2fe;
+$color-success: var(--color-success);
+$color-success-subtle: var(--color-success-subtle);
+$color-warning: var(--color-warning);
+$color-warning-subtle: var(--color-warning-subtle);
+$color-error: var(--color-error);
+$color-error-subtle: var(--color-error-subtle);
+$color-info: var(--color-info);
+$color-info-subtle: var(--color-info-subtle);
 
 // --- Links ----------------------------------------------------
-$link-color: $color-primary;
+$link-color: var(--link-color);
 
 // --- Typography -----------------------------------------------
 $font-family-body: 'Montserrat', sans-serif;

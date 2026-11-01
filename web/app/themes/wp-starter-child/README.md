@@ -15,7 +15,17 @@ wp-starter-child/
 ├── style.css        # Theme header + site-specific CSS
 ├── functions.php    # Hooks, filters and pluggable function overrides
 ├── theme.json       # Only what differs from the parent (merged automatically)
+├── languages/       # Text domain wp-starter-child (also translates the theme header)
 └── README.md
+```
+
+After changing the theme header or adding strings, update the translations from this folder:
+
+```bash
+../../../../vendor/bin/wp i18n make-pot . languages/wp-starter-child.pot --domain=wp-starter-child
+../../../../vendor/bin/wp i18n update-po languages/wp-starter-child.pot languages/sv_SE.po
+# Translate the new strings in sv_SE.po, then:
+../../../../vendor/bin/wp i18n make-mo languages/sv_SE.po languages/
 ```
 
 ---
@@ -25,8 +35,9 @@ wp-starter-child/
 | What | How |
 |------|-----|
 | CSS | Write it in `style.css`. It loads after the parent's CSS, on the front end and in the editor. |
-| CSS variables | Override the parent's custom properties in `:root`, e.g. `--color-primary`, `--measure`. |
-| Colors, font sizes, spacing in the editor | Add them to `theme.json`. It is merged with the parent's `theme.json`. |
+| Colors | Change them in `theme.json` (see [Colors](#colors)). Links, buttons, focus rings and the editor's color picker follow. |
+| Other CSS variables | Override the parent's custom properties in `:root` in `style.css`, e.g. `--measure`. |
+| Font sizes, spacing in the editor | Add them to `theme.json`. It is merged with the parent's `theme.json`. |
 | A template | Copy the file from the parent's `template-parts/` (or a root template like `page.php`) to the same path here and edit the copy. |
 | A `wpst_*` function | Define a function with the same name in `functions.php`. Works for functions the parent wraps in `function_exists()`, e.g. `wpst_posted_on()`, `wpst_button()`. |
 | Behaviour | Use hooks and filters, e.g. `remove_action()`, `add_filter()`. |
@@ -34,6 +45,31 @@ wp-starter-child/
 
 Do not copy files from the parent's `inc/` folder — they are always loaded from the
 parent, and a copy would stop receiving updates.
+
+---
+
+## Colors
+
+All colors come from the parent's `theme.json` palette. To change one, add a color
+with the same slug to this theme's `theme.json`:
+
+```json
+{
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "primary", "color": "#0f766e", "name": "Primary" }
+      ]
+    }
+  }
+}
+```
+
+Note: a palette here replaces the parent's whole palette in the editor's color picker.
+Copy the parent's palette and change the values you need, so all colors stay available
+to editors. (The CSS keeps working either way — the parent has fallback values for
+every color.)
+Hover colors are computed in the browser with `color-mix()`, so they follow automatically.
 
 ---
 

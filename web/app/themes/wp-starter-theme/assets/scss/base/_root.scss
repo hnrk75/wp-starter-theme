@@ -5,35 +5,41 @@
 // =============================================================
 
 :root {
+	// Colors are defined once, in the theme.json palette. WordPress outputs them as
+	// --wp--preset--color--{slug} on the front end and in the editor, so a child theme
+	// changes a color everywhere by changing it in its own theme.json.
+	// The second value is a fallback with the same color as the parent's palette, so the
+	// theme still works if a child theme's palette leaves a color out. Keep them in sync.
+
 	// --- Colors — Brand -------------------------------------------
-	--color-primary: #{$color-primary};
+	--color-primary: var(--wp--preset--color--primary, #2563eb);
 
 	// --- Colors — Neutrals ----------------------------------------
-	--color-white:    #{$color-white};
-	--color-gray-50:  #{$color-gray-50};
-	--color-gray-100: #{$color-gray-100};
-	--color-gray-200: #{$color-gray-200};
-	--color-gray-300: #{$color-gray-300};
-	--color-gray-400: #{$color-gray-400};
-	--color-gray-500: #{$color-gray-500};
-	--color-gray-600: #{$color-gray-600};
-	--color-gray-700: #{$color-gray-700};
-	--color-gray-800: #{$color-gray-800};
-	--color-gray-900: #{$color-gray-900};
-	--color-black:    #{$color-black};
+	--color-white:    var(--wp--preset--color--white, #fff);
+	--color-gray-50:  var(--wp--preset--color--gray-50, #f9fafb);
+	--color-gray-100: var(--wp--preset--color--gray-100, #f3f4f6);
+	--color-gray-200: var(--wp--preset--color--gray-200, #e5e7eb);
+	--color-gray-300: var(--wp--preset--color--gray-300, #d1d5db);
+	--color-gray-400: var(--wp--preset--color--gray-400, #9ca3af);
+	--color-gray-500: var(--wp--preset--color--gray-500, #6b7280);
+	--color-gray-600: var(--wp--preset--color--gray-600, #4b5563);
+	--color-gray-700: var(--wp--preset--color--gray-700, #374151);
+	--color-gray-800: var(--wp--preset--color--gray-800, #1f2937);
+	--color-gray-900: var(--wp--preset--color--gray-900, #111827);
+	--color-black:    var(--wp--preset--color--black, #030712);
 
 	// --- Colors — Semantic ----------------------------------------
-	--color-success:        #{$color-success};
-	--color-success-subtle: #{$color-success-subtle};
-	--color-warning:        #{$color-warning};
-	--color-warning-subtle: #{$color-warning-subtle};
-	--color-error:          #{$color-error};
-	--color-error-subtle:   #{$color-error-subtle};
-	--color-info:           #{$color-info};
-	--color-info-subtle:    #{$color-info-subtle};
+	--color-success:        var(--wp--preset--color--success, #16a34a);
+	--color-success-subtle: var(--wp--preset--color--success-subtle, #dcfce7);
+	--color-warning:        var(--wp--preset--color--warning, #d97706);
+	--color-warning-subtle: var(--wp--preset--color--warning-subtle, #fef3c7);
+	--color-error:          var(--wp--preset--color--error, #dc2626);
+	--color-error-subtle:   var(--wp--preset--color--error-subtle, #fee2e2);
+	--color-info:           var(--wp--preset--color--info, #0284c7);
+	--color-info-subtle:    var(--wp--preset--color--info-subtle, #e0f2fe);
 
 	// --- Links ----------------------------------------------------
-	--link-color: #{$link-color};
+	--link-color: var(--color-primary);
 
 	// --- Typography -----------------------------------------------
 	--font-family-body:    #{$font-family-body};

@@ -1,4 +1,3 @@
-@use 'sass:color';
 @use '../abstracts' as *;
 
 // =============================================================
@@ -13,7 +12,7 @@ a:not(.btn, .skip-link, .screen-reader-text) {
 
 	&:hover,
 	&:focus-visible {
-		color: color.adjust($color-primary, $lightness: -15%);
+		color: color-mix(in srgb, #{$color-primary}, #000 25%);
 	}
 }
 

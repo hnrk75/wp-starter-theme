@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:math';
 @use 'variables' as *;
 
 // =============================================================
@@ -9,7 +10,7 @@
 @mixin focus-visible-shadow($color: $color-primary, $alpha: 0.25, $size: 0.25rem) {
 	&:focus-visible {
 		outline: none;
-		box-shadow: 0 0 0 #{$size} rgba($color, $alpha);
+		box-shadow: 0 0 0 #{$size} color-mix(in srgb, #{$color} #{math.percentage($alpha)}, transparent);
 		transition: box-shadow 0.2s ease;
 	}
 }

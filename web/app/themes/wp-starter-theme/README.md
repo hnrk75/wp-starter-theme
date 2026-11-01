@@ -120,6 +120,26 @@ e.g. for people with dyslexia. Editors can add soft hyphens (`&shy;`) where need
 
 ---
 
+## Colors
+
+Colors are defined once, in the `theme.json` palette. WordPress outputs them as
+`--wp--preset--color--{slug}`, and `assets/scss/base/_root.scss` maps them to the
+theme's own variables (`--color-primary`, `--color-gray-500` etc.). The SCSS variables
+(`$color-primary`) are shorthands for those CSS variables.
+
+This means colors are resolved in the browser, not at build time: a child theme changes
+a color in its own `theme.json` and links, buttons, focus rings and the editor's color
+picker follow — without rebuilding the parent's CSS.
+
+Sass cannot compute with CSS variables, so `color.adjust()` and `rgba($color, …)` do not
+work on them. Use `color-mix()` instead, e.g. a darker hover:
+
+```scss
+background-color: color-mix(in srgb, #{$color-primary}, #000 15%);
+```
+
+---
+
 ## Fonts
 
 Fonts are self-hosted in `assets/fonts/` as variable woff2 files (latin subset, all
