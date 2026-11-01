@@ -15,6 +15,7 @@ site runs the same on any host.
 |------|----------------|--------------------|
 | Parent theme | [`hnrk75/wp-starter-theme-parent`](https://github.com/hnrk75/wp-starter-theme-parent) | Composer, exact version |
 | Security plugin | [`hnrk75/wp-security-hardening`](https://github.com/hnrk75/wp-security-hardening) | Composer, exact version |
+| Cookie banner | [`hnrk75/hnrk-cookie-consent`](https://github.com/hnrk75/hnrk-cookie-consent) | Composer, exact version |
 | Child theme | `web/app/themes/wp-starter-child/` in this repo | Copied and renamed per site |
 | Bedrock setup, config, tooling | This repo | Cloned per site |
 
@@ -88,7 +89,10 @@ not to remove roave. Read the version in WP admin under
 
 ---
 
-## Updating the parent theme or security plugin on a site
+## Updating a shared package on a site
+
+Each package has its own version and is updated on its own. Admins see a notice on the
+Dashboard when a newer version exists (from parent theme 1.3.0).
 
 1. Read the package's `CHANGELOG.md` for the new version. A **major** version can need
    changes in the child theme.
@@ -100,7 +104,7 @@ not to remove roave. Read the version in WP admin under
 
 ---
 
-## Developing the parent theme and security plugin
+## Developing the shared packages
 
 This site (the starter repo itself) is the workshop for the shared packages. Clone the
 package repos next to the Local site folder:
@@ -109,7 +113,9 @@ package repos next to the Local site folder:
 Local Sites/WordPress/
 ├── wp-starter-theme/              # this Local site
 ├── wp-starter-theme-parent/       # git clone of the parent theme
-└── wp-security-hardening/         # git clone of the security plugin
+├── wp-security-hardening/         # git clone of the security plugin
+└── plugins/
+    └── hnrk-cookie-consent/       # git clone of the cookie plugin
 ```
 
 Then link them into this site:

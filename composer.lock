@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "353a516452dde75adca6d10ec28b5391",
+    "content-hash": "e56e9bd2e1d1d8173a500235e9713878",
     "packages": [
         {
             "name": "composer/installers",
@@ -215,6 +215,50 @@
             "time": "2026-08-24T09:06:52+00:00"
         },
         {
+            "name": "hnrk75/hnrk-cookie-consent",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hnrk75/hnrk-cookie-consent.git",
+                "reference": "061869ca6207339f0d5900043f6b6eb125de9632"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/061869ca6207339f0d5900043f6b6eb125de9632",
+                "reference": "061869ca6207339f0d5900043f6b6eb125de9632",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+                "squizlabs/php_codesniffer": "^3.13",
+                "wp-coding-standards/wpcs": "^3.4"
+            },
+            "type": "wordpress-plugin",
+            "scripts": {
+                "lint:php": [
+                    "phpcs"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik Pettersson",
+                    "homepage": "https://github.com/hnrk75"
+                }
+            ],
+            "description": "WordPress plugin — HNRK Cookie Consent",
+            "support": {
+                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.0.4",
+                "issues": "https://github.com/hnrk75/hnrk-cookie-consent/issues"
+            },
+            "time": "2026-11-01T08:29:32+00:00"
+        },
+        {
             "name": "hnrk75/wp-security-hardening",
             "version": "v1.3.1",
             "source": {
@@ -252,16 +296,16 @@
         },
         {
             "name": "hnrk75/wp-starter-theme-parent",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/wp-starter-theme-parent.git",
-                "reference": "ae09e3c40678ab9cd9ab414fe282c4f21cc7c435"
+                "reference": "ef734d61a1ca9467ff43c6a4dc23eb3b70e59281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/ae09e3c40678ab9cd9ab414fe282c4f21cc7c435",
-                "reference": "ae09e3c40678ab9cd9ab414fe282c4f21cc7c435",
+                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/ef734d61a1ca9467ff43c6a4dc23eb3b70e59281",
+                "reference": "ef734d61a1ca9467ff43c6a4dc23eb3b70e59281",
                 "shasum": ""
             },
             "require": {
@@ -285,9 +329,9 @@
             "homepage": "https://github.com/hnrk75/wp-starter-theme-parent",
             "support": {
                 "issues": "https://github.com/hnrk75/wp-starter-theme-parent/issues",
-                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v1.2.0"
+                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v1.3.0"
             },
-            "time": "2026-11-01T07:41:14+00:00"
+            "time": "2026-11-01T08:35:11+00:00"
         },
         {
             "name": "inpsyde/wp-translation-downloader",

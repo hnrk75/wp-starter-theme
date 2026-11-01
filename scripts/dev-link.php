@@ -21,6 +21,7 @@ $mode = $argv[1] ?? 'link';
 $packages = array(
 	'hnrk75/wp-starter-theme-parent' => array( 'web/app/themes/wp-starter-theme', 'wp-starter-theme-parent' ),
 	'hnrk75/wp-security-hardening'   => array( 'web/app/mu-plugins/wp-security-hardening', 'wp-security-hardening' ),
+	'hnrk75/hnrk-cookie-consent'     => array( 'web/app/plugins/hnrk-cookie-consent', 'plugins/hnrk-cookie-consent' ),
 );
 
 /**
