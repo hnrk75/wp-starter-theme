@@ -4,7 +4,7 @@
  *
  * Description: Basic security hardening: enforces disabled registration, disables XML-RPC and application passwords, hides usernames and the WordPress version, sends security headers and emails the admin when a user is created or becomes administrator/editor.
  *
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Henrik Pettersson <henrik.pettersson@knowit.se>
  * License:     MIT License
  *
@@ -85,6 +85,14 @@ add_filter(
 	2
 );
 
+add_filter(
+	'oembed_response_data',
+	function ( $data ) {
+		unset( $data['author_name'], $data['author_url'] );
+		return $data;
+	}
+);
+
 /**
  * Same error message whether the username does not exist or the password is wrong.
  */
@@ -92,12 +100,29 @@ add_filter(
 	'authenticate',
 	function ( $user ) {
 		if ( is_wp_error( $user ) && array_intersect( $user->get_error_codes(), array( 'invalid_username', 'invalid_email', 'incorrect_password' ) ) ) {
-			return new WP_Error( 'invalid_credentials', __( '<strong>Fel:</strong> Felaktigt användarnamn eller lösenord.' ) );
+			return new WP_Error( 'invalid_credentials', '<strong>Fel:</strong> Felaktigt användarnamn eller lösenord.' );
 		}
 
 		return $user;
 	},
 	99
+);
+
+/**
+ * The lost password form shows the same confirmation whether the account exists or not.
+ */
+add_action(
+	'lostpassword_post',
+	function ( $errors, $user_data ) {
+		if ( $user_data || 'wp-login.php' !== $GLOBALS['pagenow'] || 'empty_username' === $errors->get_error_code() ) {
+			return;
+		}
+
+		wp_safe_redirect( add_query_arg( 'checkemail', 'confirm', wp_login_url() ) );
+		exit;
+	},
+	10,
+	2
 );
 
 /**
@@ -162,13 +187,30 @@ add_action(
 	}
 );
 
+/**
+ * New users are already covered by user_register, so only role changes on existing users are reported here.
+ */
 add_action(
 	'set_user_role',
 	function ( $user_id, $role, $old_roles ) {
-		if ( in_array( $role, array( 'administrator', 'editor' ), true ) && ! in_array( $role, $old_roles, true ) ) {
+		if ( $old_roles && in_array( $role, array( 'administrator', 'editor' ), true ) && ! in_array( $role, $old_roles, true ) ) {
 			security_hardening_notify( 'Användare fick rollen ' . $role, $user_id );
 		}
 	},
 	10,
 	3
+);
+
+/**
+ * Plugins that grant extra roles use add_role(), which does not trigger set_user_role.
+ */
+add_action(
+	'add_user_role',
+	function ( $user_id, $role ) {
+		if ( in_array( $role, array( 'administrator', 'editor' ), true ) ) {
+			security_hardening_notify( 'Användare fick rollen ' . $role, $user_id );
+		}
+	},
+	10,
+	2
 );

@@ -5,65 +5,101 @@
  * On theme activation the privacy policy page is created (or updated) with
  * our GDPR-compliant Swedish template as native Gutenberg blocks.
  * Replace all [HAKPARENTES] placeholders with project-specific info before going live.
+ * Links between the two policy pages (href="#wpst-privacy-policy" / "#wpst-cookie-policy")
+ * are resolved automatically and should be left as they are.
  *
  * @package WP Starter Theme
  */
 
-function wpst_setup_privacy_policy_page() {
-	$page_id = (int) get_option( 'wp_page_for_privacy_policy' );
-	$content = wpst_get_privacy_policy_template();
+/**
+ * Creates a policy page from our template, or fills an existing one.
+ *
+ * An existing page is only filled once, and only while it is still a draft
+ * (e.g. the page WordPress creates on install). Pages that already have our
+ * template, or have been published, are left untouched so that edited
+ * content is never overwritten when the theme is reactivated.
+ *
+ * @param string $option  Option that stores the page ID.
+ * @param string $title   Title for a new page.
+ * @param string $content Block content.
+ */
+function wpst_setup_policy_page( $option, $title, $content ) {
+	$page = get_post( (int) get_option( $option ) );
 
-	if ( $page_id && get_post( $page_id ) ) {
+	if ( $page ) {
+		if ( 'draft' !== $page->post_status || get_post_meta( $page->ID, '_wpst_policy_template', true ) ) {
+			return;
+		}
+
 		wp_update_post(
 			array(
-				'ID'           => $page_id,
+				'ID'           => $page->ID,
 				'post_content' => $content,
 			)
 		);
-	} else {
-		$page_id = wp_insert_post(
-			array(
-				'post_title'   => __( 'Privacy Policy', 'wp-starter-theme' ),
-				'post_status'  => 'draft',
-				'post_type'    => 'page',
-				'post_content' => $content,
-			)
-		);
-
-		if ( $page_id && ! is_wp_error( $page_id ) ) {
-			update_option( 'wp_page_for_privacy_policy', $page_id );
-		}
+		update_post_meta( $page->ID, '_wpst_policy_template', 1 );
+		return;
 	}
+
+	$page_id = wp_insert_post(
+		array(
+			'post_title'   => $title,
+			'post_status'  => 'draft',
+			'post_type'    => 'page',
+			'post_content' => $content,
+		)
+	);
+
+	if ( $page_id ) {
+		update_option( $option, $page_id );
+		update_post_meta( $page_id, '_wpst_policy_template', 1 );
+	}
+}
+
+function wpst_setup_privacy_policy_page() {
+	wpst_setup_policy_page( 'wp_page_for_privacy_policy', __( 'Privacy Policy', 'wp-starter-theme' ), wpst_get_privacy_policy_template() );
 }
 add_action( 'after_switch_theme', 'wpst_setup_privacy_policy_page' );
 
 function wpst_setup_cookie_policy_page() {
-	$page_id = (int) get_option( 'wpst_page_for_cookie_policy' );
-	$content = wpst_get_cookie_policy_template();
-
-	if ( $page_id && get_post( $page_id ) ) {
-		wp_update_post(
-			array(
-				'ID'           => $page_id,
-				'post_content' => $content,
-			)
-		);
-	} else {
-		$page_id = wp_insert_post(
-			array(
-				'post_title'   => __( 'Cookie Policy', 'wp-starter-theme' ),
-				'post_status'  => 'draft',
-				'post_type'    => 'page',
-				'post_content' => $content,
-			)
-		);
-
-		if ( $page_id && ! is_wp_error( $page_id ) ) {
-			update_option( 'wpst_page_for_cookie_policy', $page_id );
-		}
-	}
+	wpst_setup_policy_page( 'wpst_page_for_cookie_policy', __( 'Cookie Policy', 'wp-starter-theme' ), wpst_get_cookie_policy_template() );
 }
 add_action( 'after_switch_theme', 'wpst_setup_cookie_policy_page' );
+
+function wpst_get_cookie_policy_url() {
+	$page_id = (int) get_option( 'wpst_page_for_cookie_policy' );
+
+	return $page_id && 'publish' === get_post_status( $page_id ) ? get_permalink( $page_id ) : '';
+}
+
+/**
+ * The templates link to each other with placeholder hrefs that are resolved on output,
+ * so the links follow the pages' current URLs. A link to an unpublished page becomes plain text.
+ *
+ * @param string $content Post content.
+ * @return string
+ */
+function wpst_resolve_policy_links( $content ) {
+	if ( ! str_contains( $content, 'href="#wpst-' ) ) {
+		return $content;
+	}
+
+	$urls = array(
+		'wpst-privacy-policy' => get_privacy_policy_url(),
+		'wpst-cookie-policy'  => wpst_get_cookie_policy_url(),
+	);
+
+	foreach ( $urls as $token => $url ) {
+		if ( $url ) {
+			$content = str_replace( 'href="#' . $token . '"', 'href="' . esc_url( $url ) . '"', $content );
+		} else {
+			$content = preg_replace( '~<a\s[^>]*href="#' . $token . '"[^>]*>(.*?)</a>~s', '$1', $content );
+		}
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'wpst_resolve_policy_links' );
 
 function wpst_privacy_policy_content() {
 	if ( ! function_exists( 'wp_add_privacy_policy_content' ) ) {
@@ -116,7 +152,7 @@ function wpst_get_privacy_policy_template() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Vi använder cookies för att webbplatsen ska fungera korrekt och för att förstå hur den används. Se vår <a href="/cookie-policy/">cookiepolicy</a> för fullständig information. Rättslig grund: samtycke (analytiska och marknadsföringscookies) respektive berättigat intresse (nödvändiga cookies).</p>
+<p>Vi använder cookies för att webbplatsen ska fungera korrekt och för att förstå hur den används. Se vår <a href="#wpst-cookie-policy">cookiepolicy</a> för fullständig information. Rättslig grund: samtycke (analytiska och marknadsföringscookies) respektive berättigat intresse (nödvändiga cookies).</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
@@ -304,6 +340,6 @@ function wpst_get_cookie_policy_template() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Har du frågor om hur vi använder cookies? Kontakta oss på <a href="mailto:[E-POST]">[E-POST]</a> eller läs vår <a href="/integritetspolicy/">integritetspolicy</a>.</p>
+<p>Har du frågor om hur vi använder cookies? Kontakta oss på <a href="mailto:[E-POST]">[E-POST]</a> eller läs vår <a href="#wpst-privacy-policy">integritetspolicy</a>.</p>
 <!-- /wp:paragraph -->';
 }

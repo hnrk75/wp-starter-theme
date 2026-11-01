@@ -2,8 +2,11 @@ parameters:
     level: 5
     paths:
         - web/app/themes/wp-starter-theme
+        - web/app/mu-plugins
     excludePaths:
         - web/app/themes/wp-starter-theme/node_modules
+        # Subfolders in mu-plugins are installed by Composer.
+        - web/app/mu-plugins/*/*
     bootstrapFiles:
         - phpstan-bootstrap.php
     scanDirectories:
