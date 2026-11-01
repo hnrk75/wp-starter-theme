@@ -92,7 +92,7 @@ add_filter(
 
 if ( ! function_exists( 'wpst_register_navwalker' ) ) :
 	function wpst_register_navwalker() {
-		$walker_path = get_theme_file_path( 'inc/navwalker.php' );
+		$walker_path = get_parent_theme_file_path( 'inc/navwalker.php' );
 		if ( file_exists( $walker_path ) ) {
 			require_once $walker_path;
 		}
