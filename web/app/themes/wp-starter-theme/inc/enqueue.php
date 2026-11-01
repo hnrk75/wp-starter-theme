@@ -15,16 +15,18 @@ if ( ! function_exists( 'wpst_scripts' ) ) :
 			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- external URL, no version needed
 		);
 
+		// Always the parent theme's own files. A child theme enqueues its own CSS/JS
+		// on top, with 'wpst-style' / 'wpst-scripts' as dependency.
 		$css_rel  = 'assets/css/style.min.css';
-		$css_path = get_theme_file_path( $css_rel );
-		$css_uri  = get_theme_file_uri( $css_rel );
+		$css_path = get_parent_theme_file_path( $css_rel );
+		$css_uri  = get_parent_theme_file_uri( $css_rel );
 		$css_ver  = file_exists( $css_path ) ? (string) filemtime( $css_path ) : null;
 
 		wp_enqueue_style( 'wpst-style', $css_uri, array(), $css_ver );
 
 		$js_rel  = 'assets/js/dist/scripts.min.js';
-		$js_path = get_theme_file_path( $js_rel );
-		$js_uri  = get_theme_file_uri( $js_rel );
+		$js_path = get_parent_theme_file_path( $js_rel );
+		$js_uri  = get_parent_theme_file_uri( $js_rel );
 		$js_ver  = file_exists( $js_path ) ? (string) filemtime( $js_path ) : null;
 
 		wp_enqueue_script( 'wpst-scripts', $js_uri, array(), $js_ver, true );
