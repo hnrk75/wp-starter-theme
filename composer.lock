@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e56e9bd2e1d1d8173a500235e9713878",
+    "content-hash": "18d28e123cc7fe43653004eaa69b0d0b",
     "packages": [
         {
             "name": "composer/installers",
@@ -216,16 +216,16 @@
         },
         {
             "name": "hnrk75/hnrk-cookie-consent",
-            "version": "v1.0.4",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/hnrk-cookie-consent.git",
-                "reference": "061869ca6207339f0d5900043f6b6eb125de9632"
+                "reference": "d76b0649ee22bca2197581b07f288844d8a02a7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/061869ca6207339f0d5900043f6b6eb125de9632",
-                "reference": "061869ca6207339f0d5900043f6b6eb125de9632",
+                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/d76b0649ee22bca2197581b07f288844d8a02a7d",
+                "reference": "d76b0649ee22bca2197581b07f288844d8a02a7d",
                 "shasum": ""
             },
             "require": {
@@ -253,10 +253,10 @@
             ],
             "description": "WordPress plugin — HNRK Cookie Consent",
             "support": {
-                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.0.4",
+                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.0.6",
                 "issues": "https://github.com/hnrk75/hnrk-cookie-consent/issues"
             },
-            "time": "2026-11-01T08:29:32+00:00"
+            "time": "2026-11-01T11:56:17+00:00"
         },
         {
             "name": "hnrk75/wp-security-hardening",
@@ -296,16 +296,16 @@
         },
         {
             "name": "hnrk75/wp-starter-theme-parent",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/wp-starter-theme-parent.git",
-                "reference": "ef734d61a1ca9467ff43c6a4dc23eb3b70e59281"
+                "reference": "3b2ad2d445c64dc4bdf2de65df19e24ed11d546b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/ef734d61a1ca9467ff43c6a4dc23eb3b70e59281",
-                "reference": "ef734d61a1ca9467ff43c6a4dc23eb3b70e59281",
+                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/3b2ad2d445c64dc4bdf2de65df19e24ed11d546b",
+                "reference": "3b2ad2d445c64dc4bdf2de65df19e24ed11d546b",
                 "shasum": ""
             },
             "require": {
@@ -329,9 +329,9 @@
             "homepage": "https://github.com/hnrk75/wp-starter-theme-parent",
             "support": {
                 "issues": "https://github.com/hnrk75/wp-starter-theme-parent/issues",
-                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v1.3.0"
+                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v1.4.0"
             },
-            "time": "2026-11-01T08:35:11+00:00"
+            "time": "2026-11-01T12:17:38+00:00"
         },
         {
             "name": "inpsyde/wp-translation-downloader",
@@ -1239,24 +1239,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/two-factor/"
-        },
-        {
-            "name": "wpackagist-theme/twentytwentyfive",
-            "version": "1.5",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/twentytwentyfive/",
-                "reference": "1.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentyfive.1.5.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/twentytwentyfive/"
         },
         {
             "name": "wpengine/advanced-custom-fields-pro",
