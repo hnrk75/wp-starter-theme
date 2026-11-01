@@ -19,7 +19,7 @@ Follows WordPress Coding Standards (WPCS) with built-in linting for PHP, JS, and
 
 A responsive WordPress starter theme with a clean ITCSS/BEM SCSS architecture, fluid typography
 via theme.json, a Gulp 5 build pipeline, and full accessibility (WCAG) support.
-No Bootstrap — custom container system, spacing scale with clamp(), and Google Fonts via PHP.
+No Bootstrap — custom container system, spacing scale with clamp(), and self-hosted fonts.
 
 ---
 
@@ -41,7 +41,7 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 - Fluid typography via theme.json (clamp-based font sizes)
 - Fluid spacing scale (--space-xs to --space-xl)
 - Gulp 5 build system — CSS, JS, BrowserSync
-- Google Fonts loaded via wp_enqueue_style (heading + body)
+- Self-hosted variable fonts (Montserrat + Fraunces) via theme.json `fontFace` — no requests to Google
 - Custom container system in rem
 - BEM methodology with consistent nesting
 - WCAG-compliant navigation with custom navwalker
@@ -117,6 +117,29 @@ so the alignment and background apply across the content area.
 
 Body text uses `hyphens: manual`: automatic hyphenation makes text harder to read,
 e.g. for people with dyslexia. Editors can add soft hyphens (`&shy;`) where needed.
+
+---
+
+## Fonts
+
+Fonts are self-hosted in `assets/fonts/` as variable woff2 files (latin subset, all
+weights in one file) and registered with `fontFace` in `theme.json`. WordPress outputs
+the `@font-face` rules on the front end and in the block editor. Nothing is loaded from
+Google, so no visitor IP addresses are sent to a third party (GDPR).
+
+| Font | File | Source |
+|------|------|--------|
+| Montserrat (body) | `montserrat-latin-wght-normal.woff2` | [Fontsource](https://fontsource.org/fonts/montserrat) |
+| Fraunces (headings) | `fraunces-latin-opsz-normal.woff2` | [Fontsource](https://fontsource.org/fonts/fraunces) |
+
+Both are licensed under the SIL Open Font License (`assets/fonts/OFL-*.txt`).
+
+**Other fonts in a child theme:** put the woff2 files in the child theme's
+`assets/fonts/` and define `fontFamilies` with `fontFace` in the child's `theme.json`,
+then update `font-family` in the child's CSS. Latin covers Swedish (å, ä, ö); use the
+`latin-ext` files if a site needs e.g. Polish or Czech characters.
+
+**Google Fonts anyway:** return a URL from the `wpst_google_fonts_url` filter.
 
 ---
 

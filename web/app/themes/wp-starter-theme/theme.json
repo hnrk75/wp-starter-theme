@@ -12,12 +12,30 @@
         {
           "slug": "body",
           "name": "Body (Montserrat)",
-          "fontFamily": "Montserrat, sans-serif"
+          "fontFamily": "Montserrat, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Montserrat",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+              "fontDisplay": "swap",
+              "src": [ "file:./assets/fonts/montserrat-latin-wght-normal.woff2" ]
+            }
+          ]
         },
         {
           "slug": "heading",
           "name": "Heading (Fraunces)",
-          "fontFamily": "Fraunces, serif"
+          "fontFamily": "Fraunces, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Fraunces",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+              "fontDisplay": "swap",
+              "src": [ "file:./assets/fonts/fraunces-latin-opsz-normal.woff2" ]
+            }
+          ]
         }
       ],
       "fontSizes": [

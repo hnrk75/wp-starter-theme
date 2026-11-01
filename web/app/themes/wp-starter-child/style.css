@@ -1,0 +1,23 @@
+/*
+Theme Name:  WP Starter Child
+Template:    wp-starter-theme
+Description: Child theme for WP Starter Theme. Put all site-specific changes here so the parent theme can be updated.
+Author:      Henrik Pettersson
+Author URI:  https://github.com/hnrk75
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wp-starter-child
+*/
+
+/*
+ * Site-specific CSS. Loaded after the parent theme's CSS, on the front end and in
+ * the block editor, so rules here win when they have the same specificity.
+ *
+ * The parent's CSS custom properties can be overridden here, e.g.:
+ *
+ * :root {
+ *   --color-primary: #0f766e;
+ *   --measure: 40rem;
+ * }
+ */
