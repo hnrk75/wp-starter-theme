@@ -101,12 +101,14 @@ git remote add origin git@github.com:<account>/<client-repo>.git
 
 ### 2. Install
 
-1. `composer install`
-2. New project only: `cp .env.example .env` and fill in database, salts
+1. In `composer.json`, change `name` (e.g. `hnrk75/svenssonsmetropol`), `description`,
+   `homepage`, `keywords` and `support.issues` — they still describe the template.
+2. Set `config.platform.php` in `composer.json` to the exact PHP version of the client's
+   server (see [PHP version and Composer platform](#php-version-and-composer-platform)).
+3. `composer update --lock` (both changes are part of the lock file), then `composer install`.
+4. New project only: `cp .env.example .env` and fill in database, salts
    ([roots.io/salts.html](https://roots.io/salts.html)) and URL, then install WordPress at
    `http://your-local-domain/wp/wp-admin/install.php`.
-3. Set `config.platform.php` in `composer.json` to the exact PHP version of the client's
-   server (see [PHP version and Composer platform](#php-version-and-composer-platform)).
 
 ### 3. Rename the child theme
 

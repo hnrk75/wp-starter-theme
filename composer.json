@@ -2,7 +2,7 @@
   "name": "hnrk75/wp-starter-theme",
   "type": "project",
   "license": "MIT",
-  "description": "Modern WordPress starter theme built on Bedrock with Composer, PHPCS/PHPStan and a Gulp-based build pipeline.",
+  "description": "Bedrock starting point for client sites: installs the WP Starter parent theme and shared plugins with Composer, with a child theme template.",
   "homepage": "https://github.com/hnrk75/wp-starter-theme",
   "authors": [
     {
@@ -48,7 +48,7 @@
   "require": {
     "php": ">=8.4",
     "composer/installers": "^2.3",
-    "hnrk75/hnrk-cookie-consent": "1.1.0",
+    "hnrk75/hnrk-cookie-consent": "1.2.0",
     "hnrk75/wp-security-hardening": "1.4.0",
     "hnrk75/wp-starter-theme-parent": "2.0.0",
     "inpsyde/wp-translation-downloader": "2.6",

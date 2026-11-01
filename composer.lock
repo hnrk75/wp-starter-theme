@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e4e82fd66cc410f53eaf1a4c45a4732",
+    "content-hash": "92d5da3078fd47ffd3d1d62cf8715b22",
     "packages": [
         {
             "name": "composer/installers",
@@ -216,16 +216,16 @@
         },
         {
             "name": "hnrk75/hnrk-cookie-consent",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/hnrk-cookie-consent.git",
-                "reference": "0bb40818fce389578f8efe7775fd239542f4d4ad"
+                "reference": "c0c949eebf7c77a27fec5e95f861dbba502394d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/0bb40818fce389578f8efe7775fd239542f4d4ad",
-                "reference": "0bb40818fce389578f8efe7775fd239542f4d4ad",
+                "url": "https://api.github.com/repos/hnrk75/hnrk-cookie-consent/zipball/c0c949eebf7c77a27fec5e95f861dbba502394d7",
+                "reference": "c0c949eebf7c77a27fec5e95f861dbba502394d7",
                 "shasum": ""
             },
             "require": {
@@ -253,10 +253,10 @@
             ],
             "description": "WordPress plugin — HNRK Cookie Consent",
             "support": {
-                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.1.0",
+                "source": "https://github.com/hnrk75/hnrk-cookie-consent/tree/v1.2.0",
                 "issues": "https://github.com/hnrk75/hnrk-cookie-consent/issues"
             },
-            "time": "2026-11-01T14:07:53+00:00"
+            "time": "2026-11-01T14:37:42+00:00"
         },
         {
             "name": "hnrk75/wp-security-hardening",
