@@ -1,9 +1,27 @@
-# WP Starter Theme
+# WP Starter
 
-Modern WordPress installation built on [Roots/Bedrock](https://roots.io/bedrock/).
-Composer-managed dependencies, Gulp-based theme builds, strict coding standards and
-built-in security hardening. Everything is host-agnostic: no web server specific
-configuration is required, so the project runs the same on any host.
+Starting point for new client sites, built on [Roots/Bedrock](https://roots.io/bedrock/).
+Clone it for every new site: it installs the shared parent theme and security plugin with
+Composer, and contains a child theme template for the site's own design.
+
+Everything is host-agnostic: no web server specific configuration is required, so a
+site runs the same on any host.
+
+---
+
+## How the pieces fit together
+
+| Part | Where it lives | How a site gets it |
+|------|----------------|--------------------|
+| Parent theme | [`hnrk75/wp-starter-theme-parent`](https://github.com/hnrk75/wp-starter-theme-parent) | Composer, exact version |
+| Security plugin | [`hnrk75/wp-security-hardening`](https://github.com/hnrk75/wp-security-hardening) | Composer, exact version |
+| Child theme | `web/app/themes/wp-starter-child/` in this repo | Copied and renamed per site |
+| Bedrock setup, config, tooling | This repo | Cloned per site |
+
+The parent theme and the security plugin are **never edited in a client site**. All
+site-specific work goes in the child theme. Improvements to the shared packages are made
+in their own repos, released as a new version, and picked up by each site with
+`composer update`.
 
 ---
 
@@ -13,18 +31,20 @@ configuration is required, so the project runs the same on any host.
 project-root/
 ├── composer.json                    # PHP dependencies & scripts
 ├── wp-translation-downloader.lock   # Installed translations (like composer.lock)
-├── phpcs.xml                        # WordPress Coding Standards (PHPCS)
+├── phpcs.xml                        # WordPress Coding Standards (child theme + own mu-plugins)
 ├── phpstan.neon                     # PHP static analysis
+├── scripts/dev-link.php             # composer dev:link / dev:unlink (see below)
 ├── .env.example                     # Environment template
 ├── config/                          # Bedrock config (application.php + environments/)
 ├── web/
 │   ├── app/
-│   │   ├── languages/               # Core/plugin/theme translations (Composer, gitignored)
-│   │   ├── mu-plugins/              # Must-use plugins
-│   │   │   └── security.php         # Security hardening (see below)
-│   │   ├── plugins/                 # Plugins (Composer, gitignored)
+│   │   ├── languages/               # Translations (Composer, gitignored)
+│   │   ├── mu-plugins/
+│   │   │   └── wp-security-hardening/   # Composer package (gitignored)
+│   │   ├── plugins/                 # Composer packages (gitignored)
 │   │   ├── themes/
-│   │   │   └── wp-starter-theme/
+│   │   │   ├── wp-starter-theme/    # Parent theme — Composer package (gitignored)
+│   │   │   └── wp-starter-child/    # Child theme template — the site's own code
 │   │   └── uploads/                 # Media (gitignored)
 │   └── wp/                          # WordPress core (Composer)
 └── vendor/                          # Composer vendor (gitignored)
@@ -39,8 +59,6 @@ project-root/
 | PHP        | 8.4             |
 | WordPress  | 7.1             |
 | Composer   | 2.0             |
-| Node.js    | 24.0            |
-| npm        | 11.0            |
 
 ### PHP version and Composer platform
 
@@ -57,57 +75,57 @@ not to remove roave. Read the version in WP admin under
 
 ---
 
-## Setup
+## New client site
 
-### 1. Clone & install
-
-```bash
-git clone git@github.com:hnrk75/wp-starter-theme.git
-cd wp-starter-theme
-composer install
-```
-
-`composer install` also downloads Swedish (sv_SE) translations for WordPress core,
-themes and plugins (see [Translations](#translations)).
-
-### 2. Configure environment
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your database credentials, salts and local URL.
-Generate salts at [roots.io/salts.html](https://roots.io/salts.html).
-
-### 3. Install WordPress
-
-Open in browser:
-
-```
-http://your-local-domain/wp/wp-admin/install.php
-```
-
-### 4. Install theme dependencies
-
-```bash
-cd web/app/themes/wp-starter-theme
-npm install
-```
+1. Clone this repo, `composer install`, `cp .env.example .env` and fill in database,
+   salts ([roots.io/salts.html](https://roots.io/salts.html)) and URL.
+2. Install WordPress at `http://your-local-domain/wp/wp-admin/install.php`.
+3. Rename the child theme: the folder `web/app/themes/wp-starter-child`, and
+   `Theme Name` / `Text Domain` in its `style.css` and `functions.php`.
+4. Activate the child theme under **Appearance → Themes**, then reassign the menus under
+   **Appearance → Menus → Manage Locations** (menu locations are stored per theme).
+5. Build the site in the child theme. See the child theme's `README.md`.
 
 ---
 
-## Theme development
+## Updating the parent theme or security plugin on a site
 
-Run inside `web/app/themes/wp-starter-theme/`:
+1. Read the package's `CHANGELOG.md` for the new version. A **major** version can need
+   changes in the child theme.
+2. Change the version in `composer.json`, e.g. `"hnrk75/wp-starter-theme-parent": "1.3.0"`.
+3. Run `composer update hnrk75/wp-starter-theme-parent`.
+4. Test locally, then deploy as usual (the server runs `composer install`).
 
-```bash
-npm run dev      # Watch files, compile & BrowserSync
-npm run build    # Production build
-npm run lint     # Lint JS, CSS and PHP
-npm run fix      # Auto-fix JS, CSS and PHP
+`composer outdated hnrk75/*` lists the packages that have newer versions.
+
+---
+
+## Developing the parent theme and security plugin
+
+This site (the starter repo itself) is the workshop for the shared packages. Clone the
+package repos next to the Local site folder:
+
+```
+Local Sites/WordPress/
+├── wp-starter-theme/              # this Local site
+├── wp-starter-theme-parent/       # git clone of the parent theme
+└── wp-security-hardening/         # git clone of the security plugin
 ```
 
-See the theme `README.md` for theme-specific documentation.
+Then link them into this site:
+
+```bash
+composer dev:link     # replace the installed packages with symlinks to the clones
+composer dev:unlink   # back to the tagged versions from composer.lock
+```
+
+While linked, edits in the clones show up in this site directly. Work, commit and
+release in each clone (see their READMEs and CHANGELOGs). `composer install` leaves the
+links alone, but `composer update` of a linked package replaces the link — run
+`composer dev:link` again afterwards.
+
+Packages without a local clone are skipped, so the commands are harmless in client
+projects. Set `WPST_DEV_DIR` to use another folder for the clones.
 
 ---
 
@@ -120,33 +138,18 @@ nothing has to be updated manually on the servers (WordPress cannot download
 translations itself, since Bedrock sets `DISALLOW_FILE_MODS` in production).
 
 - Configured under `extra.wp-translation-downloader` in `composer.json`.
-- ACF Pro is excluded, since it is not on wordpress.org and ships its own translations.
+- ACF Pro and our own `hnrk75/*` packages are excluded — they ship their own translations.
 - Commit `wp-translation-downloader.lock`.
-
-The theme's own translations live in the theme's `languages/` folder and are versioned.
 
 ---
 
 ## Security
 
-`web/app/mu-plugins/security.php` is always active and needs no configuration:
-
-- **Registration** is always disabled and the default role is always subscriber,
-  regardless of the database settings.
-- **XML-RPC** and **application passwords** are disabled.
-- **Usernames are hidden** from logged-out visitors: REST `/wp/v2/users`, `?author=`,
-  author archives, the users sitemap and oEmbed author data.
-- **Login** gives the same error for wrong username and wrong password, and the
-  lost password form gives the same confirmation whether the account exists or not.
-- **Login throttling:** 5 failed logins for the same account from the same IP within
-  15 minutes lock that combination for 15 minutes. Counting per IP and account works
-  behind proxies too, where all visitors share one IP.
-- **Two-factor authentication is required** when the [Two Factor](https://wordpress.org/plugins/two-factor/)
-  plugin is active: users without it are sent to their profile until it is set up.
-  Leave the plugin inactive locally.
-- **Security headers:** `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`,
-  `Permissions-Policy`, and HSTS in production over HTTPS. The WordPress version is hidden.
-- **Email notifications** to the admin when a user is created or becomes administrator/editor.
+The [Security Hardening](https://github.com/hnrk75/wp-security-hardening) must-use plugin
+is always active and needs no configuration — see its README for what it does. Install
+[Two Factor](https://wordpress.org/plugins/two-factor/) (`wpackagist-plugin/two-factor`)
+and activate it on TEST and PROD: the security plugin then requires two-factor
+authentication for all users. Leave it inactive locally.
 
 `robots.txt` is WordPress core's own output (admin blocked, sitemap when public).
 
@@ -154,7 +157,7 @@ The theme's own translations live in the theme's `languages/` folder and are ver
 
 ## Recommended plugins
 
-The theme's **Recommended Plugins** dashboard widget shows the status of each plugin:
+The parent theme's **Recommended Plugins** dashboard widget shows the status of each plugin:
 
 | Status | Meaning |
 |--------|---------|
@@ -173,55 +176,39 @@ composer require vendor/package-name:1.2.3
 
 ## Code quality
 
-### PHP (from project root)
-
 ```bash
-composer lint              # Run PHPCS
+composer lint              # PHPCS
 composer lint:fix          # Auto-fix with PHPCBF
 composer analyze           # PHPStan static analysis
 composer analyze:baseline  # Generate PHPStan baseline
 ```
 
-PHPCS and PHPStan cover the theme and our own files in `web/app/mu-plugins/`.
-Subfolders in `mu-plugins/` are installed by Composer and are skipped.
-
-### JS / SCSS (from theme folder)
-
-```bash
-npm run lint:js        # ESLint
-npm run lint:css       # Stylelint
-npm run format         # Prettier
-```
+PHPCS and PHPStan check this project's own code: the child theme and loose files in
+`web/app/mu-plugins/`. The parent theme and the security plugin are checked in their own repos.
 
 ---
 
 ## Gitignore strategy
 
-Only source code and configuration are versioned.
+Only this project's own source code and configuration are versioned.
 
 Ignored:
-- `vendor/`, `node_modules/`, `uploads/`
-- `web/app/plugins/` and `web/app/languages/` (installed by Composer)
-- Built assets (`assets/css/*.min.css`, `*.min.js`, `.zip`)
-- Cache files (`.phpcs.cache`, `.eslintcache`, etc.)
+- `vendor/`, `uploads/`, `web/wp/`
+- Composer packages: `web/app/plugins/`, `web/app/mu-plugins/*/`, the parent theme
+  `web/app/themes/wp-starter-theme`, and `web/app/languages/`
 - Environment files (`.env`)
 - Editor and tool settings (`.vscode/`, `.idea/`, `.claude/`)
 
 Versioned on purpose:
-- The theme's translations (`web/app/themes/*/languages/`)
-- `wp-translation-downloader.lock`
+- The child theme, including its translations
+- `composer.lock` and `wp-translation-downloader.lock`
 
 ---
 
 ## License
 
-The project uses two licenses, which is the common setup for Bedrock projects:
-
 | Part | License |
 |------|---------|
 | Project skeleton and config (based on Bedrock) | MIT — see `LICENSE.md` (Roots' original notice must be kept) |
-| Our must-use plugins in `web/app/mu-plugins/` | MIT — see each file's header |
-| The theme `web/app/themes/wp-starter-theme/` | GNU General Public License v2 or later — see the theme's `style.css` |
-
-MIT is GPL-compatible, so the parts can be combined and distributed together.
-The theme is GPL like WordPress itself, which is the convention for themes.
+| Child theme template | GNU General Public License v2 or later — see its `style.css` |
+| Parent theme / security plugin | See their own repos (GPL-2.0-or-later / MIT) |

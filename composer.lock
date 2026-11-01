@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3761b4a76876debd879c2f11aa92e36",
+    "content-hash": "353a516452dde75adca6d10ec28b5391",
     "packages": [
         {
             "name": "composer/installers",
@@ -213,6 +213,81 @@
                 }
             ],
             "time": "2026-08-24T09:06:52+00:00"
+        },
+        {
+            "name": "hnrk75/wp-security-hardening",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hnrk75/wp-security-hardening.git",
+                "reference": "45dab5e1da87963a2698ce26f52fc86647d3fe8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hnrk75/wp-security-hardening/zipball/45dab5e1da87963a2698ce26f52fc86647d3fe8a",
+                "reference": "45dab5e1da87963a2698ce26f52fc86647d3fe8a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^2.3",
+                "php": ">=8.1"
+            },
+            "type": "wordpress-muplugin",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik Pettersson",
+                    "homepage": "https://github.com/hnrk75"
+                }
+            ],
+            "description": "Must-use plugin with basic WordPress security hardening. No settings, works on any host.",
+            "homepage": "https://github.com/hnrk75/wp-security-hardening",
+            "support": {
+                "issues": "https://github.com/hnrk75/wp-security-hardening/issues",
+                "source": "https://github.com/hnrk75/wp-security-hardening/tree/v1.3.1"
+            },
+            "time": "2026-11-01T07:47:17+00:00"
+        },
+        {
+            "name": "hnrk75/wp-starter-theme-parent",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hnrk75/wp-starter-theme-parent.git",
+                "reference": "ae09e3c40678ab9cd9ab414fe282c4f21cc7c435"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/ae09e3c40678ab9cd9ab414fe282c4f21cc7c435",
+                "reference": "ae09e3c40678ab9cd9ab414fe282c4f21cc7c435",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^2.3",
+                "php": ">=8.4"
+            },
+            "type": "wordpress-theme",
+            "extra": {
+                "installer-name": "wp-starter-theme"
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik Pettersson",
+                    "homepage": "https://github.com/hnrk75"
+                }
+            ],
+            "description": "WP Starter Theme — parent theme for client sites. Customize in a child theme.",
+            "homepage": "https://github.com/hnrk75/wp-starter-theme-parent",
+            "support": {
+                "issues": "https://github.com/hnrk75/wp-starter-theme-parent/issues",
+                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v1.2.0"
+            },
+            "time": "2026-11-01T07:41:14+00:00"
         },
         {
             "name": "inpsyde/wp-translation-downloader",

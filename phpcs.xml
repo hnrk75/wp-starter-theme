@@ -3,10 +3,11 @@
          name="WP Starter Theme"
          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 
-    <description>WordPress Coding Standards – the theme and our own mu-plugins</description>
+    <description>WordPress Coding Standards – this project's child theme and own mu-plugins</description>
 
     <!-- Vad som ska skannas -->
-    <file>./web/app/themes/wp-starter-theme</file>
+    <!-- The parent theme and the security plugin are Composer packages, checked in their own repos. -->
+    <file>./web/app/themes/wp-starter-child</file>
     <file>./web/app/mu-plugins</file>
 
     <!-- Uteslut mappar/filer som inte ska scannas -->
@@ -62,6 +63,7 @@
         <properties>
             <property name="text_domain" type="array">
                 <element value="wp-starter-theme"/>
+                <element value="wp-starter-child"/>
             </property>
         </properties>
     </rule>
