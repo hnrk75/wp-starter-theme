@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "wp-starter-theme",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Modern WordPress starter theme with Gulp build pipeline",
   "author": {
     "name": "Henrik Pettersson"
@@ -25,6 +25,7 @@
     "start": "npm run dev",
     "build": "cross-env NODE_ENV=production gulp build",
     "zip": "gulp zipFiles",
+    "release": "node scripts/release.mjs",
     "lint:js": "eslint assets/js/src --cache",
     "lint:js:fix": "eslint assets/js/src --fix --cache",
     "lint:css": "stylelint \"assets/scss/**/*.scss\" \"inc/**/*.scss\"",

@@ -79,6 +79,31 @@ npm run fix        # Auto-fix JS, CSS and PHP
 
 ---
 
+## Versioning & releases
+
+The theme uses [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`):
+
+| Change | Bump | Example |
+|--------|------|---------|
+| Bug fix | `patch` | 1.1.0 → 1.1.1 |
+| New feature, child themes keep working | `minor` | 1.1.1 → 1.2.0 |
+| Can break a child theme (removed/renamed function, hook, filter or class) | `major` | 1.2.0 → 2.0.0 |
+
+Workflow:
+
+1. While working, add a line under **Unreleased** in `CHANGELOG.md`
+   (Added / Changed / Fixed / Removed / Security).
+2. Release:
+   ```bash
+   npm run release -- minor    # or patch, major, or an exact version like 1.4.0
+   ```
+   This updates `style.css`, `package.json`, `package-lock.json` and moves the
+   Unreleased entries to the new version in `CHANGELOG.md`. It stops if Unreleased is empty.
+3. Commit, tag and push as the script prints (`git tag v1.2.0`). Composer reads the
+   git tags as versions.
+
+---
+
 ## SCSS structure
 
 ```

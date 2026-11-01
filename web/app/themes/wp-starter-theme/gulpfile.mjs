@@ -173,6 +173,7 @@ export function zipFiles() {
         '!gulpfile.mjs',
         '!package.json',
         '!package-lock.json',
+        '!scripts/**',
         '!.npmrc',
         '!.nvmrc',
         '!.editorconfig',
