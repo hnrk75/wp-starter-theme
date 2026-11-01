@@ -90,6 +90,9 @@ Thumbs.db
 
 # ───── Claude Code (local settings) ───────────────────────────
 .claude/
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
 memory/
 
 # ───── Tooling configs (committed for consistent setup) ────────
