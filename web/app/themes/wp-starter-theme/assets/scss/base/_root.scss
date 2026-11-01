@@ -46,6 +46,7 @@
 	// --- Layout ---------------------------------------------------
 	--container-max-width:    82.5rem;
 	--container-padding-inline: var(--space-sm);
+	--measure:                42rem; // Readable line length for running text (~72 characters in Montserrat). Not ch: Montserrat's wide "0" makes ch overshoot.
 
 	// --- Spacing --------------------------------------------------
 	--spacer:    #{$spacer};

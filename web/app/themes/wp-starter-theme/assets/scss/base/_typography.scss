@@ -15,12 +15,21 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-wrap: break-word;
-	hyphens: auto;
+
+	// Automatic hyphenation makes running text harder to read (e.g. with dyslexia).
+	// Editors can still add soft hyphens (&shy;) where needed.
+	hyphens: manual;
 }
 
 p {
-	max-width: 70ch;
 	text-wrap: pretty;
+}
+
+// Readable line length for running text. Aligned paragraphs and paragraphs
+// with a background keep the full width, so they are aligned and filled
+// across the content area and not just within the measure.
+p:not(.has-text-align-center, .has-text-align-right, .has-background) {
+	max-width: var(--measure);
 }
 
 p,
@@ -33,7 +42,7 @@ figcaption {
 li,
 blockquote,
 figcaption {
-	max-width: 70ch;
+	max-width: var(--measure);
 }
 
 // --- Display -------------------------------------------------
@@ -131,7 +140,7 @@ small {
 .ingress {
 	font-size: var(--wp--preset--font-size--large);
 	line-height: 1.55;
-	max-width: 58ch;
+	max-width: 45rem;
 }
 
 // --- Vertical rhythm -----------------------------------------
