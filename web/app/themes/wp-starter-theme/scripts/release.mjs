@@ -3,11 +3,13 @@
  *
  * Usage: npm run release -- patch | minor | major | 1.2.3
  *
- * Updates the version in style.css, package.json and package-lock.json, and turns the
- * "Unreleased" section in CHANGELOG.md into the new version. Does not commit or tag —
- * the next steps are printed at the end.
+ * Runs a production build (the built CSS/JS are part of the release, since sites install
+ * the theme with Composer and do not build it), updates the version in style.css,
+ * package.json and package-lock.json, and turns the "Unreleased" section in CHANGELOG.md
+ * into the new version. Does not commit or tag — the next steps are printed at the end.
  */
 
+import { execSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -58,6 +60,14 @@ if (!unreleased || !unreleased[1].trim()) {
 
 const today = new Date().toISOString().slice(0, 10);
 
+// --- Production build -----------------------------------------
+console.log('\nBuilding assets (npm run build)…\n');
+try {
+  execSync('npm run build', { cwd: root, stdio: 'inherit' });
+} catch {
+  fail('The build failed — nothing was changed. Fix the errors and run the release again.');
+}
+
 // --- Write all files ------------------------------------------
 writeFileSync(
   file('CHANGELOG.md'),
@@ -86,6 +96,7 @@ try {
 
 console.log(`
 ✓ Version ${current} → ${next}
+  Built:   assets/css, assets/js/dist
   Updated: style.css, package.json, package-lock.json, CHANGELOG.md
 
 Next steps:

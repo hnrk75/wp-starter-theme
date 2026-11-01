@@ -14,6 +14,12 @@ the new version.
 
 ## [Unreleased]
 
+### Added
+- `composer.json`: the theme can be installed with Composer as `hnrk75/wp-starter-theme-parent` (installed in the `wp-starter-theme` folder).
+
+### Changed
+- `npm run release` runs a production build first, so every release contains fresh CSS/JS.
+
 ## [1.1.0] - 2026-11-01
 
 ### Added
