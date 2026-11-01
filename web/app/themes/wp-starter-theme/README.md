@@ -8,9 +8,9 @@ Follows WordPress Coding Standards (WPCS) with built-in linting for PHP, JS, and
 ## Theme information
 
 **Theme Name:** WP Starter Theme
-**Version:** 2.0.1
+**Version:** see `Version` in `style.css` (the value WordPress shows)
 **Author:** Henrik Pettersson
-**License:** GPL-2.0
+**License:** GNU General Public License v2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 ---
@@ -46,7 +46,9 @@ No Bootstrap — custom container system, spacing scale with clamp(), and Google
 - BEM methodology with consistent nesting
 - WCAG-compliant navigation with custom navwalker
 - Gutenberg support — editor-style, theme.json, alignment classes
-- Accessibility — skip link, aria-labels, screen-reader-text, focus-visible
+- Block editor mirrors the front end — same side padding, content width and line length
+- Readable line length for running text via a single `--measure` variable
+- Accessibility — skip link, aria-labels, screen-reader-text, focus-visible, no automatic hyphenation
 - Code linting via ESLint, Stylelint, Prettier, PHPCS and PHPStan
 - Dashboard widget for recommended plugins with composer.json integration
 - Auto-generated privacy policy and cookie policy pages on theme activation
@@ -86,7 +88,80 @@ assets/scss/
 ├── layout/        # Grid/containers, header, footer, content
 ├── components/    # Links, buttons, navigation, icons, card
 └── gutenberg/     # Block-specific styles (alignments, table, etc.)
+
+assets/scss/editor-style.scss   # Block editor only (see Block editor below)
 ```
+
+---
+
+## Typography & line length
+
+Running text (paragraphs, list items, blockquotes, figcaptions) is capped at a readable
+line length set in one place, `assets/scss/base/_root.scss`:
+
+```scss
+--measure: 42rem; // ~72 characters per line in Montserrat
+```
+
+Aim for **66–75 characters per line** (WCAG 1.4.8 recommends at most 80). The right
+value depends on the font, so adjust it per site and count the characters on a full
+line. Narrow fonts (e.g. Inter, Roboto) need a lower value, around 36–38rem.
+`ch` is deliberately not used: it is the width of "0", which in wide fonts like
+Montserrat gives far more than 70 characters at 70ch.
+
+`.ingress` has its own, shorter width (`45rem`) because of its larger font size —
+update it together with `--measure`.
+
+Paragraphs that are centered, right-aligned or have a background keep the full width,
+so the alignment and background apply across the content area.
+
+Body text uses `hyphens: manual`: automatic hyphenation makes text harder to read,
+e.g. for people with dyslexia. Editors can add soft hyphens (`&shy;`) where needed.
+
+---
+
+## Block editor
+
+`assets/scss/editor-style.scss` makes the editor canvas match the front-end `.container`:
+same side padding, same content width and left-aligned blocks with the same `--measure`.
+
+WordPress scopes editor styles with `:where(.editor-styles-wrapper)`, which adds no
+specificity, so the theme's front-end rules lose against WordPress's own layout rules
+for the root block list. The editor rules therefore target
+`.block-editor-block-list__layout.is-root-container` directly.
+
+---
+
+## Privacy & cookie policy pages
+
+On theme activation, `inc/privacy.php` creates the privacy policy and cookie policy
+pages as drafts with Swedish GDPR templates. Replace all bracketed placeholders (`[FÖRETAGSNAMN]`, `[E-POST]`, `[DATUM]` etc.) before publishing.
+
+- An existing page is filled only once, and only while it is still a draft
+  (e.g. the empty page WordPress creates on install). Published or edited pages are
+  never overwritten when the theme is reactivated.
+- The pages link to each other with the placeholders `#wpst-privacy-policy` and
+  `#wpst-cookie-policy`. They are replaced with the pages' current URLs on output,
+  so leave them as they are. A link to an unpublished page becomes plain text.
+
+---
+
+## Translations
+
+The theme text domain is `wp-starter-theme` and the Swedish translation lives in
+`languages/`. After adding or changing strings, run from the project root:
+
+```bash
+cd web/app/themes/wp-starter-theme
+../../../../vendor/bin/wp i18n make-pot . languages/wp-starter-theme.pot --domain=wp-starter-theme --exclude=node_modules,assets
+../../../../vendor/bin/wp i18n update-po languages/wp-starter-theme.pot languages/sv_SE.po
+# Translate the new strings in sv_SE.po, then:
+../../../../vendor/bin/wp i18n make-mo languages/sv_SE.po languages/
+```
+
+Check that no translations are marked `#, fuzzy` — fuzzy entries are left out of the
+`.mo` file and show up in English. Theme.json labels (font sizes, colors, etc.) are
+translated through the same files.
 
 ---
 

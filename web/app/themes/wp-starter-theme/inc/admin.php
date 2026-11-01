@@ -66,6 +66,13 @@ function wpst_get_recommended_plugins() {
 			'repo_url' => 'https://github.com/hnrk75/hnrk-cookie-consent',
 			'version'  => '^1.0',
 		),
+		array(
+			'name'     => 'Two Factor',
+			'file'     => 'two-factor/two-factor.php',
+			'package'  => 'wpackagist-plugin/two-factor',
+			'repo_url' => '',
+			'version'  => '0.17.0',
+		),
 	);
 }
 
@@ -83,12 +90,17 @@ function wpst_render_recommended_plugins_widget() {
 
 	foreach ( $plugins as $plugin ) {
 		$active     = is_plugin_active( $plugin['file'] );
+		$installed  = file_exists( WP_PLUGIN_DIR . '/' . $plugin['file'] );
 		$in_compose = isset( $composer['require'][ $plugin['package'] ] );
 
 		if ( $active ) {
 			$color  = '#00a32a';
 			$icon   = '✓';
 			$status = __( 'Active', 'wp-starter-theme' );
+		} elseif ( $installed ) {
+			$color  = '#d97706';
+			$icon   = '○';
+			$status = __( 'Not activated', 'wp-starter-theme' );
 		} elseif ( $in_compose ) {
 			$color  = '#d97706';
 			$icon   = '○';
@@ -105,7 +117,12 @@ function wpst_render_recommended_plugins_widget() {
 		echo '<strong>' . esc_html( $plugin['name'] ) . '</strong>';
 		echo '<span style="color:' . esc_attr( $color ) . ';margin-left:8px;font-size:12px;">' . esc_html( $status ) . '</span>';
 
-		if ( ! $active && $in_compose ) {
+		if ( ! $active && $installed ) {
+			if ( current_user_can( 'activate_plugins' ) ) {
+				$activate_url = wp_nonce_url( admin_url( 'plugins.php?action=activate&plugin=' . rawurlencode( $plugin['file'] ) ), 'activate-plugin_' . $plugin['file'] );
+				echo '<br><a class="button button-small" style="margin-top:6px;" href="' . esc_url( $activate_url ) . '">' . esc_html__( 'Activate', 'wp-starter-theme' ) . '</a>';
+			}
+		} elseif ( ! $active && $in_compose ) {
 			echo '<br><code style="font-size:11px;background:#fef3c7;padding:2px 6px;border-radius:3px;display:inline-block;margin-top:4px;">' . esc_html__( 'Run in terminal: composer install', 'wp-starter-theme' ) . '</code>';
 		} elseif ( ! $active ) {
 			echo '<br>';
