@@ -18,6 +18,7 @@ wp-starter-child/
 ├── theme.json       # Only what differs from the parent (merged automatically)
 ├── blocks/          # The site's blocks; _example/ is a template to copy
 ├── acf-json/        # ACF field groups (saved here by ACF)
+├── screenshot.png   # Shown under Appearance → Themes (1200×900); replace with the site's own
 ├── languages/       # Text domain wp-starter-child (also translates the theme header)
 └── README.md
 ```
@@ -70,7 +71,7 @@ HNRK Cookie Consent when it is set to **In the footer**. To add more to that row
 The site's own blocks live in `blocks/`, one folder per block. The parent theme registers
 every `blocks/{name}/block.json` automatically — folders starting with `_` are skipped.
 
-**A new ACF block** (needs ACF PRO, see "ACF Pro (optional)" in the project's README):
+**A new ACF block:**
 
 1. Copy `blocks/_example/` to `blocks/{name}/` (no leading `_`).
 2. In `block.json`, change `name` (`acf/{name}`), `title`, `description` and `icon`.

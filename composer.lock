@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d5c9139b88a71538b5cb669f8483212",
+    "content-hash": "be0b3259cb99daafec7983ad960a4087",
     "packages": [
         {
             "name": "composer/installers",
@@ -1272,6 +1272,22 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/two-factor/"
+        },
+        {
+            "name": "wpengine/advanced-custom-fields-pro",
+            "version": "6.8.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.8.10"
+            },
+            "require": {
+                "composer/installers": "~1.0 || ~2.0"
+            },
+            "replace": {
+                "wpackagist-plugin/advanced-custom-fields": "self.version",
+                "wpengine/advanced-custom-fields": "self.version"
+            },
+            "type": "wordpress-plugin"
         }
     ],
     "packages-dev": [

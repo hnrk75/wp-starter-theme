@@ -34,7 +34,7 @@ defined('CONCATENATE_SCRIPTS') || define('CONCATENATE_SCRIPTS', true);
 defined('COMPRESS_SCRIPTS') || define('COMPRESS_SCRIPTS', true);
 defined('COMPRESS_CSS') || define('COMPRESS_CSS', true);
 
-// ACF PRO is optional (not installed by the template), but the child theme's blocks use it.
+// ACF PRO is a plugin, which PHPStan does not scan; the child theme's blocks use it.
 if ( ! function_exists( 'get_field' ) ) {
 	/**
 	 * @param string    $selector Field name or key.

@@ -118,6 +118,7 @@ git remote add origin git@github.com:<account>/<client-repo>.git
 | `style.css` | `Theme Name` and `Text Domain: svenssonsmetropol` |
 | `functions.php` | The text domain in `load_child_theme_textdomain()` |
 | `blocks/_example/` | The text domain in `block.json` and `block.php` |
+| `screenshot.png` | Optional: the site's own image (1200×900) for **Appearance → Themes** |
 | `languages/` | Rename `wp-starter-child.pot` → `svenssonsmetropol.pot`, set `X-Domain: svenssonsmetropol` in the `.po` header, then regenerate (`vendor/bin/wp i18n make-pot`, `update-po`, `make-mo` — see the child theme's README) |
 | `phpcs.xml` | The `<file>` path and the `text_domain` element |
 | `phpstan.neon` | The path under `paths` |
@@ -134,8 +135,8 @@ git remote add origin git@github.com:<account>/<client-repo>.git
 2. **Appearance → Menus → Manage Locations**: assign the main menu again (menu locations
    are stored per theme). Footer links go in a Navigation Menu widget under
    **Appearance → Widgets**.
-3. **Plugins**: activate HNRK Cookie Consent. Activate Two Factor on TEST and PROD — leave
-   it inactive locally.
+3. **Plugins**: activate Advanced Custom Fields PRO and HNRK Cookie Consent. Activate
+   Two Factor on TEST and PROD — leave it inactive locally.
 
 ### 5. Build the site
 
@@ -198,7 +199,7 @@ nothing has to be updated manually on the servers (WordPress cannot download
 translations itself, since Bedrock sets `DISALLOW_FILE_MODS` in production).
 
 - Configured under `extra.wp-translation-downloader` in `composer.json`.
-- ACF Pro (if a site adds it) and our own `hnrk75/*` packages are excluded — they ship their own translations.
+- ACF Pro and our own `hnrk75/*` packages are excluded — they ship their own translations.
 - Commit `wp-translation-downloader.lock`.
 
 ---
@@ -217,38 +218,29 @@ authentication for all users. Leave it inactive locally.
 
 ## Plugins
 
-The template already requires the plugins every site needs: HNRK Cookie Consent and
-Two Factor. Plugins you add yourself get an exact version:
+The template already requires the plugins every site needs: Advanced Custom Fields PRO,
+HNRK Cookie Consent and Two Factor. Plugins you add yourself get an exact version:
 
 ```bash
 composer require vendor/package-name:1.2.3
 ```
 
-### ACF Pro (optional)
+### ACF Pro license
 
-The parent theme and the shared plugins do not use ACF. For a site that does:
+ACF Pro is installed from `connect.advancedcustomfields.com`, which needs the license key.
+Put it in `auth.json` in the project root (gitignored), or in `~/.composer/auth.json` to
+use it in every project:
 
-1. Add the repository to `repositories` in `composer.json`:
-
-   ```json
-   { "type": "composer", "url": "https://connect.advancedcustomfields.com" }
-   ```
-
-2. Put the license key in `auth.json` in the project root (gitignored), or in
-   `~/.composer/auth.json` to use it in every project:
-
-   ```json
-   {
-     "http-basic": {
-       "connect.advancedcustomfields.com": {
-         "username": "<license key>",
-         "password": "<site URL>"
-       }
-     }
-   }
-   ```
-
-3. `composer require wpengine/advanced-custom-fields-pro:6.8.10` (exact version).
+```json
+{
+  "http-basic": {
+    "connect.advancedcustomfields.com": {
+      "username": "<license key>",
+      "password": "<site URL>"
+    }
+  }
+}
+```
 
 The server also needs the key when it runs `composer install` — add `auth.json` there
 (or the `COMPOSER_AUTH` variable in the deploy pipeline).
