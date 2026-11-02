@@ -34,6 +34,19 @@ defined('CONCATENATE_SCRIPTS') || define('CONCATENATE_SCRIPTS', true);
 defined('COMPRESS_SCRIPTS') || define('COMPRESS_SCRIPTS', true);
 defined('COMPRESS_CSS') || define('COMPRESS_CSS', true);
 
+// ACF PRO is optional (not installed by the template), but the child theme's blocks use it.
+if ( ! function_exists( 'get_field' ) ) {
+	/**
+	 * @param string    $selector Field name or key.
+	 * @param mixed     $post_id  Post ID, or false for the current post.
+	 * @param bool      $format_value Format the value.
+	 * @return mixed
+	 */
+	function get_field( $selector, $post_id = false, $format_value = true ) {
+		return null;
+	}
+}
+
 /**
  * WordPress nav menu items are WP_Post objects with extra properties added
  * dynamically by wp_setup_nav_menu_item(). WP_Nav_Menu_Item does not exist

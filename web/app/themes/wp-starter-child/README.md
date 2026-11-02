@@ -16,6 +16,8 @@ wp-starter-child/
 ├── style.css        # Theme header + site-specific CSS
 ├── functions.php    # Hooks, filters and pluggable function overrides
 ├── theme.json       # Only what differs from the parent (merged automatically)
+├── blocks/          # The site's blocks; _example/ is a template to copy
+├── acf-json/        # ACF field groups (saved here by ACF)
 ├── languages/       # Text domain wp-starter-child (also translates the theme header)
 └── README.md
 ```
@@ -55,6 +57,46 @@ A menu item with a submenu only opens the submenu — it is a button, not a link
 works the same with mouse, keyboard and touch. If the parent page itself should be
 reachable, add it as the first item in the submenu, preferably with its own label such as
 "Overview".
+
+Footer links go in a **Navigation Menu** widget in a footer widget area
+(**Appearance → Widgets**). "Manage cookies" is added to the footer's copyright row by
+HNRK Cookie Consent when it is set to **In the footer**. To add more to that row, use the
+`wpst_footer_copyright_end` action.
+
+---
+
+## Blocks
+
+The site's own blocks live in `blocks/`, one folder per block. The parent theme registers
+every `blocks/{name}/block.json` automatically — folders starting with `_` are skipped.
+
+**A new ACF block** (needs ACF PRO, see "ACF Pro (optional)" in the project's README):
+
+1. Copy `blocks/_example/` to `blocks/{name}/` (no leading `_`).
+2. In `block.json`, change `name` (`acf/{name}`), `title`, `description` and `icon`.
+3. Create a field group in **ACF → Field Groups** with the location **Block** is equal to
+   your block. ACF saves it as JSON in `acf-json/` — commit those files.
+4. Write the markup in `block.php` (`get_field()` for the fields) and the CSS in
+   `block.css`. The CSS is loaded on pages with the block and in the editor.
+
+ACF blocks are not registered while ACF PRO is inactive, so the site never shows broken
+blocks. A block without an `acf` key in `block.json` is registered as a regular block
+(it needs its own JavaScript for the editor).
+
+### Hero block
+
+When a page starts with a hero block, the parent theme leaves out its page title — the
+hero block must then output the page's `<h1>`. Tell the theme which blocks are heroes:
+
+```php
+add_filter(
+	'wpst_hero_blocks',
+	function ( $blocks ) {
+		$blocks[] = 'acf/hero';
+		return $blocks;
+	}
+);
+```
 
 ---
 

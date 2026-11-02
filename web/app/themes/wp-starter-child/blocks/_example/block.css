@@ -1,0 +1,7 @@
+.example-block {
+	margin-block: var(--space-md);
+
+	& .example-block__heading {
+		margin-block-end: var(--space-sm);
+	}
+}

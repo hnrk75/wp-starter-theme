@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/example",
+	"title": "Example",
+	"description": "A heading and a text.",
+	"category": "theme",
+	"icon": "layout",
+	"keywords": [ "example" ],
+	"textdomain": "wp-starter-child",
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"style": "file:./block.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "block.php"
+	}
+}
