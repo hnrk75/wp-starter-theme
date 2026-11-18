@@ -44,9 +44,14 @@ the editor. The built file is not committed — it is built locally and on deplo
 
 ```bash
 npm ci           # once, and after package-lock.json changes
-npm run watch    # while working (or npm run dev)
+npm run dev      # while working: watch + Browsersync
+npm run watch    # only the SCSS build, without a browser
 npm run build    # minified, as on deploy
 ```
+
+`npm run dev` opens the site through Browsersync, injects CSS changes and reloads the
+page when PHP, `theme.json` or block files change. It proxies `WP_HOME` from the
+project's `.env`, so `bs-config.cjs` works unchanged on every site.
 
 The build needs the parent theme installed (`composer install` in the project root
 first): every partial starts with `@use '../abstracts' as *;`, which forwards the

@@ -6,9 +6,12 @@
   "scripts": {
     "build": "sass --load-path=.. --style=compressed --no-source-map assets/scss/style.scss:assets/css/style.min.css",
     "watch": "sass --load-path=.. --watch --embed-sources assets/scss/style.scss:assets/css/style.min.css",
-    "dev": "npm run watch"
+    "serve": "browser-sync start --config bs-config.cjs",
+    "dev": "run-p watch serve"
   },
   "devDependencies": {
+    "browser-sync": "3.0.4",
+    "npm-run-all2": "9.0.4",
     "sass": "1.108.2"
   }
 }
