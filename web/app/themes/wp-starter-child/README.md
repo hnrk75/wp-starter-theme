@@ -70,7 +70,7 @@ script until it is approved), run `npm install-scripts approve @parcel/watcher`,
 | CSS | Write SCSS in `assets/scss/` (see [Build](#build)). It loads after the parent's CSS, on the front end and in the editor. |
 | Colors | Change them in `theme.json` (see [Colors](#colors)). Links, buttons, focus rings and the editor's color picker follow. |
 | Spacing, widths, radius, shadows, headings, buttons, menu, focus ring … | Every design value is a token in `theme.json`: set your own values in this theme's `theme.json` — the full list is under "Design tokens" in the parent's README. |
-| Other CSS variables | Override the parent's custom properties in `:root` in `assets/scss/base/_root.scss`, e.g. `--measure`. |
+| The site's own CSS variables | Put them in `:root` in `assets/scss/base/_root.scss`. |
 | Font sizes, spacing in the editor | Add them to `theme.json`. It is merged with the parent's `theme.json`. |
 | A template | Copy the file from the parent's `template-parts/` (or a root template like `page.php`) to the same path here and edit the copy. |
 | A `wpst_*` function | Define a function with the same name in `functions.php`. Works for functions the parent wraps in `function_exists()`, e.g. `wpst_posted_on()`, `wpst_button()`. |
@@ -153,17 +153,20 @@ Copy the parent's palette and change the values you need, so all colors stay ava
 to editors. (The CSS keeps working either way — the parent has fallback values for
 every color.)
 Hover colors are computed in the browser with `color-mix()`, so they follow automatically.
-If the darker shade does not work (e.g. a near-black primary), set your own in `:root`
-in `assets/scss/base/_root.scss`:
+If the darker shade does not work (e.g. a near-black primary), set your own in
+`theme.json`, together with the text and heading colors if needed:
 
-```scss
-:root {
-	--link-hover-color: var(--wp--preset--color--gold-dark);
-	--btn-primary-hover-bg: var(--wp--preset--color--gold-dark);
+```json
+{
+  "settings": {
+    "custom": {
+      "color": { "text": "var(--wp--preset--color--gray-600)", "heading": "var(--wp--preset--color--gray-900)" },
+      "link": { "hoverColor": "var(--wp--preset--color--gold-dark)" },
+      "button": { "primaryHoverBackground": "var(--wp--preset--color--gold-dark)" }
+    }
+  }
 }
 ```
-
-`--btn-success-hover-bg` and `--btn-danger-hover-bg` work the same way.
 
 ---
 

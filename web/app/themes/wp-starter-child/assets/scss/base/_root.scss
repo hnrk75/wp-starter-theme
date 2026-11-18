@@ -1,8 +1,5 @@
 @use '../abstracts' as *;
 
-// The parent's CSS variables that are not theme.json tokens, e.g. hover colors:
-//
-// :root {
-// 	--link-hover-color: var(--wp--preset--color--accent);
-// 	--btn-primary-hover-bg: var(--wp--preset--color--accent);
-// }
+// The parent's design values are tokens in theme.json — set them there, not here
+// (see "Design tokens" in the parent's README). Use this file for the site's own
+// CSS variables.
