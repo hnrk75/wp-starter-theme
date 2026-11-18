@@ -20,7 +20,6 @@ wp-starter-child/
 ├── package.json     # The SCSS build (Dart Sass)
 ├── blocks/          # The site's blocks; _example/ is a template to copy
 ├── acf-json/        # ACF field groups (saved here by ACF)
-├── parts/footer.html  # The footer as blocks (see Footer)
 ├── screenshot.png   # Shown under Appearance → Themes (1200×900); replace with the site's own
 ├── languages/       # Text domain wp-starter-child (also translates the theme header)
 └── README.md
@@ -103,14 +102,22 @@ areas **Header, after the menu** (large screens) and **Mobile menu footer**.
 
 ## Footer
 
-The footer is the template part `parts/footer.html`, edited with blocks under
-**Appearance → Template Parts → Footer**. The file is the starting point; what an editor
-saves is stored in the database and wins over the file. Put the site's own blocks in it,
-e.g. ACF blocks for contact details or opening hours. The copyright row and the cookie
-link are always printed below it by the parent theme.
-
-Delete `parts/footer.html` to use the classic footer with the four widget areas instead.
+The footer's four widget areas (**Appearance → Widgets**) take blocks — columns,
+headings, images, ACF blocks such as contact details — so most footers are built there.
 Colors and spacing come from `custom.footer` in `theme.json`.
+
+For a different layout, copy the parent's `footer.php` to this theme and change it:
+
+1. Keep `<?php wp_footer(); ?>` and the closing tags (`</div>`, `</body>`, `</html>`) —
+   plugins and scripts, e.g. the cookie banner, need `wp_footer()`.
+2. Keep `<?php do_action( 'wpst_footer_copyright_end' ); ?>` in the footer. The parent
+   prints the "Manage cookies" link there when HNRK Cookie Consent is set to
+   **In the footer**; without it the link is gone, which GDPR does not allow.
+3. The copy does not get the parent's later changes to `footer.php` — start from the
+   parent's file and change only what you need.
+
+Other widget areas: register them in `functions.php` with `register_sidebar()` and print
+them in your `footer.php` with `dynamic_sidebar()`.
 
 ---
 
