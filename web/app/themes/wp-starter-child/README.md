@@ -96,9 +96,8 @@ Footer links go in a **Navigation Menu** widget in a footer widget area
 HNRK Cookie Consent when it is set to **In the footer**. To add more to that row, use the
 `wpst_footer_copyright_end` action.
 
-Menu items can be buttons: the CSS class `menu-item-button` (or `menu-item-button-outline`)
-in **Appearance → Menus**. Contact details or a button next to the menu go in the widget
-areas **Header, after the menu** (large screens) and **Mobile menu footer**.
+A menu item that should look like a button: give it a CSS class in **Appearance → Menus**
+(turn on **CSS Classes** under **Screen Options**) and style it in your SCSS.
 
 ---
 
