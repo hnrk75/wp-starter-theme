@@ -20,6 +20,7 @@ wp-starter-child/
 ├── package.json     # The SCSS build (Dart Sass)
 ├── blocks/          # The site's blocks; _example/ is a template to copy
 ├── acf-json/        # ACF field groups (saved here by ACF)
+├── parts/footer.html  # The footer as blocks (see Footer)
 ├── screenshot.png   # Shown under Appearance → Themes (1200×900); replace with the site's own
 ├── languages/       # Text domain wp-starter-child (also translates the theme header)
 └── README.md
@@ -93,6 +94,23 @@ Footer links go in a **Navigation Menu** widget in a footer widget area
 (**Appearance → Widgets**). "Manage cookies" is added to the footer's copyright row by
 HNRK Cookie Consent when it is set to **In the footer**. To add more to that row, use the
 `wpst_footer_copyright_end` action.
+
+Menu items can be buttons: the CSS class `menu-item-button` (or `menu-item-button-outline`)
+in **Appearance → Menus**. Contact details or a button next to the menu go in the widget
+areas **Header, after the menu** (large screens) and **Mobile menu footer**.
+
+---
+
+## Footer
+
+The footer is the template part `parts/footer.html`, edited with blocks under
+**Appearance → Template Parts → Footer**. The file is the starting point; what an editor
+saves is stored in the database and wins over the file. Put the site's own blocks in it,
+e.g. ACF blocks for contact details or opening hours. The copyright row and the cookie
+link are always printed below it by the parent theme.
+
+Delete `parts/footer.html` to use the classic footer with the four widget areas instead.
+Colors and spacing come from `custom.footer` in `theme.json`.
 
 ---
 
