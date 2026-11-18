@@ -69,7 +69,7 @@ script until it is approved), run `npm install-scripts approve @parcel/watcher`,
 |------|-----|
 | CSS | Write SCSS in `assets/scss/` (see [Build](#build)). It loads after the parent's CSS, on the front end and in the editor. |
 | Colors | Change them in `theme.json` (see [Colors](#colors)). Links, buttons, focus rings and the editor's color picker follow. |
-| Radius, transitions, font weights, line heights | Change `settings.custom` in `theme.json` — see "Design tokens" in the parent's README. |
+| Spacing, widths, radius, shadows, headings, buttons, menu, focus ring … | Every design value is a token in `theme.json`: set your own values in this theme's `theme.json` — the full list is under "Design tokens" in the parent's README. |
 | Other CSS variables | Override the parent's custom properties in `:root` in `assets/scss/base/_root.scss`, e.g. `--measure`. |
 | Font sizes, spacing in the editor | Add them to `theme.json`. It is merged with the parent's `theme.json`. |
 | A template | Copy the file from the parent's `template-parts/` (or a root template like `page.php`) to the same path here and edit the copy. |
