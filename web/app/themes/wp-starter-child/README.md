@@ -3,8 +3,8 @@
 Child theme for [WP Starter Theme](../wp-starter-theme/). All site-specific work goes
 here, so the parent theme can be updated without overwriting it.
 
-Rename the theme for each site — folder, `style.css`, `functions.php`, language files,
-`phpcs.xml` and `phpstan.neon`. The full checklist is in the project's README, under
+Rename the theme for each site — folder, `style.css`, `functions.php`, `package.json`,
+language files, `phpcs.xml` and `phpstan.neon`. The full checklist is in the project's README, under
 "New client site → Rename the child theme".
 
 ---
@@ -13,9 +13,11 @@ Rename the theme for each site — folder, `style.css`, `functions.php`, languag
 
 ```
 wp-starter-child/
-├── style.css        # Theme header + site-specific CSS
+├── style.css        # Theme header only
 ├── functions.php    # Hooks, filters and pluggable function overrides
 ├── theme.json       # Only what differs from the parent (merged automatically)
+├── assets/scss/     # The site's CSS, built to assets/css/style.min.css (see Build)
+├── package.json     # The SCSS build (Dart Sass)
 ├── blocks/          # The site's blocks; _example/ is a template to copy
 ├── acf-json/        # ACF field groups (saved here by ACF)
 ├── screenshot.png   # Shown under Appearance → Themes (1200×900); replace with the site's own
@@ -34,13 +36,41 @@ After changing the theme header or adding strings, update the translations from 
 
 ---
 
+## Build
+
+The site's CSS is written in SCSS in `assets/scss/` and built with Dart Sass to
+`assets/css/style.min.css`, which loads after the parent's CSS on the front end and in
+the editor. The built file is not committed — it is built locally and on deploy.
+
+```bash
+npm ci           # once, and after package-lock.json changes
+npm run watch    # while working
+npm run build    # minified, as on deploy
+```
+
+The build needs the parent theme installed (`composer install` in the project root
+first): every partial starts with `@use '../abstracts' as *;`, which forwards the
+parent's abstracts (`$color-*`, `$radius-*`, `mq-up()`, `focus-visible-shadow()` …) and
+this site's own tokens in `abstracts/_tokens.scss`.
+
+Take every value from a token: colors, fonts, radius, transitions and the site's own
+tokens are set in `theme.json` and reach the CSS as `var(--wp--preset--…)` and
+`var(--wp--custom--…)`, so a change there needs no rebuild.
+
+If `npm run watch` does not notice changes (npm 11 does not run `@parcel/watcher`'s install
+script until it is approved), run `npm install-scripts approve @parcel/watcher`, or
+`npx sass --load-path=.. --watch --poll assets/scss/style.scss:assets/css/style.min.css`.
+
+---
+
 ## How to customize
 
 | What | How |
 |------|-----|
-| CSS | Write it in `style.css`. It loads after the parent's CSS, on the front end and in the editor. |
+| CSS | Write SCSS in `assets/scss/` (see [Build](#build)). It loads after the parent's CSS, on the front end and in the editor. |
 | Colors | Change them in `theme.json` (see [Colors](#colors)). Links, buttons, focus rings and the editor's color picker follow. |
-| Other CSS variables | Override the parent's custom properties in `:root` in `style.css`, e.g. `--measure`. |
+| Radius, transitions, font weights, line heights | Change `settings.custom` in `theme.json` — see "Design tokens" in the parent's README. |
+| Other CSS variables | Override the parent's custom properties in `:root` in `assets/scss/base/_root.scss`, e.g. `--measure`. |
 | Font sizes, spacing in the editor | Add them to `theme.json`. It is merged with the parent's `theme.json`. |
 | A template | Copy the file from the parent's `template-parts/` (or a root template like `page.php`) to the same path here and edit the copy. |
 | A `wpst_*` function | Define a function with the same name in `functions.php`. Works for functions the parent wraps in `function_exists()`, e.g. `wpst_posted_on()`, `wpst_button()`. |
@@ -124,9 +154,9 @@ to editors. (The CSS keeps working either way — the parent has fallback values
 every color.)
 Hover colors are computed in the browser with `color-mix()`, so they follow automatically.
 If the darker shade does not work (e.g. a near-black primary), set your own in `:root`
-in `style.css`:
+in `assets/scss/base/_root.scss`:
 
-```css
+```scss
 :root {
 	--link-hover-color: var(--wp--preset--color--gold-dark);
 	--btn-primary-hover-bg: var(--wp--preset--color--gold-dark);

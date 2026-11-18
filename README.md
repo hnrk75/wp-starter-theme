@@ -60,6 +60,7 @@ project-root/
 | PHP        | 8.4             |
 | WordPress  | 7.1             |
 | Composer   | 2.0             |
+| Node / npm | Node 20 / npm 10 (for the child theme's SCSS build) |
 
 ### PHP version and Composer platform
 
@@ -106,7 +107,8 @@ git remote add origin git@github.com:<account>/<client-repo>.git
 2. Set `config.platform.php` in `composer.json` to the exact PHP version of the client's
    server (see [PHP version and Composer platform](#php-version-and-composer-platform)).
 3. `composer update --lock` (both changes are part of the lock file), then `composer install`.
-4. New project only: `cp .env.example .env` and fill in database, salts
+4. Build the child theme's CSS: `npm ci && npm run build` in the child theme folder.
+5. New project only: `cp .env.example .env` and fill in database, salts
    ([roots.io/salts.html](https://roots.io/salts.html)) and URL, then install WordPress at
    `http://your-local-domain/wp/wp-admin/install.php`.
 
@@ -117,6 +119,7 @@ git remote add origin git@github.com:<account>/<client-repo>.git
 | Folder | `web/app/themes/wp-starter-child` → `web/app/themes/svenssonsmetropol` |
 | `style.css` | `Theme Name` and `Text Domain: svenssonsmetropol` |
 | `functions.php` | The text domain in `load_child_theme_textdomain()` |
+| `package.json` | `name` and `description`, then `npm install` to update `package-lock.json` |
 | `blocks/_example/` | The text domain in `block.json` and `block.php` |
 | `screenshot.png` | Optional: the site's own image (1200×900) for **Appearance → Themes** |
 | `languages/` | Rename `wp-starter-child.pot` → `svenssonsmetropol.pot`, set `X-Domain: svenssonsmetropol` in the `.po` header, then regenerate (`vendor/bin/wp i18n make-pot`, `update-po`, `make-mo` — see the child theme's README) |
@@ -270,10 +273,11 @@ Ignored:
 - Composer packages: `web/app/plugins/`, `web/app/mu-plugins/*/`, the parent theme
   `web/app/themes/wp-starter-theme`, and `web/app/languages/`
 - Environment files (`.env`)
+- The child theme's built CSS (`assets/css/`) and `node_modules/` — the server builds it on deploy
 - Editor and tool settings (`.vscode/`, `.idea/`, `.claude/`)
 
 Versioned on purpose:
-- The child theme, including its translations
+- The child theme, including its translations, SCSS and `package-lock.json`
 - `composer.lock` and `wp-translation-downloader.lock`
 
 ---

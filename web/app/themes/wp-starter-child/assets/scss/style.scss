@@ -1,0 +1,14 @@
+// =============================================================
+// Site CSS
+// =============================================================
+// Loaded after the parent's CSS, on the front end and in the block editor.
+// Compiled to assets/css/style.min.css (npm run build). Values come from the tokens
+// in theme.json; mixins and breakpoints from the parent's abstracts.
+// Add a partial in base/, layout/ or components/ and @use it here.
+
+// --- Base ----------------------------------------------------
+@use 'base/root';
+
+// --- Layout --------------------------------------------------
+
+// --- Components ----------------------------------------------

@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+// The parent's CSS variables that are not theme.json tokens, e.g. hover colors:
+//
+// :root {
+// 	--link-hover-color: var(--wp--preset--color--accent);
+// 	--btn-primary-hover-bg: var(--wp--preset--color--accent);
+// }

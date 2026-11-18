@@ -1,0 +1,13 @@
+{
+  "name": "wp-starter-child",
+  "private": true,
+  "description": "Child theme for WP Starter Theme: SCSS build",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build": "sass --load-path=.. --style=compressed --no-source-map assets/scss/style.scss:assets/css/style.min.css",
+    "watch": "sass --load-path=.. --watch --embed-sources assets/scss/style.scss:assets/css/style.min.css"
+  },
+  "devDependencies": {
+    "sass": "1.108.2"
+  }
+}

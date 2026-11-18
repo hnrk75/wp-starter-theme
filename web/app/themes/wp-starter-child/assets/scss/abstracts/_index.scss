@@ -1,0 +1,12 @@
+// =============================================================
+// Abstracts
+// =============================================================
+// The parent theme's variables and mixins (mq-up(), focus-visible-shadow(),
+// link-underline(), visually-hidden() …) plus this site's tokens. Every partial
+// starts with `@use '../abstracts' as *;`.
+//
+// The parent is found through the build's load path (the themes folder), so its
+// SCSS is reused, never copied.
+
+@forward 'wp-starter-theme/assets/scss/abstracts';
+@forward 'tokens';

@@ -1,0 +1,11 @@
+// =============================================================
+// Tokens
+// =============================================================
+// Shorthands for this site's own tokens in theme.json. WordPress outputs them as CSS
+// custom properties (--wp--preset--* and --wp--custom--*), so a change in theme.json
+// reaches the site and the block editor without a rebuild.
+// The parent's tokens ($color-primary, $radius-base, $font-weight-bold …) come with the
+// parent's abstracts; only add the site's own here, e.g.:
+//
+// $color-accent: var(--wp--preset--color--accent);
+// $eyebrow-letter-spacing: var(--wp--custom--eyebrow--letter-spacing);
