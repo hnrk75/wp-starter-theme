@@ -123,6 +123,17 @@ Copy the parent's palette and change the values you need, so all colors stay ava
 to editors. (The CSS keeps working either way — the parent has fallback values for
 every color.)
 Hover colors are computed in the browser with `color-mix()`, so they follow automatically.
+If the darker shade does not work (e.g. a near-black primary), set your own in `:root`
+in `style.css`:
+
+```css
+:root {
+	--link-hover-color: var(--wp--preset--color--gold-dark);
+	--btn-primary-hover-bg: var(--wp--preset--color--gold-dark);
+}
+```
+
+`--btn-success-hover-bg` and `--btn-danger-hover-bg` work the same way.
 
 ---
 
@@ -134,7 +145,8 @@ The parent self-hosts Montserrat and Fraunces. To use other fonts:
 2. Define `fontFamilies` with `fontFace` in `theme.json`. This replaces the parent's list,
    so include every family and style you need. `file:./` paths look in this theme first
    and then in the parent, so the parent's files can be reused without copying.
-3. Update `font-family` in `style.css` if the family names change.
+3. Keep the slugs `body` (running text) and `heading` (headings, logo text). The parent's
+   CSS uses those two families, so the site changes fonts without any CSS.
 
 Example — adding Montserrat italic to the parent's fonts:
 
