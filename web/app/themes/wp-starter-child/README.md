@@ -44,7 +44,7 @@ the editor. The built file is not committed — it is built locally and on deplo
 
 ```bash
 npm ci           # once, and after package-lock.json changes
-npm run watch    # while working
+npm run watch    # while working (or npm run dev)
 npm run build    # minified, as on deploy
 ```
 
@@ -73,6 +73,8 @@ script until it is approved), run `npm install-scripts approve @parcel/watcher`,
 | The site's own CSS variables | Put them in `:root` in `assets/scss/base/_root.scss`. |
 | Font sizes, spacing in the editor | Add them to `theme.json`. It is merged with the parent's `theme.json`. |
 | A template | Copy the file from the parent's `template-parts/` (or a root template like `page.php`) to the same path here and edit the copy. |
+| Header logo / site name | Copy the parent's `template-parts/header/branding.php` here — e.g. a full logo next to the site name, or another logo on mobile (styles in your SCSS). |
+| Footer | Build it with blocks in the footer widget areas, or copy the parent's `footer.php` here (see [Footer](#footer)). |
 | A `wpst_*` function | Define a function with the same name in `functions.php`. Works for functions the parent wraps in `function_exists()`, e.g. `wpst_posted_on()`, `wpst_button()`. |
 | Behaviour | Use hooks and filters, e.g. `remove_action()`, `add_filter()`. |
 | Logo and icons | Put your own `assets/svg/logo.svg` or icons here; they replace the parent's. |

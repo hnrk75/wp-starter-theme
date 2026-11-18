@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e6e152848de468f81671e7cd78d2ada",
+    "content-hash": "956ddb479e23a551f9a4d3269775a260",
     "packages": [
         {
             "name": "composer/installers",
@@ -296,16 +296,16 @@
         },
         {
             "name": "hnrk75/wp-starter-theme-parent",
-            "version": "v3.5.1",
+            "version": "v3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hnrk75/wp-starter-theme-parent.git",
-                "reference": "41f6022c3eb7c4094f33608e6837ddf098ec3bb2"
+                "reference": "6950dc91345d9c7e53f07bf05a57634fa68727df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/41f6022c3eb7c4094f33608e6837ddf098ec3bb2",
-                "reference": "41f6022c3eb7c4094f33608e6837ddf098ec3bb2",
+                "url": "https://api.github.com/repos/hnrk75/wp-starter-theme-parent/zipball/6950dc91345d9c7e53f07bf05a57634fa68727df",
+                "reference": "6950dc91345d9c7e53f07bf05a57634fa68727df",
                 "shasum": ""
             },
             "require": {
@@ -362,9 +362,9 @@
             "homepage": "https://github.com/hnrk75/wp-starter-theme-parent",
             "support": {
                 "issues": "https://github.com/hnrk75/wp-starter-theme-parent/issues",
-                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v3.5.1"
+                "source": "https://github.com/hnrk75/wp-starter-theme-parent/tree/v3.6.0"
             },
-            "time": "2026-11-18T18:49:47+00:00"
+            "time": "2026-11-18T19:15:44+00:00"
         },
         {
             "name": "inpsyde/wp-translation-downloader",
